@@ -1,0 +1,42 @@
+.action_block{
+    padding-left: 70px;
+    float: right;
+}
+.nav span {
+    float: left;
+}
+.nav h4{
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.par {
+    padding-left: 25px;
+}
+.child_ul label{
+    font-weight: normal;
+}
+.child{
+    margin-left: 15px;
+}
+.child_ul {
+    list-style: none;
+    padding-top: 0px;
+    padding-left: 15px;
+}
+.nav h4{
+    font-weight: bold;
+}
+.child_ul h4{
+    font-weight: normal;
+}
+.tree-toggler.nav-header {
+    width: 100%;
+}
+#select {
+    float: right;
+    width: 15px;
+}
+.tree-toggler h3{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

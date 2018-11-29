@@ -1,0 +1,196 @@
+#create_task{
+    float: right;
+}
+.nav > li {
+    width: 100%;
+}
+.activ_p{
+    margin-top:20px
+}
+.del_file {
+    position: absolute;
+    right: 0;
+}
+li.child {
+    list-style: none;
+    margin-right: 4px;
+}
+.options_list {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border: 1px solid #ddd;
+    margin-bottom: 15px;
+    height: 200px;
+    overflow-y: scroll;
+}
+.lang_selector {
+    display: flex;
+    flex-direction: row;
+}
+span.active{
+    font-weight: bold;
+    text-decoration: underline;
+}
+span.del_img {
+    padding: 5px;
+    border: 1px solid;
+    border-radius: 15px;
+    width: 30px;
+    display: block;
+    height: 30px;
+    text-transform: uppercase;
+    float: right;
+    text-align: center;
+    background-color: red;
+    margin-bottom: 5px;
+    color: #fff;
+}
+.modal-body {
+    position: relative;
+    padding: 50px !important;
+}
+.btn_center{
+    text-align: center;
+}
+.modal-close {
+    position: absolute;
+    z-index: 100;
+    top: 10px;
+    right: 10px;
+    display: block;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border: none;
+    background: url(./images/ico-close-modal.svg) center center no-repeat;
+    background-size: 26px 26px;
+}
+p.value_item {
+    border-bottom: 1px dashed #ddd;
+    padding-bottom: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.del_opt {
+    float: right;
+}
+li{
+    list-style: none;
+}
+#myTabContent {
+    padding: 15px;
+    border: 1px solid #dddd;
+    border-radius: 0px 5px 5px 5px;
+}
+.nav-tabs {
+    border-bottom: none !important;
+}
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    color: #000;
+    border-color: #dee2e6 #dee2e6 #f5f8fa;
+    border-bottom-color: rgb(245, 248, 250);
+    background-color: #fff;
+    margin-bottom: -1px;
+    font-weight: bold;
+    border-bottom: navajowhite;
+}
+.nav-tabs .nav-link {
+    border: 1px solid transparent;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+    border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem;
+}
+.header {
+    position: relative;
+    margin-bottom: 20px;
+    background: url(http://www.chicopee.ru/local/templates/chicopee/css/../img/bg.jpg) center top repeat;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.35);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.35);
+}
+.main-nav {
+    margin: 43px 0 43px 50px;
+}
+.main-menu {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.breadcrumb{
+    background-color: #ffffff; !important;
+}
+.product_name{
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 22px;
+    color: #000000;
+    text-align: left;
+}
+.product-item__more {
+    bottom: 0px;
+    text-align: left;
+}
+.product-item__more-link {
+    font-family: Ossem;
+    font-size: 16px;
+    font-weight: normal;
+    text-decoration: underline;
+    text-transform: uppercase;
+    color: #9e140f;
+}
+.product_desc{
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    overflow: hidden;
+    height: 40px;
+    margin-bottom: 5px;
+    color: #666666;
+    text-align: left;
+}
+.main-menu__item {
+    font-family: Ossem;
+    font-size: 18px;
+    font-weight: normal;
+    position: relative;
+    float: left;
+    margin-right: 22px;
+    text-transform: uppercase;
+    color: #000000;
+}
+.main-submenu {
+    position: absolute;
+    z-index: 100;
+    top: 100%;
+    left: -15px;
+    visibility: hidden;
+    margin: 10px 0 0 0;
+    padding: 10px 0;
+    list-style: none;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    opacity: 0;
+    background-color: #181716;
+}
+.main-menu__link {
+    line-height: 19px;
+    display: block;
+    text-decoration: none;
+    color: #000000;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+}
+.footer {
+    padding: 15px 0 18px 0;
+    border-top: 4px solid #9e140f;
+    background: #363636;
+}
+.logo__img {
+    width: 190px;
+    height: 86px;
+    vertical-align: bottom;
+}
+.logo {
+    margin: 10px -20px 15px 0;
+}

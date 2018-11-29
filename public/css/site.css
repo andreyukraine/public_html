@@ -1,0 +1,618 @@
+@font-face {
+    font-family: 'Ossem';
+    src: url('/public/fonts/Ossem-Rust-ua.otf');
+}
+
+#create_task{
+    float: right;
+}
+.filter-range__item {
+    position: relative;
+    float: left;
+    margin-right: 70px;
+}
+.active{
+    color: #9e140f; !important;
+    border-bottom-color: transparent;
+}
+.modal-body {
+    position: relative;
+    padding: 30px 60px 50px 60px;
+}
+.modal-dialog {
+    width: 510px;
+    margin: 30px auto;
+}
+.modal-heading {
+    font-family: Ossem;
+    font-size: 40px;
+    font-weight: normal;
+    margin: 0 0 10px 0;
+    text-align: center;
+    text-transform: uppercase;
+    color: #000000;
+}
+.modal-close:hover {
+    opacity: 0.8;
+}
+.modal-close {
+    background-size: 26px 26px;
+}
+.modal-close {
+    position: absolute;
+    z-index: 100;
+    top: 10px;
+    right: 10px;
+    display: block;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border: none;
+    background: url(http://www.chicopee.ru/local/templates/chicopee/css/../img/svg/ico-close-modal.svg) center center no-repeat;
+    background-size: auto auto;
+    background-size: 26px 26px;
+}
+.modal-dialog {
+    width: 510px;
+    margin: 30px auto;
+}
+.modal-body {
+    position: relative;
+    padding: 30px 60px 50px 60px;
+}
+.modal-desc {
+    font-size: 14px;
+    font-weight: 400;
+    margin: 0 -20px 20px -20px;
+    text-align: center;
+    color: #666666;
+}
+.modal-body {
+    position: relative;
+    padding: 30px 60px 50px 60px;
+}
+.modal-form__group {
+    margin-bottom: 20px;
+}
+.modal-form__control {
+    font-size: 14px;
+    font-weight: 400;
+    width: 100%;
+    height: 60px;
+    padding: 0 20px;
+    border: 1px solid #cccccc;
+    background-color: #ffffff;
+}
+.modal-form__btn {
+    display: block;
+    width: 100%;
+}
+.modal-content {
+    position: relative;
+    outline: 0;
+    background-color: #ffffff;
+    background-clip: padding-box;
+}
+.cat_style{
+    font-family: Ossem;
+    font-size: 21px;
+    font-weight: normal;
+    line-height: 34px;
+    position: relative;
+    display: block;
+    padding: 0 0 0 55px;
+    text-transform: uppercase;
+    border: none;
+    background: none;
+    float: left;
+}
+.condition {
+    margin-bottom: 40px;
+    padding: 50px 0;
+    background: url(http://www.chicopee.ru/local/templates/chicopee/css/../img/bg-screen-condition.jpg) center top no-repeat;
+}
+.condition__head {
+    margin-bottom: 30px;
+    color: #ffffff;
+}
+.condition__desc {
+    font-size: 18px;
+    font-weight: 400;
+    width: 640px;
+    margin-bottom: 40px;
+    color: #ffffff;
+}
+.condition__head-dist {
+    font-size: 60px;
+    color: #d0bd9c;
+}
+.filter {
+    margin-bottom: 60px;
+}
+.del{
+    position: absolute;
+    top: 10px;
+    right: 0px;
+    visibility: hidden;
+    width: 13px;
+    height: 13px;
+    padding: 0;
+    -webkit-transition: all 0.2s;
+    transition: all 0.2s;
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0);
+    border: none;
+    background: url(http://www.chicopee.ru/local/templates/chicopee/css/../img/svg/ico-remove-filter.svg) 0 0 no-repeat;
+    background-size: 13px 13px;
+}
+
+.active > div{
+    visibility: visible;
+    transform: scale(1);
+}
+.nav-item {
+    font-family: Ossem;
+    font-size: 18px;
+    font-weight: normal;
+    line-height: 36px;
+    position: relative;
+    float: left;
+    width: 20%;
+    cursor: pointer;
+    text-align: center;
+    text-transform: uppercase;
+    color: #666666;
+}
+.asd {
+    font-family: Ossem;
+    font-size: 18px;
+    font-weight: normal;
+    line-height: 20px;
+    display: block;
+    padding: 5px;
+    border: none;
+    border-bottom: 1px dashed #3c3c3c;
+    background: none;
+}
+.nav > li {
+    width: 100%;
+}
+.header {
+    position: relative;
+    background: url(http://www.chicopee.ru/local/templates/chicopee/css/../img/bg.jpg) center top repeat;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.35);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.35);
+}
+.main-nav {
+    margin: 43px 0 43px 50px;
+}
+.main-menu {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.breadcrumb{
+    background-color: #ffffff; !important;
+}
+.product_name{
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 22px;
+    color: #000000;
+    text-align: center;
+}
+.product-item__more {
+    bottom: 0px;
+    text-align: center;
+}
+.product-item__more-link {
+    font-family: Ossem;
+    font-size: 16px;
+    font-weight: normal;
+    text-decoration: underline;
+    text-transform: uppercase;
+    color: #9e140f;
+}
+.product_desc{
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    overflow: hidden;
+    height: 40px;
+    margin-bottom: 5px;
+    color: #666666;
+    text-align: center;
+}
+.main-menu__item {
+    font-family: Ossem;
+    font-size: 18px;
+    font-weight: normal;
+    position: relative;
+    float: left;
+    margin-right: 22px;
+    text-transform: uppercase;
+    color: #000000;
+}
+.main-submenu {
+    position: absolute;
+    z-index: 100;
+    top: 100%;
+    left: -15px;
+    visibility: hidden;
+    margin: 10px 0 0 0;
+    padding: 10px 0;
+    list-style: none;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    opacity: 0;
+    background-color: #181716;
+}
+.main-menu__link {
+    line-height: 19px;
+    display: block;
+    text-decoration: none;
+    color: #000000;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+}
+.footer {
+    padding: 15px 0 18px 0;
+    border-top: 4px solid #9e140f;
+    background: #363636;
+}
+.logo__img {
+    width: 190px;
+    height: 86px;
+    vertical-align: bottom;
+}
+.logo {
+    margin: 10px -20px 15px 0;
+}
+
+.form-ask {
+    padding: 30px 0;
+    background: url(http://www.chicopee.ru/local/templates/chicopee/css/../img/bg-screen-form.jpg) center top no-repeat;
+}
+
+.form-ask__heading {
+    margin-bottom: 30px;
+    text-align: center;
+    color: #ffffff;
+}
+.heading {
+    font-family: Ossem;
+    font-size: 46px;
+    font-weight: normal;
+    margin: 0 0 20px 0;
+    text-transform: uppercase;
+}
+.form-ask__group {
+    margin-bottom: 20px;
+}
+.form-ask__control {
+    font-size: 14px;
+    font-weight: 400;
+    width: 100%;
+    height: 60px;
+    padding: 0 20px;
+    border: none;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    background-color: #ffffff;
+}
+.form-ask__btn {
+    padding-right: 50px;
+    padding-left: 50px;
+}
+.btn {
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 58px;
+    position: relative;
+    display: inline-block;
+    height: 58px;
+    padding: 0 30px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #ffffff;
+    border: none;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    background-color: #9e140f;
+    -webkit-box-shadow: 0 3px 0 #620906;
+    box-shadow: 0 3px 0 #620906;
+}
+.form-ask__group_btn {
+    margin-bottom: 0;
+    text-align: center;
+}
+.form-ask__control_textarea {
+    display: block;
+    height: 146px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    resize: none;
+}
+.fast-wrap {
+    position: relative;
+    padding-top: 30px;
+    padding-bottom: 40px;
+    background: url(http://www.chicopee.ru/local/templates/chicopee/css/../img/bg.jpg) center top repeat;
+}
+.fast__head {
+    position: relative;
+    margin-bottom: 30px;
+    padding-bottom: 45px;
+    text-align: center;
+}
+.fast__main {
+    margin-bottom: 10px;
+}
+.fast__group {
+    margin-bottom: 20px;
+}
+.jq-selectbox {
+    z-index: 10;
+    width: 100%;
+}
+.jq-selectbox select, .jq-select-multiple select {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+}
+.jq-selectbox__select {
+    position: relative;
+    padding: 0 50px 0 25px;
+    cursor: pointer;
+    border: 1px solid #000000;
+    background: #ffffff;
+}
+.jq-selectbox__dropdown {
+    position: absolute;
+    width: 100%;
+    padding: 15px 0;
+    border: 1px solid #000000;
+    border-top: none;
+    background: #ffffff;
+}
+.jq-selectbox__trigger {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 50px;
+}
+.jq-selectbox__trigger-arrow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -4px 0 0 -8px;
+    -webkit-transition: all 0.2s;
+    transition: all 0.2s;
+    border-top: 8px solid #000000;
+    border-right: 8px solid transparent;
+    border-left: 8px solid transparent;
+}
+.fast__subhead {
+    font-family: Ossem;
+    font-size: 21px;
+    font-weight: normal;
+    margin-bottom: 25px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #000000;
+}
+.fast__head:before {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    display: block;
+    width: 207px;
+    height: 20px;
+    margin-left: -103px;
+    content: '';
+    opacity: 0.3;
+    background: url(http://www.chicopee.ru/local/templates/chicopee/css/../img/svg/ico-headline-decor.svg) 0 0 no-repeat;
+    background-size: 207px 20px;
+}
+.fast__radio {
+    float: left;
+    margin-right: 25px;
+    margin-bottom: 10px;
+}
+.radio-control__check {
+    width: 17px;
+    height: 17px;
+    margin: 0 3px 0 0;
+    vertical-align: top;
+}
+.radio-control__label {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    position: relative;
+    display: block;
+    padding: 0 0 0 30px;
+    cursor: pointer;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    color: #000000;
+}
+.jq-selectbox__select-text {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 58px;
+    overflow: hidden;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: #666666;
+}
+.radio-control__check:not(checked) {
+    position: absolute;
+}
+.fast__pick {
+    text-align: center;
+}
+.fast__head-inner:before, .fast__head-inner:after {
+    font-family: 'Myriad Pro';
+    font-weight: 700;
+    margin-right: 30px;
+    content: '~';
+    color: #000000;
+}
+.fast__head-inner:after {
+    margin-right: 0;
+    margin-left: 30px;
+}
+
+.formula-advant__head {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    color: #78654f;
+}
+.formula-advant__item::before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    display: block;
+    height: 130px;
+    content: '';
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: 113px 113px;
+}
+.formula-advant__item_immunity::before {
+    background-image: url(http://www.chicopee.ru/local/templates/chicopee/css/../img/svg/ico-formula-05.svg);
+}
+.formula-advant__item_muscle::before {
+    background-image: url(http://www.chicopee.ru/local/templates/chicopee/css/../img/svg/ico-formula-06.svg);
+}
+.formula-advant__item_ingredient::before {
+    background-image: url(http://www.chicopee.ru/local/templates/chicopee/css/../img/svg/ico-formula-07.svg);
+}
+.formula-advant__item_germany::before {
+    background-image: url(http://www.chicopee.ru/local/templates/chicopee/css/../img/svg/ico-formula-08.svg);
+}
+.formula-advant__item_teeth::before {
+    background-image: url(http://www.chicopee.ru/local/templates/chicopee/css/../img/svg/ico-formula-01.svg);
+}
+.formula-advant__item_leather::before {
+    background-image: url(http://www.chicopee.ru/local/templates/chicopee/css/../img/svg/ico-formula-02.svg);
+}
+.formula-advant__item_bone::before {
+    background-image: url(http://www.chicopee.ru/local/templates/chicopee/css/../img/svg/ico-formula-03.svg);
+}
+.formula-advant__item_digestion::before {
+    background-image: url(http://www.chicopee.ru/local/templates/chicopee/css/../img/svg/ico-formula-04.svg);
+}
+.formula-advant {
+    margin-right: -30px;
+    margin-left: -30px;
+}
+.formula-advant__item::before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    display: block;
+    height: 130px;
+    content: '';
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: 113px 113px;
+}
+.breadcrumb_top{
+    padding: 8px 15px;
+    margin-bottom: 20px;
+    list-style: none;
+    border-radius: 4px;
+}
+li.breadcrumb-item {
+    float: left;
+}
+ol.breadcrumb_top {
+    list-style: none;
+}
+.breadcrumbs__link {
+    text-decoration: underline;
+    color: #000000;
+}
+.formula {
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+.fast__add {
+    margin-bottom: 25px;
+}
+button, html [type="button"], [type="reset"], [type="submit"] {
+    cursor: pointer;
+    -webkit-appearance: button;
+}
+.btn:hover {
+    color: #ffffff;
+    background-color: #cc0000;
+    -webkit-box-shadow: 0 3px 0 #990000;
+    box-shadow: 0 3px 0 #990000;
+}
+.modal-body {
+    position: relative;
+    padding: 30px 60px 50px 60px;
+}
+.fast-wrap::after {
+    top: auto;
+    bottom: 3px;
+}
+.fast-wrap::before{
+    position: absolute;
+    top: 3px;
+    right: 0;
+    left: 0;
+    display: block;
+    content: '';
+    border-bottom: 3px dotted #000000;
+}
+.fast-wrap::after {
+    position: absolute;
+    right: 0;
+    left: 0;
+    display: block;
+    content: '';
+    border-bottom: 3px dotted #000000;
+}
+.formula-advant__item {
+    position: relative;
+    margin-bottom: 40px;
+    padding-top: 130px;
+    text-align: center;
+}
+.formula__desc {
+    margin-bottom: 30px;
+}
+.formula__subhead {
+    font-size: 21px;
+    font-weight: 400;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #694617;
+}
+.formula__head {
+    margin-bottom: 0;
+    text-align: center;
+}
+.formula__inner {
+    padding: 20px 40px 40px 40px;
+    border: 4px dotted #000000;
+}
