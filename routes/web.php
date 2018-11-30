@@ -45,9 +45,10 @@
     Route::post('send', ['uses'=>'HomeController@index', 'as'=>'post_home']);
     Route::get('send', ['uses'=>'HomeController@index', 'as'=>'get_home']);
 
-    Route::get('shops', function () { return view('site.content.shops');})->name('shops');
+    Route::get('shops', ['uses'=>'PartnersController@index','as'=>'shops']);
     Route::get('contact', function () { return view('site.content.contact');})->name('contact');
     Route::get('about', function () { return view('site.content.about');})->name('about');
+
 
 
     Route::get('/logout', function(){
@@ -101,7 +102,12 @@
         Route::resource('slider', 'Slider\SliderController');
         Route::resource('blog', 'Blog\BlogController');
         Route::resource('values', 'Catalog\ValueController');
-        Route::resource('partners', 'PartnersController');
+        //Route::resource('partners', 'PartnersController');
+
+        //ПАРТНЕРЫ
+        Route::get('partners', ['uses'=>'PartnersController@admin','as'=>'partners.admin']);
+        Route::get('/partners_create', ['uses'=>'PartnersController@create','as'=>'partners.create']);
+        Route::post('/users_create', ['uses'=>'PartnersController@store', 'as'=>'partners.store']);
 
         //БЛОГ
         Route::group(['prefix' => 'blog'], function () {

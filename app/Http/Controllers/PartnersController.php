@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Partners;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PartnersController extends Controller
 {
@@ -12,7 +13,7 @@ class PartnersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function admin()
     {
         $partners = Partners::all();
 
@@ -23,6 +24,39 @@ class PartnersController extends Controller
         );
     }
 
+    public function index(){
+        $mass_shops = array();
+        $mass_ecommerces = array();
+
+        $s_mass = DB::table('partners')->where('type','=','T')->get()->sortByDesc('sort');
+        $e_mass = DB::table('partners')->where('type','=','I')->get()->sortByDesc('sort');
+
+        foreach ($s_mass as $key=>$partner){
+            $item = array([
+                'name'=>$partner->name,
+                'addres'=>$partner->addres,
+                'type'=>$partner->type
+            ]);
+            $mass_shops[$key] = $item;
+        }
+
+        foreach ($e_mass as $key=>$partner){
+            $item = array([
+                'name'=>$partner->name,
+                'addres'=>$partner->addres,
+                'type'=>$partner->type
+            ]);
+            $mass_ecommerces[$key] = $item;
+        }
+
+        $json_mass_shops = json_encode($mass_shops);
+        $json_mass_ecommerces = json_encode($mass_ecommerces);
+
+        return view('partners.index', [
+            'shops'=>$json_mass_shops,
+            'ecommerces'=>$json_mass_ecommerces
+        ]);
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -52,7 +86,7 @@ class PartnersController extends Controller
      */
     public function show(Partners $partners)
     {
-        //
+
     }
 
     /**

@@ -57,7 +57,9 @@ return [
     'contact_email' => 'Почта',
     'contact_title'=>'Наши контакты',
 
-    'not_products'=>'нет товаров'
+    'not_products'=>'нет товаров',
+
+    'where_to_by'=>'Где купить'
 
 
 

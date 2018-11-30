@@ -76,7 +76,7 @@
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     {{--<a class="dropdown-item" href="{{ route('tools') }}">Импорт</a>--}}
                                     <a class="dropdown-item" href="{{ route('slider.index') }}">Слайдер</a>
-                                    <a class="dropdown-item" href="{{ route('partners.index') }}">Партнеры</a>
+                                    <a class="dropdown-item" href="{{ route('partners.admin') }}">Партнеры</a>
                                 </div>
                             </li>
                             <li class="nav-item dropdown">

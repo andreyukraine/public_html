@@ -28,11 +28,12 @@
                 @foreach($partners as $partner)
                     <div class="row">
                         <div class="col-lg-2">
-                            @if($partner->image)
-                                <img width="100px" src="{!! $partner->images !!}">
-                            @else
-                                <img width="100px" src="{{asset('/admin/images/no_image.svg')}}">
-                            @endif
+                            {{$partner->id}}
+                            {{--@if($partner->image)--}}
+                                {{--<img width="100px" src="{!! $partner->images !!}">--}}
+                            {{--@else--}}
+                                {{--<img width="100px" src="{{asset('/admin/images/no_image.svg')}}">--}}
+                            {{--@endif--}}
                         </div>
                         <div class="col-lg-7">
                             <a href="{{ route('products.edit',$partner->id) }}"><p class="product_name">{!! $partner->name !!}</p></a>
@@ -41,8 +42,8 @@
                             <p class="product_sort">{!! $partner->sort !!}</p>
                         </div>
                         <div class="col-lg-1">
-                            <a href="{{ route('products.edit',$partner->id) }}"><span class="glyphicon glyphicon-pencil"></span></a>
-                            <a href="{{ route('delete.products',$partner->id) }}"><span class="glyphicon glyphicon-remove"></span></a>
+                            {{--{<a href="{{ route('products.edit',$partner->id) }}"><span class="glyphicon glyphicon-pencil"></span></a>--}}
+                            {{--<a href="{{ route('delete.products',$partner->id) }}"><span class="glyphicon glyphicon-remove"></span></a>--}}
                         </div>
                     </div>
                 @endforeach

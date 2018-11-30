@@ -48,7 +48,7 @@
                             <ul class="navbar-nav">
                                 <li class="nav-item active"><a class="nav-link" href="/catalog">{{ trans('menu.catalog')}}</a></li>
                                 <li class="nav-item active"><a class="nav-link" href="/about">{{ trans('menu.about')}}</a></li>
-                                {{--<li class="nav-item active"><a class="nav-link" href="/shops">{{trans('menu.buy')}}</a></li>--}}
+                                <li class="nav-item active"><a class="nav-link" href="/shops">{{trans('menu.buy')}}</a></li>
                                 <li class="nav-item active"><a class="nav-link" href="/contact">{{ trans('menu.contact')}}</a></li>
                             </ul>
                         </div>
@@ -103,7 +103,7 @@
                                         <ul class="navbar-nav">
                                             <li class="nav-item active"><a class="nav-link" href="/catalog">{{ trans('menu.catalog')}}</a></li>
                                             <li class="nav-item active"><a class="nav-link" href="/about">{{ trans('menu.about')}}</a></li>
-                                            {{--<li class="nav-item active"><a class="nav-link" href="/shops">{{trans('menu.buy')}}</a></li>--}}
+                                            <li class="nav-item active"><a class="nav-link" href="/shops">{{trans('menu.buy')}}</a></li>
                                             <li class="nav-item active"><a class="nav-link" href="/contact">{{ trans('menu.contact')}}</a></li>
                                         </ul>
                                     </div>

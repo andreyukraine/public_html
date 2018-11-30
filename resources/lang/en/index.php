@@ -59,7 +59,9 @@ return [
     'contact_email' => 'E-mail',
     'contact_title'=>'Our contacts',
 
-    'not_products'=>'no products'
+    'not_products'=>'no products',
+
+    'where_to_by'=>'WHERE TO BUY'
 
 
 

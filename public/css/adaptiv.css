@@ -1133,6 +1133,7 @@ and (orientation : portrait){
         font-size: 35px;
         font-weight: normal;
         margin: 0 0 20px 0;
+        text-align: center;
         text-transform: uppercase;
         color: #000000;
         line-height: 1;

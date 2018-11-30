@@ -57,7 +57,9 @@ return [
     'contact_email' => 'Пошта',
     'contact_title'=>'Наші контакти',
 
-    'not_products'=>'немає товарів'
+    'not_products'=>'немає товарів',
+
+    'where_to_by'=>'ДЕ КУПИТИ'
 
 
 
