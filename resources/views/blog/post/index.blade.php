@@ -29,7 +29,6 @@
                                                             <div class="elementor-widget-wrap">
                                                                 <div data-id="38905c3d" class="elementor-element elementor-element-38905c3d elementor-widget elementor-widget-heading" data-element_type="heading.default">
                                                                     <div class="elementor-widget-container">
-                                                                        <h1 class="elementor-heading-title elementor-size-default"></h1>
                                                                     </div>
                                                                 </div>
                                                             </div>

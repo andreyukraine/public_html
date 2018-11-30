@@ -1,8 +1,7 @@
-
 @extends('site.content.home')
-@section('title', '')
-@section('description', '')
-@section('meta', '')
+@section('title', 'Блог CHICOPEE')
+@section('description', 'CHICOPEE - марка кормов супер-премиум класса для собак и кошек, которая принадлежит канадской корпорации «strong> Harrison Pet Products Inc')
+@section('meta', 'CHICOPEE - марка кормов супер-премиум класса для собак и кошек, которая принадлежит канадской корпорации «strong> Harrison Pet Products Inc')
 @section('header')
     <div id="content" class="site-content">
         <div class="ast-container">
