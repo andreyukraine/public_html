@@ -318,11 +318,20 @@ and (max-device-width : 768px) {
     nav {
         width: 100%;
     }
+    .shop_by .nav-tabs .nav-link {
+        border: 1px solid transparent;
+        border-top-left-radius: 0.25rem;
+        border-top-right-radius: 0.25rem;
+        width: 50%;
+        color: #000000;
+        font-size: 1rem;
+        text-align: center !important;
+    }
     .nav-tabs .nav-link {
         border: 1px solid transparent;
         border-top-left-radius: 0.25rem;
         border-top-right-radius: 0.25rem;
-        width: 33% !important;
+        width: 33%;
         color: #000000;
         font-size: 1rem;
         text-align: center !important;
@@ -888,21 +897,21 @@ and (orientation : landscape){
         border-bottom: 1px solid;
         font-size: 1rem;
     }
-    .nav-tabs .nav-link {
-        border: 1px solid transparent;
-        border-top-left-radius: 0.25rem;
-        border-top-right-radius: 0.25rem;
-        width: 33% !important;
-        color: #000000;
-        font-size: 1rem;
-        text-align: center !important;
-    }
-    .nav-tabs .nav-link {
-        border: 1px solid transparent;
+    .shop_by .nav-tabs .nav-link {
         border-top-left-radius: 0.25rem;
         padding: 15px;
         text-transform: uppercase;
         border-top-right-radius: 0.25rem;
+        width: 50%;
+    }
+    .nav-tabs .nav-link {
+        border: 1px solid transparent;
+        border-top-left-radius: 0.25rem;
+        border-top-right-radius: 0.25rem;
+        width: 33%;
+        color: #000000;
+        font-size: 1rem;
+        text-align: center !important;
     }
     .nav-item nav-link a{
         color: #d0152d;
@@ -1043,6 +1052,13 @@ and (orientation : portrait){
         border-bottom: 1px solid;
         font-size: 18px;
     }
+    .shop_by .nav-tabs .nav-link {
+        border-top-left-radius: 0.25rem;
+        padding: 15px;
+        text-transform: uppercase;
+        border-top-right-radius: 0.25rem;
+        width: 100%;
+    }
     .nav-tabs .nav-link {
         border: 1px solid transparent;
         border-top-left-radius: 0.25rem;
@@ -1051,13 +1067,6 @@ and (orientation : portrait){
         color: #000000;
         font-size: 18px;
         text-align: center !important;
-    }
-    .nav-tabs .nav-link {
-        border: 1px solid transparent;
-        border-top-left-radius: 0.25rem;
-        padding: 15px;
-        text-transform: uppercase;
-        border-top-right-radius: 0.25rem;
     }
     .nav-item nav-link a{
         color: #d0152d;
@@ -1600,6 +1609,13 @@ and (max-device-width : 992px)
         border-bottom: 1px solid;
         font-size: 1rem;
     }
+    .shop_by .nav-tabs .nav-link {
+        border-top-left-radius: 0.25rem;
+        padding: 15px;
+        text-transform: uppercase;
+        border-top-right-radius: 0.25rem;
+        width: 50%;
+    }
     .nav-tabs .nav-link {
         border: 1px solid transparent;
         border-top-left-radius: 0.25rem;
@@ -1609,13 +1625,7 @@ and (max-device-width : 992px)
         font-size: 1rem;
         text-align: center !important;
     }
-    .nav-tabs .nav-link {
-        border: 1px solid transparent;
-        border-top-left-radius: 0.25rem;
-        padding: 15px;
-        text-transform: uppercase;
-        border-top-right-radius: 0.25rem;
-    }
+
     .nav-item nav-link a{
         color: #d0152d;
     }
@@ -2103,21 +2113,21 @@ and (orientation : landscape)
         border-bottom: 1px solid;
         font-size: 24px;
     }
-    .nav-tabs .nav-link {
-        border: 1px solid transparent;
-        border-top-left-radius: 0.25rem;
-        border-top-right-radius: 0.25rem;
-        width: 33% !important;
-        color: #000000;
-        font-size: 24px;
-        text-align: center !important;
-    }
-    .nav-tabs .nav-link {
-        border: 1px solid transparent;
+    .shop_by .nav-tabs .nav-link {
         border-top-left-radius: 0.25rem;
         padding: 15px;
         text-transform: uppercase;
         border-top-right-radius: 0.25rem;
+        width: 50%;
+    }
+    .nav-tabs .nav-link {
+        border: 1px solid transparent;
+        border-top-left-radius: 0.25rem;
+        border-top-right-radius: 0.25rem;
+        width: 33%;
+        color: #000000;
+        font-size: 24px;
+        text-align: center !important;
     }
     .nav-item nav-link a{
         color: #d0152d;
@@ -2596,6 +2606,13 @@ and (orientation : portrait)
         border-bottom: 1px solid;
         font-size: 24px;
     }
+    .shop_by .nav-tabs .nav-link {
+         border-top-left-radius: 0.25rem;
+         padding: 15px;
+         text-transform: uppercase;
+         border-top-right-radius: 0.25rem;
+         width: 50%;
+     }
     .nav-tabs .nav-link {
         border: 1px solid transparent;
         border-top-left-radius: 0.25rem;
@@ -2605,13 +2622,7 @@ and (orientation : portrait)
         font-size: 24px;
         text-align: center !important;
     }
-    .nav-tabs .nav-link {
-        border: 1px solid transparent;
-        border-top-left-radius: 0.25rem;
-        padding: 15px;
-        text-transform: uppercase;
-        border-top-right-radius: 0.25rem;
-    }
+
     .nav-item nav-link a{
         color: #d0152d;
     }
@@ -3082,14 +3093,12 @@ and (orientation : landscape) {
         border-bottom: 1px solid;
         font-size: 24px;
     }
-    .nav-tabs .nav-link {
-        border: 1px solid transparent;
+    .shop_by .nav-tabs .nav-link {
         border-top-left-radius: 0.25rem;
+        padding: 15px;
+        text-transform: uppercase;
         border-top-right-radius: 0.25rem;
-        width: 33% !important;
-        color: #000000;
-        font-size: 24px;
-        text-align: center !important;
+        width: 50%;
     }
     .nav-tabs .nav-link {
         border: 1px solid transparent;
@@ -3098,6 +3107,7 @@ and (orientation : landscape) {
         text-transform: uppercase;
         border-top-right-radius: 0.25rem;
     }
+
     .nav-item nav-link a{
         color: #d0152d;
     }
@@ -3599,15 +3609,13 @@ and (orientation : portrait) {
         border-bottom: 1px solid;
         font-size: 24px;
     }
-    .nav-tabs .nav-link {
-        border: 1px solid transparent;
-        border-top-left-radius: 0.25rem;
-        border-top-right-radius: 0.25rem;
-        width: 33% !important;
-        color: #000000;
-        font-size: 24px;
-        text-align: center !important;
-    }
+    .shop_by .nav-tabs .nav-link {
+         border-top-left-radius: 0.25rem;
+         padding: 15px;
+         text-transform: uppercase;
+         border-top-right-radius: 0.25rem;
+         width: 50%;
+     }
     .nav-tabs .nav-link {
         border: 1px solid transparent;
         border-top-left-radius: 0.25rem;
@@ -3615,6 +3623,8 @@ and (orientation : portrait) {
         text-transform: uppercase;
         border-top-right-radius: 0.25rem;
     }
+
+
     .nav-item nav-link a{
         color: #d0152d;
     }
@@ -4055,21 +4065,24 @@ and (min-width : 1024px) {
         border-bottom: 1px solid;
         font-size: 35px;
     }
-    .nav-tabs .nav-link {
-        border: 1px solid transparent;
-        border-top-left-radius: 0.25rem;
-        border-top-right-radius: 0.25rem;
-        width: 33% !important;
-        color: #000000;
-        font-size: 35px;
-        text-align: center !important;
-    }
-    .nav-tabs .nav-link {
+    .shop_by .nav-tabs .nav-link {
         border-top-left-radius: 0.25rem;
         padding: 15px;
         text-transform: uppercase;
         border-top-right-radius: 0.25rem;
+        width: 50%;
     }
+
+    .nav-tabs .nav-link {
+        border: 1px solid transparent;
+        border-top-left-radius: 0.25rem;
+        border-top-right-radius: 0.25rem;
+        width: 33%;
+        color: #000000;
+        font-size: 35px;
+        text-align: center !important;
+    }
+
     .nav-item nav-link a{
         color: #d0152d;
     }
@@ -5292,4 +5305,20 @@ body.modal-loading {
 }
 .not_products{
     padding: 75px;
+}
+
+
+.map-wrapper {
+    float: left;
+    width: 60%;
+    height: 100%;
+}
+.map-info {
+    float: left;
+    width: 40%;
+    padding: 40px 0;
+}
+.wrapper {
+    margin: 0 auto;
+    padding: 1px 70px 0;
 }

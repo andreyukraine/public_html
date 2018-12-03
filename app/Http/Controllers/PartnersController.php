@@ -53,6 +53,7 @@ class PartnersController extends Controller
         $json_mass_ecommerces = json_encode($mass_ecommerces);
 
         return view('partners.index', [
+
             'shops'=>$json_mass_shops,
             'ecommerces'=>$json_mass_ecommerces
         ]);

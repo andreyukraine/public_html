@@ -56,69 +56,140 @@
         </div>
         <div class="title_page heading">{{trans('menu.buy')}}</div>
     </div>
+    <div class="container">
+        <div class="row shop_by">
+            <div class="container">
+                <nav>
+                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                        <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-o" role="tab" aria-controls="nav-home" aria-selected="true">Торговые точки</a>
+                        <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-s" role="tab" aria-controls="nav-profile" aria-selected="false">Интернет-магазины</a>
+                    </div>
+                </nav>
+            </div>
+            <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="nav-o" role="tabpanel" aria-labelledby="nav-home-tab">
+                        <div class="map-wrapper">
+                            <div id="map" style="width:100%;height:400px;">
+                            </div>
+                        </div>
+                        <div class="map-info">
+                            <div class="wrapper">
+                                <div class="map-title">Зоомагазины:</div>
+                                <div class="scroll-wrapper map-places scrollbar-outer" style="position: relative;">
+                                    <div class="map-places scrollbar-outer scroll-content scroll-scrolly_visible" style="height: auto; margin-bottom: 0px; margin-right: 0px; max-height: 470px;">
+                                        <?php $shops_mass = json_decode($shops, true);?>
+                                        @foreach($shops_mass as $shop)
+                                            @foreach($shop as $item)
+                                                    <div class="city">{{$item['name']}}</div>
+                                                    <div class="adres">{{$item['addres']}}</div>
+                                                @endforeach
+                                        @endforeach
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
 
-    <pre><?php print_r($shops)?></pre>
+                <div class="tab-pane fade" id="nav-s" role="tabpanel" aria-labelledby="nav-profile-tab">список интернет-магазинов</div>
+            </div>
+        </div>
+    </div>
 
-    <div id="map" style="width:100%;height:400px;"></div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
+
+
+
+
+        var shops = <?php echo $shops; ?>;
 
         function initMap() {
 
             var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 3,
-                center: {lat: -28.024, lng: 140.887}
+                zoom: 5.7,
+                center: {lat: 49.7140944, lng: 31.3367827}
             });
+            var locations = [];
+            for (key in shops) {
+                for(f in shops[key]) {
+                    locations.push(geoadres(shops[key][f]));
+                }
+            }
+            console.log(locations);
+
+
 
             // Create an array of alphabetical characters used to label the markers.
             var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-
+            image = '/images/marker.png';
             // Add some markers to the map.
             // Note: The code uses the JavaScript Array.prototype.map() method to
             // create an array of markers based on a given "locations" array.
             // The map() method here has nothing to do with the Google Maps API.
             var markers = locations.map(function(location, i) {
-                return new google.maps.Marker({
+                var contentString = '<p>'+location.title+'</p><p>'+location.addres+'</p>';
+                var marker = new google.maps.Marker({
                     position: location,
-                    label: labels[i % labels.length]
+                    title: location.title,
+                    label: labels[i % labels.length],
+                    icon: image
                 });
+                var infowindow = new google.maps.InfoWindow({
+                    content: contentString
+                });
+                marker.addListener('click', function() {
+                    infowindow.open(map, marker);
+                });
+                return marker;
             });
 
             // Add a marker clusterer to manage the markers.
             var markerCluster = new MarkerClusterer(map, markers,
                 {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
+
+
+
         }
-        var locations = [
-            {lat: -31.563910, lng: 147.154312},
-            {lat: -33.718234, lng: 150.363181},
-            {lat: -33.727111, lng: 150.371124},
-            {lat: -33.848588, lng: 151.209834},
-            {lat: -33.851702, lng: 151.216968},
-            {lat: -34.671264, lng: 150.863657},
-            {lat: -35.304724, lng: 148.662905},
-            {lat: -36.817685, lng: 175.699196},
-            {lat: -36.828611, lng: 175.790222},
-            {lat: -37.750000, lng: 145.116667},
-            {lat: -37.759859, lng: 145.128708},
-            {lat: -37.765015, lng: 145.133858},
-            {lat: -37.770104, lng: 145.143299},
-            {lat: -37.773700, lng: 145.145187},
-            {lat: -37.774785, lng: 145.137978},
-            {lat: -37.819616, lng: 144.968119},
-            {lat: -38.330766, lng: 144.695692},
-            {lat: -39.927193, lng: 175.053218},
-            {lat: -41.330162, lng: 174.865694},
-            {lat: -42.734358, lng: 147.439506},
-            {lat: -42.734358, lng: 147.501315},
-            {lat: -42.735258, lng: 147.438000},
-            {lat: -43.999792, lng: 170.463352}
-        ]
+        $(document).ready(function () {
+
+            $(".nav a").on("click", function () {
+                $(".nav").find(".active").removeClass("active");
+                $(this).addClass("active");
+            });
+        });
+
+        function geoadres(shop) {
+
+            //console.log(shop);
+
+            var resultlat = '';
+            var resultlng = '';
+            $.ajax({
+                async: false,
+                dataType: "json",
+                url: 'https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyA4TmjMPVSSnWg8YdQ76pkpahkw2xqdCzw&address='+shop.addres+'&sensor=false&language=ru',
+                //url: 'https://maps.google.com/maps/api/geocode/json?key=AIzaSyA4TmjMPVSSnWg8YdQ76pkpahkw2xqdCzw&address=' + shop,
+                success: function(data){
+                    for (var key in data.results) {
+                        resultlat = data.results[key].geometry.location.lat;
+                        resultlng = data.results[key].geometry.location.lng;
+                    } }
+            });
+            return { lat: resultlat, lng: resultlng, title: shop.name, addres: shop.addres}
+        }
+
+
+
     </script>
     <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
     </script>
+    {{--<script async defer--}}
+            {{--AIzaSyA4TmjMPVSSnWg8YdQ76pkpahkw2xqdCzw--}}
+            {{--src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAcXwMx9Yojcp7_eEQO3x3rBvVXeaZAuqs&callback=initMap">--}}
+    {{--</script>--}}
     <script async defer
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAcXwMx9Yojcp7_eEQO3x3rBvVXeaZAuqs&callback=initMap">
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA4TmjMPVSSnWg8YdQ76pkpahkw2xqdCzw&callback=initMap">
     </script>
-
     </body>
     </html>
 
