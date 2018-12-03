@@ -31,6 +31,9 @@ class ToolsController extends Controller
 
     public function importJson(Request $request){
         $data = $request->json()->all();
+        if ($data['data']){
+            return "ok";
+        }
         if ($data['key'] == "1234567890"){
             $users_sql = DB::table('partners')->where('index','=','1c')->get()->all();
             foreach ($users_sql as $user_sql){
