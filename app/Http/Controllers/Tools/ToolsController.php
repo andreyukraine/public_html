@@ -7,6 +7,7 @@ use App\Category;
 use App\Http\Controllers\Catalog\ProductController;
 use App\Http\Controllers\Controller;
 use App\Option;
+use App\Partners;
 use App\Product;
 use App\Value;
 use Illuminate\Http\Request;
@@ -26,6 +27,28 @@ class ToolsController extends Controller
             [
                 'categories'=>$categories
             ]);
+    }
+
+    public function importJson(Request $request){
+        $data = $request->json()->all();
+        if ($data['key'] == "1234567890"){
+            $users_sql = DB::table('partners')->where('index','=','1c')->get()->all();
+            foreach ($users_sql as $user_sql){
+                Partners::destroy($user_sql->id);
+            }
+            foreach ($data['users'] as $user) {
+                $partner = new Partners();
+                $partner->name = $user['user'];
+                $partner->addres = $user['tt'];
+                $partner->type = "T";
+                $partner->index = $user['index'];
+                $partner->save();
+            }
+            return $users_sql;
+        }else{
+            return "bad key";
+        }
+
     }
 
     public function importExcel(Request $request)
@@ -187,10 +210,6 @@ class ToolsController extends Controller
             }
 
         }
-
-
-
-
 
 
         //записываем свойства фасовки

@@ -76,7 +76,12 @@ class PartnersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $partner = new Partners();
+        $partner->name = $request->name;
+        $partner->addres = $request->addres;
+        $partner->type = $request->type;
+        $partner->index = $request->index;
+        $partner->save();
     }
 
     /**
@@ -119,8 +124,11 @@ class PartnersController extends Controller
      * @param  \App\Partners  $partners
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Partners $partners)
+    public function destroy($id)
     {
-        //
+        $partner = Partners::find($id);
+        if ($partner != null) {
+            $partner->delete();
+        }
     }
 }

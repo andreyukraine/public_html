@@ -1,6 +1,7 @@
 <?php
 
 
+
     /**
      * Роуты аутентификации...
      */
@@ -137,4 +138,3 @@
         Route::get('delete_category/{id}',['uses'=>'Catalog\CategoryController@destroy', 'as'=>'delete.category']);
     });
 
-//test
