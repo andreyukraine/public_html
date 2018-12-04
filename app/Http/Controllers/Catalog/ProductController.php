@@ -353,7 +353,6 @@ class ProductController extends Controller
 
             $cur_opt = DB::table('product_options')->where('product_id', '=', $id)->get()->keyBy('option_id')->all();
 
-
             $add_opt_mass = $request->opt_id;
 
             if (count($cur_opt)>0) {
@@ -366,7 +365,6 @@ class ProductController extends Controller
                         $mass = $request->opt_id[$i->option_id];
                         unset($add_opt_mass[$s]);
                     }
-
 
                     $current_option = DB::table('product_options')
                         ->where('product_id', '=', $id)
@@ -443,7 +441,7 @@ class ProductController extends Controller
                     foreach ($add_opt_mass as $option_id => $rr) {
                         foreach ($rr as $add_item) {
                             $option_value_table = DB::table('values')
-                                ->where('id', '=', (int)$add_item)
+                                ->where('id', '=', $add_item)
                                 ->get()->all();
                             $znachenie = $option_value_table[0]->$name;
                             $product->options()
@@ -470,6 +468,9 @@ class ProductController extends Controller
                                         'product_id' => $id,
                                         $value_colum => $option_value_table[0]->$name,
                                         'sort' => "$request->sort",
+                                        'price'=> 0,
+                                        'sku' => "",
+                                        'barcode'=>"",
                                         'value_id' => $option_value_table[0]->id]));
                     }
                 }
@@ -616,29 +617,33 @@ class ProductController extends Controller
     }
 
     public function getPostSku($request, $opt_id){
-        foreach ($request->sku as $key => $sku){
-            if ($key == $opt_id){
-                return $sku[0];
+        if (count($request->sku) > 0) {
+            foreach ($request->sku as $key => $sku) {
+                if ($key == $opt_id) {
+                    return $sku[0];
+                }
             }
         }
         return "";
     }
 
     public function getPostBarcode($request, $opt_id){
-
-        foreach ($request->barcode as $key => $barcod){
-            if ($key == $opt_id){
-                return $barcod[0];
+        if (count($request->barcode) > 0) {
+            foreach ($request->barcode as $key => $barcod){
+                if ($key == $opt_id){
+                    return $barcod[0];
+                }
             }
         }
         return 0;
     }
 
     public function getPostPrice($request, $opt_id){
-        $result = "";
-        foreach ($request->price as $key => $item){
-            if ($key == $opt_id){
-                return $item[0];
+        if (count($request->price) > 0) {
+            foreach ($request->price as $key => $item) {
+                if ($key == $opt_id) {
+                    return $item[0];
+                }
             }
         }
         return 0;

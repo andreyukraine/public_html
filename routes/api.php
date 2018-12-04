@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,17 +12,18 @@ use Illuminate\Http\Request;
 |
 */
 //_token
-Route::post('login', 'API\UserController@login');
-Route::get('login', 'API\UserController@login');
+Route::post('asd', 'API\UserController@login');
+Route::get('asd', 'API\UserController@login');
+//Route::get('login', 'UserController@login');
 
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
-
-
-Route::post('register', 'API\UserController@register');
-
-//json users in maps
-Route::post('/json',['uses'=>'Tools\ToolsController@importJson','as'=>'json']);
-Route::get('/json',['uses'=>'Tools\ToolsController@importJson','as'=>'json']);
+//Route::middleware('auth:api')->get('/user', function (Request $request) {
+//    return $request->user();
+//});
+//
+//
+//Route::post('register', 'API\UserController@register');
+//
+////json users in maps
+//Route::post('/json',['uses'=>'Tools\ToolsController@importJson','as'=>'json']);
+//Route::get('/json',['uses'=>'Tools\ToolsController@importJson','as'=>'json']);

@@ -10,6 +10,7 @@ class Option extends Model
     protected $table = 'option';
     protected $fillable = ['name', 'type'];
 
+
     public function categories()
     {
         return $this->belongsToMany('App\Category');
