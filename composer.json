@@ -9,6 +9,7 @@
         "davejamesmiller/laravel-breadcrumbs": "5.x",
         "fideloper/proxy": "^4.0",
         "laravel/framework": "5.6.x",
+        "laravel/passport": "^7.0",
         "laravel/tinker": "^1.0",
         "laravelcollective/html": "~5.0",
         "laravelium/sitemap": "2.x",

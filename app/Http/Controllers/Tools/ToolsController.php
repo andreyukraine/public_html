@@ -11,6 +11,8 @@ use App\Partners;
 use App\Product;
 use App\Value;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
@@ -29,8 +31,10 @@ class ToolsController extends Controller
             ]);
     }
 
+
     public function importJson(Request $request){
         $data = $request->json()->all();
+        //dd($request->json());
 //        if ($data['data']){
 //            return "ok";
 //        }else{
