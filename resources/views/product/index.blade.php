@@ -61,7 +61,7 @@
         <div class="h_content">
             <div class="heading">{{ trans('catalog.header_catalog')}}</div>
         </div>
-        <!-- <div class="filter">
+        <div class="filter">
             <div class="row">
                 <div class="col-lg-4 col-md-12">
                     <div class="filter-line filter-line_catalog clearfix">
@@ -78,7 +78,7 @@
                     </div>
                 </div>
             </div>
-        </div> -->
+        </div>
         <div class="product_list row">
             @if(empty($products))
                 <div class="col-lg-12"><div class="not_products">{{trans('index.not_products')}}</div></div>
