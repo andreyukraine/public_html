@@ -74,13 +74,12 @@
                         </div>
                         <div class="map-info">
                             <div class="wrapper">
-                                <div class="map-title">Зоомагазины:</div>
                                 <div class="scroll-wrapper map-places scrollbar-outer" style="position: relative;">
                                     <div class="map-places scrollbar-outer scroll-content scroll-scrolly_visible" style="height: auto; margin-bottom: 0px; margin-right: 0px; max-height: 470px;">
                                         <?php $shops_mass = json_decode($shops, true);?>
                                         @foreach($shops_mass as $shop)
                                             @foreach($shop as $item)
-                                                    <div class="city">{{$item['name']}}</div>
+                                                    {{--<div class="city">{{$item['name']}}</div>--}}
                                                     <div class="adres">{{$item['addres']}}</div>
                                                 @endforeach
                                         @endforeach
@@ -127,7 +126,7 @@
             // create an array of markers based on a given "locations" array.
             // The map() method here has nothing to do with the Google Maps API.
             var markers = locations.map(function(location, i) {
-                var contentString = '<p>'+location.title+'</p><p>'+location.addres+'</p>';
+                var contentString = '<p>'+location.addres+'</p>';
                 var marker = new google.maps.Marker({
                     position: location,
                     title: location.title,

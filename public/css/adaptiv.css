@@ -5316,9 +5316,11 @@ body.modal-loading {
 .map-info {
     float: left;
     width: 40%;
-    padding: 40px 0;
+    overflow-y: scroll;
+    height: 400px;
 }
 .wrapper {
     margin: 0 auto;
-    padding: 1px 70px 0;
+    padding: 1px 25px 0;
+    font-size: 12px;
 }

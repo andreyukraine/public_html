@@ -12,13 +12,16 @@ use Illuminate\Http\Request;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+//_token
+Route::post('login', 'API\UserController@login');
+Route::get('login', 'API\UserController@login');
+
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-//_token
-Route::post('login', 'API\UserController@login');
+
 Route::post('register', 'API\UserController@register');
 
 //json users in maps
