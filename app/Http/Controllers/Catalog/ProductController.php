@@ -25,12 +25,22 @@ class ProductController extends Controller
                 $products_mass = Product::with('products')->get()->sortBy('sort');
                 $categories = Category::where('parent_id', '=', 0)->get();
 
+                //добавляем свойства к товару
+                if (count($products_mass->all()) > 0) {
+                    foreach ($products_mass as $product) {
+                        $product->options = $this->getProductOptionsCategory($product->id);
+                    }
+                }
+
+                //аякс фильт
                 if($request->ajax()){
                     $output = "";
                     if ($request->id) {
                         $products_mass = Category::find($request->id)->products()->get();
                         if (count($products_mass->all()) > 0) {
+
                             foreach ($products_mass as $product) {
+                                $product->options = $this->getProductOptionsCategory($product->id);
                                 $output .=
                                 '<div class="row">
                                     <div class="col-lg-1">
@@ -100,6 +110,7 @@ class ProductController extends Controller
             $line = "";
             foreach ($products_mass->all() as $key=>$product){
                 $product->line = $this->getValueOptions(8,$product->id);
+
                 if ($line == "" || $product->line != ""){
                     $line = $product->line;
                 }
