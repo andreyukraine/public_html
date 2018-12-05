@@ -34,15 +34,13 @@ class ProductController extends Controller
                                 $output .=
                                 '<div class="row">
                                     <div class="col-lg-1">
-                                        <p>'. $product->id .'</p>
-                                        <p>'. $product->active .'</p>
                                     </div>
                                     <div class="col-lg-2">
                                         <img width="100px" src="'. $product->images.'">
                                     </div>
                                     <div class="col-lg-8">
                                         <p class="product_name">'. $product->name .'</p>
-                                        <p class="product_desc">'. $product->excerpt .'</p>
+                                        <div class="product_desc">'. $product->excerpt .'</div>
                                     </div>
                                     <div class="col-lg-1">
                                         <a href="'. route('products.edit',$product->id).'"><span class="glyphicon glyphicon-pencil"></span></a>
@@ -86,7 +84,8 @@ class ProductController extends Controller
     {
         $new_product_mass = array();
         // список товаров по умолчанию
-        $products_mass = Product::with('products')->get()->sortBy('sort');
+        //$products_mass = Product::with('products')->get()->sortBy('sort');
+        $products_mass = Category::find(1)->products()->get()->sortBy('sort');
         $categories = Category::where('parent_id', '=', 0)->get();
         $options = array();
 
@@ -99,7 +98,6 @@ class ProductController extends Controller
         // попробуем добавить линейку к товару
         if (!empty($products_mass)){
             $line = "";
-
             foreach ($products_mass->all() as $key=>$product){
                 $product->line = $this->getValueOptions(8,$product->id);
                 if ($line == "" || $product->line != ""){
@@ -109,7 +107,6 @@ class ProductController extends Controller
                     $new_product_mass[$line][] = $product;
                 }
             }
-            //$products_mass = $new_product_mass;
         }
 
         if($request->ajax()){
@@ -117,42 +114,39 @@ class ProductController extends Controller
             $output_y = array();
             $obj_value = array();
 
-            if ($request->opt == 1) {
                 if ($request->id) {
                     $products = Category::find($request->id)->products()->get()->sortBy('sort');
                     $products_mass = $products;
-                    if (count($products->all()) > 0) {
-                        $obj_value = array();
-                        foreach ($products_mass as $product) {
-                            //свойства для фильтра
 
-                            $result = DB::table('product_options')
-                                ->where('product_id', '=', $product->id)
-                                ->where('option_id', '=', 8)
-                                ->groupBy('product_id')
-                                ->select('product_options.*')
-                                ->get()->toArray();
-                            if (!empty($result)){
-                                $obj_value[$result[0]->sort] = array(
-                                    'name' => $result[0]->value,
-                                    'id' =>$result[0]->value_id);
+                    // попробуем добавить линейку к товару
+                    if (!empty($products_mass)){
+                        $line = "";
+                        foreach ($products_mass->all() as $key=>$product){
+                            $product->line = $this->getValueOptions(8,$product->id);
+                            if ($line == "" || $product->line != ""){
+                                $line = $product->line;
                             }
+                            if ($line != "" || $product->line == $line){
+                                $new_product_mass[$line][] = $product;
+                            }
+                        }
+                    }
 
+                    if (count($products->all()) > 0) {
+                        foreach ($products_mass as $product) {
                             $activ_item = "";
                             if (!$product->active){
                                 $activ_item = 'active_item';
                             }
                             //товары
-                            $output_y[] = '<div class="product_item '. $activ_item .' col-lg-3"><a href="' . route('products_show', ['category'=>'sobaki','url'=>$product->url] ) . '"><img class="img-fluid center" src="' . $product->images . '"><p class="product_name">' . $product->name . '</p><p class="product_desc">' . $product->excerpt . '</p></a><div class="product-item__more"><a href="' . route("products_show", ["category"=>"sobaki","url"=>$product->url] ) . '" class="product-item__more-link">ДЕТАЛЬНІШЕ</a></div></div>';
+                            $output_y[] = '<div class="product_item '. $activ_item .' col-lg-3"><a href="' . route('products_show', ['category'=>'sobaki','url'=>$product->url] ) . '"><img class="img-fluid center" src="' . $product->images . '"><p class="product_name">' . $product->name . '</p><div class="product_desc">' . $product->excerpt . '</div></a><div class="product-item__more"><a href="' . route("products_show", ["category"=>"sobaki","url"=>$product->url] ) . '" class="product-item__more-link">ДЕТАЛЬНІШЕ</a></div></div>';
                         }
-                        ksort($obj_value);
-                        $options = $obj_value;
                         $output = array([
                             'products' => $output_y,
                             'options' => $options
                         ]);
                         return Response($output);
-                    } else {
+                    }else {
                         $output_y[] = '<div class="col-lg-3">нет товаров</div>';
                         $output = array([
                             'products' => $output_y,
@@ -161,44 +155,8 @@ class ProductController extends Controller
                         return Response($output);
                     }
                 }
-            }elseif ($request->opt == 2) {
 
-                $result = DB::table('product_options')
-                    ->leftjoin('product', 'product.id', '=', 'product_options.product_id')
-                    ->where('product_options.value_id', '=', $request->id)
-                    ->groupBy('product_options.product_id')
-                    ->get();
-
-                foreach ($result as $product){
-                    $output_y[] = '<div class="product_item col-lg-3"><a href="' . route('products_show', ['category'=>'sobaki','url'=>$product->url] ) . '"><img class="img-fluid center" src="' . $product->images . '"><p class="product_name">' . $product->name . '</p><p class="product_desc">' . $product->excerpt . '</p></a><div class="product-item__more"><a href="' . route('products_show', ['category'=>'sobaki','url'=>$product->url] ) . '" class="product-item__more-link">ДЕТАЛЬНІШЕ</a></div></div>';
-                }
-
-                $output = array([
-                    'products' => $output_y,
-                    'options' => ""
-                ]);
-                return Response($output);
-            }
         }
-
-        //свойства для фильтра
-//        foreach ($products_mass as $product){
-//            $result = DB::table('product_options')
-//                ->where('product_id', '=', $product->id)
-//                ->where('option_id', '=', 8)
-//                ->groupBy('product_id')
-//                ->select('product_options.*')
-//                ->get()->toArray();
-////            if (!empty($result)){
-////                $obj_value[$result[0]->sort] = array(
-////                    'name' => $result[0]->value,
-////                    'id' =>$result[0]->value_id);
-////            }
-//        }
-        //ksort($obj_value);
-       // $options = $obj_value;
-
-        //dd($options);
 
         return view('product.index', [
             'products' => $new_product_mass,

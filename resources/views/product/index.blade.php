@@ -65,15 +65,8 @@
             <div class="row">
                 <div class="col-lg-4 col-md-12">
                     <div class="filter-line filter-line_catalog clearfix">
-                        @foreach($categories as $category)
-                            <span class="cat_style_{!! $category->id !!}" id="{!! $category->id !!}">{!! $category->name !!}</span>
-                        @endforeach
-                    </div>
-                </div>
-                <div class="col-lg-8 col-md-12">
-                    <div class="filter-options">
-                        @foreach($options as $option)
-                           <div id="{!! $option['id'] !!}" class="asd filter-range__item col-lg-3 col-xs-12">{!! $option['name'] !!}</div>
+                        @foreach($categories as $key => $category)
+                            <span class="cat_style_{!! $category->id !!} @if($key == 0) active @endif" id="{!! $category->id !!}">{!! $category->name !!}</span>
                         @endforeach
                     </div>
                 </div>
@@ -122,54 +115,48 @@
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function($) {
-        $('div.asd').click(function (e) {
+//        $('div.asd').click(function (e) {
+//
+//            // сначала удаляешь все
+//            $('div').each(function(index) {
+//                $(this).removeClass('active');
+//            });
+//            $('span.cat_style').each(function(index) {
+//                $(this).removeClass('active');
+//            });
+//            $('div.del').each(function(index) {
+//                $(this).remove();
+//            });
+//            // на нужную вешаешь
+//            $(this).addClass('active');
+//            $(this).append( "<div class='del'></div>" );
+//            var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+//            $.ajax({
+//                /* the route pointing to the post function */
+//                url: 'ajax',
+//                type: 'POST',
+//                /* send the csrf-token and the input to the controller */
+//                data: {
+//                    _token: CSRF_TOKEN,
+//                    opt: "2",
+//                    id: this.id
+//                },
+//                /* remind that 'data' is the response of the AjaxController */
+//                success: function (data) {
+//                    for(var i=0;i<data.length;i++){
+//                        $('.product_list').html(data[i]['products']);
+//                    }
+//                    console.log(data);
+//                }
+//            });
+//       });
 
-            // сначала удаляешь все
-            $('div').each(function(index) {
-                $(this).removeClass('active');
-            });
-            $('span.cat_style').each(function(index) {
-                $(this).removeClass('active');
-            });
-            $('div.del').each(function(index) {
-                $(this).remove();
-            });
-            // на нужную вешаешь
-            $(this).addClass('active');
-            $(this).append( "<div class='del'></div>" );
 
-
-            var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
-            $.ajax({
-                /* the route pointing to the post function */
-                url: 'ajax',
-                type: 'POST',
-                /* send the csrf-token and the input to the controller */
-                data: {
-                    _token: CSRF_TOKEN,
-                    opt: "2",
-                    id:this.id
-                },
-                /* remind that 'data' is the response of the AjaxController */
-                success: function (data) {
-                    for(var i=0;i<data.length;i++){
-                        $('.product_list').html(data[i]['products']);
-                    }
-                    console.log(data);
-                    //$(".writeinfo").append(data.id);
-
-
-                }
-            });
-        });
-        $('span').click(function () {
+        $(document).on('click', "span", function () {
             // сначала удаляешь все
             $('span').each(function(index) {
                 $(this).removeClass('active');
             });
-            $('div.asd').each(function(index) {
-                $(this).removeClass('active');
-            });
 
             // на нужную вешаешь
             $(this).addClass('active');
@@ -182,7 +169,7 @@
                 /* send the csrf-token and the input to the controller */
                 data: {
                     _token: CSRF_TOKEN,
-                    opt: "1",
+                    //opt: "1",
                     id:this.id
                 },
                 /* remind that 'data' is the response of the AjaxController */
@@ -190,10 +177,7 @@
                     console.log(data);
                     for(var i=0;i<data.length;i++){
                         $('.product_list').html(data[i]['products']);
-
                     }
-
-
                 }
             });
         });
