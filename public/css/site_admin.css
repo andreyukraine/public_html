@@ -1,3 +1,6 @@
+.options p{
+    margin: 0 0 0 !important;
+}
 #create_task{
     float: right;
 }

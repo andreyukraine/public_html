@@ -1,6 +1,6 @@
 @extends('site.content.home')
 @section('url', route('products_show', ['category'=>'sobaki','url'=>$product->url] ))
-@section('title', e($product->name))
+@section('title', e($product->name).'- купить по лучшей цене в Киеве от компании "Chicopee" - '.e($product->id))
 @section('description', e($product->title))
 @section('meta', e($product->meta))
 @section('keywords', e($product->keywords))
