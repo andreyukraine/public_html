@@ -35,6 +35,7 @@ class ValueController extends Controller
         }
 
 
+
         $value = new Value();
         $option = Option::find($request->id);
         $value->name = $request->name;

@@ -69,7 +69,7 @@
                     <label for="exampleFormControlInput1">Значения справочника</label>
                     <div class="row">
                         <div class="col-lg-10">
-                            <input name="name_option" type="text" id="exampleFormControlInput1" class="form-control value_name">
+                            <input name="value_name_option" type="text" id="exampleFormControlInput1" class="form-control value_name">
                         </div>
                         <div class="col-lg-2">
                             <span class="btn btn-success glyphicon glyphicon-plus add_opt" id="{!! $option->id !!}"></span>
@@ -155,15 +155,15 @@
 
     </div>
 @endsection
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
     $(document).ready(function () {
 
-        $('.add_opt').click(function () {
+        $('.add_opt').on('click', function(){
             var option_id = $(this).attr("id");
-            var div = $(this).parents().parents();
-            var value_input = div.find(".value_name").val();
-            //console.log(option_id);
+
+            var value_name_option =  $("input[name=value_name_option]").val();
+            console.log(value_name_option);
             var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
             $.ajax({
                 url: '/admin/add_value',
@@ -171,7 +171,7 @@
                 data: {
                     _token: CSRF_TOKEN,
                     id:option_id,
-                    name:value_input
+                    name:value_name_option
                 },
                 success: function (data) {
                     //console.log(data);
@@ -255,7 +255,7 @@
         })
 
         //del options
-        $('.del_opt').click(function () {
+        $('.del_opt').on('click', function(){
 
             var option_id = $(this).attr("data-opt");
             var value_id = $(this).attr("id");

@@ -123,7 +123,7 @@ class ProductController extends Controller
         if($request->ajax()){
 
             $output_y = array();
-            $obj_value = array();
+            $new_product_mass_ajax = array();
 
                 if ($request->id) {
                     $products = Category::find($request->id)->products()->get()->sortBy('sort');
@@ -138,19 +138,39 @@ class ProductController extends Controller
                                 $line = $product->line;
                             }
                             if ($line != "" || $product->line == $line){
-                                $new_product_mass[$line][] = $product;
+                                $new_product_mass_ajax[$line][] = $product;
                             }
                         }
                     }
 
-                    if (count($products->all()) > 0) {
-                        foreach ($products_mass as $product) {
-                            $activ_item = "";
-                            if (!$product->active){
-                                $activ_item = 'active_item';
+                    if (count($new_product_mass_ajax) > 0) {
+                        foreach ($new_product_mass_ajax as $key => $line) {
+                            $hr_line = "";
+                            if($key == 'Holistic Nature Line'){
+                                $hr_line = '<img class="line_key" alt="'.$key.'" title="'.$key.'" src="images/cb_select_hnl.png">
+                            <div class="l_d"></div>';
+                            }elseif($key == 'Classic Nature Line'){
+                                $hr_line = '<img class="line_key" alt="'.$key.'" title="'.$key.'" src="images/cb_select_cnl.png">
+                            <div class="l_d"></div>';
+                            }elseif($key == 'Pro Nature Line'){
+                                $hr_line = '<img class="line_key" alt="'.$key.'" title="'.$key.'" src="images/cb_select_pnl.png">
+                            <div class="l_d"></div>';
+                            }elseif($key == 'Titan Line') {
+                                $hr_line = '<img class="line_key" alt="' . $key . '" title="' . $key . '" src="images/cb_select_titan.png"><div class="l_d"></div>';
                             }
-                            //товары
-                            $output_y[] = '<div class="product_item '. $activ_item .' col-lg-3"><a href="' . route('products_show', ['category'=>'sobaki','url'=>$product->url] ) . '"><img class="img-fluid center" src="' . $product->images . '"><p class="product_name">' . $product->name . '</p><div class="product_desc">' . $product->excerpt . '</div></a><div class="product-item__more"><a href="' . route("products_show", ["category"=>"sobaki","url"=>$product->url] ) . '" class="product-item__more-link">ДЕТАЛЬНІШЕ</a></div></div>';
+
+                            $output_y[] = '<div class="line_block col-lg-12 col-md-12 text-center">'.$hr_line.'</div>';
+
+                             foreach ($line as $product) {
+
+                                $activ_item = "";
+                                if (!$product->active) {
+                                    $activ_item = 'active_item';
+                                }
+
+                                //товары
+                                $output_y[] = '<div class="product_item ' . $activ_item . ' col-lg-3"><a href="' . route('products_show', ['category' => 'sobaki', 'url' => $product->url]) . '"><img class="img-fluid center" src="' . $product->images . '"><p class="product_name">' . $product->name . '</p><div class="product_desc">' . $product->excerpt . '</div></a><div class="product-item__more"><a href="' . route("products_show", ["category" => "sobaki", "url" => $product->url]) . '" class="product-item__more-link">ДЕТАЛЬНІШЕ</a></div></div>';
+                            }
                         }
                         $output = array([
                             'products' => $output_y,
