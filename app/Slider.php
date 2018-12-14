@@ -10,7 +10,7 @@ class Slider extends Model
     protected $table = 'sliders';
     public $timestamps = false;
 
-    protected $fillable = ['id','images','prev_desc','desc', 'sort'];
+    protected $fillable = ['id','active','images','prev_desc','desc', 'sort'];
 
 
     public function getNameAttribute()

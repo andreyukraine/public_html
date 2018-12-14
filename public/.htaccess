@@ -1,7 +1,9 @@
 <IfModule mod_rewrite.c>
 RewriteEngine On
+RewriteCond %{HTTP_HOST} ^chicopee\.kiev\.ua
+RewriteRule ^(.*)$ https://chicopee.in.ua/$1 [R=301,L]
 RewriteCond %{HTTP_HOST} ^www.chicopee.in.ua$ [NC]
-RewriteRule ^(.*)$ http://chicopee.in.ua/$1 [R=301,L]
+RewriteRule ^(.*)$ https://chicopee.in.ua/$1 [R=301,L]
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^((?s).*)$ index.php?_url=/$1 [QSA,L]

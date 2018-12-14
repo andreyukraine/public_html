@@ -76,13 +76,13 @@ class HomeController extends Controller
 
         $mass = array();
         Session::all();
-        $sliders_mass = DB::table('sliders')->get()->sortByDesc('sort');
+        $sliders_mass = DB::table('sliders')->get()->sortBy('sort');
         foreach ($sliders_mass as $key=>$slide){
             $locale = App::getLocale();
             $prev_desc = "prev_desc_" . $locale;
             $desc = "desc_" . $locale;
             $item = array([
-                'img'=> "http://chicopee.in.ua". $slide->images,
+                'img'=> "https://chicopee.in.ua". $slide->images,
                 'prev_text'=>$slide->{$prev_desc},
                 'text'=>$slide->{$desc}
             ]);

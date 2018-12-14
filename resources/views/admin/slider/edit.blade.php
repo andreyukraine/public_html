@@ -3,24 +3,31 @@
     <div class="container">
 
 
-        <h3>Edit slider - {!! $slider->id !!} - {!! $local !!}</h3>
-
-        <hr>
-
-        {{--{{$validator->title}}--}}
-
         {!! Form::open(['route' => ['slider.update', $slider->id], 'method'=>'PUT', 'enctype'=>'multipart/form-data']) !!}
-            <div class="col-lg-8">
-                <div class="row">
-                    <div class="form-group col-lg-10">
-                        <label for="exampleFormControlInput1">Name</label>
-                        <input name="name" type="text" value="{{$slider->name}}" class="form-control" id="exampleFormControlInput1">
-                    </div>
-                    <div class="form-group col-lg-2">
-                        <label for="exampleFormControlInput1">Sort</label>
-                        <input name="sort" type="text" value="{{$slider->sort}}" class="form-control" id="exampleFormControlInput1">
-                    </div>
+
+            <div class="row">
+                <div class="text-left col-lg-10">
+                    <h3>Edit slide - {!! $slider->id !!}</h3>
                 </div>
+                <div class="text-right col-lg-2">
+                    <p class="activ_p">Активность слайда: <input name="active" value="1" type="checkbox" @if($slider->active)checked="checked"@endif></p>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="form-group col-lg-10">
+                    <label for="exampleFormControlInput1">Name</label>
+                    <input name="name" type="text" value="{{$slider->name}}" class="form-control" id="exampleFormControlInput1">
+                </div>
+                <div class="form-group col-lg-2">
+                    <label for="exampleFormControlInput1">Sort</label>
+                    <input name="sort" type="text" value="{{$slider->sort}}" class="form-control" id="exampleFormControlInput1">
+                </div>
+            </div>
+            <hr>
+
+            <div class="col-lg-8">
+
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Prev desc</label>
                     <textarea name="prev_desc" class="form-control" id="exampleFormControlTextarea3" rows="3">{{$slider->prev_desc}}</textarea>
@@ -32,6 +39,7 @@
                 {{Form::submit('Submit',['class'=>'btn btn-success'])}}
             </div>
             <div class="col-lg-4">
+                <label for="exampleFormControlInput2">Картинка</label>
                 @if($slider->images)
                     <img class="img-responsive center" src="{!! $slider->images !!}">
                 @else

@@ -1,7 +1,8 @@
-@font-face {
+/*@font-face {
     font-family: 'Ossem';
-    src: url('/public/fonts/Ossem-Rust-ua.otf');
-}
+    src: url('./public/fonts/Ossem-Rust-ua.otf');
+}*/
+
 body {
     margin: 0;
     font-family: 'Ossem';

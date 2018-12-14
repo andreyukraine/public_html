@@ -13,8 +13,13 @@
         <hr>
         @foreach($sliders as $slider)
             <div class="row">
-                <div class="col-lg-1">
-                    {!! $slider->id !!}
+               <div class="col-lg-1">
+                    @if($slider->active)
+                        <span class="glyphicon glyphicon-eye-open text-success"></span>
+                    @else
+                        <span class="glyphicon glyphicon-eye-open"></span>
+                    @endif
+                    <b>&nbsp;{!! $slider->id !!}</b>
                 </div>
                 <div class="col-lg-10">
                     <p class="product_name">{!! $slider->name !!}</p>

@@ -1,5 +1,5 @@
 <?php
 return [
-    'prev_desc' => 'CLASSIC NATURE LINE 100% БЕЗ ПШЕНИЦІ, ЯЛОВИЧИНИ, СВИНИНИ',
-    'desc' => 'Канадський корм Chicopee Classic Nature Line - нова лінійка вдосконалених рецептів, які дозволяють вашому вихованцеві залишатися здоровим і красивим.'
+    'prev_desc' => 'Отримай в подарунок фірменний контейнер',
+    'desc' => 'при покупці СLASIC NATURE LINE 15 кг або HOLISTIC NATURE LINE 12 кг'
 ];

@@ -41,6 +41,7 @@ class SliderController extends Controller
         }
 
         $slider = new Slider();
+        $slider->active = $request->active;
         $slider->name = $request->name;
         $slider->desc = $request->desc;
         $slider->prev_desc = $request->prev_desc;
@@ -81,6 +82,7 @@ class SliderController extends Controller
         }
 
         $slider = Slider::find($id);
+        $slider->active = $request->active;
         $slider->name = $request->name;
         $slider->prev_desc = $request->prev_desc;
         $slider->desc = $request->desc;
