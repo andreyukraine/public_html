@@ -82,11 +82,13 @@ class HomeController extends Controller
             $prev_desc = "prev_desc_" . $locale;
             $desc = "desc_" . $locale;
             $item = array([
-                'img'=> "https://chicopee.in.ua". $slide->images,
+                'index'=> $key,
+                'img'=> "http://localhost". $slide->images,
                 'prev_text'=>$slide->{$prev_desc},
                 'text'=>$slide->{$desc}
             ]);
-            $mass[$key] = $item;
+            $mass[$slide->sort] = $item;
+            arsort($mass);
         }
 
         $json_mass = json_encode($mass);

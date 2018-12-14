@@ -414,40 +414,63 @@
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
             <script>
-                $(document).ready(function () {
 
+
+
+                $(document).ready(function () {
+                    var ind_rotator = 0;
                     var imgArr = <?php echo $slider;?>;
-                    var currImg = 0;
                     var preloadArr = new Array();
                     //слайдер на главной
                     for (key in imgArr) {
                         for(f in imgArr[key]){
-                            //console.log(imgArr[key][f]);
-                            preloadArr[key] = new Image();
-                            preloadArr[key].src = imgArr[key][f].img;
-                            preloadArr[key].prev_text = imgArr[key][f].prev_text;
-                            preloadArr[key].text = imgArr[key][f].text;
+
+
+
+                            preloadArr[imgArr[key][f].index] = new Image();
+                            preloadArr[imgArr[key][f].index].src = imgArr[key][f].img;
+                            preloadArr[imgArr[key][f].index].prev_text = imgArr[key][f].prev_text;
+                            preloadArr[imgArr[key][f].index].text = imgArr[key][f].text;
+
+
+
                         }
                     }
 
-                    var intID = setInterval(changeImg, 15000);
+                    preloadArr.reverse();
+
+
+                    var intID = setInterval(changeImg, 3000);
 
                     /* image rotator */
+
+                    console.log(ind_rotator);
+
                     function changeImg(){
 
+                        if (ind_rotator == preloadArr.length){
+                            ind_rotator = 0;
+                        }
+                        if (ind_rotator > preloadArr.length){
+                            ind_rotator = preloadArr.length;
+                        }
+
+                        console.log(ind_rotator);
                         $('#slide').animate({opacity: 0.6}, 700, function(){
-                            $(this).css('background','url(' + preloadArr[currImg%preloadArr.length].src +') center center no-repeat');
-                            $(this).css('background-size','cover');
+                            $('#slide').css('background','url(' + preloadArr[ind_rotator].src +') center center no-repeat');
+                            $('#slide').css('background-size','cover');
+                            $('.title_home').html(preloadArr[ind_rotator].prev_text);
+                            $('.title_home').css('color','#ffff');
+                            $('.h4_home').html(preloadArr[ind_rotator].text);
+                            ind_rotator++;
                         }).animate({opacity: 1}, 700);
 
-                        $('.title_home').html(preloadArr[currImg%preloadArr.length].prev_text);
-                        $('.title_home').css('color','#ffff');
-                        $('.h4_home').html(preloadArr[currImg%preloadArr.length].text);
 
-                        currImg++;
 
-                        //console.log(preloadArr[currImg++%preloadArr.length].text);
                     }
+
+
+
 
                     var device = navigator.userAgent.toLowerCase();
                     var mob = device.match(/android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/);
