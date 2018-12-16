@@ -33,6 +33,7 @@ class PartnersController extends Controller
 
         foreach ($s_mass as $key=>$partner){
             $item = array([
+                'id'=>$partner->id,
                 'name'=>$partner->name,
                 'addres'=>$partner->addres,
                 'type'=>$partner->type
@@ -42,6 +43,7 @@ class PartnersController extends Controller
 
         foreach ($e_mass as $key=>$partner){
             $item = array([
+                'id'=>$partner->id,
                 'name'=>$partner->name,
                 'addres'=>$partner->addres,
                 'type'=>$partner->type

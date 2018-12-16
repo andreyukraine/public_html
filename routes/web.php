@@ -46,9 +46,16 @@
     Route::post('send', ['uses'=>'HomeController@index', 'as'=>'post_home']);
     Route::get('send', ['uses'=>'HomeController@index', 'as'=>'get_home']);
 
+
+    //СТРАНИЦЫ
+    Route::group(['prefix' => 'pages'], function () {
+        Route::get('/{url}', ['as' => 'pages', 'uses' => 'Pages\PagesController@show']);
+
+    });
     Route::get('shops', ['uses'=>'PartnersController@index','as'=>'shops']);
-    Route::get('contact', function () { return view('site.content.contact');})->name('contact');
-    Route::get('about', function () { return view('site.content.about');})->name('about');
+
+    //Route::get('contact', function () { return view('site.content.contact');})->name('contact');
+    //Route::get('about', function () { return view('site.content.about');})->name('about');
 
 
 
@@ -103,7 +110,13 @@
         Route::resource('slider', 'Slider\SliderController');
         Route::resource('blog', 'Blog\BlogController');
         Route::resource('values', 'Catalog\ValueController');
+        Route::resource('pages', 'Pages\PagesController');
         //Route::resource('partners', 'PartnersController');
+
+        //PAGES
+        Route::group(['prefix' => 'pages'], function () {
+            Route::get('/', ['as' => 'pages.admin', 'uses' => 'Pages\PagesController@admin']);
+        });
 
         //ПАРТНЕРЫ
         Route::get('partners', ['uses'=>'PartnersController@admin','as'=>'partners.admin']);
@@ -136,5 +149,6 @@
         Route::get('delete_products/{id}',['uses'=>'Catalog\ProductController@destroy', 'as'=>'delete.products']);
         Route::get('delete_slider/{id}',['uses'=>'Slider\SliderController@destroy', 'as'=>'delete.slider']);
         Route::get('delete_category/{id}',['uses'=>'Catalog\CategoryController@destroy', 'as'=>'delete.category']);
+        Route::get('delete_pages/{id}',['uses'=>'Pages\PagesController@destroy', 'as'=>'delete.pages']);
     });
 

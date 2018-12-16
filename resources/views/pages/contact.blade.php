@@ -1,5 +1,6 @@
 @extends('site.content.home')
 @section('title', "Контакти")
+@section('meta', "Контакти")
 @section('header')
     <div id="content" class="site-content">
         <div class="ast-container">
@@ -8,7 +9,7 @@
                     <article itemtype="https://schema.org/CreativeWork" itemscope="itemscope" class="post-5 page type-page status-publish ast-article-single">
                         <!-- .entry-header -->
                         <div class="entry-content clear" itemprop="text">
-                            <div class="elementor elementor-5">
+                            <div class="elementor elementor-6">
                                 <div class="elementor-inner">
                                     <div class="elementor-section-wrap">
                                         <section class="elementor-element elementor-element-title_post elementor-section-content-bottom elementor-reverse-mobile elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-section elementor-top-section" data-settings="{background_background:classic,shape_divider_bottom:waves}" data-element_type="section">
@@ -25,9 +26,8 @@
                                                     <div class="elementor-element elementor-element-75f8b4ef elementor-column elementor-col-100 elementor-top-column" data-element_type="column">
                                                         <div class="elementor-column-wrap elementor-element-populated">
                                                             <div class="elementor-widget-wrap">
-                                                                <div class="elementor-element elementor-element-38905c3d elementor-widget elementor-widget-heading" data-element_type="heading.default">
+                                                                <div class="elementor-element elementor-widget elementor-widget-heading" data-element_type="heading.default">
                                                                     <div class="elementor-widget-container">
-
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -47,42 +47,24 @@
     </div>
 @endsection
 @section('content')
+
     <div class="container">
         <div class="col-lg-12">
             <div class="row item_crumbs">
-                <p>{{ Breadcrumbs::render('contact', "") }}</p>
+                <p>{{ Breadcrumbs::render('pages', $page) }}</p>
             </div>
         </div>
-        <div class="title_page heading">{{trans('index.contact_title')}}</div>
-        <div class="container">
+        <div class="title_page heading">{!! $page->title !!}</div>
+        <br>
+        <div class="about">
             <div class="row">
-                    <div class="col-lg-6 col-md-6">
-                        <div class="icon icon-primary">
-                            <i class="fa fa-mobile"></i>
-                        </div>
-                        <div class="description">
-                            <h4 class="info-title">{{trans('index.contact_phone')}}</h4>
-                            <p>+38 067 6 907 177</p>
-                            <p>+38 050 1 907 177</p>
-                        </div>
-                        <div class="time_work">
-                            <h4>{{trans('index.contact_work_time')}}</h4>
-                            <p>Пн - Пт, 10:00-18:00</p>
-                        </div>
+                <div class="col-lg-6">
+                    <div class="text_my_style">
+                       {!! $page->desc !!}
                     </div>
-                    <div class="col-lg-6 col-md-6">
-                        <div class="icon icon-primary">
-                            <i class="fa fa-envelope"></i>
-                        </div>
-                        <div class="description">
-                            <h4 class="info-title">{{trans('index.contact_email')}}</h4>
-                            <p><a href="mailto:chicopee.ua@gmail.com">chicopee.ua@gmail.com</a></p>
-                        </div>
-                    </div>
-
+                </div>
             </div>
+
         </div>
     </div>
-
-
 @endsection

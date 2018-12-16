@@ -12,8 +12,7 @@
 |
 */
 //_token
-Route::post('asd', 'API\UserController@login');
-Route::get('asd', 'API\UserController@login');
+
 //Route::get('login', 'UserController@login');
 
 
@@ -25,5 +24,5 @@ Route::get('asd', 'API\UserController@login');
 //Route::post('register', 'API\UserController@register');
 //
 ////json users in maps
-//Route::post('/json',['uses'=>'Tools\ToolsController@importJson','as'=>'json']);
-//Route::get('/json',['uses'=>'Tools\ToolsController@importJson','as'=>'json']);
+Route::post('/json',['uses'=>'Tools\ToolsController@importJson','as'=>'json']);
+Route::get('/json',['uses'=>'Tools\ToolsController@importJson','as'=>'json']);

@@ -80,7 +80,7 @@
                                         @foreach($shops_mass as $shop)
                                             @foreach($shop as $item)
                                                     {{--<div class="city">{{$item['name']}}</div>--}}
-                                                    <div class="adres">{{$item['addres']}}</div>
+                                                    <div class="adres" id="{{$item['id']}}"><?php echo mb_strimwidth($item['addres'], 0, 50, "...");?></div>
                                                 @endforeach
                                         @endforeach
                                     </div>
@@ -101,10 +101,12 @@
 
 
         var shops = <?php echo $shops; ?>;
-
+        var map;
+        var markers;
+        var image = '/images/marker.png';
         function initMap() {
 
-            var map = new google.maps.Map(document.getElementById('map'), {
+            map = new google.maps.Map(document.getElementById('map'), {
                 zoom: 5.7,
                 center: {lat: 49.7140944, lng: 31.3367827}
             });
@@ -114,23 +116,25 @@
                     locations.push(geoadres(shops[key][f]));
                 }
             }
-            console.log(locations);
+            //console.log(locations);
 
 
 
             // Create an array of alphabetical characters used to label the markers.
             var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-            image = '/images/marker.png';
+
             // Add some markers to the map.
             // Note: The code uses the JavaScript Array.prototype.map() method to
             // create an array of markers based on a given "locations" array.
             // The map() method here has nothing to do with the Google Maps API.
-            var markers = locations.map(function(location, i) {
+            markers = locations.map(function(location, i) {
                 var contentString = '<p>'+location.addres+'</p>';
                 var marker = new google.maps.Marker({
                     position: location,
+                    id: location.id,
                     title: location.title,
-                    label: labels[i % labels.length],
+                    addres: location.addres,
+                    //label: labels[i % labels.length],
                     icon: image
                 });
                 var infowindow = new google.maps.InfoWindow({
@@ -146,20 +150,49 @@
             var markerCluster = new MarkerClusterer(map, markers,
                 {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
 
-
-
         }
         $(document).ready(function () {
+
+
+            $(".adres").on("click", function () {
+                var id = this.id;
+                $('.adres').each(function(index) {
+                    $(this).removeClass('active');
+                });
+                // на нужную вешаешь
+                $(this).addClass('active');
+                for (key in markers) {
+                    if (id == markers[key].id) {
+                        var contentString = '<p>'+markers[key].addres+'</p>';
+                        var infowindow = new google.maps.InfoWindow({
+                            content: contentString
+                        });
+
+                        //console.log(markers[key].id);
+                        map.setZoom(15);
+                        map.setCenter(markers[key].getPosition());
+                        infowindow.open(map, markers[key]);
+                        return markers[key];
+                    }
+                }
+
+            });
 
             $(".nav a").on("click", function () {
                 $(".nav").find(".active").removeClass("active");
                 $(this).addClass("active");
             });
         });
-
+        function toggleBounce(marker) {
+            if (marker.getAnimation() !== null) {
+                marker.setAnimation(null);
+            } else {
+                marker.setAnimation(google.maps.Animation.BOUNCE);
+            }
+        }
         function geoadres(shop) {
 
-            //console.log(shop);
+            //co bvnsole.log(shop);
 
             var resultlat = '';
             var resultlng = '';
@@ -174,7 +207,7 @@
                         resultlng = data.results[key].geometry.location.lng;
                     } }
             });
-            return { lat: resultlat, lng: resultlng, title: shop.name, addres: shop.addres}
+            return { lat: resultlat, lng: resultlng, id:shop.id,  title: shop.name, addres: shop.addres}
         }
 
 

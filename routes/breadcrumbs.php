@@ -6,9 +6,9 @@ Breadcrumbs::for('home', function ($trail) {
 });
 
 // About
-Breadcrumbs::for('about', function ($trail) {
+Breadcrumbs::for('pages', function ($trail, $page) {
     $trail->parent('home');
-    $trail->push(trans('breadcrumbs.about'), route('about'));
+    $trail->push($page->name, route('pages', $page->id));
 });
 
 // Shops

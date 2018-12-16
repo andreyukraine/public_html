@@ -33,13 +33,33 @@ class ToolsController extends Controller
 
 
     public function importJson(Request $request){
-        $data = $request->json()->all();
-        //dd($request->json());
-//        if ($data['data']){
-//            return "ok";
-//        }else{
-//            return "not json data";
+        $mass = $request->getContent();
+        $data = array();
+        $data = json_decode($mass,true);
+//        switch (json_last_error()) {
+//            case JSON_ERROR_NONE:
+//                echo ' - Ошибок нет';
+//                break;
+//            case JSON_ERROR_DEPTH:
+//                echo ' - Достигнута максимальная глубина стека';
+//                break;
+//            case JSON_ERROR_STATE_MISMATCH:
+//                echo ' - Некорректные разряды или несоответствие режимов';
+//                break;
+//            case JSON_ERROR_CTRL_CHAR:
+//                echo ' - Некорректный управляющий символ';
+//                break;
+//            case JSON_ERROR_SYNTAX:
+//                echo ' - Синтаксическая ошибка, некорректный JSON';
+//                break;
+//            case JSON_ERROR_UTF8:
+//                echo ' - Некорректные символы UTF-8, возможно неверно закодирован';
+//                break;
+//            default:
+//                echo ' - Неизвестная ошибка';
+//                break;
 //        }
+
         if ($data['key'] == "1234567890"){
             $users_sql = DB::table('partners')->where('index','=','1c')->get()->all();
             foreach ($users_sql as $user_sql){
@@ -53,7 +73,7 @@ class ToolsController extends Controller
                 $partner->index = $user['index'];
                 $partner->save();
             }
-            return $users_sql;
+            return "Send ok";
         }else{
             return "bad key";
         }

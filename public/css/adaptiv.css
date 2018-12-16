@@ -5325,7 +5325,17 @@ body.modal-loading {
     padding: 1px 25px 0;
     font-size: 12px;
 }
+.map-places .active{
+     color: red;
+ }
 .adres{
     padding-top: 5px;
     padding-bottom: 5px;
+
+}
+.adres:hover {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    cursor: pointer !important;
+    background-color: #CCCCCC;
 }

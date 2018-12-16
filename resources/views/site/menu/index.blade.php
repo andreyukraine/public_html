@@ -47,9 +47,9 @@
                         <div class="navbar-collapse justify-content-md-center collapse" id="containerNavbarCenter" aria-expanded="false" style="">
                             <ul class="navbar-nav">
                                 <li class="nav-item active"><a class="nav-link" href="/catalog">{{ trans('menu.catalog')}}</a></li>
-                                <li class="nav-item active"><a class="nav-link" href="/about">{{ trans('menu.about')}}</a></li>
-                                <li class="nav-item active"><a class="nav-link" href="/shops">{{trans('menu.buy')}}</a></li>
-                                <li class="nav-item active"><a class="nav-link" href="/contact">{{ trans('menu.contact')}}</a></li>
+                                <li class="nav-item active"><a class="nav-link" href="/pages/about">{{ trans('menu.about')}}</a></li>
+                                <li class="nav-item active"><a class="nav-link" href="/pages/shops">{{trans('menu.buy')}}</a></li>
+                                <li class="nav-item active"><a class="nav-link" href="/pages/contact">{{ trans('menu.contact')}}</a></li>
                             </ul>
                         </div>
                     </nav>
@@ -102,9 +102,9 @@
                                     <div class="navbar-collapse justify-content-md-center collapse" id="containerNavbarCenter" aria-expanded="false" style="">
                                         <ul class="navbar-nav">
                                             <li class="nav-item active"><a class="nav-link" href="/catalog">{{ trans('menu.catalog')}}</a></li>
-                                            <li class="nav-item active"><a class="nav-link" href="/about">{{ trans('menu.about')}}</a></li>
-                                            <li class="nav-item active"><a class="nav-link" href="/shops">{{trans('menu.buy')}}</a></li>
-                                            <li class="nav-item active"><a class="nav-link" href="/contact">{{ trans('menu.contact')}}</a></li>
+                                            <li class="nav-item active"><a class="nav-link" href="/pages/about">{{ trans('menu.about')}}</a></li>
+                                            <li class="nav-item active"><a class="nav-link" href="/pages/shops">{{trans('menu.buy')}}</a></li>
+                                            <li class="nav-item active"><a class="nav-link" href="/pages/contact">{{ trans('menu.contact')}}</a></li>
                                         </ul>
                                     </div>
                                 </nav>

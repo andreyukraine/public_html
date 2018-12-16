@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('admin.layouts.app')
 @section('content')
     <div class="container">
         <div class="row">
@@ -22,21 +22,22 @@
                 <ul class="nav nav-list">
 
                     @foreach($categories as $category)
-                        <div class="col-lg-11">
-                            <label class="tree-toggler nav-header">
-                                <span id="{{ $category->id }}">{{ $category->name }}</span>
-                            </label>
-                        </div>
-                        <div class="col-lg-1">
-                            <a href="{{ route('category.edit',$category->id) }}"><span class="glyphicon glyphicon-pencil"></span></a>
-                            <a href="{{ route('delete.category',$category->id) }}"><span class="glyphicon glyphicon-remove"></span></a>
-                        </div>
 
-                        @if(count($category->childs))
-                            <li class="child">
-                                @include('admin.category.subcat',['childs' => $category->childs])
-                            </li>
-                        @endif
+                            <div class="row col-lg-11">
+                                <label class="tree-toggler nav-header">
+                                    <span id="{{ $category->id }}">{{ $category->name }}</span>
+                                </label>
+                            </div>
+                            <div class="col-lg-1">
+                                <a href="{{ route('category.edit',$category->id) }}"><span class="glyphicon glyphicon-pencil"></span></a>
+                                <a href="{{ route('delete.category',$category->id) }}"><span class="glyphicon glyphicon-remove"></span></a>
+                            </div>
+
+                            @if(count($category->childs))
+                                <li class="child">
+                                    @include('admin.category.subcat',['childs' => $category->childs])
+                                </li>
+                            @endif
 
                     @endforeach
 

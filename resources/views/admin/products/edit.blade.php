@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('admin.layouts.app')
 @section('content')
 
 
@@ -277,31 +277,26 @@
         return false;
     })
     $(document).ready(function () {
-
-        CKEDITOR.replace( 'composition',
-            {
-                customConfig : 'config.js',
-                toolbar : 'simple'
+        CKEDITOR.config.allowedContent = true;
+        CKEDITOR.replace( 'composition',{
+                customConfig: '/ckeditor/custom_config.js',
+                toolbar: 'simple'
             });
-        CKEDITOR.replace( 'dose',
-            {
-                customConfig : 'config.js',
-                toolbar : 'simple'
+        CKEDITOR.replace( 'dose',{
+                customConfig: '/ckeditor/custom_config.js',
+                toolbar: 'simple'
             });
-        CKEDITOR.replace( 'prev_desc',
-            {
-                customConfig : 'config.js',
-                toolbar : 'simple'
+        CKEDITOR.replace( 'prev_desc',{
+                customConfig: '/ckeditor/custom_config.js',
+                toolbar: 'simple'
             });
-        CKEDITOR.replace( 'description',
-            {
-                customConfig : 'config.js',
-                toolbar : 'simple'
+        CKEDITOR.replace( 'description',{
+                customConfig: '/ckeditor/custom_config.js',
+                toolbar: 'simple'
             });
-        CKEDITOR.replace( 'excerpt',
-            {
-                customConfig : 'config.js',
-                toolbar : 'simple'
+        CKEDITOR.replace( 'excerpt',{
+                customConfig: '/ckeditor/custom_config.js',
+                toolbar: 'simple'
             });
     })
 

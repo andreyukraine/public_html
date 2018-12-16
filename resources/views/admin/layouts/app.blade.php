@@ -75,6 +75,7 @@
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     {{--<a class="dropdown-item" href="{{ route('tools') }}">Импорт</a>--}}
+                                    <a class="dropdown-item" href="{{ route('pages.admin') }}">Страницы</a>
                                     <a class="dropdown-item" href="{{ route('slider.index') }}">Слайдер</a>
                                     <a class="dropdown-item" href="{{ route('partners.admin') }}">Партнеры</a>
                                 </div>
@@ -87,15 +88,11 @@
                                     <a class="dropdown-item" href="{{ route('blog.index') }}">Посты</a>
                                 </div>
                             </li>
-                            {{--<li class="nav-item dropdown">--}}
-                                {{--<a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--}}
-                                    {{--Tasks--}}
-                                {{--</a>--}}
-                                {{--<div class="dropdown-menu" aria-labelledby="navbarDropdown">--}}
-                                    {{--<a class="dropdown-item" href="{{ route('tasks.index') }}">All tasks</a>--}}
-                                    {{--<a class="dropdown-item" href="{{ route('tasks.create') }}">Create</a>--}}
-                                {{--</div>--}}
-                            {{--</li>--}}
+                            <li class="nav-item dropdown">
+                                <a href="{{ route('pages.admin') }}" class="nav-link" role="button" aria-haspopup="true">
+                                    Страницы
+                                </a>
+                            </li>
 
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="{{url('/admin.users')}}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

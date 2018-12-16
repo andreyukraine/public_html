@@ -1,13 +1,34 @@
 @extends('admin.layouts.app')
 @section('content')
     <div class="container">
-        <h3>Add partner</h3>
-        {!! Form::open(['route' => ['partners.store'], 'enctype'=>'multipart/form-data']) !!}
-        <hr>
-        <div class="form-group">
-            <label for="exampleFormControlInput1">Имя</label>
-            <input name="name" type="text" class="form-control" id="exampleFormControlInput1">
+
+
+        {!! Form::open(['route' => ['pages.store'], 'enctype'=>'multipart/form-data']) !!}
+
+        <div class="row">
+            <div class="text-left col-lg-10">
+                <h3>Add page</h3>
+            </div>
+            <div class="text-right col-lg-2">
+                <p class="activ_p">Активность страницы: <input name="active" value="0" type="checkbox"></p>
+            </div>
         </div>
+        <br>
+        <div class="row">
+            <div class="text-left col-lg-12">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">Имя</label>
+                            <input name="name" type="text" value="" class="form-control" id="exampleFormControlInput1">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        <hr>
         <nav>
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
                 <a class="nav-item nav-link active" id="6-tab" data-toggle="tab" href="#info" role="tab" aria-controls="nav-info" aria-selected="true">Информация</a>
@@ -17,16 +38,13 @@
                 {{--вкладка информация--}}
                 <div class="tab-pane fade show active" id="info" role="tabpanel" aria-labelledby="6-tab">
                     <div class="row">
-                        <div class="col-lg-8">
-
-
-                        </div>
-                        <div class="col-lg-4">
+                        <div class="col-lg-12">
                             <div class="form-group">
-                                <label for="exampleFormControlTextarea1">Картинка</label>
-                                <input name="file" id="file" class="file" type="file" data-preview-file-type="any" data-upload-url="#">
+                                <label for="exampleFormControlInput1">Полное описание</label>
+                                <textarea name="desc" class="form-control" id="mytextarea" rows="10"></textarea>
                             </div>
                         </div>
+
                     </div>
                 </div>
                 {{--вкладка seo--}}
@@ -51,26 +69,17 @@
         {!! Form::close() !!}
 
     </div>
-
 @endsection
+<script src="{{ asset('vendor/unisharp/laravel-ckeditor/ckeditor.js') }}"></script>
 
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script>
     $(document).ready(function () {
-        $('#dow_file').click(function () {
-            var i = $(this).attr('data-title');
-            console.log(i);
-            var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
-            $.ajax({
-                url: 'ajax_file',
-                type: 'POST',
-                data: {_token: CSRF_TOKEN, id:i},
-                success: function (data) {
-                    console.log(data);
-                    $('#files p').html(data);
-                }
-            });
-        })
-    })
 
+        CKEDITOR.replace( 'desc',
+            {
+                customConfig : 'config.js',
+                toolbar : 'simple'
+            });
 </script>
