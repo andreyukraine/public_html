@@ -12,7 +12,7 @@
         {!! Form::open(['route' => ['slider.store'], 'enctype'=>'multipart/form-data']) !!}
         <div class="row">
             <div class="text-right col-lg-2 col-lg-offset-10">
-                <p class="activ_p ">Активность слайда: <input name="active" value="1" type="checkbox"></p>
+                <p class="activ_p ">Активность слайда: <input name="active" value="1" type="checkbox" checked="checked"></p>
             </div>
         </div>
         <br>
