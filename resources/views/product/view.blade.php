@@ -103,7 +103,10 @@
                                         <?php
                                         $value_lang = "name_".App::getLocale();
                                         ?>
-                                            <div class="opt_bl"><img class="img-fluid center" width="50px" src="{{$value->images}}"><span>{!! $value->$value_lang !!}</span></div>
+                                            <div class="opt_bl">
+                                                <img class="img-fluid center" width="50px" src="{{$value->images}}">
+                                                <span>{!! $value->$value_lang !!}</span>
+                                            </div>
                                         @endif
                                     @endforeach
                             @else
@@ -134,7 +137,7 @@
                                                         </span>
                                                         <span class="custom-radio check-lg">
                                                             <input type="radio" id="ProductOptionID0" name="ProductOptionID" value="177" data-stockstatus="2" data-stocklevel="310" data-sizename="2.5kg">
-                                                            <span class="check"></span>
+                                                            <span class="check">арт. {!! $i['sku'] !!}</span>
                                                         </span>
                                                     </label>
                                                 </div>
