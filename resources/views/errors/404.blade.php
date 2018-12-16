@@ -49,7 +49,7 @@
 @section('content')
     <div class="container">
         <div class="col-lg-12 center-block">
-            <h3>404 Error Page</h3>
+            <img src="/images/404.png">
         </div>
     </div>
 @endsection

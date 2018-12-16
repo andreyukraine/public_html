@@ -246,13 +246,14 @@ class ProductController extends Controller
     public function show($category, $url)
     {
         $product = Product::where('url', '=', $url)->first();
-
+        $shops = $this->getShopsProduct();
         if (!empty($product)) {
 
                 $options = $this->getProductOptionsCategory($product->getAttribute('id'));
                 $files = $product->files()->get()->all();
                 return view('product.view',
                     [
+                        'shops' => $shops[0],
                         'product' => $product,
                         'options' => $options,
                         'files' => $files
@@ -636,5 +637,42 @@ class ProductController extends Controller
             }
         }
         return 0;
+    }
+
+    public function getShopsProduct(){
+        $mass = array();
+        $mass_shops = array();
+        $mass_ecommerces = array();
+
+        $s_mass = DB::table('partners')->where('type','=','T')->get()->sortByDesc('sort');
+        $e_mass = DB::table('partners')->where('type','=','I')->get()->sortByDesc('sort');
+
+        foreach ($s_mass as $key=>$partner){
+            $item = array([
+                'id'=>$partner->id,
+                'name'=>$partner->name,
+                'addres'=>$partner->addres,
+                'type'=>$partner->type
+            ]);
+            $mass_shops[$key] = $item;
+        }
+
+        foreach ($e_mass as $key=>$partner){
+            $item = array([
+                'id'=>$partner->id,
+                'name'=>$partner->name,
+                'addres'=>$partner->addres,
+                'type'=>$partner->type
+            ]);
+            $mass_ecommerces[$key] = $item;
+        }
+
+        $json_mass_shops = json_encode($mass_shops);
+        $json_mass_ecommerces = json_encode($mass_ecommerces);
+
+        return $mass = array([
+            'shops'=>$json_mass_shops,
+            'ecommerces'=>$json_mass_ecommerces
+        ]);
     }
 }

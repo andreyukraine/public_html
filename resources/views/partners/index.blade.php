@@ -72,7 +72,7 @@
                             <div id="map" style="width:100%;height:400px;">
                             </div>
                         </div>
-                        <div class="map-info col-lg-6 col-sm-12">
+                        <div class="map-info col-lg-6 hidden-sm">
                             <div class="wrapper">
                                 <div class="scroll-wrapper map-places scrollbar-outer" style="position: relative;">
                                     <div class="map-places scrollbar-outer scroll-content scroll-scrolly_visible" style="height: auto; margin-bottom: 0px; margin-right: 0px; max-height: 470px;">

@@ -2834,9 +2834,9 @@ input[type="button"].btn-block {
   }
 }
 
-.collapse:not(.show) {
-  display: none;
-}
+/*.collapse:not(.show) {*/
+  /*display: none;*/
+/*}*/
 
 .collapsing {
   position: relative;

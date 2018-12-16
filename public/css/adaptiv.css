@@ -332,7 +332,7 @@ and (max-device-width : 768px) {
         border: 1px solid transparent;
         border-top-left-radius: 0.25rem;
         border-top-right-radius: 0.25rem;
-        width: 33%;
+        width: 25%;
         color: #000000;
         font-size: 1rem;
         text-align: center !important;
@@ -909,7 +909,7 @@ and (orientation : landscape){
         border: 1px solid transparent;
         border-top-left-radius: 0.25rem;
         border-top-right-radius: 0.25rem;
-        width: 33%;
+        width: 25%;
         color: #000000;
         font-size: 1rem;
         text-align: center !important;
@@ -1064,7 +1064,7 @@ and (orientation : portrait){
         border: 1px solid transparent;
         border-top-left-radius: 0.25rem;
         border-top-right-radius: 0.25rem;
-        width: 33% !important;
+        width: 25% !important;
         color: #000000;
         font-size: 18px;
         text-align: center !important;
@@ -1621,7 +1621,7 @@ and (max-device-width : 992px)
         border: 1px solid transparent;
         border-top-left-radius: 0.25rem;
         border-top-right-radius: 0.25rem;
-        width: 33% !important;
+        width: 25% !important;
         color: #000000;
         font-size: 1rem;
         text-align: center !important;
@@ -2125,7 +2125,7 @@ and (orientation : landscape)
         border: 1px solid transparent;
         border-top-left-radius: 0.25rem;
         border-top-right-radius: 0.25rem;
-        width: 33%;
+        width: 25%;
         color: #000000;
         font-size: 24px;
         text-align: center !important;
@@ -2618,7 +2618,7 @@ and (orientation : portrait)
         border: 1px solid transparent;
         border-top-left-radius: 0.25rem;
         border-top-right-radius: 0.25rem;
-        width: 33% !important;
+        width: 25% !important;
         color: #000000;
         font-size: 24px;
         text-align: center !important;
@@ -4064,7 +4064,7 @@ and (min-width : 1024px) {
         text-transform: uppercase;
         background-color: #fff;
         border-bottom: 1px solid;
-        font-size: 35px;
+        /*font-size: 1.7rem;*/
     }
     .shop_by .nav-tabs .nav-link {
         border-top-left-radius: 0.25rem;
@@ -4078,9 +4078,9 @@ and (min-width : 1024px) {
         border: 1px solid transparent;
         border-top-left-radius: 0.25rem;
         border-top-right-radius: 0.25rem;
-        width: 33%;
+        width: 25%;
         color: #000000;
-        font-size: 35px;
+        /*font-size: 1.7rem;*/
         text-align: center !important;
     }
 
