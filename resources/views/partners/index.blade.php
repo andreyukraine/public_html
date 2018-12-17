@@ -92,7 +92,7 @@
                 <div class="tab-pane fade" id="nav-s" role="tabpanel" aria-labelledby="nav-profile-tab">
                     @foreach($ecommerces as $shope)
                         @foreach($shope as $item)
-                            <div class="adres" id="{{$item['id']}}"><?php echo mb_strimwidth($item['addres'], 0, 70, "...");?></div>
+                            <div class="adres" id="{{$item['id']}}"><a href="<?=$item['addres']?>"><?php echo mb_strimwidth($item['addres'], 0, 70, "...");?></a></div>
                         @endforeach
                     @endforeach
                 </div>
