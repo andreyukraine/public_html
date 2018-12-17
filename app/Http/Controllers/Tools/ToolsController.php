@@ -73,6 +73,14 @@ class ToolsController extends Controller
                 $partner->index = $user['index'];
                 $partner->save();
             }
+            foreach ($data['ecommers'] as $ecommers) {
+                $partner = new Partners();
+                $partner->name = $ecommers['user'];
+                $partner->addres = $ecommers['store'];
+                $partner->type = "I";
+                $partner->index = $ecommers['index'];
+                $partner->save();
+            }
             return "Send ok";
         }else{
             return "bad key";

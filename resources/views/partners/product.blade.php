@@ -13,26 +13,32 @@
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                         <div class="map-wrapper col-lg-6 col-sm-12">
-                        <div id="map" style="width:100%;height:400px;">
-                        </div>
+                            <div id="map" style="width:100%;height:400px;">
+                            </div>
                         </div>
                         <div class="map-info col-lg-6 hidden-sm">
-                        <div class="wrapper">
-                        <div class="scroll-wrapper map-places scrollbar-outer" style="position: relative;">
-                        <div class="map-places scrollbar-outer scroll-content scroll-scrolly_visible" style="height: auto; margin-bottom: 0px; margin-right: 0px; max-height: 470px;">
-                        <?php
-                        $shops_mass = json_decode($shops['shops'], true);?>
-                        @foreach($shops_mass as $shop)
-                        @foreach($shop as $item)
-                        <div class="adres" id="{{$item['id']}}"><?php echo mb_strimwidth($item['addres'], 0, 70, "...");?></div>
-                        @endforeach
-                        @endforeach
-                        </div>
-                        </div>
-                        </div>
+                            <div class="wrapper">
+                                <div class="scroll-wrapper map-places scrollbar-outer" style="position: relative;">
+                                    <div class="map-places scrollbar-outer scroll-content scroll-scrolly_visible" style="height: auto; margin-bottom: 0px; margin-right: 0px; max-height: 470px;">
+                                        <?php
+                                        $shops_mass = json_decode($shops['shops'], true);?>
+                                        @foreach($shops_mass as $shop)
+                                            @foreach($shop as $item)
+                                            <div class="adres" id="{{$item['id']}}"><?php echo mb_strimwidth($item['addres'], 0, 70, "...");?></div>
+                                            @endforeach
+                                        @endforeach
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
+                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                        @foreach($shops['ecommerces'] as $shope)
+                            @foreach($shope as $item)
+                                <div class="adres" id="{{$item['id']}}"><?php echo mb_strimwidth($item['addres'], 0, 70, "...");?></div>
+                            @endforeach
+                        @endforeach
+                    </div>
                 </div>
             </div>
         </div>

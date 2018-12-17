@@ -89,7 +89,13 @@
                         </div>
                 </div>
 
-                <div class="tab-pane fade" id="nav-s" role="tabpanel" aria-labelledby="nav-profile-tab">список интернет-магазинов</div>
+                <div class="tab-pane fade" id="nav-s" role="tabpanel" aria-labelledby="nav-profile-tab">
+                    @foreach($ecommerces as $shope)
+                        @foreach($shope as $item)
+                            <div class="adres" id="{{$item['id']}}"><?php echo mb_strimwidth($item['addres'], 0, 70, "...");?></div>
+                        @endforeach
+                    @endforeach
+                </div>
             </div>
         </div>
     </div>

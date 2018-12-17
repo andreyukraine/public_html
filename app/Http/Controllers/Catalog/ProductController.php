@@ -668,11 +668,10 @@ class ProductController extends Controller
         }
 
         $json_mass_shops = json_encode($mass_shops);
-        $json_mass_ecommerces = json_encode($mass_ecommerces);
 
         return $mass = array([
             'shops'=>$json_mass_shops,
-            'ecommerces'=>$json_mass_ecommerces
+            'ecommerces'=>$mass_ecommerces
         ]);
     }
 }
