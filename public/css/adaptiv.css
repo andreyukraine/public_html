@@ -4073,6 +4073,13 @@ and (min-width : 1024px) {
         border-top-right-radius: 0.25rem;
         width: 50%;
     }
+    #nav-r .nav-tabs .nav-link{
+        border-top-left-radius: 0.25rem;
+        padding: 15px;
+        text-transform: uppercase;
+        border-top-right-radius: 0.25rem;
+        width: 100%;
+    }
 
     .nav-tabs .nav-link {
         border: 1px solid transparent;
@@ -5343,4 +5350,8 @@ body.modal-loading {
     background: url(./images/lapka_w.png) no-repeat #CCCCCC;
     background-position: 5px;
     background-size: 20px;
+}
+
+#nav-r .nav{
+    justify-content: space-around;
 }

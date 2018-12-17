@@ -191,7 +191,7 @@
             <div class="tab-content" id="nav-tabContent">
                 <div class="tab-pane fade show active" id="nav-o" role="tabpanel" aria-labelledby="nav-home-tab">{!! $product->desc !!}</div>
                 <div class="tab-pane fade" id="nav-s" role="tabpanel" aria-labelledby="nav-profile-tab">{!! $product->composition !!}</div>
-                <div class="tab-pane fade" id="nav-r" role="tabpanel" aria-labelledby="nav-profile-tab"></div>
+                <div class="tab-pane fade" id="nav-r" role="tabpanel" aria-labelledby="nav-profile-tab">@include('partners.product')</div>
                 <div class="tab-pane fade" id="nav-k" role="tabpanel" aria-labelledby="nav-contact-tab"><div class="block_tabl">{!! $product->dose !!}</div></div>
             </div>
         </div>
