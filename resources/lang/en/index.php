@@ -61,7 +61,10 @@ return [
 
     'not_products'=>'no products',
 
-    'where_to_by'=>'WHERE TO BUY'
+    'where_to_by'=>'WHERE TO BUY',
+    'shops_t' => 'sales outlets',
+    'shops_i' => 'online stores',
+
 
 
 
