@@ -24,7 +24,7 @@
 
     <!-- Bootstrap JavaScript -->
     <link rel="shortcut icon" href="/public/favicons.ico" type="image/x-icon">
-    <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
+
     <link rel="stylesheet" href="{{ asset('css/menu.css') }}" type="text/css" media="all">
     <link rel="stylesheet" href="{{ asset('css/adaptiv.css') }}" type="text/css" media="all">
     <link rel="stylesheet" href="{{ asset('css/style_new.css') }}" type="text/css" media="all">
