@@ -76,6 +76,7 @@ class ToolsController extends Controller
             foreach ($data['ecommers'] as $ecommers) {
                 $partner = new Partners();
                 $partner->name = $ecommers['user'];
+                $partner->addres = $ecommers['store'];
                 $partner->url = $ecommers['store'];
                 $partner->type = "I";
                 $partner->index = $ecommers['index'];
