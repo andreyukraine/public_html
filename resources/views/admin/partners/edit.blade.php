@@ -2,7 +2,7 @@
 @section('content')
     <div class="container">
         <h3>Add partner</h3>
-        {!! Form::open(['route' => ['partners.store'], 'enctype'=>'multipart/form-data']) !!}
+        {!! Form::open(['route' => ['partners.update', $partner->id],'method'=>'PUT', 'enctype'=>'multipart/form-data']) !!}
         <hr>
         <div class="form-group">
             <div class="row">

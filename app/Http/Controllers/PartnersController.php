@@ -121,9 +121,14 @@ class PartnersController extends Controller
      * @param  \App\Partners  $partners
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Partners $partners)
+    public function update(Request $request, $id)
     {
-        //
+        $partner = Partners::find($id);
+        $partner->name = $request->name;
+        $partner->addres = $request->addres;
+        $partner->type = $request->type;
+        $partner->url = $request->url;
+        $partner->save();
     }
 
     /**
