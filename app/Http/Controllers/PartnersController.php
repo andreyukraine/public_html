@@ -129,6 +129,8 @@ class PartnersController extends Controller
         $partner->type = $request->type;
         $partner->url = $request->url;
         $partner->save();
+
+        return redirect('admin/partners');
     }
 
     /**
