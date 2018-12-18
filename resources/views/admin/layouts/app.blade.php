@@ -31,8 +31,8 @@
 
 
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
+    {{--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">--}}
+    <link rel="stylesheet" href="{{ asset('css/admin/bootstrap.css') }}" type="text/css" media="all">
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
@@ -75,7 +75,6 @@
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     {{--<a class="dropdown-item" href="{{ route('tools') }}">Импорт</a>--}}
-                                    <a class="dropdown-item" href="{{ route('pages.admin') }}">Страницы</a>
                                     <a class="dropdown-item" href="{{ route('slider.index') }}">Слайдер</a>
                                     <a class="dropdown-item" href="{{ route('partners.admin') }}">Партнеры</a>
                                 </div>
@@ -121,7 +120,7 @@
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="nav navbar-nav">
+                    <ul class="nav navbar-nav login_block">
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">

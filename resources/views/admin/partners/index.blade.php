@@ -18,7 +18,10 @@
                         <div class="col-lg-1">
                             {{$partner->id}}
                         </div>
-                        <div class="col-lg-3">
+                        <div class="col-lg-1">
+                            <p class="index">{!! $partner->index !!}</p>
+                        </div>
+                        <div class="col-lg-2">
                             <a href="{{ route('products.edit',$partner->id) }}"><p class="name">{!! $partner->name !!}</p></a>
                         </div>
                         <div class="col-lg-5">

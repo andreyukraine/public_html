@@ -1,6 +1,9 @@
 .options p{
     margin: 0 0 0 !important;
 }
+.login_block{
+
+}
 .panel_my{
     text-align: right;
 }
@@ -21,6 +24,9 @@ li.child {
     list-style: none;
     margin-right: 4px;
 }
+div#navbarSupportedContent {
+    width: 100%;
+}
 .options_list {
     padding-top: 15px;
     padding-bottom: 15px;
@@ -32,6 +38,8 @@ li.child {
 .lang_selector {
     display: flex;
     flex-direction: row;
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 span.active{
     font-weight: bold;

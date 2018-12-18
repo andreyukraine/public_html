@@ -52,7 +52,6 @@ class PartnersController extends Controller
         }
 
         $json_mass_shops = json_encode($mass_shops);
-        //$json_mass_ecommerces = $mass_ecommerces;
 
         return view('partners.index', [
 
@@ -82,8 +81,10 @@ class PartnersController extends Controller
         $partner->name = $request->name;
         $partner->addres = $request->addres;
         $partner->type = $request->type;
-        $partner->index = $request->index;
+        $partner->index = "site";
         $partner->save();
+
+        return redirect('admin/partners');
     }
 
     /**
@@ -132,5 +133,15 @@ class PartnersController extends Controller
         if ($partner != null) {
             $partner->delete();
         }
+
+        return redirect('admin/partners');
+    }
+    public function destroy_json($id)
+    {
+        $partner = Partners::find($id);
+        if ($partner != null) {
+            $partner->delete();
+        }
+
     }
 }

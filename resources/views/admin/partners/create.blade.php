@@ -5,8 +5,19 @@
         {!! Form::open(['route' => ['partners.store'], 'enctype'=>'multipart/form-data']) !!}
         <hr>
         <div class="form-group">
-            <label for="exampleFormControlInput1">Имя</label>
-            <input name="name" type="text" class="form-control" id="exampleFormControlInput1">
+            <div class="row">
+                <div class="col-lg-11">
+                    <label for="exampleFormControlInput1">Имя</label>
+                    <input name="name" type="text" class="form-control" id="exampleFormControlInput1">
+                </div>
+                <div class="col-lg-1">
+                    <label for="exampleFormControlInput1">Тип</label>
+                    <select name="type" class="form-control" id="exampleFormControlInput1">
+                        <option value="I" id="">I</option>
+                        <option value="T" id="">T</option>
+                    </select>
+                </div>
+            </div>
         </div>
         <nav>
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -18,8 +29,10 @@
                 <div class="tab-pane fade show active" id="info" role="tabpanel" aria-labelledby="6-tab">
                     <div class="row">
                         <div class="col-lg-8">
-
-
+                            <div class="form-group">
+                                <label for="exampleFormControlInput1">Адрес</label>
+                                <input name="addres" type="text" class="form-control" id="exampleFormControlInput1">
+                            </div>
                         </div>
                         <div class="col-lg-4">
                             <div class="form-group">
