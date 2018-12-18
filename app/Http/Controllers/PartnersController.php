@@ -106,9 +106,12 @@ class PartnersController extends Controller
      * @param  \App\Partners  $partners
      * @return \Illuminate\Http\Response
      */
-    public function edit(Partners $partners)
+    public function edit($id)
     {
-        //
+        $partner = Partners::find($id);
+        return view('admin.partners.edit', [
+            'partner'=>$partner
+        ]);
     }
 
     /**
