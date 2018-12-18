@@ -77,6 +77,7 @@ class ToolsController extends Controller
                 $partner = new Partners();
                 $partner->name = $ecommers['user'];
                 $partner->url = $ecommers['store'];
+                $partner->addres =$ecommers['store'];
                 $partner->type = "I";
                 $partner->index = $ecommers['index'];
                 $partner->save();
