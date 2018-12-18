@@ -45,6 +45,7 @@ class PartnersController extends Controller
             $item = array([
                 'id'=>$partner->id,
                 'name'=>$partner->name,
+                'url'=>$partner->url,
                 'addres'=>$partner->addres,
                 'type'=>$partner->type
             ]);
