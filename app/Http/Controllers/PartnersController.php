@@ -81,6 +81,7 @@ class PartnersController extends Controller
         $partner->name = $request->name;
         $partner->addres = $request->addres;
         $partner->type = $request->type;
+        $partner->url = $request->url;
         $partner->index = "site";
         $partner->save();
 

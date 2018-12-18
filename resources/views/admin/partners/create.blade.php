@@ -33,6 +33,10 @@
                                 <label for="exampleFormControlInput1">Адрес</label>
                                 <input name="addres" type="text" class="form-control" id="exampleFormControlInput1">
                             </div>
+                            <div class="form-group">
+                                <label for="exampleFormControlInput1">URL</label>
+                                <input name="url" type="text" class="form-control" id="exampleFormControlInput1">
+                            </div>
                         </div>
                         <div class="col-lg-4">
                             <div class="form-group">
