@@ -24,7 +24,6 @@
         <nav>
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
                 <a class="nav-item nav-link active" id="6-tab" data-toggle="tab" href="#info" role="tab" aria-controls="nav-info" aria-selected="true">Информация</a>
-                <a class="nav-item nav-link" id="7-tab" data-toggle="tab" href="#seo" role="tab" aria-controls="nav-seo" aria-selected="false">SEO</a>
             </div>
             <div class="tab-content" id="myTabContent">
                 {{--вкладка информация--}}
@@ -46,21 +45,6 @@
                                 <input name="file" id="file" class="file" type="file" data-preview-file-type="any" data-upload-url="#">
                             </div>
                         </div>
-                    </div>
-                </div>
-                {{--вкладка seo--}}
-                <div class="tab-pane fade" id="seo" role="tabpanel" aria-selected="false" aria-labelledby="7-tab">
-                    <div class="form-group">
-                        <label for="exampleFormControlInput1">Ссылка</label>
-                        <input name="url" type="text" value="" class="form-control" id="exampleFormControlInput6">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleFormControlInput1">Заголовок</label>
-                        <input name="title" type="text" value="" class="form-control" id="exampleFormControlInput7">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleFormControlInput1">Метатеги</label>
-                        <input name="meta" type="text" value="" class="form-control" id="exampleFormControlInput6">
                     </div>
                 </div>
             </div>
