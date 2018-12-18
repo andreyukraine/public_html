@@ -304,7 +304,7 @@
                                                                     <div class="row">
                                                                         <div class="col-md-3">
                                                                             <div class="form-ask__group">
-                                                                                <input id="name_q" name="form_text_1" value="" type="text" class="form-ask__control" placeholder="{{trans('index.question_name')}}">
+                                                                                <input id="name_q" name="form_text_1" value="" type="text" class="form-ask__control" required placeholder="{{trans('index.question_name')}}">
                                                                             </div>
                                                                         </div>
                                                                         <div class="col-md-4">

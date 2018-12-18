@@ -55,7 +55,7 @@ class HomeController extends Controller
                 $data = array(
                     'name' => $request['name'],
                     'tel' => $request['tel'],
-                    'email' => $request->email,
+                    'email' => $request['email'],
                     'comments' => $request['comment']
                 );
 

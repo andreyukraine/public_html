@@ -5397,3 +5397,6 @@ body.modal-loading {
 #margin ul{
     margin: 0 !important
 }
+.modal-backdrop.in {
+    opacity: 0.9;
+}

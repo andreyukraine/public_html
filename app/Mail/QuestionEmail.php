@@ -33,6 +33,11 @@ class QuestionEmail extends Mailable
             ->bcc($this->info['address'], $this->info['name'])
             ->replyTo($this->info['address'], $this->info['name'])
             ->subject($this->info['subject'])
-            ->with([ 'name' => $this->data['name'],'tel' => $this->data['tel'],'email' => $this->data['email'], 'comments' => $this->data['comments']]);
+            ->with([
+                'name' => $this->data['name'],
+                'tel' => $this->data['tel'],
+                'email' => $this->data['email'],
+                'comments' => $this->data['comments']
+            ]);
     }
 }
