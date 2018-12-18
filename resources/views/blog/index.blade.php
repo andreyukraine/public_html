@@ -60,7 +60,7 @@
             @foreach($posts as $post)
                     <div class="col-lg-4">
                         <div class="img_block">
-                            <img class="img-fluid center" src="{!! $post->images !!}">
+                            <img class="img-fluid center" alt="{!! $post->name !!}" title="{!! $post->name !!}" src="{!! $post->images !!}">
                         </div>
                     </div>
                     <div class="col-lg-8">
