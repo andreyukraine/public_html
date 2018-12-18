@@ -660,6 +660,7 @@ class ProductController extends Controller
         foreach ($e_mass as $key=>$partner){
             $item = array([
                 'id'=>$partner->id,
+                'url'=>$partner->url,
                 'name'=>$partner->name,
                 'addres'=>$partner->addres,
                 'type'=>$partner->type
