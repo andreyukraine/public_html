@@ -63,7 +63,7 @@ class ToolsController extends Controller
         if ($data['key'] == "1234567890"){
             $users_sql = DB::table('partners')->where('index','=','1c')->get()->all();
             foreach ($users_sql as $user_sql){
-                Partners::destroy_json($user_sql->id);
+                Partners::destroy($user_sql->id);
             }
             foreach ($data['users'] as $user) {
                 $partner = new Partners();
