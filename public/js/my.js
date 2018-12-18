@@ -3,9 +3,6 @@
 
 $(document).ready(function () {
 
-    
-
-
     //селектор языка
     $('span.select_lang').click(function () {
         var lang = this.id;
@@ -57,7 +54,7 @@ $(document).ready(function () {
     $('#myModal').on('shown.bs.modal', function () {
         $('#myInput').trigger('focus')
     })
-})
+});
 
 
 

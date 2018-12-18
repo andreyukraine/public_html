@@ -32,7 +32,7 @@
                             <span id="{{ $post->id }}">{{ $post->name }}</span>
                         </label>
                     </div>
-                    <div class="col-lg-1">
+                    <div class="panel_my col-lg-1">
                         <a href="{{ route('blog.edit',$post->id) }}"><span class="glyphicon glyphicon-pencil"></span></a>
                         {{--<a href="{{ route('delete.category',$post->id) }}"><span class="glyphicon glyphicon-remove"></span></a>--}}
                     </div>

@@ -275,7 +275,7 @@
             }
         });
         return false;
-    })
+    });
     $(document).ready(function () {
         CKEDITOR.config.allowedContent = true;
         CKEDITOR.replace( 'composition',{

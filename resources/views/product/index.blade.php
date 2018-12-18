@@ -90,7 +90,7 @@
                         @endif
                     </div>
                     @foreach($line as $product)
-                    <div class="item_list @if(!$product->active) active_item_{!! App::getLocale() !!} @endif col-lg-3 col-md-4">
+                    <div class="item_list @if(!$product->active) active_item_{!! App::getLocale() !!} @endif col-lg-3 col-md-4 col-sm-4">
                         <?php
                         $name = str_replace(' ', '_',$product->name);
                         //echo mb_strtolower($name);

@@ -28,7 +28,7 @@
                                     <span id="{{ $category->id }}">{{ $category->name }}</span>
                                 </label>
                             </div>
-                            <div class="col-lg-1">
+                            <div class="panel_my col-lg-1">
                                 <a href="{{ route('category.edit',$category->id) }}"><span class="glyphicon glyphicon-pencil"></span></a>
                                 <a href="{{ route('delete.category',$category->id) }}"><span class="glyphicon glyphicon-remove"></span></a>
                             </div>

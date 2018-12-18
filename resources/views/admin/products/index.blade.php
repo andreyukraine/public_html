@@ -57,7 +57,7 @@
                         <div class="col-lg-1">
                             <p class="product_sort">{!! $product->sort !!}</p>
                         </div>
-                        <div class="col-lg-1">
+                        <div class="panel_my col-lg-1">
                             <a href="{{ route('products.edit',$product->id) }}"><span class="glyphicon glyphicon-pencil"></span></a>
                             <a href="{{ route('delete.products',$product->id) }}"><span class="glyphicon glyphicon-remove"></span></a>
                         </div>

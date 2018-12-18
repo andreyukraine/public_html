@@ -3884,14 +3884,6 @@ input[type="button"].btn-block {
   padding-bottom: 0.5rem;
 }
 
-.navbar-collapse {
-  -ms-flex-preferred-size: 100%;
-  flex-basis: 100%;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  -ms-flex-align: center;
-  align-items: center;
-}
 
 .navbar-toggler {
   padding: 0.25rem 0.75rem;

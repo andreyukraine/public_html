@@ -91,20 +91,21 @@
                                     <span class="screen-reader-text">Main Menu</span>
                                     <span class="menu-toggle-icon"></span>
                                 </button>
+
                             </div>
                         </div>
                         <div class="ast-main-header-bar-alignment">
                             <div class="main-header-bar-navigation">
                                 <nav class="navbar navbar-light bg-faded rounded navbar-toggleable-md">
-                                    <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#containerNavbarCenter" aria-controls="containerNavbarCenter" aria-expanded="false" aria-label="Toggle navigation">
+                                    <button class="navbar-toggler-right collapse1" type="button" data-toggle="collapse1" data-target="#containerNavbarCenter" aria-controls="containerNavbarCenter" aria-expanded="false" aria-label="Toggle navigation">
                                         <span class="navbar-toggler-icon"></span>
                                     </button>
-                                    <div class="navbar-collapse justify-content-md-center collapse" id="containerNavbarCenter" aria-expanded="false" style="">
+                                    <div class="navbar-collapse1 justify-content-md-center collapse1" id="containerNavbarCenter" aria-expanded="false" style="">
                                         <ul class="navbar-nav">
-                                            <li class="nav-item active"><a class="nav-link" href="/catalog">{{ trans('menu.catalog')}}</a></li>
-                                            <li class="nav-item active"><a class="nav-link" href="/pages/about">{{ trans('menu.about')}}</a></li>
-                                            <li class="nav-item active"><a class="nav-link" href="/shops">{{trans('menu.buy')}}</a></li>
-                                            <li class="nav-item active"><a class="nav-link" href="/pages/contact">{{ trans('menu.contact')}}</a></li>
+                                            <li class="nav-item"><a class="nav-link" href="/catalog">{{ trans('menu.catalog')}}</a></li>
+                                            <li class="nav-item"><a class="nav-link" href="/pages/about">{{ trans('menu.about')}}</a></li>
+                                            <li class="nav-item"><a class="nav-link" href="/shops">{{trans('menu.buy')}}</a></li>
+                                            <li class="nav-item"><a class="nav-link" href="/pages/contact">{{ trans('menu.contact')}}</a></li>
                                         </ul>
                                     </div>
                                 </nav>

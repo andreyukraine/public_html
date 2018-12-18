@@ -91,7 +91,7 @@
                     $('#files p').html(data);
                 }
             });
-        })
+        });
         $('.del_img').click(function () {
             var url_img = $(this).attr('data-url');
             var post_id = $(this).attr('data-id');

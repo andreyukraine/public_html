@@ -20,7 +20,7 @@
                 <div class="col-lg-10">
                     <p class="product_name">{!! $option->name !!}</p>
                 </div>
-                <div class="col-lg-1">
+                <div class="panel_my col-lg-1">
                     <a href="{{ route('options.edit',$option->id) }}"><span class="glyphicon glyphicon-pencil"></span></a>
                     <a href="{{ route('delete.option',$option->id) }}"><span class="glyphicon glyphicon-remove"></span></a>
                 </div>

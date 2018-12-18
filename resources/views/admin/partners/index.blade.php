@@ -12,38 +12,27 @@
         </div>
         <hr>
         <div class="row">
-            <div class="cat col-lg-2">
-                {{--@foreach($categories as $category)--}}
-                    {{--<div>--}}
-                        {{--<label class="tree-toggler nav-header">--}}
-                            {{--<span id="{{ $category->id }}">{{ $category->name }}</span>--}}
-                        {{--</label>--}}
-                        {{--@if(count($category->childs))--}}
-                            {{--@include('admin.category.subcat_task',['childs' => $category->childs])--}}
-                        {{--@endif--}}
-                    {{--</div>--}}
-                {{--@endforeach--}}
-            </div>
-            <div class="product_list col-lg-10">
+            <div class="partner_list col-lg-12">
                 @foreach($partners as $partner)
                     <div class="row">
-                        <div class="col-lg-2">
+                        <div class="col-lg-1">
                             {{$partner->id}}
-                            {{--@if($partner->image)--}}
-                                {{--<img width="100px" src="{!! $partner->images !!}">--}}
-                            {{--@else--}}
-                                {{--<img width="100px" src="{{asset('/admin/images/no_image.svg')}}">--}}
-                            {{--@endif--}}
                         </div>
-                        <div class="col-lg-7">
-                            <a href="{{ route('products.edit',$partner->id) }}"><p class="product_name">{!! $partner->name !!}</p></a>
+                        <div class="col-lg-3">
+                            <a href="{{ route('products.edit',$partner->id) }}"><p class="name">{!! $partner->name !!}</p></a>
+                        </div>
+                        <div class="col-lg-5">
+                            <p class="addres">{!! $partner->addres !!}</p></a>
                         </div>
                         <div class="col-lg-1">
-                            <p class="product_sort">{!! $partner->sort !!}</p>
+                            <p class="sort">{!! $partner->sort !!}</p>
                         </div>
                         <div class="col-lg-1">
-                            {{--{<a href="{{ route('products.edit',$partner->id) }}"><span class="glyphicon glyphicon-pencil"></span></a>--}}
-                            {{--<a href="{{ route('delete.products',$partner->id) }}"><span class="glyphicon glyphicon-remove"></span></a>--}}
+                            <p class="type">{!! $partner->type !!}</p>
+                        </div>
+                        <div class="panel_my col-lg-1">
+                            <a href="{{ route('partners.edit',$partner->id) }}"><span class="glyphicon glyphicon-pencil"></span></a>
+                            <a href="{{ route('delete.partner',$partner->id) }}"><span class="glyphicon glyphicon-remove"></span></a>
                         </div>
                     </div>
                 @endforeach

@@ -420,7 +420,7 @@
                 $(document).ready(function () {
                     var ind_rotator = 0;
                     var imgArr = <?php echo $slider;?>;
-                    var preloadArr = new Array();
+                    var preloadArr = [];
                     //слайдер на главной
                     for (key in imgArr) {
                         for(f in imgArr[key]){
@@ -535,7 +535,7 @@
                         });
                     });
 
-                })
+                });
 
                 $("#comment_form").submit(function(e){
 
@@ -665,12 +665,12 @@
                 $(window).scroll(function(){
                     if($(this).scrollTop()>85){
                         $('#top_menu').css("position", "fixed");
-                        $('.main-header-bar').addClass('fix_menu')
+                        $('.main-header-bar').addClass('fix_menu');
                         $('#top_menu svg').show();
                     }
                     else if ($(this).scrollTop()<85){
                         $('#top_menu').css("position", "relative");
-                        $('.main-header-bar').removeClass('fix_menu')
+                        $('.main-header-bar').removeClass('fix_menu');
                         $('#top_menu svg').hide();
                     }
                 });

@@ -24,7 +24,7 @@
                 <div class="col-lg-10">
                     <p class="product_name">{!! $slider->name !!}</p>
                 </div>
-                <div class="col-lg-1">
+                <div class="panel_my col-lg-1">
                     <a href="{{ route('slider.edit',$slider->id) }}"><span class="glyphicon glyphicon-pencil"></span></a>
                     <a href="{{ route('delete.slider',$slider->id) }}"><span class="glyphicon glyphicon-remove"></span></a>
                 </div>

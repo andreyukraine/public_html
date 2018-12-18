@@ -178,7 +178,7 @@
                     $('.options_list').html(data);
                 }
             });
-        })
+        });
 
 
         $('.add_opt_img').on('click', function(){
@@ -206,7 +206,7 @@
                     $('.options_list').html(data);
                 }
             });
-        })
+        });
 
         //edit options
         $('.edit_opt').click(function (e) {
@@ -252,7 +252,7 @@
                 });
             });
 
-        })
+        });
 
         //del options
         $('.del_opt').on('click', function(){

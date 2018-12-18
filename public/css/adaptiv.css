@@ -13,11 +13,24 @@ body {
     /*background-image: url(images/bg.jpg);*/
     background-color: #fff;
 }
-
+@media (max-width: 1000px) {
+    .navbar-collapse.collapse:not(.in) {
+        display: none !important;
+    }
+    div#containerNavbarCenter {
+        width: 100%;
+    }
+    .navbar-collapse .nav-link {
+        display: block;
+        padding: 1.2rem 1rem;
+    }
+}
 @media only screen
 and (min-device-width : 320px)
 and (max-device-width : 768px) {
-
+    .tel_header{
+        display: none;
+    }
     .sticky-custom-logo {
         /*opacity: 0.5;*/
         border: 2px solid #ffffff;
@@ -30,9 +43,7 @@ and (max-device-width : 768px) {
         margin-right: 10px;
         text-align: center;
     }
-    .collapse:not(.show) {
-        display: none;
-    }
+
     .elementor-5 .elementor-element.elementor-element-d4f3dd3{
         padding:75px 20px 75px 20px;
     }
@@ -176,8 +187,6 @@ and (max-device-width : 768px) {
         margin: 0 0 1.5em 1.5em;
     }
     li.nav-item.active{
-        padding: 15px 15px 15px 15px;
-        line-height: 0.5em;
         text-align: center;
         text-transform: uppercase;
     }
@@ -323,9 +332,8 @@ and (max-device-width : 768px) {
         border: 1px solid transparent;
         border-top-left-radius: 0.25rem;
         border-top-right-radius: 0.25rem;
-        width: 50%;
+        width: 100%;
         color: #000000;
-        font-size: 1rem;
         text-align: center !important;
     }
     .nav-tabs .nav-link {
@@ -334,11 +342,9 @@ and (max-device-width : 768px) {
         border-top-right-radius: 0.25rem;
         width: 25%;
         color: #000000;
-        font-size: 1rem;
         text-align: center !important;
     }
     .tab-pane {
-        padding: 15px;
         font-family: 'Open Sans', Arial, 'Helvetica Neue', Helvetica, sans-serif;
         line-height: 1.5;
     }
@@ -347,7 +353,6 @@ and (max-device-width : 768px) {
         text-transform: uppercase;
         background-color: #fff;
         border-bottom: 1px solid;
-        font-size: 1rem;
     }
     h2, .h2 {
         font-size: 1rem;
@@ -518,7 +523,9 @@ and (min-width : 320px)
 and (max-width: 768px)
 and (orientation : landscape){
     /* Styles */
-
+    .tel_header{
+        display: block;
+    }
     .sticky-custom-logo {
         /*opacity: 0.5;*/
         border: 2px solid #ffffff;
@@ -533,17 +540,17 @@ and (orientation : landscape){
     }
     .opt_bl{
         float: left;
-        width: 100%;
+        width: 33%;
         min-height: 50px;
         font-family: 'Open Sans', Arial, 'Helvetica Neue', Helvetica, sans-serif;
         padding: 5px;
         color: #78654f;
         text-align: center;
-        margin-bottom: 25px;
     }
     .opt_bl img{
-        width: 150px;
+        width: auto;
         margin: 0 auto;
+        padding: 0 25px 0 25px;
     }
     .opt_bl span{
         padding-left: 5px;
@@ -551,7 +558,7 @@ and (orientation : landscape){
         width: 100%;
         text-align: center;
         display: block;
-        font-size: 1.5rem;
+        line-height: 18px;
     }
     .item_opt p{
         margin-bottom: 15px;
@@ -559,9 +566,7 @@ and (orientation : landscape){
     #nav-k {
         text-align: -moz-center;
     }
-    .collapse:not(.show) {
-        display: none;
-    }
+
     .elementor-5 .elementor-element.elementor-element-d4f3dd3{
         padding:75px 20px 75px 20px;
     }
@@ -718,8 +723,6 @@ and (orientation : landscape){
         margin: 0 0 1.5em 1.5em;
     }
     li.nav-item.active{
-        padding: 15px 15px 15px 15px;
-        line-height: 0.5em;
         text-align: center;
         text-transform: uppercase;
     }
@@ -848,7 +851,7 @@ and (orientation : landscape){
         font-size: 1.5rem;
     }
     .product_title h1{
-        font-size: 3rem;
+        font-size: 2rem;
     }
     h2, .h2 {
         font-size: 1rem;
@@ -903,7 +906,7 @@ and (orientation : landscape){
         padding: 15px;
         text-transform: uppercase;
         border-top-right-radius: 0.25rem;
-        width: 50%;
+        width: 100%;
     }
     .nav-tabs .nav-link {
         border: 1px solid transparent;
@@ -1032,7 +1035,9 @@ and (orientation : landscape){
 and (min-width : 320px)
 and (max-width: 768px)
 and (orientation : portrait){
-
+    .tel_header{
+        display: none;
+    }
     .sticky-custom-logo {
         /*opacity: 0.5;*/
         border: 2px solid #ffffff;
@@ -1051,14 +1056,25 @@ and (orientation : portrait){
         text-transform: uppercase;
         background-color: #fff;
         border-bottom: 1px solid;
-        font-size: 18px;
     }
     .shop_by .nav-tabs .nav-link {
         border-top-left-radius: 0.25rem;
         padding: 15px;
         text-transform: uppercase;
         border-top-right-radius: 0.25rem;
-        width: 100%;
+        width: 100% !important;
+    }
+    .shop_by_page .nav-tabs .nav-link {
+        border-top-left-radius: 0.25rem;
+        padding: 15px;
+        border-top-left-radius: 0.25rem;
+        border-top-right-radius: 0.25rem;
+        color: #000000;
+        font-size: 12px;
+        line-height: 12px;
+        text-align: center !important;
+        border-top-right-radius: 0.25rem;
+        width: 50%;
     }
     .nav-tabs .nav-link {
         border: 1px solid transparent;
@@ -1066,23 +1082,23 @@ and (orientation : portrait){
         border-top-right-radius: 0.25rem;
         width: 25% !important;
         color: #000000;
-        font-size: 18px;
+        font-size: 12px;
+        line-height: 12px;
         text-align: center !important;
     }
-    .nav-item nav-link a{
+    .nav-item .nav-link a{
         color: #d0152d;
     }
     nav {
         width: 100%;
     }
     .tab-pane {
-        padding: 15px;
         font-family: 'Open Sans', Arial, 'Helvetica Neue', Helvetica, sans-serif;
         line-height: 1.5;
     }
     .opt_bl{
         float: left;
-        width: 100%;
+        width: 50%;
         min-height: 50px;
         font-family: 'Open Sans', Arial, 'Helvetica Neue', Helvetica, sans-serif;
         padding: 5px;
@@ -1091,7 +1107,7 @@ and (orientation : portrait){
         margin-bottom: 25px;
     }
     .opt_bl img{
-        width: 150px;
+        width: 75px;
         margin: 0 auto;
     }
     .opt_bl span{
@@ -1100,7 +1116,7 @@ and (orientation : portrait){
         width: 100%;
         text-align: center;
         display: block;
-        font-size: 1.5rem;
+        font-size: 1rem;
     }
     .item_opt p{
         margin-bottom: 15px;
@@ -1110,9 +1126,6 @@ and (orientation : portrait){
     }
 
     /* Styles */
-    .collapse:not(.show) {
-        display: none;
-    }
 
     .elementor-5 .elementor-element.elementor-element-d4f3dd3{
         padding:75px 20px 75px 20px;
@@ -1124,22 +1137,22 @@ and (orientation : portrait){
         font-family: Ossem;
     }
     .elementor-5 .elementor-element.elementor-element-153200c6 {
-        margin-top: 0px;
-        margin-bottom: 0px;
+        margin-top: 0;
+        margin-bottom: 0;
         padding: 75px 25px 75px 25px;
     }
     .elementor-5 .elementor-element.elementor-element-9c9b708 > .elementor-widget-container {
-        padding: 0px 15px 0px 15px;
+        padding: 0 15px 0 15px;
     }
     .elementor-5 .elementor-element.elementor-element-3796d0e6{
         padding:100px 20px 75px 20px;
     }
     .elementor-5 .elementor-element.elementor-element-news {
-        padding: 75px 0px 75px 0px;
+        padding: 75px 0 75px 0;
     }
     .heading {
         word-wrap: break-word;
-        font-family: Ossem;
+        font-family: Ossem, serif;
         font-size: 35px;
         font-weight: normal;
         margin: 0 0 20px 0;
@@ -1154,7 +1167,7 @@ and (orientation : portrait){
         background-repeat: no-repeat;
         background-size: cover;
         transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
-        padding: 75px 0px 75px 0px;
+        padding: 75px 0 75px 0;
     }
     .elementor-5 .elementor-element.elementor-element-3796d0e6 {
         background-image: url(images/_slide4.jpg);
@@ -1162,7 +1175,7 @@ and (orientation : portrait){
         background-repeat: no-repeat;
         background-size: cover;
         transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
-        padding: 100px 0px 75px 0px;
+        padding: 100px 0 75px 0px;
     }
     .elementor-5 .elementor-element.elementor-element-153200c6{
         background-color:#000000;
@@ -1171,10 +1184,10 @@ and (orientation : portrait){
         background-repeat:no-repeat;
         background-size:cover;
         transition:background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
-        padding:150px 0px 125px 0px;
+        padding:150px 0 125px 0px;
     }
     .elementor-5 .elementor-element.elementor-element-dc4b6a7 {
-        padding: 75px 0px 75px 0px;
+        padding: 75px 0 75px 0px;
     }
     .elementor-5 .elementor-element.elementor-element-34c1c606{
         padding:0px 20px 50px 20px;
@@ -1184,7 +1197,7 @@ and (orientation : portrait){
         background-repeat: no-repeat;
         background-size: cover;
         transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
-        padding: 50px 0px 0px 0px;
+        padding: 50px 0 0 0;
         margin-top: 50px;
     }
     .navbar-toggler:not(:disabled):not(.disabled) {
@@ -1306,7 +1319,6 @@ and (orientation : portrait){
         margin: 0 0 1.5em 1.5em;
     }
     li.nav-item.active{
-        padding: 15px 15px 15px 15px;
         line-height: 0.5em;
         text-align: center;
         text-transform: uppercase;
@@ -1349,7 +1361,7 @@ and (orientation : portrait){
         display: block;
     }
     .modal-heading {
-        font-family: Ossem;
+        font-family: Ossem, serif;
         font-size: 40px;
         font-weight: normal;
         margin: 0 0 10px 0;
@@ -1448,11 +1460,11 @@ and (orientation : portrait){
     }
 
     .elementor-5 .elementor-element.elementor-element-title_post > .elementor-shape-bottom svg{
-        width:calc(100% + 1.3px);
+        width:calc(100% + 1px);
         height:25px;
     }
     .elementor-5 .elementor-element.elementor-element-3796d0e6 > .elementor-background-overlay{
-        width: calc(100% + 1.3px);
+        width: calc(100% + 1px);
         background-attachment:fixed;
     }
     .elementor-5 .elementor-element.elementor-element-title_post{
@@ -1465,7 +1477,7 @@ and (orientation : portrait){
         background-repeat:no-repeat;
         background-size:cover;
         transition:background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
-        padding:50px 0px 50px 0px;
+        padding:50px 0 50px 0px;
     }
     .elementor-5 .elementor-element.elementor-element-title_post > .elementor-background-overlay{
         /*background-image:url("https://websitedemos.net/alex06/wp-content/uploads/sites/192/2018/04/overlay-01-free-img.png");*/
@@ -1615,8 +1627,17 @@ and (max-device-width : 992px)
         padding: 15px;
         text-transform: uppercase;
         border-top-right-radius: 0.25rem;
+        width: 100%;
+    }
+
+    .shop_by_page .nav-tabs .nav-link {
+        border-top-left-radius: 0.25rem;
+        padding: 15px;
+        text-transform: uppercase;
+        border-top-right-radius: 0.25rem;
         width: 50%;
     }
+
     .nav-tabs .nav-link {
         border: 1px solid transparent;
         border-top-left-radius: 0.25rem;
@@ -1657,9 +1678,7 @@ and (max-device-width : 992px)
     #nav-k {
         text-align: -moz-center;
     }
-    .collapse:not(.show) {
-        display: none;
-    }
+
     /* Styles */
     .elementor-5 .elementor-element.elementor-element-d4f3dd3{
         padding:75px 20px 75px 20px;
@@ -2112,22 +2131,31 @@ and (orientation : landscape)
         text-transform: uppercase;
         background-color: #fff;
         border-bottom: 1px solid;
-        font-size: 24px;
+        font-size: 1.2rem;
     }
     .shop_by .nav-tabs .nav-link {
         border-top-left-radius: 0.25rem;
         padding: 15px;
         text-transform: uppercase;
         border-top-right-radius: 0.25rem;
+        width: 100%;
+    }
+
+    .shop_by_page .nav-tabs .nav-link {
+        border-top-left-radius: 0.25rem;
+        padding: 15px;
+        text-transform: uppercase;
+        border-top-right-radius: 0.25rem;
         width: 50%;
     }
+
     .nav-tabs .nav-link {
         border: 1px solid transparent;
         border-top-left-radius: 0.25rem;
         border-top-right-radius: 0.25rem;
         width: 25%;
         color: #000000;
-        font-size: 24px;
+        font-size: 1.2rem;
         text-align: center !important;
     }
     .nav-item nav-link a{
@@ -2137,9 +2165,9 @@ and (orientation : landscape)
         width: 100%;
     }
     .tab-pane {
-        padding: 15px;
-        font-family: 'Open Sans', Arial, 'Helvetica Neue', Helvetica, sans-serif;
+        padding-top: 15px;
         line-height: 1.5;
+        padding-bottom: 15px;
     }
     .opt_bl{
         float: left;
@@ -2612,8 +2640,17 @@ and (orientation : portrait)
          padding: 15px;
          text-transform: uppercase;
          border-top-right-radius: 0.25rem;
-         width: 50%;
+         width: 100%;
      }
+
+    .shop_by_page .nav-tabs .nav-link {
+        border-top-left-radius: 0.25rem;
+        padding: 15px;
+        text-transform: uppercase;
+        border-top-right-radius: 0.25rem;
+        width: 50%;
+    }
+
     .nav-tabs .nav-link {
         border: 1px solid transparent;
         border-top-left-radius: 0.25rem;
@@ -3099,7 +3136,7 @@ and (orientation : landscape) {
         padding: 15px;
         text-transform: uppercase;
         border-top-right-radius: 0.25rem;
-        width: 50%;
+        width: 100%;
     }
     .nav-tabs .nav-link {
         border: 1px solid transparent;
@@ -3615,7 +3652,7 @@ and (orientation : portrait) {
          padding: 15px;
          text-transform: uppercase;
          border-top-right-radius: 0.25rem;
-         width: 50%;
+         width: 100%;
      }
     .nav-tabs .nav-link {
         border: 1px solid transparent;
@@ -4071,9 +4108,9 @@ and (min-width : 1024px) {
         padding: 15px;
         text-transform: uppercase;
         border-top-right-radius: 0.25rem;
-        width: 50%;
+        width: 100%;
     }
-    #nav-r .nav-tabs .nav-link{
+    .nav-r .nav-tabs .nav-link{
         border-top-left-radius: 0.25rem;
         padding: 15px;
         text-transform: uppercase;
@@ -4098,9 +4135,9 @@ and (min-width : 1024px) {
         width: 100%;
     }
     .tab-pane {
-        padding: 15px;
-        font-family: 'Open Sans', Arial, 'Helvetica Neue', Helvetica, sans-serif;
+        padding-top: 15px;
         line-height: 1.5;
+        padding-bottom: 15px;
     }
 
     /* Styles */
@@ -5319,7 +5356,6 @@ body.modal-loading {
 .map-wrapper {
     float: left;
     width: 60%;
-    height: 100%;
 }
 .map-info {
     float: left;
@@ -5329,7 +5365,6 @@ body.modal-loading {
 }
 .wrapper {
     margin: 0 auto;
-    padding: 1px 25px 0;
     font-size: 12px;
 }
 .map-places .active{
@@ -5354,4 +5389,11 @@ body.modal-loading {
 
 #nav-r .nav{
     justify-content: space-around;
+}
+
+#shop_by .nav-link, .nav-item a{
+    width: 100%;
+}
+#margin ul{
+    margin: 0 !important
 }

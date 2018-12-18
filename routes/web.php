@@ -121,6 +121,7 @@
         //ПАРТНЕРЫ
         Route::get('partners', ['uses'=>'PartnersController@admin','as'=>'partners.admin']);
         Route::get('/partners_create', ['uses'=>'PartnersController@create','as'=>'partners.create']);
+        Route::get('/{id}/edit', ['uses'=>'PartnersController@edit','as'=>'partners.edit']);
         Route::post('/users_create', ['uses'=>'PartnersController@store', 'as'=>'partners.store']);
 
         //БЛОГ
@@ -150,5 +151,6 @@
         Route::get('delete_slider/{id}',['uses'=>'Slider\SliderController@destroy', 'as'=>'delete.slider']);
         Route::get('delete_category/{id}',['uses'=>'Catalog\CategoryController@destroy', 'as'=>'delete.category']);
         Route::get('delete_pages/{id}',['uses'=>'Pages\PagesController@destroy', 'as'=>'delete.pages']);
+        Route::get('delete_partner/{id}',['uses'=>'PartnersController@destroy', 'as'=>'delete.partner']);
     });
 

@@ -57,7 +57,7 @@
         <div class="title_page heading">{{trans('menu.buy')}}</div>
     </div>
     <div class="container">
-        <div class="row shop_by">
+        <div class="row shop_by_page">
             <div class="container">
                 <nav>
                     <div class="nav nav-tabs" id="nav-tab" role="tablist">

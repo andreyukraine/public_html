@@ -27,7 +27,7 @@
                     <div class="col-lg-10">
                         <p>{{ $page->name }}</p>
                     </div>
-                    <div class="col-lg-1">
+                    <div class="panel_my col-lg-1">
                         <a href="{{ route('pages.edit',$page->id) }}"><span class="glyphicon glyphicon-pencil"></span></a>
                         <a href="{{ route('delete.pages',$page->id) }}"><span class="glyphicon glyphicon-remove"></span></a>
                     </div>

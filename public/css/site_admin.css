@@ -1,6 +1,9 @@
 .options p{
     margin: 0 0 0 !important;
 }
+.panel_my{
+    text-align: right;
+}
 #create_task{
     float: right;
 }

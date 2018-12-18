@@ -220,7 +220,7 @@
             modal.style.display = "block";
             modalImg.src = this.src;
             captionText.innerHTML = this.alt;
-        }
+        };
 
 // Get the <span> element that closes the modal
         var span = document.getElementsByClassName("modal-close")[0];

@@ -131,7 +131,7 @@
                     $('#files p').html(data);
                 }
             });
-        })
+        });
         CKEDITOR.replace( 'composition',
             {
                 customConfig : 'config.js',
