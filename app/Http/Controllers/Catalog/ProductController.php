@@ -246,9 +246,9 @@ class ProductController extends Controller
     public function show($category, $url)
     {
         $product = Product::where('url', '=', $url)->first();
-        $shops = $this->getShopsProduct();
-        if (!empty($product)) {
 
+        if (!empty($product)) {
+                $shops = $this->getShopsProduct();
                 $options = $this->getProductOptionsCategory($product->getAttribute('id'));
                 $files = $product->files()->get()->all();
                 return view('product.view',
