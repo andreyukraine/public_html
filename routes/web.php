@@ -122,6 +122,7 @@
         Route::get('partners', ['uses'=>'PartnersController@admin','as'=>'partners.admin']);
         Route::get('/partners_create', ['uses'=>'PartnersController@create','as'=>'partners.create']);
         Route::get('/{id}/edit', ['uses'=>'PartnersController@edit','as'=>'partners.edit']);
+        Route::put('/{id}/edit', ['uses'=>'PartnersController@update','as'=>'partners.edit']);
         Route::post('/users_create', ['uses'=>'PartnersController@store', 'as'=>'partners.store']);
 
         //БЛОГ
