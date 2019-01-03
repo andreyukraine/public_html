@@ -83,7 +83,7 @@ class HomeController extends Controller
             $desc = "desc_" . $locale;
             $item = array([
                 'index'=> $key,
-                'img'=> "http://localhost". $slide->images,
+                'img'=> "https://chicopee.in.ua". $slide->images,
                 'prev_text'=>$slide->{$prev_desc},
                 'text'=>$slide->{$desc}
             ]);

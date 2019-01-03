@@ -184,14 +184,14 @@
                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
                     <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-o" role="tab" aria-controls="nav-home" aria-selected="true">{{trans('products.description')}}</a>
                     <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-s" role="tab" aria-controls="nav-profile" aria-selected="false">{{trans('products.compound')}}</a>
-                    <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-r" role="tab" aria-controls="nav-contact" aria-selected="false">{{trans('products.shops')}}</a>
+                    <!-- <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-r" role="tab" aria-controls="nav-contact" aria-selected="false">{{trans('products.shops')}}</a> -->
                     <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-k" role="tab" aria-controls="nav-contact" aria-selected="false">{{trans('products.norms')}}</a>
                 </div>
             </nav>
             <div class="tab-content" id="nav-tabContent">
                 <div class="tab-pane fade show active" id="nav-o" role="tabpanel" aria-labelledby="nav-home-tab">{!! $product->desc !!}</div>
                 <div class="tab-pane fade" id="nav-s" role="tabpanel" aria-labelledby="nav-profile-tab">{!! $product->composition !!}</div>
-                <div class="tab-pane fade" id="nav-r" role="tabpanel" aria-labelledby="nav-profile-tab">@include('partners.product')</div>
+                <!-- <div class="tab-pane fade" id="nav-r" role="tabpanel" aria-labelledby="nav-profile-tab">@include('partners.product')</div> -->
                 <div class="tab-pane fade" id="nav-k" role="tabpanel" aria-labelledby="nav-contact-tab"><div class="block_tabl">{!! $product->dose !!}</div></div>
             </div>
         </div>
