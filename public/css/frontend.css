@@ -388,17 +388,7 @@
       -ms-flex-align: end;
           align-items: flex-end; }
 
-.elementor-row {
-  width: 100%;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex; }
-  @media (max-width: 1024px) {
-    .elementor-row {
-      -webkit-flex-wrap: wrap;
-          -ms-flex-wrap: wrap;
-              flex-wrap: wrap; } }
+
 
 .elementor-column-wrap {
   width: 100%;

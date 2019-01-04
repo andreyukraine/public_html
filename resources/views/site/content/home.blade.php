@@ -414,9 +414,6 @@
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
             <script>
-
-
-
                 $(document).ready(function () {
                     var ind_rotator = 0;
                     var imgArr = <?php echo $slider;?>;
@@ -424,38 +421,25 @@
                     //слайдер на главной
                     for (key in imgArr) {
                         for(f in imgArr[key]){
-
-
-
                             preloadArr[imgArr[key][f].index] = new Image();
                             preloadArr[imgArr[key][f].index].src = imgArr[key][f].img;
                             preloadArr[imgArr[key][f].index].prev_text = imgArr[key][f].prev_text;
                             preloadArr[imgArr[key][f].index].text = imgArr[key][f].text;
-
-
-
                         }
                     }
 
                     preloadArr.reverse();
-
-
                     var intID = setInterval(changeImg, 3000);
-
                     /* image rotator */
-
-                    console.log(ind_rotator);
-
+                    //console.log(ind_rotator);
                     function changeImg(){
-
                         if (ind_rotator == preloadArr.length){
                             ind_rotator = 0;
                         }
                         if (ind_rotator > preloadArr.length){
                             ind_rotator = preloadArr.length;
                         }
-
-                        console.log(ind_rotator);
+                        //console.log(ind_rotator);
                         $('#slide').animate({opacity: 0.6}, 700, function(){
                             $('#slide').css('background','url(' + preloadArr[ind_rotator].src +') center center no-repeat');
                             $('#slide').css('background-size','cover');
@@ -464,20 +448,13 @@
                             $('.h4_home').html(preloadArr[ind_rotator].text);
                             ind_rotator++;
                         }).animate({opacity: 1}, 700);
-
-
-
                     }
-
-
-
 
                     var device = navigator.userAgent.toLowerCase();
                     var mob = device.match(/android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/);
                     if (mob) {
                         $("#slide").removeClass("bg-fixed");
                     }
-
 
                     //стрелка вверх
                     $("#back-top").hide();
@@ -501,7 +478,6 @@
                     $('.form-select').styler({
                         selectPlaceholder: 'Select...',
                     });
-
                 });
 
                 function ShowAlert($text){
@@ -509,8 +485,6 @@
                     $("#alert .modal-body").html($text);
                     $("#alert").modal("show");
                 }
-
-
 
                 $('.modal').on('show.bs.modal', function(e) {
                     e.preventDefault();
@@ -534,24 +508,18 @@
                             }
                         });
                     });
-
                 });
 
                 $("#comment_form").submit(function(e){
-
                     var inputs = document.querySelectorAll('.form-ask__control'), result, i;
                     for(i = 0; i < inputs.length; i++) {
                         if(inputs[i].id == "tel_q" || inputs[i].id == "email_q"){
                             if(inputs[i].value) {
-//                                if(inputs[i].id == "tel_q"){
-//                                    console.log(String(inputs[i].value).length);
-//                                }
                                 result = true;
                                 break;
                             }
                         }
                     }
-
                     if(!result) {
                         e.preventDefault();
                         ShowAlert($('<div>{{trans('index.question_msg')}}</div>').text());
@@ -578,12 +546,11 @@
                         });
                     }
                 });
-
             </script>
 
-
 @endif
-
+</div>
+<!-- #page -->
     <footer itemtype="https://schema.org/WPFooter" itemscope="itemscope" id="colophon" class="site-footer" role="contentinfo">
         <div class="astra-advanced-hook-65">
             <div class="elementor elementor-65">
@@ -608,20 +575,19 @@
                 <div class="ast-container">
                     <div class="elementor-container elementor-column-gap-default">
                         <div class="elementor-row">
-                            <div class="col-lg-2 col-md-2"><img width="150" src="{{asset('/images/logo_w.svg')}}"></div>
-                            <div class="tel_footer">
+                            <div class="col-lg-2 col-md-3 col-xs-4 col-sm-12"><img width="150" src="{{asset('/images/logo_w.svg')}}"></div>
+                            <div class="col-lg-2 col-md-3 col-xs-4 col-sm-12 tel_footer">
                                 <span>+38 067 6 907 177</span>
                                 <span>+38 050 1 907 177</span>
                             </div>
-                            <div class="col-lg-5 col-md-5 block_footer"><p>{{trans('index.all_rights')}}</p></div>
-                            <div class="col-lg-2 col-md-2 block_footer">
+                            <div class="col-lg-5 col-md-3 col-xs-4 col-sm-12 block_footer"><p>{{trans('index.all_rights')}}</p></div>
+                            <div class="col-lg-2 col-md-3 col-xs-4 col-sm-12 block_footer">
                                 <a target="_blank" href="https://www.facebook.com/chicopee.ua" class="sticky-custom-logo foot-social__btn" itemprop="url">
                                     <img src="{{ asset('/images/fb.svg') }}" class="img-fluid center" alt="">
                                 </a>
                                 <a target="_blank" href="https://www.instagram.com/chicopee.ua/" class="sticky-custom-logo foot-social__btn" itemprop="url">
                                     <img src="{{ asset('/images/insta.svg') }}" class="img-fluid center" alt="">
                                 </a></div>
-
                         </div>
                         <!-- .ast-row.ast-flex -->
                     </div>
@@ -634,14 +600,12 @@
         <!-- .ast-small-footer-->
     </footer>
     <!-- #colophon -->
-</div>
-<!-- #page -->
+
 <p id="back-top"><a href="#top"><span></span></a></p>
 
 @if(request()->is('/') != '/')
     <script>
         $(document).ready(function () {
-
             //стрелка вверх
             $("#back-top").hide();
             $(function () {
@@ -659,7 +623,7 @@
                     return false;
                 });
             });
-
+                    //TODO:test todo
             //меню
             $(function () {
                 $(window).scroll(function(){
@@ -675,16 +639,8 @@
                     }
                 });
             });
-
-
-
         });
     </script>
 @endif
-
-
-
-
-
 </body>
 </html>

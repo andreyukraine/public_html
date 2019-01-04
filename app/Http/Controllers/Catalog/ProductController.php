@@ -574,8 +574,27 @@ class ProductController extends Controller
         }
         return "";
     }
+    public static function getSkuOptionsArray($id_options, $id_product)
+    {
+        $mass = array();
+        $obj_value = DB::table('product_options')->where('product_id', '=', $id_product)->where('option_id', '=', $id_options)->get();
+        foreach ($obj_value as $key=>$r){
+            $mass[$key] = $r->sku;
+        }
+        return $mass;
+    }
 
-    public function getValueOptions($id_options, $id_product)
+    public static function getBarcodeOptionsArray($id_options, $id_product)
+    {
+        $mass = array();
+        $obj_value = DB::table('product_options')->where('product_id', '=', $id_product)->where('option_id', '=', $id_options)->get();
+        foreach ($obj_value as $key=>$r){
+            $mass[$key] = $r->barcode;
+        }
+        return $mass;
+    }
+
+    public static function getValueOptions($id_options, $id_product)
     {
 
         $obj_value = DB::table('product_options')->where('product_id', '=', $id_product)->where('option_id', '=', $id_options)->get();
@@ -584,6 +603,20 @@ class ProductController extends Controller
             return $r->$value_colum;
         }
         return "";
+    }
+
+    public static function getValueOptionsArray($id_options, $id_product, $lang)
+    {
+        if (empty($lang)){
+            $lang = App::getLocale();
+        }
+        $mass = array();
+        $obj_value = DB::table('product_options')->where('product_id', '=', $id_product)->where('option_id', '=', $id_options)->get();
+        $value_colum = "value_" .$lang;
+        foreach ($obj_value as $key=>$r){
+            $mass[$key] = $r->$value_colum;
+        }
+        return $mass;
     }
 
     public function del_images(Request $request){

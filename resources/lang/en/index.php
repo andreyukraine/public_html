@@ -65,10 +65,7 @@ return [
     'shops_t' => 'sales outlets',
     'shops_i' => 'online stores',
 
-
-
-
-
-
+    'export'=>'Thank you for waiting for the',
+    'file_link'=>'file link',
 
 ];

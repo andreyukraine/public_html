@@ -1735,9 +1735,7 @@ body .ast-oembed-container * {
 }
 
 
-#page {
-  display: block;
-}
+
 
 #primary,
 #secondary {
@@ -3495,9 +3493,7 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   }
 }
 
-.site-footer {
-  color: #fff;
-}
+
 
 .site-footer .widget-title {
   color: #eaeaea;

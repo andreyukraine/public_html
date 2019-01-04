@@ -864,8 +864,8 @@ and (orientation : landscape){
         padding-bottom: 15px;
     }
     .elementor-6 .elementor-element.elementor-element-title_post > .elementor-shape-bottom svg{
-        width:calc(300% + 1.3px);
-        height:100px;
+        width:calc(100% + 1.3px);
+        height:25px;
     }
     .elementor-5 .elementor-element.elementor-element-title_post > .elementor-shape-bottom svg{
         width: calc(100% + 1.3px);
@@ -967,12 +967,13 @@ and (orientation : landscape){
         transform: rotateY(0deg);
     }
     .elementor-6 .elementor-element.elementor-element-title_post{
-        background-image:url("./images/slide5.jpg");
+        /*background-image:url("./images/slide5.jpg");*/
+        background-color: #3a3a3a;
         background-position:center center;
         background-repeat:no-repeat;
         background-size:cover;
         transition:background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
-        padding:100px 0px 75px 0px;
+        padding:50px 0px 75px 0px;
     }
     .elementor-6 .elementor-element.elementor-element-title_post > .elementor-background-overlay{
         /*background-image:url("https://websitedemos.net/alex06/wp-content/uploads/sites/192/2018/04/overlay-01-free-img.png");*/
@@ -1027,6 +1028,13 @@ and (orientation : landscape){
         transition: all 0.2s linear;
         width: 150px;
     }
+    .elementor-row {
+        display: table;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+    }
 }
 
 
@@ -1037,6 +1045,13 @@ and (max-width: 768px)
 and (orientation : portrait){
     .tel_header{
         display: none;
+    }
+    .elementor-row {
+        display: table;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        width: 100%;
     }
     .sticky-custom-logo {
         /*opacity: 0.5;*/
@@ -1197,7 +1212,7 @@ and (orientation : portrait){
         background-repeat: no-repeat;
         background-size: cover;
         transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
-        padding: 50px 0 0 0;
+        padding: 25px 0 0 0;
         margin-top: 50px;
     }
     .navbar-toggler:not(:disabled):not(.disabled) {
@@ -1477,7 +1492,7 @@ and (orientation : portrait){
         background-repeat:no-repeat;
         background-size:cover;
         transition:background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
-        padding:50px 0 50px 0px;
+        padding:45px 0 50px 0px;
     }
     .elementor-5 .elementor-element.elementor-element-title_post > .elementor-background-overlay{
         /*background-image:url("https://websitedemos.net/alex06/wp-content/uploads/sites/192/2018/04/overlay-01-free-img.png");*/
@@ -1494,7 +1509,7 @@ and (orientation : portrait){
         background-repeat:no-repeat;
         background-size:cover;
         transition:background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
-        padding:75px 0px 75px 0px;
+        padding:45px 0px 75px 0px;
     }
     .elementor-6 .elementor-element.elementor-element-title_post > .elementor-background-overlay{
         /*background-image:url("https://websitedemos.net/alex06/wp-content/uploads/sites/192/2018/04/overlay-01-free-img.png");*/
@@ -1562,6 +1577,7 @@ and (orientation : portrait){
         padding-left: 5px;
         padding-right: 5px;
     }
+
     .elementor-5 .elementor-element.elementor-element-153200c6 > .elementor-shape-top svg{
         width:calc(100% + 1.3px);
         height:60px;
@@ -1592,6 +1608,12 @@ and (orientation : portrait){
         display: flex;
         line-height: 1.3;
         color: #ffffff;
+    }
+
+    .elementor-row {
+        display: table;
+        text-align: center;
+        width: 100%;
     }
 }
 
@@ -2093,6 +2115,12 @@ and (max-device-width : 992px)
         display: flex;
         line-height: 1.3;
         color: #ffffff;
+    }
+    .elementor-row {
+        display: -ms-flexbox;
+        display: flex;
+        margin-right: -15px;
+        margin-left: -15px;
     }
 }
 
@@ -2597,6 +2625,12 @@ and (orientation : landscape)
         line-height: 1.3;
         color: #ffffff;
     }
+    .elementor-row {
+        display: -ms-flexbox;
+        display: flex;
+        margin-right: -15px;
+        margin-left: -15px;
+    }
 }
 
 /* iPadsPro (portrait)
@@ -3091,6 +3125,12 @@ and (orientation : portrait)
         display: flex;
         line-height: 1.3;
         color: #ffffff;
+    }
+    .elementor-row {
+        display: -ms-flexbox;
+        display: flex;
+        margin-right: -15px;
+        margin-left: -15px;
     }
 }
 
@@ -3590,6 +3630,12 @@ and (orientation : landscape) {
         line-height: 1.3;
         color: #ffffff;
     }
+    .elementor-row {
+        display: -ms-flexbox;
+        display: flex;
+        margin-right: -15px;
+        margin-left: -15px;
+    }
 }
 
 
@@ -4072,6 +4118,12 @@ and (orientation : portrait) {
         display: flex;
         line-height: 1.3;
         color: #ffffff;
+    }
+    .elementor-row {
+        display: -ms-flexbox;
+        display: flex;
+        margin-right: -15px;
+        margin-left: -15px;
     }
 }
 
@@ -4606,6 +4658,12 @@ and (min-width : 1024px) {
         line-height: 1.3;
         color: #ffffff;
     }
+    .elementor-row {
+        display: -ms-flexbox;
+        display: flex;
+        margin-right: -15px;
+        margin-left: -15px;
+    }
 }
 
 
@@ -4621,6 +4679,12 @@ and (min-width : 1824px) {
         display: flex;
         line-height: 1.3;
         color: #ffffff;
+    }
+    .elementor-row {
+        display: -ms-flexbox;
+        display: flex;
+        margin-right: -15px;
+        margin-left: -15px;
     }
 }
 
@@ -4664,7 +4728,40 @@ and (max-device-width : 1123px)
         text-align: center;
         text-transform: uppercase;
     }
+    .elementor-row {
+        display: -ms-flexbox;
+        display: flex;
+        margin-right: -15px;
+        margin-left: -15px;
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -5255,6 +5352,7 @@ body.modal-loading {
 .line_block {
     margin-bottom: 20px;
     margin-top: 45px;
+    width: 100%;
 }
 .line_key{
     position: relative;
@@ -5399,4 +5497,64 @@ body.modal-loading {
 }
 .modal-backdrop.in {
     opacity: 0.9;
+}
+
+
+.site-footer {
+    color: #fff;
+    position: relative;
+    height: 80px;
+    margin-top: -55px;
+}
+#page {
+    display: block;
+    padding-bottom: 80px;
+}
+
+.product_list{
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.elementor-5 .elementor-row {
+    width: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+.block_footer {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+.elementor-column-gap-default {
+    text-align: center;
+}
+
+#proces{
+    background: url(images/proces.gif) no-repeat;
+    background-position-x: 0%;
+    background-position-y: 0%;
+    display: none;
+    height: 63px;
+    width: 100%;
+    position: relative;
+    background-position: center;
+    background-size: inherit;
+}
+
+.modal-loading {
+    position: fixed;
+    display: block;
+    height: 50px;
+    width: 50px;
+
+}
+.pull_file{
+    display: none;
+    font-size: 18px;
+    padding-top: 15px;
 }

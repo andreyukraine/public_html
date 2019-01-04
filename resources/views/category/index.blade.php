@@ -59,7 +59,7 @@
         <div class="h_content">
             <div class="heading">{{ trans('catalog.header_catalog')}} {{$category->title}}</div>
         </div>
-        <div class="product_list row">
+        <div class="product_list">
             @if(empty($products))
                 <div class="col-lg-12"><div class="not_products">{{trans('index.not_products')}}</div></div>
             @else

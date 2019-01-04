@@ -1,6 +1,7 @@
 <?php
 
-
+    Route::get('file', ['uses'=>'Tools\ToolsController@createFile','as'=>'createFile']);
+    Route::post('file', ['uses'=>'Tools\ToolsController@exportFile','as'=>'exportFile']);
 
     /**
      * Роуты аутентификации...
