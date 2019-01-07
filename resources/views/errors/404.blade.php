@@ -49,7 +49,7 @@
 @section('content')
     <div class="container">
         <div class="col-lg-12 center-block">
-            <img src="/images/404.png">
+            <img class="img-fluid" src="/images/404.png">
         </div>
     </div>
 @endsection
