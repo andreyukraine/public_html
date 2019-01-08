@@ -466,7 +466,7 @@ class ToolsController extends Controller
                                         $a[$i][0] = $product->sku[$h];
                                         $a[$i][1] = $product->barcode[$h];
                                         $a[$i][3] = $ves;
-                                        $a[$i][12] = "http://www.chicopee.in.ua/storage/upload/".$product->sku[$h].".jpg";
+                                        $a[$i][12] = "https://www.chicopee.in.ua/storage/upload/".$product->sku[$h].".jpg";
                                     }else{
                                         $i++;
                                         $objWorksheet->getStyle('A'.$i)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_LEFT);
@@ -483,7 +483,7 @@ class ToolsController extends Controller
                                             '',
                                             '',
                                             '',
-                                            "http://www.chicopee.in.ua/storage/upload/".$product->sku[$h].".jpg"
+                                            "https://www.chicopee.in.ua/storage/upload/".$product->sku[$h].".jpg"
                                         );
                                     }
                                 }else{
@@ -491,7 +491,7 @@ class ToolsController extends Controller
                                     $a[$i][0] = $product->sku[$h];
                                     $a[$i][1] = $product->barcode[$h];
                                     $a[$i][3]= $ves;
-                                    $a[$i][12] = "http://www.chicopee.in.ua/storage/upload/".$product->sku[$h].".jpg";
+                                    $a[$i][12] = "https://www.chicopee.in.ua/storage/upload/".$product->sku[$h].".jpg";
                                 }
                             }
 
@@ -509,7 +509,7 @@ class ToolsController extends Controller
                     return Response($new_product_mass_ajax);
                 }else {
 
-                    //return Response($output);
+                    return Response("error");
                 }
             }
         }
