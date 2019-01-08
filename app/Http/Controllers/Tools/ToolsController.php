@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
+use PHPExcel_IOFactory;
 use PHPExcel_Style_Alignment;
 use Rap2hpoutre\FastExcel\FastExcel;
 
@@ -503,13 +504,10 @@ class ToolsController extends Controller
                     $objWorksheet->getColumnDimension('D')->setAutoSize(true);
                     $objWorksheet->getColumnDimension('E')->setAutoSize(true);
                     $objWorksheet->getColumnDimension('F')->setAutoSize(true);
-                    $writer = new \PHPExcel_Writer_Excel2007($excel);
-                    header('Content-type: application/vnd.ms-excel');
-                    header('Content-Disposition: attachment; filename="file.xls"');
-                    $writer->save('php://output');
-                    die();
+                    //$writer = new \PHPExcel_Writer_Excel2007($excel);
+                    $writer = PHPExcel_IOFactory::createWriter($excel, 'Excel5');
                     // Save the file.
-                    //$writer->save(public_path().'/efile.xlsx');
+                    $writer->save(public_path().'/efile.xls');
                     return Response($new_product_mass_ajax);
                 }else {
 
