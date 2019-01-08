@@ -130,7 +130,6 @@
             //alert(cat);
             //alert(loc);
 
-            console.log(cat);
 
             $.ajax({
                 /* the route pointing to the post function */
