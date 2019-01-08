@@ -97,7 +97,7 @@
         <div class="row">
             <div class="col-lg-1">&nbsp;</div>
             <div class="col-lg-5">
-                <div class="pull_file">{{trans('index.export')}} <a href="/file.xlsx" download>{{trans('index.file_link')}}</a></div>
+                <div class="pull_file">{{trans('index.export')}} <a href="/efile.xlsx" download>{{trans('index.file_link')}}</a></div>
                 <div id="proces"></div>
             </div>
             <div class="col-lg-1">&nbsp;</div>
