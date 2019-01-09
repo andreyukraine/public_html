@@ -63,6 +63,7 @@
 
 
         <?php
+        use Illuminate\Support\Facades\App;
         $name = 'name_'.App::getLocale();
         ?>
         <div class="row">
