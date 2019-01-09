@@ -128,8 +128,8 @@
 
             var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
 
-            //alert(cat);
-            //alert(loc);
+            alert(cat);
+            alert(loc);
 
 
             $.ajax({
