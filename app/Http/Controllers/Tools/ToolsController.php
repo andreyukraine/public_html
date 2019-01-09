@@ -20,10 +20,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
-use PHPExcel;
-use PHPExcel_IOFactory;
 use PHPExcel_Style_Alignment;
-use PHPExcel_Writer_Excel2007;
 use Rap2hpoutre\FastExcel\FastExcel;
 
 
@@ -406,7 +403,7 @@ class ToolsController extends Controller
 
                 if (count($new_product_mass_ajax) > 0) {
 
-                    $excel = new PHPExcel();
+                    $excel = new \PHPExcel();
 
                     //$excel->createSheet();
                     //$excel->setActiveSheetIndex(1);
@@ -506,9 +503,9 @@ class ToolsController extends Controller
                     $objWorksheet->getColumnDimension('D')->setAutoSize(true);
                     $objWorksheet->getColumnDimension('E')->setAutoSize(true);
                     $objWorksheet->getColumnDimension('F')->setAutoSize(true);
-                    $writer = new PHPExcel_Writer_Excel2007($excel);
+                    $writer = new \PHPExcel_Writer_Excel2007($excel);
                     // Save the file.
-                    $writer->save(storage_path('app/public').'/efile.xls');
+                    $writer->save(public_path().'/file.xlsx');
                     return Response($new_product_mass_ajax);
                 }else {
 
