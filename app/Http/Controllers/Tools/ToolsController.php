@@ -508,7 +508,7 @@ class ToolsController extends Controller
                     $objWorksheet->getColumnDimension('F')->setAutoSize(true);
                     $writer = new PHPExcel_Writer_Excel2007($excel);
                     // Save the file.
-                    $writer->save(public_path().'/efile.xls');
+                    $writer->save(storage_path('app/public').'/efile.xls');
                     return Response($new_product_mass_ajax);
                 }else {
 
