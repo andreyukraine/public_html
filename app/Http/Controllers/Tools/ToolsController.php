@@ -11,6 +11,7 @@ use App\Partners;
 use App\Product;
 use App\User;
 use App\Value;
+use DateTime;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Config;
 use Maatwebsite\Excel\Excel;
@@ -377,6 +378,9 @@ class ToolsController extends Controller
 
             $new_product_mass_ajax = array();
 
+            $dt = new DateTime();
+            $d_string = $dt->format('H_i_s');
+
             if ($request->id) {
                 $products = Category::find($request->id)->products()->get()->sortBy('sort');
                 $products_mass = $products;
@@ -505,8 +509,8 @@ class ToolsController extends Controller
                     $objWorksheet->getColumnDimension('F')->setAutoSize(true);
                     $writer = new \PHPExcel_Writer_Excel2007($excel);
                     // Save the file.
-
-                    $writer->save(public_path().'/efile.xlsx');
+                    $file = 'efile.xlsx';
+                    $writer->save(public_path().'/'.$file);
                     return Response($new_product_mass_ajax);
                 }else {
 
