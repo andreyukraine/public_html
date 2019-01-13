@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
-@section('meta', "Chicopee - марка кормів супер-преміум класу для собак і кішок")
-@section('title', "Chicopee - марка кормів супер-преміум класу для собак і кішок")
-@section('description','Официальный сайт корма для собак и кошек Chicopee, посмотреть каталог продукции, где купить, заводчикам')
-@section('keywords','Чикопи, Чікопі, Chicopee, Корм Чикопи, корм Чікопі, корм для собак, корм для кошек, корм для котів, роял канін, Royal Canin, Пурина, Пуріна, Бріт, Брит, канадский корм, Питомники, корм для животных, корм премиум, корм суперпремиум, корм холистик, холістік, суперпреміум, супер преміум корм, преміум корм для собак, корм хилс, Hills, Pronature, 1st Choice, Josera, Acana, корм для щенков, сухой корм для собак, корм для собак оптом, корм для служебних собак, Купить корм Киев, купить корм Одесса, купить корм Харьков, Купить корм Днепр, купить корм Львов, корм 4 лапы, 4 лапи, Оптимил, Optimeal, ProPlan, Pro Plan, Зоотовари, Зоотовары, консервы для собак')
+@section('meta', e(trans('index.mete_home')))
+@section('title', e(trans('index.title_home')))
+@section('description', e(trans('index.desc_home')))
+@section('keywords', e(trans('index.keywords_home')))
 @include('site.header.index')
 <body class="home page-template-default page wp-custom-logo ast-page-builder-template ast-single-post ast-mobile-inherit-site-logo ast-sticky-main-shrink ast-sticky-custom-logo ast-primary-sticky-enabled ast-inherit-site-logo-transparent ast-theme-transparent-header elementor-default elementor-page elementor-page-5ast-primary-sticky-header-active">
 <div id="loader"></div>
@@ -15,7 +15,7 @@
 <!-- #astra-fixed-header -->
 @yield('content')
 
-@if (request()->is('/'))
+@if (request()->route()->getName() == 'home')
         <div id="content" class="site-content">
             <div class="ast-container">
                 <div id="primary" class="content-area primary">
@@ -55,7 +55,7 @@
                                                                     <div class="elementor-element elementor-element-dd06342 elementor-align-center elementor-widget elementor-widget-button" data-element_type="button.default">
                                                                         <div class="elementor-widget-container">
                                                                             <div class="elementor-button-wrapper">
-                                                                                <a href="/catalog" class="elementor-button-link elementor-button elementor-size-sm" role="button">
+                                                                                <a href="/<?= App::getLocale()?>/catalog" class="elementor-button-link elementor-button elementor-size-sm" role="button">
                                                                                     <span class="elementor-button-content-wrapper">
                                                                                     <span class="elementor-button-text">{{ trans('index.go_catalog')}} </span>
                                                                                     </span>
@@ -108,7 +108,8 @@
                                                                                                 <option style="display: none"></option>
                                                                                                 <option value="">{{trans('index.filter_all')}}</option>
                                                                                                 @foreach($r as $r_v)
-                                                                                                    <option data-opt="{!! $r_v->id !!}" value="{!! $r_v->{$value} !!}">{!! $r_v->{$value} !!}</option>
+
+                                                                                                    <option data-opt="{!! $r_v->value_id !!}" value="{!! $r_v->value_id !!}">{!! $r_v->{$value} !!}</option>
                                                                                                 @endforeach
                                                                                             </select>
                                                                                             <div class="jq-selectbox__trigger"><div class="jq-selectbox__trigger-arrow"></div></div>
@@ -122,7 +123,7 @@
                                                                                                 <option style="display: none"></option>
                                                                                                 <option value="">{{trans('index.filter_all')}}</option>
                                                                                                 @foreach($s as $s_v)
-                                                                                                    <option value="{!! $s_v->{$value} !!}">{!! $s_v->{$value}!!}</option>
+                                                                                                    <option value="{!! $s_v->value_id !!}">{!! $s_v->{$value}!!}</option>
                                                                                                 @endforeach
                                                                                             </select>
                                                                                             <div class="jq-selectbox__trigger"><div class="jq-selectbox__trigger-arrow"></div></div>
@@ -429,7 +430,7 @@
                     }
 
                     preloadArr.reverse();
-                    var intID = setInterval(changeImg, 3000);
+                    var intID = setInterval(changeImg, 8000);
                     /* image rotator */
                     //console.log(ind_rotator);
                     function changeImg(){

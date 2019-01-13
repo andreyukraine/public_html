@@ -1,5 +1,10 @@
 <?php
 return [
+    'title_home'=>'Chicopee - super premium brand for dogs and cats',
+    'mete_home'=>'Chicopee - super premium brand for dogs and cats',
+    'desc_home'=>'The official website of feed for dogs and cats Chicopee, see the product catalog, where to buy, breeders',
+    'keywords_home'=>'Chicopee, Feed Chicopee, dog food, cat food, Royal Canin, Royal Canin, Purina, Purine, Brіt, Brit, Canadian food, Nurseries, animal food, premium food, superpremium food, holistic food, holistic, superpremium, super food premium food, premium food for dogs, food for hills, Hills, Pronature, 1st Choice, Josera, Acana, puppy food, dry food for dogs, dog food wholesale, food for working dogs, Buy food Kiev, buy food Odessa, buy feed Kharkiv, Buy feed Dnipro, buy feed Lviv, feed 4 paws, 4 lapi, Optim, Optimeal, ProPlan, Pro Plan',
+
     'go_catalog' => 'go to catalog',
     'filter1' =>'FAST',
     'filter2'=>'CHOICE FORM',

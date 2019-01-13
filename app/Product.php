@@ -92,7 +92,6 @@ class Product extends Model
         $column = "excerpt_" . $locale;
         $this->attributes[$column] = $value;
     }
-
     public function getDescAttribute()
     {
         $locale = App::getLocale();
@@ -127,7 +126,6 @@ class Product extends Model
         $column = "prev_desc_" . $locale;
         $this->attributes[$column] = $value;
     }
-
     public function getCompositionAttribute()
     {
         $locale = App::getLocale();
@@ -163,7 +161,6 @@ class Product extends Model
         $column = "dose_" . $locale;
         $this->attributes[$column] = $value;
     }
-
     public function getKeywordsAttribute()
     {
         $locale = App::getLocale();
@@ -182,4 +179,42 @@ class Product extends Model
         $column = "keywords_" . $locale;
         $this->attributes[$column] = $value;
     }
+    public function getTitleAttribute()
+    {
+        $locale = App::getLocale();
+        $column = "title_" . $locale;
+
+        if(empty($this->{$column})){
+            $result = "нет перевода";
+        }else{
+            $result = $this->{$column};
+        }
+        return $result;
+    }
+    public function setTitleAttribute($value)
+    {
+        $locale = App::getLocale();
+        $column = "title_" . $locale;
+        $this->attributes[$column] = $value;
+    }
+    public function getMetaAttribute()
+    {
+        $locale = App::getLocale();
+        $column = "meta_" . $locale;
+
+        if(empty($this->{$column})){
+            $result = "нет перевода";
+        }else{
+            $result = $this->{$column};
+        }
+        return $result;
+    }
+    public function setMetaAttribute($value)
+    {
+        $locale = App::getLocale();
+        $column = "meta_" . $locale;
+        $this->attributes[$column] = $value;
+    }
+
+
 }

@@ -1,6 +1,6 @@
 @extends('site.content.home')
-@section('title', "Контакти")
-@section('meta', "Контакти")
+@section('title', e($page->title))
+@section('meta', e($page->meta))
 @section('header')
     <div id="content" class="site-content">
         <div class="ast-container">
@@ -54,7 +54,7 @@
                 <p>{{ Breadcrumbs::render('pages', $page) }}</p>
             </div>
         </div>
-        <div class="title_page heading">{!! $page->title !!}</div>
+        <div class="title_page heading">{!! $page->name !!}</div>
         <br>
         <div class="about">
             <div class="row">

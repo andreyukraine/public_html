@@ -21,10 +21,6 @@
                 <div class="tab-pane fade show active" id="info" role="tabpanel">
 
                     <div class="form-group">
-                        <label for="exampleFormControlInput1">Заглавие</label>
-                        <input name="title" type="text" value="{{$category->title}}" class="form-control" id="exampleFormControlInput3">
-                    </div>
-                    <div class="form-group">
                         <label for="exampleFormControlInput1">Ссылка</label>
                         <input name="url" type="text" value="{{$category->url}}" class="form-control" id="exampleFormControlInput3">
                     </div>
@@ -46,18 +42,22 @@
                 </div>
                 {{--вкладка seo--}}
                 <div class="tab-pane fade" id="seo" role="tabpane4">
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Заголовок</label>
+                        <input name="title" type="text" value="{{$category->title}}" class="form-control" id="exampleFormControlInput3">
+                    </div>
 
                     <div class="form-group">
                         <label for="exampleFormControlInput1">Метатеги</label>
-                        <input name="meta" type="text" value="{{$cat->meta}}" class="form-control" id="exampleFormControlInput3">
+                        <input name="meta" type="text" value="{{$category->meta}}" class="form-control" id="exampleFormControlInput3">
                     </div>
                     <div class="form-group">
                         <label for="exampleFormControlInput1">Ключевые слова</label>
-                        <input name="keywords" type="text" value="{{$cat->keywords}}" class="form-control" id="exampleFormControlInput3">
+                        <input name="keywords" type="text" value="{{$category->keywords}}" class="form-control" id="exampleFormControlInput3">
                     </div>
                     <div class="form-group">
                         <label for="exampleFormControlInput1">Описание</label>
-                        <input name="description" type="text" value="{{$cat->description}}" class="form-control" id="exampleFormControlInput3">
+                        <input name="description" type="text" value="{{$category->description}}" class="form-control" id="exampleFormControlInput3">
                     </div>
                 </div>
             </div>

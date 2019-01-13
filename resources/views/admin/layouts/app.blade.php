@@ -12,7 +12,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
-    <script src="{{ asset('js/my.js') }}" defer></script>
+    <script src="{{ asset('js/my_admin.js') }}" defer></script>
 
 
 

@@ -23,8 +23,6 @@ class ProductsFilter {
             }
         }
 
-
-
         return $this->builder->select('product.id AS id','product.*');
     }
 
@@ -37,14 +35,17 @@ class ProductsFilter {
     public function age($value)
     {
         if (!$value) return;
-        $colum = 'tab1.value_'.App::getLocale();
+        $colum = 'tab1.value_id';
+
+        //$mass_id = DB::table('product_options')->where('value_id','=', $value)->get();
+
         $r = $this->builder->leftjoin('product_options as tab1', 'tab1.product_id', '=', 'product.id' )->where($colum, '=', $value);
         //dd($r);
     }
     public function size($value)
     {
         if (!$value) return;
-        $colum = 'tab2.value_'.App::getLocale();
+        $colum = 'tab2.value_id';
         $r = $this->builder->leftjoin('product_options as tab2', 'tab2.product_id', '=', 'product.id' )
             ->where($colum, '=', $value)->whereIn('tab2.product_id',$this->builder->get()->pluck('product_id')->toArray());
         //dd($r->get());

@@ -225,9 +225,7 @@
             {{--AIzaSyA4TmjMPVSSnWg8YdQ76pkpahkw2xqdCzw--}}
             {{--src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAcXwMx9Yojcp7_eEQO3x3rBvVXeaZAuqs&callback=initMap">--}}
     {{--</script>--}}
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA4TmjMPVSSnWg8YdQ76pkpahkw2xqdCzw&callback=initMap">
-    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA4TmjMPVSSnWg8YdQ76pkpahkw2xqdCzw&callback=initMap"></script>
     </body>
     </html>
 

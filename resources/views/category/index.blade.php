@@ -1,7 +1,7 @@
 @extends('site.content.home')
 @section('url', route('category_url', ['category'=>$category->url] ))
 @section('title', e($category->title))
-@section('description', e($category->title))
+@section('description', e($category->description))
 @section('meta', e($category->meta))
 @section('keywords', e($category->keywords))
 @section('header')
@@ -57,7 +57,7 @@
             </div>
         </div>
         <div class="h_content">
-            <div class="heading">{{ trans('catalog.header_catalog')}} {{$category->title}}</div>
+            <div class="heading">{{ trans('catalog.header_catalog')}} {{$category->name}}</div>
         </div>
         <div class="product_list">
             @if(empty($products))

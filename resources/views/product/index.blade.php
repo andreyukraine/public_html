@@ -1,8 +1,8 @@
 @extends('site.content.home')
 @section('url', "/catalog")
-@section('title', trans('catalog.header_catalog'))
-@section('description', trans('catalog.header_catalog'))
-@section('meta', trans('catalog.header_catalog'))
+@section('title', trans('catalog.header_title'))
+@section('description', trans('catalog.header_desc'))
+@section('meta', trans('catalog.header_title'))
 @section('keywords','Чикопи, Чікопі, Chicopee, Корм Чикопи, корм Чікопі, корм для собак, корм для кошек, корм для котів, роял канін, Royal Canin, Пурина, Пуріна, Бріт, Брит, канадский корм, Питомники, корм для животных, корм премиум, корм суперпремиум, корм холистик, холістік, суперпреміум, супер преміум корм, преміум корм для собак, корм хилс, Hills, Pronature, 1st Choice, Josera, Acana, корм для щенков, сухой корм для собак, корм для собак оптом, корм для служебних собак, Купить корм Киев, купить корм Одесса, купить корм Харьков, Купить корм Днепр, купить корм Львов, корм 4 лапы, 4 лапи, Оптимил, Optimeal, ProPlan, Pro Plan, Зоотовари, Зоотовары, консервы для собак')
 @section('header')
     <div id="content" class="site-content">
@@ -174,7 +174,7 @@
                 },
                 /* remind that 'data' is the response of the AjaxController */
                 success: function (data) {
-                    console.log(data);
+                    //console.log(data);
                     for(var i=0;i<data.length;i++){
                         $('.product_list').html(data[i]['products']);
                     }

@@ -67,7 +67,8 @@
         $name = 'name_'.App::getLocale();
         ?>
         <div class="row">
-            <div class="col-lg-7">
+            <div class="col-lg-2">&nbsp;</div>
+            <div class="col-lg-5">
                 <div class="fast__group">
                     <div class="jq-selectbox jqselect form-select fast__select-control">
                         <select name="cat" id="cat" class="form-select" data-placeholder="{{trans('index.filter_category')}}">
@@ -81,31 +82,23 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-5">
+            <div class="col-lg-3 text-center">
                 <div class="fast__group">
-                    <div class="jq-selectbox jqselect form-select fast__select-control">
-                        <select name="loc" id="loc"  class="form-select" data-placeholder="{{trans('index.filter_category')}}">
-                             @foreach($locales as $local)
-                                <option value="{{$local}}">{{$local}}</option>
-                             @endforeach
-                        </select>
-                    </div>
+                    <input type="hidden" name="loc" id="loc" value="{{App::getLocale()}}"></input>
+                    <div id="send" class="btn btn-success" role="button">{{trans('index.question_submit')}}</div>
                 </div>
             </div>
+            <div class="col-lg-2">&nbsp;</div>
         </div>
             <br>
             <br>
         <div class="row">
-            <div class="col-lg-1">&nbsp;</div>
-            <div class="col-lg-5">
+            <div class="col-lg-3">&nbsp;</div>
+            <div class="col-lg-6 text-center">
                 <div class="pull_file">{{trans('index.export')}} <a href="/efile.xlsx" download>{{trans('index.file_link')}}</a></div>
                 <div id="proces"></div>
             </div>
-            <div class="col-lg-1">&nbsp;</div>
-            <div class="col-lg-4">
-                <div id="send" class="btn btn-success" role="button">{{trans('index.question_submit')}}</div>
-            </div>
-            <div class="col-lg-1">&nbsp;</div>
+            <div class="col-lg-3">&nbsp;</div>
         </div>
             <br>
     </div>
@@ -123,13 +116,13 @@
             var s_e = document.getElementById("cat");
             var cat = s_e.options[s_e.selectedIndex].value;
 
-            var l_e = document.getElementById("loc");
-            var loc = l_e.options[l_e.selectedIndex].text;
+            var l_e = document.getElementById("loc").value;
+            //var loc = l_e.options[l_e.selectedIndex].text;
 
             var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
 
             //alert(cat);
-            //alert(loc);
+            alert(l_e);
 
 
             $.ajax({
@@ -146,7 +139,7 @@
                 },
                 data: {
                     _token: CSRF_TOKEN,
-                    loc: loc,
+                    loc: l_e,
                     id: cat
                 },
                 /* remind that 'data' is the response of the AjaxController */

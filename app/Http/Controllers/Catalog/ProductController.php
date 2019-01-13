@@ -147,16 +147,16 @@ class ProductController extends Controller
                         foreach ($new_product_mass_ajax as $key => $line) {
                             $hr_line = "";
                             if($key == 'Holistic Nature Line'){
-                                $hr_line = '<img class="line_key" alt="'.$key.'" title="'.$key.'" src="images/cb_select_hnl.png">
+                                $hr_line = '<img class="line_key" alt="'.$key.'" title="'.$key.'" src="/images/cb_select_hnl.png">
                             <div class="l_d"></div>';
                             }elseif($key == 'Classic Nature Line'){
-                                $hr_line = '<img class="line_key" alt="'.$key.'" title="'.$key.'" src="images/cb_select_cnl.png">
+                                $hr_line = '<img class="line_key" alt="'.$key.'" title="'.$key.'" src="/images/cb_select_cnl.png">
                             <div class="l_d"></div>';
                             }elseif($key == 'Pro Nature Line'){
-                                $hr_line = '<img class="line_key" alt="'.$key.'" title="'.$key.'" src="images/cb_select_pnl.png">
+                                $hr_line = '<img class="line_key" alt="'.$key.'" title="'.$key.'" src="/images/cb_select_pnl.png">
                             <div class="l_d"></div>';
                             }elseif($key == 'Titan Line') {
-                                $hr_line = '<img class="line_key" alt="' . $key . '" title="' . $key . '" src="images/cb_select_titan.png"><div class="l_d"></div>';
+                                $hr_line = '<img class="line_key" alt="' . $key . '" title="' . $key . '" src="/images/cb_select_titan.png"><div class="l_d"></div>';
                             }
 
                             $output_y[] = '<div class="line_block col-lg-12 col-md-12 text-center">'.$hr_line.'</div>';

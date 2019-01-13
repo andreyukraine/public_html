@@ -5286,17 +5286,22 @@ html {
     font-size: 18px;
     display: flex;
 }
-.select_lang:hover{
+
+.select_lang a{
+    color: #FFFFFF;
+    font-size: 18px;
+}
+.select_lang:hover a{
     border-bottom: 1px solid #dddddd;
 }
-.lang_selector:hover {
+.lang_selector:hover a{
     cursor: pointer;
 
 }
-.lang_selector .active{
+.lang_selector .active a{
      color: red;
  }
-.lang_selector .active:hover{
+.lang_selector .active a:hover{
     color: red;
     text-decoration: none;
     cursor: default;
