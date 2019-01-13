@@ -94,8 +94,8 @@
             <br>
         <div class="row">
             <div class="col-lg-3">&nbsp;</div>
-            <div class="col-lg-6 text-center">
-                <div class="pull_file">{{trans('index.export')}} <a href="/efile.xlsx" download>{{trans('index.file_link')}}</a></div>
+            <div class="col-lg-6 text-center link_file">
+
                 <div id="proces"></div>
             </div>
             <div class="col-lg-3">&nbsp;</div>
@@ -122,7 +122,7 @@
             var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
 
             //alert(cat);
-            alert(l_e);
+            //alert(l_e);
 
 
             $.ajax({
@@ -144,6 +144,7 @@
                 },
                 /* remind that 'data' is the response of the AjaxController */
                 success: function (data) {
+                    $('.link_file').html(data);
                     console.log(data);
                 }
             });

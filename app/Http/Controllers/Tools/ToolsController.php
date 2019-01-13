@@ -383,140 +383,146 @@ class ToolsController extends Controller
 
             if ($request->id) {
                 $products = Category::find($request->id)->products()->get()->sortBy('sort');
-                $products_mass = $products;
+            } else {
+                $products = Product::get()->sortBy('sort');
+            }
 
-                // попробуем добавить линейку к товару
-                if (!empty($products_mass)){
-                    $line = "";
-                    foreach ($products_mass->all() as $key=>$product){
-                        $product->line = ProductController::getValueOptions(8,$product->id);
-                        $product->fasovka = ProductController::getValueOptionsArray(7,$product->id, $request->loc);
-                        $product->age = ProductController::getValueOptionsArray(4,$product->id, $request->loc);
-                        $product->size = ProductController::getValueOptionsArray(3,$product->id, $request->loc);
-                        $product->specifics = ProductController::getValueOptionsArray(9,$product->id, $request->loc);
-                        $product->sku = ProductController::getSkuOptionsArray(7,$product->id);
-                        $product->barcode = ProductController::getBarcodeOptionsArray(7,$product->id);
-                        if ($line == "" || $product->line != ""){
-                            $line = $product->line;
-                        }
-                        if ($line != "" || $product->line == $line){
-                            $new_product_mass_ajax[$line][] = $product;
-                        }
+            $products_mass = $products;
+
+            // попробуем добавить линейку к товару
+            if (!empty($products_mass)) {
+                $line = "";
+                foreach ($products_mass->all() as $key => $product) {
+                    $product->line = ProductController::getValueOptions(8, $product->id);
+                    $product->fasovka = ProductController::getValueOptionsArray(7, $product->id, $request->loc);
+                    $product->age = ProductController::getValueOptionsArray(4, $product->id, $request->loc);
+                    $product->size = ProductController::getValueOptionsArray(3, $product->id, $request->loc);
+                    $product->specifics = ProductController::getValueOptionsArray(9, $product->id, $request->loc);
+                    $product->sku = ProductController::getSkuOptionsArray(7, $product->id);
+                    $product->barcode = ProductController::getBarcodeOptionsArray(7, $product->id);
+                    if ($line == "" || $product->line != "") {
+                        $line = $product->line;
                     }
-                }
-
-                if (count($new_product_mass_ajax) > 0) {
-
-                    $excel = new \PHPExcel();
-
-                    //$excel->createSheet();
-                    //$excel->setActiveSheetIndex(1);
-                    $excel->getActiveSheet()->setTitle('Chicopee');
-
-
-                    $name = "name_".$request->loc;
-                    $excerpt = "excerpt_".$request->loc;
-                    $desc = "desc_".$request->loc;
-                    $prev_desc = "prev_desc_".$request->loc;
-                    $composition = "composition_".$request->loc;
-                    $dose = "dose_".$request->loc;
-
-
-                    $objWorksheet = $excel->getActiveSheet();
-                    $a = array();
-                    $objWorksheet->getStyle('A1')->getFont()->setBold(true);
-                    $objWorksheet->getStyle('B1')->getFont()->setBold(true);
-                    $objWorksheet->getStyle('C1')->getFont()->setBold(true);
-                    $objWorksheet->getStyle('D1')->getFont()->setBold(true);
-                    $objWorksheet->getStyle('E1')->getFont()->setBold(true);
-                    $objWorksheet->getStyle('F1')->getFont()->setBold(true);
-                    $objWorksheet->getStyle('G1')->getFont()->setBold(true);
-                    $objWorksheet->getStyle('H1')->getFont()->setBold(true);
-                    $objWorksheet->getStyle('I1')->getFont()->setBold(true);
-                    $objWorksheet->getStyle('J1')->getFont()->setBold(true);
-                    $objWorksheet->getStyle('K1')->getFont()->setBold(true);
-                    $objWorksheet->getStyle('L1')->getFont()->setBold(true);
-                    $objWorksheet->getStyle('M1')->getFont()->setBold(true);
-                    $a[1] = array('артикул','штрихкод','название','фасовки','возраст животного','размер животного','особенности','описание','выдержка','применение','состав','норми кормления','картинка');
-                    $i = 2;
-                    foreach ($new_product_mass_ajax as $k=>$line){
-                        $objWorksheet->getStyle('A'.$i)->getFont()->setBold(true);
-                        $objWorksheet->getStyle('A'.$i)->getFont()->setSize(18);
-//                        $objWorksheet->mergeCells('A'.$i.':B'.$i);
-//                        $objWorksheet->mergeCells('A'.$i.':C'.$i);
-                        $a[$i] = array($k,'','','');
-
-                        foreach ($line as $f=>$product){
-                            $i++;
-                            $a[$i] = array(
-                                $product->sku,
-                                '',
-                                $product->$name,
-                                '',
-                                implode(",", $product->age),
-                                implode(",", $product->size),
-                                implode(",", $product->specifics),
-                                $product->$desc,
-                                $product->$excerpt,
-                                $product->$prev_desc,
-                                $product->$composition,
-                                $product->$dose);
-
-                            //fasovka
-                            foreach ($product->fasovka as $h=> $ves){
-                                if (count($product->fasovka)> 1){
-                                    if ($h == 0) {
-                                        $objWorksheet->getStyle('A'.$i)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_LEFT);
-                                        $a[$i][0] = $product->sku[$h];
-                                        $a[$i][1] = $product->barcode[$h];
-                                        $a[$i][3] = $ves;
-                                        $a[$i][12] = "https://www.chicopee.in.ua/storage/upload/".$product->sku[$h].".jpg";
-                                    }else{
-                                        $i++;
-                                        $objWorksheet->getStyle('A'.$i)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_LEFT);
-                                        $a[$i] = array(
-                                            $product->sku[$h],
-                                            $product->barcode[$h],
-                                            '',
-                                            $ves,
-                                            '',
-                                            '',
-                                            '',
-                                            '',
-                                            '',
-                                            '',
-                                            '',
-                                            '',
-                                            "https://www.chicopee.in.ua/storage/upload/".$product->sku[$h].".jpg"
-                                        );
-                                    }
-                                }else{
-                                    $objWorksheet->getStyle('A'.$i)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_LEFT);
-                                    $a[$i][0] = $product->sku[$h];
-                                    $a[$i][1] = $product->barcode[$h];
-                                    $a[$i][3]= $ves;
-                                    $a[$i][12] = "https://www.chicopee.in.ua/storage/upload/".$product->sku[$h].".jpg";
-                                }
-                            }
-
-                        }
-                        $i++;
+                    if ($line != "" || $product->line == $line) {
+                        $new_product_mass_ajax[$line][] = $product;
                     }
-                    $objWorksheet->fromArray($a);
-                    $objWorksheet->getColumnDimension('C')->setAutoSize(true);
-                    $objWorksheet->getColumnDimension('D')->setAutoSize(true);
-                    $objWorksheet->getColumnDimension('E')->setAutoSize(true);
-                    $objWorksheet->getColumnDimension('F')->setAutoSize(true);
-                    $writer = new \PHPExcel_Writer_Excel2007($excel);
-                    // Save the file.
-                    $file = 'efile.xlsx';
-                    $writer->save(public_path().'/'.$file);
-                    return Response($new_product_mass_ajax);
-                }else {
-
-                    return Response("error");
                 }
             }
+
+            if (count($new_product_mass_ajax) > 0) {
+
+                $excel = new \PHPExcel();
+
+                //$excel->createSheet();
+                //$excel->setActiveSheetIndex(1);
+                $excel->getActiveSheet()->setTitle('Chicopee');
+
+
+                $name = "name_" . $request->loc;
+                $excerpt = "excerpt_" . $request->loc;
+                $desc = "desc_" . $request->loc;
+                $prev_desc = "prev_desc_" . $request->loc;
+                $composition = "composition_" . $request->loc;
+                $dose = "dose_" . $request->loc;
+
+
+                $objWorksheet = $excel->getActiveSheet();
+                $a = array();
+                $objWorksheet->getStyle('A1')->getFont()->setBold(true);
+                $objWorksheet->getStyle('B1')->getFont()->setBold(true);
+                $objWorksheet->getStyle('C1')->getFont()->setBold(true);
+                $objWorksheet->getStyle('D1')->getFont()->setBold(true);
+                $objWorksheet->getStyle('E1')->getFont()->setBold(true);
+                $objWorksheet->getStyle('F1')->getFont()->setBold(true);
+                $objWorksheet->getStyle('G1')->getFont()->setBold(true);
+                $objWorksheet->getStyle('H1')->getFont()->setBold(true);
+                $objWorksheet->getStyle('I1')->getFont()->setBold(true);
+                $objWorksheet->getStyle('J1')->getFont()->setBold(true);
+                $objWorksheet->getStyle('K1')->getFont()->setBold(true);
+                $objWorksheet->getStyle('L1')->getFont()->setBold(true);
+                $objWorksheet->getStyle('M1')->getFont()->setBold(true);
+                $a[1] = array('артикул', 'штрихкод', 'название', 'фасовки', 'возраст животного', 'размер животного', 'особенности', 'описание', 'выдержка', 'применение', 'состав', 'норми кормления', 'картинка');
+                $i = 2;
+                foreach ($new_product_mass_ajax as $k => $line) {
+                    $objWorksheet->getStyle('A' . $i)->getFont()->setBold(true);
+                    $objWorksheet->getStyle('A' . $i)->getFont()->setSize(18);
+//                        $objWorksheet->mergeCells('A'.$i.':B'.$i);
+//                        $objWorksheet->mergeCells('A'.$i.':C'.$i);
+                    $a[$i] = array($k, '', '', '');
+
+                    foreach ($line as $f => $product) {
+                        $i++;
+                        $a[$i] = array(
+                            $product->sku,
+                            '',
+                            $product->$name,
+                            '',
+                            implode(",", $product->age),
+                            implode(",", $product->size),
+                            implode(",", $product->specifics),
+                            $product->$desc,
+                            $product->$excerpt,
+                            $product->$prev_desc,
+                            $product->$composition,
+                            $product->$dose);
+
+                        //fasovka
+                        foreach ($product->fasovka as $h => $ves) {
+                            if (count($product->fasovka) > 1) {
+                                if ($h == 0) {
+                                    $objWorksheet->getStyle('A' . $i)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_LEFT);
+                                    $a[$i][0] = $product->sku[$h];
+                                    $a[$i][1] = $product->barcode[$h];
+                                    $a[$i][3] = $ves;
+                                    $a[$i][12] = "https://www.chicopee.in.ua/storage/upload/" . $product->sku[$h] . ".jpg";
+                                } else {
+                                    $i++;
+                                    $objWorksheet->getStyle('A' . $i)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_LEFT);
+                                    $a[$i] = array(
+                                        $product->sku[$h],
+                                        $product->barcode[$h],
+                                        '',
+                                        $ves,
+                                        '',
+                                        '',
+                                        '',
+                                        '',
+                                        '',
+                                        '',
+                                        '',
+                                        '',
+                                        "https://www.chicopee.in.ua/storage/upload/" . $product->sku[$h] . ".jpg"
+                                    );
+                                }
+                            } else {
+                                $objWorksheet->getStyle('A' . $i)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_LEFT);
+                                $a[$i][0] = $product->sku[$h];
+                                $a[$i][1] = $product->barcode[$h];
+                                $a[$i][3] = $ves;
+                                $a[$i][12] = "https://www.chicopee.in.ua/storage/upload/" . $product->sku[$h] . ".jpg";
+                            }
+                        }
+
+                    }
+                    $i++;
+                }
+                $objWorksheet->fromArray($a);
+                $objWorksheet->getColumnDimension('C')->setAutoSize(true);
+                $objWorksheet->getColumnDimension('D')->setAutoSize(true);
+                $objWorksheet->getColumnDimension('E')->setAutoSize(true);
+                $objWorksheet->getColumnDimension('F')->setAutoSize(true);
+                $writer = new \PHPExcel_Writer_Excel2007($excel);
+                // Save the file.
+                $file = 'efile.xlsx';
+                $writer->save(public_path() . '/' . $file);
+                $ulr = '<div class="pull_file">' . trans('index.export') . '<a href ="/' . $file . '" download> ' . trans('index.file_link') . '</a></div>';
+                return Response($ulr);
+
+            } else {
+
+                return Response("error");
+            }
+
         }
 
 
