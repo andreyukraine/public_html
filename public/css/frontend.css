@@ -341,9 +341,11 @@
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
+    justify-content: center;
     margin-right: auto;
     margin-left: auto;
-    position: relative; }
+    position: relative;
+  }
   .elementor-section.elementor-section-boxed > .elementor-container {
     max-width: 1140px; }
   .elementor-section.elementor-section-stretched {

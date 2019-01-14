@@ -629,9 +629,9 @@ transition: background 0.3s, border-radius 0.3s, opacity 0.3s;
 .elementor-5 .elementor-element.elementor-element-2bb1f50 > .elementor-widget-container{
     padding:0px 0px 60px 30px;
 }
-.elementor-5 .elementor-element.elementor-element-dc4b6a7 > .elementor-container{
-    max-width:915px;
-}
+/*.elementor-5 .elementor-element.elementor-element-dc4b6a7 > .elementor-container{*/
+    /*max-width:915px;*/
+/*}*/
 .elementor-5 .elementor-element.elementor-element-dc4b6a7 > .elementor-background-overlay{
     background: url("./images/more_background.png") center center no-repeat;
     background-size: auto auto;

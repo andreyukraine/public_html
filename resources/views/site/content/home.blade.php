@@ -4,7 +4,9 @@
 @section('title', e(trans('index.title_home')))
 @section('description', e(trans('index.desc_home')))
 @section('keywords', e(trans('index.keywords_home')))
+@section('url', route('home'))
 @include('site.header.index')
+
 <body class="home page-template-default page wp-custom-logo ast-page-builder-template ast-single-post ast-mobile-inherit-site-logo ast-sticky-main-shrink ast-sticky-custom-logo ast-primary-sticky-enabled ast-inherit-site-logo-transparent ast-theme-transparent-header elementor-default elementor-page elementor-page-5ast-primary-sticky-header-active">
 <div id="loader"></div>
 <div id="page" class="hfeed site">
@@ -82,7 +84,7 @@
                                                                         </div>
                                                                         <div class="heading_line"></div>
                                                                         <div class="fast__main">
-                                                                            <div class="row">
+                                                                            <div class="elementor-row">
                                                                                 <div class="col-md-4">
                                                                                     <div class="fast__group">
                                                                                         <div class="jq-selectbox jqselect">
@@ -164,7 +166,7 @@
                                                                 <div class="heading condition__head">
                                                                     <span class="condition__head-dist">{{ trans('index.kennel_title')}}</span>
                                                                 </div>
-                                                                <div class="heading_line"></div>
+                                                                <div class="heading_line_w"></div>
                                                                 <div class="condition__desc">
                                                                     {{ trans('index.kennel_desc')}}
                                                                 </div>
@@ -300,42 +302,64 @@
                                                     <div class="elementor-row">
                                                         <div class="container">
                                                                 <div class="heading form-ask__heading">{{trans('index.question_header')}}</div>
-                                                                <div class="heading_line"></div>
-                                                                <form name="SIMPLE_FORM_1" action="" id="comment_form" method="POST" enctype="multipart/form-data">
-                                                                    <div class="row">
-                                                                        <div class="col-md-3">
-                                                                            <div class="form-ask__group">
-                                                                                <input id="name_q" name="form_text_1" value="" type="text" class="form-ask__control" required placeholder="{{trans('index.question_name')}}">
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="col-md-4">
-                                                                            <div class="form-ask__group">
-                                                                                <input id="tel_q" name="form_text_2" value="" type="text" class="form-ask__control" placeholder="{{trans('index.question_tel')}}{{trans('index.question_zvezda')}}">
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="col-md-1">
-                                                                            <div class="form-ask__group">
-                                                                               <div class="or_form">{{trans('index.question_or')}}</div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="col-md-4">
-                                                                            <div class="form-ask__group">
-                                                                                <input id="email_q" name="form_text_2" value="" type="text" class="form-ask__control" placeholder="{{trans('index.question_email')}}">
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="col-md-12">
-                                                                            <div class="form-ask__group">
-                                                                                <textarea id="comment" class="form-ask__control form-ask__control_textarea" name="form_text_3" required="" placeholder="{{trans('index.question_text')}}"></textarea>
-                                                                            </div>
-                                                                        </div>
-                                                                        <p class="info_form col-md-12"><strong>* - {{trans('index.question_info_form')}}</strong></p>
-                                                                        <div class="col-md-12">
-                                                                            <div class="form-ask__group form-ask__group_btn">
-                                                                                <button type="submit" name="_web_form_submit" class="btn form-ask__btn">{{trans('index.question_submit')}}</button>
-                                                                            </div>
+                                                                <div class="heading_line_w"></div>
+                                                            <form name="SIMPLE_FORM_1" action="" id="comment_form"
+                                                                  method="POST" enctype="multipart/form-data">
+
+                                                                <div class="elementor-row">
+                                                                    <div class="col-lg-3 col-md-3 col-sm-12">
+                                                                        <div class="form-ask__group">
+                                                                            <input id="name_q" name="form_text_1"
+                                                                                   value="" type="text"
+                                                                                   class="form-ask__control" required
+                                                                                   placeholder="{{trans('index.question_name')}}">
                                                                         </div>
                                                                     </div>
-                                                                </form>
+
+                                                                    <div class="col-lg-4 col-md-4 col-sm-12">
+                                                                        <div class="form-ask__group">
+                                                                            <input id="tel_q" name="form_text_2"
+                                                                                   value="" type="text"
+                                                                                   class="form-ask__control"
+                                                                                   placeholder="{{trans('index.question_tel')}}{{trans('index.question_zvezda')}}">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-lg-1 col-md-1 col-sm-12">
+                                                                        <div class="form-ask__group">
+                                                                            <div class="or_form">{{trans('index.question_or')}}</div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-lg-4 col-md-4 col-sm-12">
+                                                                        <div class="form-ask__group">
+                                                                            <input id="email_q" name="form_text_2"
+                                                                                   value="" type="text"
+                                                                                   class="form-ask__control"
+                                                                                   placeholder="{{trans('index.question_email')}}">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="elementor-row">
+                                                                    <div class="col-lg-12 col-md-12 col-sm-12">
+                                                                        <div class="form-ask__group">
+                                                                            <textarea id="comment"
+                                                                                      class="form-ask__control form-ask__control_textarea"
+                                                                                      name="form_text_3" required=""
+                                                                                      placeholder="{{trans('index.question_text')}}"></textarea>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div><p class="info_form col-md-12"><strong>*
+                                                                        - {{trans('index.question_info_form')}}</strong>
+                                                                </p>
+                                                                    <div class="col-lg-12 col-md-12 col-sm-12 text-center">
+                                                                        <div class="form-ask__group form-ask__group_btn">
+                                                                            <button type="submit"
+                                                                                    name="_web_form_submit"
+                                                                                    class="btn form-ask__btn">{{trans('index.question_submit')}}</button>
+                                                                        </div>
+                                                                    </div>
+
+                                                            </form>
 
                                                         </div>
                                                         <div class="modal alert" id="alert">
@@ -353,45 +377,57 @@
                                                 <div class="elementor-container elementor-column-gap-default">
                                                     <div class="elementor-row">
                                                         <div class="container">
-                                                            <div class="row">
-                                                            <div class="col-lg-6" data-element_type="column">
-                                                                <div class="elementor-column-wrap elementor-element-populated">
-                                                                    <div class="elementor-widget-wrap">
-                                                                        <div class="elementor-element elementor-widget-heading">
-                                                                            <div class="elementor-widget-container">
-                                                                                <h2 class="heading">{{$post->name}}</h2>
+                                                            <div class="col-lg-12">
+                                                                <div class="elementor-row">
+                                                                    <div class="col-lg-6" data-element_type="column">
+                                                                        <div class="elementor-column-wrap elementor-element-populated">
+                                                                            <div class="elementor-widget-wrap">
+                                                                                <div class="elementor-element elementor-widget-heading">
+                                                                                    <div class="elementor-widget-container">
+                                                                                        <h2 class="heading">{{$post->name}}</h2>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="elementor-element elementor-widget-text-editor">
+                                                                                    <div class="elementor-widget-container">
+                                                                                        <div class="elementor-text-editor elementor-clearfix">
+                                                                                            <p>{{$post->prev_desc}}</p>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="elementor-element elementor-align-left elementor-mobile-align-center elementor-widget elementor-widget-button"
+                                                                                     data-element_type="button.default">
+                                                                                    <div class="elementor-widget-container">
+                                                                                        <div class="elementor-button-wrapper text-center">
+                                                                                            <a href="{{ route('post',$post->url) }}"
+                                                                                               class="elementor-button-link btn_a"
+                                                                                               role="button">
+                                                                                                {{trans('products.more')}}
+                                                                                            </a>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
                                                                             </div>
                                                                         </div>
-                                                                        <div class="elementor-element elementor-widget-text-editor">
-                                                                            <div class="elementor-widget-container">
-                                                                                <div class="elementor-text-editor elementor-clearfix"><p>{{$post->prev_desc}}</p></div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="elementor-element elementor-align-left elementor-mobile-align-center elementor-widget elementor-widget-button" data-element_type="button.default">
-                                                                            <div class="elementor-widget-container">
-                                                                                <div class="elementor-button-wrapper">
-                                                                                    <a href="{{ route('post',$post->url) }}" class="elementor-button-link btn_a" role="button">
-                                                                                        {{trans('products.more')}}
-                                                                                    </a>
+                                                                    </div>
+                                                                    <div class="col-lg-6">
+                                                                        <div class="elementor-column-wrap elementor-element-populated">
+                                                                            <div class="elementor-widget-wrap">
+                                                                                <div class="elementor-element elementor-widget elementor-widget-image">
+                                                                                    <div class="elementor-widget-container">
+                                                                                        <div class="elementor-image">
+                                                                                            <img width="370"
+                                                                                                 height="370"
+                                                                                                 title="{{$post->name}}"
+                                                                                                 alt="{{$post->name}}"
+                                                                                                 class="img-fluid center attachment-full size-full"
+                                                                                                 src="{{ $post->images }}">
+                                                                                        </div>
+                                                                                    </div>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                            </div>
-                                                            <div class="col-lg-6">
-                                                                <div class="elementor-column-wrap elementor-element-populated">
-                                                                    <div class="elementor-widget-wrap">
-                                                                        <div class="elementor-element elementor-widget elementor-widget-image">
-                                                                            <div class="elementor-widget-container">
-                                                                                <div class="elementor-image">
-                                                                                    <img width="370" height="370" title="{{$post->name}}" alt="{{$post->name}}" class="img-fluid center attachment-full size-full" src="{{ $post->images }}" >
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
                                                             </div>
                                                         </div>
                                                     </div>

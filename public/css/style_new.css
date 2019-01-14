@@ -180,23 +180,7 @@ ol.breadcrumb_top {
   border-radius: 50px;
 }
 
-.btn_a {
-  font-size: 22px;
-  position: relative;
-  display: inline-block;
-  padding: 13px 40px 13px 40px;
-  text-align: center;
-  text-decoration: none;
-  text-transform: uppercase;
-  color: #ffffff;
-  border: none;
-  -webkit-border-radius: 0;
-  border-radius: 0;
-  background-color: #d0152d;
-  -webkit-border-radius: 50px;
-  -moz-border-radius: 50px;
-  border-radius: 50px;
-}
+
 
 @charset "UTF-8";
 article,

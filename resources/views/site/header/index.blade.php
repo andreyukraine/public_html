@@ -51,6 +51,7 @@
         gtag('js', new Date());
         gtag('config', 'UA-128952399-1');
     </script>
+
     <!-- Facebook Pixel Code -->
     <script>
         !function(f,b,e,v,n,t,s)
@@ -64,10 +65,5 @@
         fbq('init', '1984210568310332');
         fbq('track', 'PageView');
     </script>
-    <noscript>
-        <img height="1" width="1"
-             src="https://www.facebook.com/tr?id=1984210568310332&ev=PageView}
-        &noscript=1"/>
-    </noscript>
-    <!-- End Facebook Pixel Code -->
+
 </head>
