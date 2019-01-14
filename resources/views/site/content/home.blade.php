@@ -17,7 +17,7 @@
 <!-- #astra-fixed-header -->
 @yield('content')
 
-@if (request()->route()->getName() == 'home')
+@if (Request::url() == url('/'))
         <div id="content" class="site-content">
             <div class="ast-container">
                 <div id="primary" class="content-area primary">
