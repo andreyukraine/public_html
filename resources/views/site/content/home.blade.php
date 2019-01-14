@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="uk">
 @section('meta', e(trans('index.mete_home')))
 @section('title', e(trans('index.title_home')))
 @section('description', e(trans('index.desc_home')))
@@ -21,14 +21,14 @@
         <div id="content" class="site-content">
             <div class="ast-container">
                 <div id="primary" class="content-area primary">
-                    <main id="main" class="site-main" role="main">
+                    <main id="main" class="site-main">
                         <article itemtype="https://schema.org/CreativeWork" itemscope="itemscope" class="post-5 page type-page status-publish ast-article-single">
                             <!-- .entry-header -->
                             <div class="entry-content clear" itemprop="text">
                                 <div class="elementor elementor-5">
                                     <div class="elementor-inner">
                                         <div class="elementor-section-wrap">
-                                            <section id="slide" class="elementor-element elementor-element-3796d0e6 elementor-section-content-bottom elementor-reverse-mobile elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-section elementor-top-section" data-settings="{background_background:classic,shape_divider_bottom:waves}" data-element_type="section">
+                                            <section id="slide" class="elementor-element elementor-element-3796d0e6 elementor-section-content-bottom elementor-reverse-mobile elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-section elementor-top-section" data-settings="{background_background:classic,shape_divider_bottom:waves}">
                                                 <div class="elementor-background-overlay"></div>
                                                 <div class="elementor-shape elementor-shape-bottom" data-negative="false">
                                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none">
@@ -39,22 +39,24 @@
                                                 </div>
                                                 <div class="elementor-container elementor-column-gap-wider">
                                                     <div class="elementor-row">
-                                                        <div class="elementor-element elementor-element-75f8b4ef elementor-column elementor-col-100 elementor-top-column" data-element_type="column">
+                                                        <div class="elementor-element elementor-element-75f8b4ef elementor-column elementor-col-100 elementor-top-column">
                                                             <div class="elementor-column-wrap elementor-element-populated">
                                                                 <div class="elementor-widget-wrap">
-                                                                    <div class="elementor-element elementor-element-9c9b708 elementor-widget elementor-widget-text-editor" data-element_type="text-editor.default">
+                                                                    <div class="elementor-element elementor-element-9c9b708 elementor-widget elementor-widget-text-editor">
                                                                         <div class="elementor-widget-container">
                                                                             <div class="elementor-text-editor elementor-clearfix">
-                                                                                <h1><span class="title_home">{{ trans('slider.prev_desc')}}</span></h1>
+                                                                            <h1>
+                                                                            <span class="title_home">{{ trans('slider.prev_desc')}}</span>
+                                                                            </h1>
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="elementor-element elementor-element-38905c3d elementor-widget elementor-widget-heading" data-element_type="heading.default">
+                                                                    <div class="elementor-element elementor-element-38905c3d elementor-widget elementor-widget-heading">
                                                                         <div class="elementor-widget-container">
                                                                             <h4 class="h4_home">{{ trans('slider.desc')}}</h4>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="elementor-element elementor-element-dd06342 elementor-align-center elementor-widget elementor-widget-button" data-element_type="button.default">
+                                                                    <div class="elementor-element elementor-element-dd06342 elementor-align-center elementor-widget elementor-widget-button">
                                                                         <div class="elementor-widget-container">
                                                                             <div class="elementor-button-wrapper">
                                                                                 <a href="/<?= App::getLocale()?>/catalog" class="elementor-button-link elementor-button elementor-size-sm" role="button">
@@ -64,7 +66,7 @@
                                                                                 </a>
                                                                             </div>
                                                                         </div>
-                                                                        <div class="visible-xs"><img width="35" src="{{asset('images/down.gif')}}"></div>
+                                                                        <div class="visible-xs"><img width="35" alt="scroll down" title="scroll down" src="{{asset('images/down.gif')}}"></div>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -72,7 +74,7 @@
                                                     </div>
                                                 </div>
                                             </section>
-                                            <section class="elementor-element elementor-element-d4f3dd3 elementor-section-content-middle elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-section elementor-top-section" data-settings="{background_background:classic}" data-element_type="section">
+                                            <section class="elementor-element elementor-element-d4f3dd3 elementor-section-content-middle elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-section elementor-top-section" data-settings="{background_background:classic}">
                                                 <div class="elementor-background-overlay"></div>
                                                 <div class="elementor-container elementor-column-gap-no">
                                                     <div class="elementor-row">
@@ -89,13 +91,13 @@
                                                                                     <div class="fast__group">
                                                                                         <div class="jq-selectbox jqselect">
                                                                                             <select name="cat" class="category form-select" data-placeholder="{{trans('index.filter_category')}}">
-                                                                                                <option style="display: none"></option>
-                                                                                                <option value="">{{trans('index.filter_all')}}</option>
+                                                                                                
+                                                                                                <option label="-" value="">{{trans('index.filter_all')}}</option>
                                                                                                 <?php $value = 'value_'.App::getLocale();
                                                                                                       $name = 'name_'.App::getLocale();
                                                                                                 ?>
                                                                                                 @foreach($o as $o_v)
-                                                                                                    <option id="opa" value="{!! $o_v->id!!}">{!! $o_v->{$name} !!}</option>
+                                                                                                    <option label="{!! $o_v->id!!}" value="{!! $o_v->id!!}">{!! $o_v->{$name} !!}</option>
                                                                                                 @endforeach
                                                                                             </select>
                                                                                             <div class="jq-selectbox__trigger"><div class="jq-selectbox__trigger-arrow"></div></div>
@@ -107,11 +109,11 @@
                                                                                         <div class="po jq-selectbox jqselect form-select fast__select-control">
 
                                                                                             <select name="age" class="age form-select" data-placeholder="{{trans('index.filter_age')}}">
-                                                                                                <option style="display: none"></option>
-                                                                                                <option value="">{{trans('index.filter_all')}}</option>
+                                                                                                
+                                                                                                <option label="-" value="">{{trans('index.filter_all')}}</option>
                                                                                                 @foreach($r as $r_v)
 
-                                                                                                    <option data-opt="{!! $r_v->value_id !!}" value="{!! $r_v->value_id !!}">{!! $r_v->{$value} !!}</option>
+                                                                                                    <option label="{!! $r_v->value_id !!}s" data-opt="{!! $r_v->value_id !!}" value="{!! $r_v->value_id !!}">{!! $r_v->{$value} !!}</option>
                                                                                                 @endforeach
                                                                                             </select>
                                                                                             <div class="jq-selectbox__trigger"><div class="jq-selectbox__trigger-arrow"></div></div>
@@ -122,10 +124,10 @@
                                                                                     <div class="fast__group">
                                                                                         <div class="jq-selectbox jqselect form-select fast__select-control">
                                                                                             <select name="size" class="form-select" data-placeholder="{{trans('index.filter_size')}}">
-                                                                                                <option style="display: none"></option>
-                                                                                                <option value="">{{trans('index.filter_all')}}</option>
+                                                                                                
+                                                                                                <option label="-" value="">{{trans('index.filter_all')}}</option>
                                                                                                 @foreach($s as $s_v)
-                                                                                                    <option value="{!! $s_v->value_id !!}">{!! $s_v->{$value}!!}</option>
+                                                                                                    <option label="{!! $s_v->value_id !!}" value="{!! $s_v->value_id !!}">{!! $s_v->{$value}!!}</option>
                                                                                                 @endforeach
                                                                                             </select>
                                                                                             <div class="jq-selectbox__trigger"><div class="jq-selectbox__trigger-arrow"></div></div>
@@ -143,7 +145,7 @@
                                                     </div>
                                                 </div>
                                             </section>
-                                            <section class="elementor-element elementor-element-153200c6 elementor-section-content-middle elementor-reverse-mobile elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-section elementor-top-section" data-settings="{background_background:classic,shape_divider_top:waves,shape_divider_bottom:waves,shape_divider_bottom_negative:yes}" data-element_type="section">
+                                            <section class="elementor-element elementor-element-153200c6 elementor-section-content-middle elementor-reverse-mobile elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-section elementor-top-section" data-settings="{background_background:classic,shape_divider_top:waves,shape_divider_bottom:waves,shape_divider_bottom_negative:yes}">
                                                 <div class="elementor-background-overlay"></div>
                                                 <div class="elementor-shape elementor-shape-top" data-negative="false">
                                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none">
@@ -184,7 +186,7 @@
                                                                         <div class="modal-heading">{{trans('index.modal-heading')}}</div>
                                                                         <div class="modal-desc">{{trans('index.modal-desc')}}</div>
                                                                         <div class="modal-form">
-                                                                            <form name="SIMPLE_FORM_3" id="pitomnik" action="" method="POST" enctype="multipart/form-data">
+                                                                            <form name="SIMPLE_FORM_3" id="pitomnik" method="POST" enctype="multipart/form-data">
                                                                                 <div class="modal-form__group form-valid">
                                                                                     <input id="name" name="form_text_6" required="" class="modal-form__control form-valid__control" data-valid="{{trans('index.modal-form_control')}}" value="" placeholder="{{trans('index.modal-form_name')}}" type="text">
                                                                                 </div>
@@ -204,7 +206,7 @@
                                                     </div>
                                                 </div>
                                             </section>
-                                            <section class="elementor-element elementor-element-34c1c606 elementor-section-content-middle elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-section elementor-top-section" data-element_type="section">
+                                            <section class="elementor-element elementor-element-34c1c606 elementor-section-content-middle elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-section elementor-top-section">
                                                 <div class="elementor-container elementor-column-gap-no">
                                                     <div class="elementor-row">
                                                         <div class="formula__inner">
@@ -282,7 +284,7 @@
                                                     </div>
                                                 </div>
                                             </section>
-                                            <section class="elementor-element elementor-element-dc4b6a7 elementor-section-content-middle elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-section elementor-top-section" data-settings="{background_background:classic,shape_divider_top:waves,shape_divider_bottom:waves}" data-element_type="section">
+                                            <section class="elementor-element elementor-element-dc4b6a7 elementor-section-content-middle elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-section elementor-top-section" data-settings="{background_background:classic,shape_divider_top:waves,shape_divider_bottom:waves}">
                                                 <div class="elementor-background-overlay"></div>
                                                 <div class="elementor-shape elementor-shape-top" data-negative="false">
                                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none">
@@ -303,7 +305,7 @@
                                                         <div class="container">
                                                                 <div class="heading form-ask__heading">{{trans('index.question_header')}}</div>
                                                                 <div class="heading_line_w"></div>
-                                                            <form name="SIMPLE_FORM_1" action="" id="comment_form"
+                                                            <form name="SIMPLE_FORM_1" id="comment_form"
                                                                   method="POST" enctype="multipart/form-data">
 
                                                                 <div class="elementor-row">
@@ -373,13 +375,13 @@
                                                     </div>
                                                 </div>
                                             </section>
-                                            <section class="elementor-element elementor-element-news elementor-section-content-middle elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-section elementor-top-section" data-element_type="section">
+                                            <section class="elementor-element elementor-element-news elementor-section-content-middle elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-section elementor-top-section">
                                                 <div class="elementor-container elementor-column-gap-default">
                                                     <div class="elementor-row">
                                                         <div class="container">
                                                             <div class="col-lg-12">
                                                                 <div class="elementor-row">
-                                                                    <div class="col-lg-6" data-element_type="column">
+                                                                    <div class="col-lg-6">
                                                                         <div class="elementor-column-wrap elementor-element-populated">
                                                                             <div class="elementor-widget-wrap">
                                                                                 <div class="elementor-element elementor-widget-heading">
@@ -394,8 +396,7 @@
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
-                                                                                <div class="elementor-element elementor-align-left elementor-mobile-align-center elementor-widget elementor-widget-button"
-                                                                                     data-element_type="button.default">
+                                                                                <div class="elementor-element elementor-align-left elementor-mobile-align-center elementor-widget elementor-widget-button">
                                                                                     <div class="elementor-widget-container">
                                                                                         <div class="elementor-button-wrapper text-center">
                                                                                             <a href="{{ route('post',$post->url) }}"
@@ -588,12 +589,12 @@
 @endif
 </div>
 <!-- #page -->
-    <footer itemtype="https://schema.org/WPFooter" itemscope="itemscope" id="colophon" class="site-footer" role="contentinfo">
+    <footer itemscope="itemscope" id="colophon" class="site-footer">
         <div class="astra-advanced-hook-65">
             <div class="elementor elementor-65">
                 <div class="elementor-inner">
                     <div class="elementor-section-wrap">
-                        <section data-id="126e140" class="elementor-element elementor-element-126e140 elementor-section-content-middle elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-section elementor-top-section" data-settings="{background_background:classic,shape_divider_top:waves}" data-element_type="section">
+                        <section data-id="126e140" class="elementor-element elementor-element-126e140 elementor-section-content-middle elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-section elementor-top-section" data-settings="{background_background:classic,shape_divider_top:waves}">
                             <div class="elementor-background-overlay"></div>
                             <div class="elementor-shape elementor-shape-top" data-negative="false">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none">
@@ -612,17 +613,17 @@
                 <div class="ast-container">
                     <div class="elementor-container elementor-column-gap-default">
                         <div class="elementor-row">
-                            <div class="col-lg-2 col-md-3 col-xs-4 col-sm-12"><img width="150" src="{{asset('/images/logo_w.svg')}}"></div>
+                            <div class="col-lg-2 col-md-3 col-xs-4 col-sm-12"><img width="150" alt="logo white footer" src="{{asset('/images/logo_w.svg')}}"></div>
                             <div class="col-lg-2 col-md-3 col-xs-4 col-sm-12 tel_footer">
                                 <span>+38 067 6 907 177</span>
                                 <span>+38 050 1 907 177</span>
                             </div>
                             <div class="col-lg-5 col-md-3 col-xs-4 col-sm-12 block_footer"><p>{{trans('index.all_rights')}}</p></div>
                             <div class="col-lg-2 col-md-3 col-xs-4 col-sm-12 block_footer">
-                                <a target="_blank" href="https://www.facebook.com/chicopee.ua" class="sticky-custom-logo foot-social__btn" itemprop="url">
+                                <a target="_blank" href="https://www.facebook.com/chicopee.ua" class="sticky-custom-logo foot-social__btn">
                                     <img src="{{ asset('/images/fb.svg') }}" class="img-fluid center" alt="">
                                 </a>
-                                <a target="_blank" href="https://www.instagram.com/chicopee.ua/" class="sticky-custom-logo foot-social__btn" itemprop="url">
+                                <a target="_blank" href="https://www.instagram.com/chicopee.ua/" class="sticky-custom-logo foot-social__btn">
                                     <img src="{{ asset('/images/insta.svg') }}" class="img-fluid center" alt="">
                                 </a></div>
                         </div>

@@ -1,10 +1,10 @@
-<header itemtype="https://schema.org/WPHeader" itemscope="itemscope" id="masthead" class="site-header header-main-layout-1 ast-primary-menu-enabled ast-hide-custom-menu-mobile ast-menu-toggle-icon ast-mobile-header-inline" role="banner">
+<header itemscope="itemscope" id="masthead" class="site-header header-main-layout-1 ast-primary-menu-enabled ast-hide-custom-menu-mobile ast-menu-toggle-icon ast-mobile-header-inline" role="banner">
     <div id="top_menu" class="main-header-bar-wrap">
         <div class="main-header-bar">
             <div class="ast-container">
                 <div class="ast-flex main-header-container">
                     <div class="site-branding">
-                        <div class="ast-site-identity" itemscope="itemscope" itemtype="https://schema.org/Organization">
+                        <div class="ast-site-identity">
                            <span class="site-logo-img"><a href="/<?= \App\Http\Middleware\Locale::getLocale()?>" class="custom-logo-link" rel="home" itemprop="url">
                            <img src="{{asset('/images/logo_w.svg')}}" class="custom-logo" alt="Logo Regular 01" itemprop="logo" width="189" height="85"></a></span>
                         </div>
@@ -28,23 +28,23 @@
                     <!-- .site-branding -->
                     <div class="social">
                         <a target="_blank" href="https://www.facebook.com/chicopee.ua" class="sticky-custom-logo" itemprop="url">
-                            <img src="{{ asset('/images/fb.svg') }}" class="img-fluid center" alt="">
+                            <img src="{{ asset('/images/fb.svg') }}" class="img-fluid center" alt="facebook">
                         </a>
                         <a target="_blank" href="https://www.instagram.com/chicopee.ua/" class="sticky-custom-logo" itemprop="url">
-                            <img src="{{ asset('/images/insta.svg') }}" class="img-fluid center" alt="">
+                            <img src="{{ asset('/images/insta.svg') }}" class="img-fluid center" alt="instagram">
                         </a>
                     </div>
                     <div class="ast-main-header-bar-alignment">
                         <div class="main-header-bar-navigation">
                             <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#containerNavbarCenter" aria-controls="containerNavbarCenter" aria-expanded="false" aria-label="Toggle navigation">
                                 <span class="navbar-toggler-icon">
-                                    <img src="{{asset('/images/menu.svg')}}">
+                                    <img alt="navbar-toggler-icon" src="{{asset('/images/menu.svg')}}">
                                 </span>
                             </button>
                         </div>
                     </div>
                     <nav class="navbar navbar-expand-lg navbar-light">
-                        <div class="navbar-collapse justify-content-md-center collapse" id="containerNavbarCenter" aria-expanded="false" style="">
+                        <div class="navbar-collapse justify-content-md-center collapse" id="containerNavbarCenter" aria-expanded="false">
                             <ul class="navbar-nav">
                                 <li class="nav-item active"><a class="nav-link" href="{{ url(App\Http\Middleware\Locale::getLocale() .'/catalog') }}">{{ trans('menu.catalog')}}</a></li>
                                 <li class="nav-item active"><a class="nav-link" href="{{ url(App\Http\Middleware\Locale::getLocale() .'/pages/about') }}">{{ trans('menu.about')}}</a></li>
@@ -65,7 +65,6 @@
                                              c23.6,2.1,48.7,3.5,103.4-2.5c54.7-6,106.2-25.6,106.2-25.6V0H0v30.3c0,0,72,32.6,158.4,30.5c39.2-0.7,92.8-6.7,134-22.4
                                              c21.2-8.1,52.2-18.2,79.7-24.2C399.3,7.9,411.6,7.5,421.9,6.5z"></path>
         </svg>
-        {{--<img class="svg_h" src="{{ asset('/images/line_header.svg') }}">--}}
     </div>
 </header>
 <!-- #masthead -->
@@ -79,8 +78,8 @@
                         <div class="site-branding">
                             <div>
                                     <span class="site-logo-img">
-                                        <a href="/" class="sticky-custom-logo" rel="home" itemprop="url">
-                                            <img src="{{ asset('/images/logo.svg') }}" class="custom-logo" alt="" width="189" height="85">
+                                        <a href="/" class="sticky-custom-logo" rel="home">
+                                            <img src="{{ asset('/images/logo.svg') }}" class="custom-logo" alt="custom-logo" width="189" height="85">
                                         </a>
                                     </span>
                             </div>
@@ -88,7 +87,7 @@
                         <!-- .site-branding -->
                         <div class="ast-mobile-menu-buttons">
                             <div class="ast-button-wrap">
-                                <button type="button" class="menu-toggle main-header-menu-toggle ast-mobile-menu-buttons-fill" rel="main-menu" aria-controls="primary-menu" aria-expanded="false" data-index="1">
+                                <button type="button" class="menu-toggle main-header-menu-toggle ast-mobile-menu-buttons-fill" rel="main-menu" aria-expanded="false" data-index="1">
                                     <span class="screen-reader-text">Main Menu</span>
                                     <span class="menu-toggle-icon"></span>
                                 </button>
@@ -98,10 +97,10 @@
                         <div class="ast-main-header-bar-alignment">
                             <div class="main-header-bar-navigation">
                                 <nav class="navbar navbar-light bg-faded rounded navbar-toggleable-md">
-                                    <button class="navbar-toggler-right collapse1" type="button" data-toggle="collapse1" data-target="#containerNavbarCenter" aria-controls="containerNavbarCenter" aria-expanded="false" aria-label="Toggle navigation">
+                                    <button class="navbar-toggler-right collapse1" type="button" data-toggle="collapse1" data-target="#containerNavbarCenter" aria-controls="containerNavbarCenter2" aria-expanded="false" aria-label="Toggle navigation">
                                         <span class="navbar-toggler-icon"></span>
                                     </button>
-                                    <div class="navbar-collapse1 justify-content-md-center collapse1" id="containerNavbarCenter" aria-expanded="false" style="">
+                                    <div class="navbar-collapse1 justify-content-md-center collapse1" id="containerNavbarCenter2" aria-expanded="false">
                                         <ul class="navbar-nav">
                                             <li class="nav-item"><a class="nav-link" href="/catalog">{{ trans('menu.catalog')}}</a></li>
                                             <li class="nav-item"><a class="nav-link" href="/pages/about">{{ trans('menu.about')}}</a></li>
