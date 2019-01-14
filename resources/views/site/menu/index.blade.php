@@ -6,7 +6,7 @@
                     <div class="site-branding">
                         <div class="ast-site-identity" itemscope="itemscope" itemtype="https://schema.org/Organization">
                            <span class="site-logo-img"><a href="/<?= \App\Http\Middleware\Locale::getLocale()?>" class="custom-logo-link" rel="home" itemprop="url">
-                           <img src="{{asset('/images/logo_w.svg')}}" class="custom-logo" alt="Logo Regular 01" itemprop="logo" width="189" height="85"></a></span>
+                           <img alt="navbar-toggler-icon" src="{{asset('/images/logo_w.svg')}}" class="custom-logo"  itemprop="logo" width="189" height="85"></a></span>
                         </div>
                     </div>
                     <div class="tel_header">

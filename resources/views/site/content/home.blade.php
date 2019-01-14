@@ -95,7 +95,7 @@
                                                                                                       $name = 'name_'.App::getLocale();
                                                                                                 ?>
                                                                                                 @foreach($o as $o_v)
-                                                                                                    <option id="opa" value="{!! $o_v->id!!}">{!! $o_v->{$name} !!}</option>
+                                                                                                    <option value="{!! $o_v->id!!}">{!! $o_v->{$name} !!}</option>
                                                                                                 @endforeach
                                                                                             </select>
                                                                                             <div class="jq-selectbox__trigger"><div class="jq-selectbox__trigger-arrow"></div></div>

@@ -9,7 +9,7 @@
         <div class="ast-container">
             <div id="primary" class="content-area primary">
                 <main id="main" class="site-main" role="main">
-                    <article itemtype="https://schema.org/CreativeWork" itemscope="itemscope" class="post-5 page type-page status-publish ast-article-single">
+                    <article itemscope="itemscope" class="post-5 page type-page status-publish ast-article-single">
                         <!-- .entry-header -->
                         <div class="entry-content clear" itemprop="text">
                             <div class="elementor elementor-5">
