@@ -16,8 +16,8 @@
 @yield('header')
 <!-- #astra-fixed-header -->
 @yield('content')
-
-@if (Request::url() == url('/'))
+    <? $url = '/'.\App\Http\Middleware\Locale::getLocale()?>
+@if (Request::url() == url($url))
         <div id="content" class="site-content">
             <div class="ast-container">
                 <div id="primary" class="content-area primary">

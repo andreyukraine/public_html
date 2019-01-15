@@ -1,5 +1,5 @@
 <?php
 return [
-    'prev_desc' => 'Get a branded container as a gift',
-    'desc' => 'Canadian Chicopee Classic Nature Line food is a new line-up based on recipes that allow your vihovans to get healthy and beautiful.'
+    'prev_desc' => 'HOLISTIC NATURE LINE 100% BEZZERNOVOY DOG FOOD',
+    'desc' => 'Canadian feed Chicopee Holistic Nature Line - 100% grainless fodder sbalanzananimm in bulk bіlkіv і fat_v'
 ];

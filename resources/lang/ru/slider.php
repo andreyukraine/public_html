@@ -1,5 +1,5 @@
 <?php
 return [
-    'prev_desc' => 'Получи в подарок фирменный контейнер',
-    'desc' => 'upon purchase of CLASIC NATURE LINE 15 kg or HOLISTIC NATURE LINE 12 kg'
+    'prev_desc' => 'HOLISTIC NATURE LINE 100% БЕЗЗЕРНОВОЙ КОРМ ДЛЯ СОБАК',
+    'desc' => 'Канадский корм Chicopee Holistic Nature Line - это 100% беззерновой корм со сбалансированным содержанием белков и жиров.'
 ];
