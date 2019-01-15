@@ -1,7 +1,7 @@
 @extends('site.content.home')
 @section('url', route('products_show', ['category'=>'sobaki','url'=>$product->url] ))
-@section('title', e($product->name).'- купить по лучшей цене в Киеве от компании "Chicopee" - '.e($product->id))
-@section('description', e($product->title))
+@section('title', e($product->title))
+@section('description', e($product->desc))
 @section('meta', e($product->meta))
 @section('keywords', e($product->keywords))
 @section('header')
@@ -65,11 +65,11 @@
 
 
             <div class="imgs @if(!$product->active) active_item_{!! App::getLocale() !!} @endif col-lg-5 col-md-5">
-                <img class="img-fluid center" alt="{!! $product->name !!}" title="{!! $product->prev_desc !!}" src="{!! $product->images !!}">
+                <img class="img-fluid center" src="{!! $product->images !!}" title="{{$product->name}}" alt="{{$product->name}}">
 
                 @foreach($files as $file)
                     @if($file)
-                        <img id="myImg" alt="{!! $product->name !!}" title="{!! $product->prev_desc !!}" src="{!! $file->url !!}">
+                        <img id="myImg" src="{!! $file->url !!}" title="{{$product->name}}" alt="{{$product->name}}">
                     @endif
                 @endforeach
 
