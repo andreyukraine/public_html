@@ -574,6 +574,7 @@ class ProductController extends Controller
         }
         return "";
     }
+
     public static function getSkuOptionsArray($id_options, $id_product)
     {
         $mass = array();

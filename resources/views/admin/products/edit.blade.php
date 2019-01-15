@@ -95,7 +95,7 @@
                                     <textarea name="prev_desc" class="form-control" id="mytextarea" rows="10">{!! $product->prev_desc !!}</textarea>
                                 </div>
                                 <div class="tab-pane fade" id="c" role="tabpanel" aria-labelledby="1-tab">
-                                    <textarea name="description" class="form-control" id="mytextarea" rows="10">{!! $product->desc !!}</textarea>
+                                    <textarea name="desc" class="form-control" id="mytextarea" rows="10">{!! $product->desc !!}</textarea>
                                 </div>
                                 <div class="tab-pane fade" id="d" role="tabpanel" aria-labelledby="1-tab">
                                     <textarea name="composition" class="form-control" id="mytextarea" rows="10">{!! $product->composition !!}</textarea>
@@ -290,7 +290,7 @@
                 customConfig: '/ckeditor/custom_config.js',
                 toolbar: 'simple'
             });
-        CKEDITOR.replace( 'description',{
+        CKEDITOR.replace( 'desc',{
                 customConfig: '/ckeditor/custom_config.js',
                 toolbar: 'simple'
             });

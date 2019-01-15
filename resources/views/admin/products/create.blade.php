@@ -147,7 +147,7 @@
                 customConfig : 'config.js',
                 toolbar : 'simple'
             });
-        CKEDITOR.replace( 'description',
+        CKEDITOR.replace( 'desc',
             {
                 customConfig : 'config.js',
                 toolbar : 'simple'
