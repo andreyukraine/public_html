@@ -71,7 +71,7 @@
                                     <textarea name="prev_desc" class="form-control" id="exampleFormControlTextarea2" rows="10"></textarea>
                                 </div>
                                 <div class="tab-pane fade" id="c" role="tabpanel" aria-labelledby="3-tab">
-                                    <textarea name="description" class="form-control" id="exampleFormControlTextarea3" rows="10"></textarea>
+                                    <textarea name="desc" class="form-control" id="exampleFormControlTextarea3" rows="10"></textarea>
                                 </div>
                                 <div class="tab-pane fade" id="d" role="tabpanel" aria-labelledby="4-tab">
                                     <textarea name="composition" class="form-control" id="exampleFormControlTextarea4" rows="10"></textarea>

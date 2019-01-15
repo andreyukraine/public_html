@@ -229,7 +229,7 @@ class ProductController extends Controller
         $product->dose = $request->dose;
         $product->excerpt = $request->excerpt;
         $product->prev_desc = $request->prev_desc;
-        $product->desc = $request->description;
+        $product->desc = $request->desc;
         $product->meta = $request->meta;
         $product->keywords = $request->keywords;
         $product->save();
@@ -321,7 +321,7 @@ class ProductController extends Controller
         $product->composition = $request->composition;
         $product->dose = $request->dose;
         $product->excerpt = $request->excerpt;
-        $product->desc = $request->description;
+        $product->desc = $request->desc;
         $product->prev_desc = $request->prev_desc;
         $product->meta = $request->meta;
         $product->keywords = $request->keywords;

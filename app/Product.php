@@ -21,7 +21,7 @@ class Product extends Model
         'title',
         'images',
         'excerpt',
-        'description',
+        'desc',
         'prev_desc',
         'composition',
         'dose',
