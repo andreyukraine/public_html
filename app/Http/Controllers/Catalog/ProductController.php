@@ -325,9 +325,7 @@ class ProductController extends Controller
         $product->prev_desc = $request->prev_desc;
         $product->meta = $request->meta;
         $product->keywords = $request->keywords;
-        $product->save();
         $product->categories()->detach();
-        //$product->current_option()->detach();
 
         //переподвязываем категории
         foreach ((array)$request->cat_id as $cat_item) {
@@ -335,6 +333,7 @@ class ProductController extends Controller
             $product->categories()->attach($cat);
         }
 
+        $product->save();
         //перезаписываем свойства товара
         if (!empty($request->opt_id)) {
 
