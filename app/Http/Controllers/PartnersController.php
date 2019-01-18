@@ -27,18 +27,17 @@ class PartnersController extends Controller
     public function index(){
         $mass_shops = array();
         $mass_ecommerces = array();
-
+        $regions = DB::table('partners')->select('region')->where('region','!=','')->distinct()->get();
         $s_mass = DB::table('partners')->where('type','=','T')->get()->sortByDesc('sort');
         $e_mass = DB::table('partners')->where('type','=','I')->get()->sortByDesc('sort');
 
-        foreach ($s_mass as $key=>$partner){
-            $item = array([
-                'id'=>$partner->id,
-                'name'=>$partner->name,
-                'addres'=>$partner->addres,
-                'type'=>$partner->type
-            ]);
-            $mass_shops[$key] = $item;
+        foreach ($regions as $s=>$region) {
+            foreach ($s_mass as $key => $partner) {
+                $item = "";
+                if ($region->region == $partner->region) {
+                    $mass_shops[$region->region][$key] = $partner;
+                }
+            }
         }
 
         foreach ($e_mass as $key=>$partner){
@@ -83,6 +82,7 @@ class PartnersController extends Controller
         $partner->addres = $request->addres;
         $partner->type = $request->type;
         $partner->url = $request->url;
+        $partner->region = $request->region;
         $partner->index = "site";
         $partner->save();
 
@@ -128,6 +128,7 @@ class PartnersController extends Controller
         $partner->addres = $request->addres;
         $partner->type = $request->type;
         $partner->url = $request->url;
+        $partner->region = $request->region;
         $partner->save();
 
         return redirect('admin/partners');

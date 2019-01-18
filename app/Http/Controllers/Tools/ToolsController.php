@@ -70,13 +70,17 @@ class ToolsController extends Controller
             foreach ($users_sql as $user_sql){
                 Partners::destroy($user_sql->id);
             }
-            foreach ($data['users'] as $user) {
-                $partner = new Partners();
-                $partner->name = $user['user'];
-                $partner->addres = $user['tt'];
-                $partner->type = "T";
-                $partner->index = $user['index'];
-                $partner->save();
+            foreach ($data['users'] as $reg) {
+                $region = $reg['reg_name'];
+                foreach ($reg['regions'] as $user) {
+                    $partner = new Partners();
+                    $partner->name = $user['user'];
+                    $partner->addres = $user['tt'];
+                    $partner->type = "T";
+                    $partner->index = $user['index'];
+                    $partner->region = $region;
+                    $partner->save();
+                }
             }
             foreach ($data['ecommers'] as $ecommers) {
                 $partner = new Partners();

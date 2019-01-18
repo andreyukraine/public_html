@@ -334,6 +334,7 @@ class ProductController extends Controller
         }
 
         $product->save();
+
         //перезаписываем свойства товара
         if (!empty($request->opt_id)) {
 

@@ -77,7 +77,9 @@
                                 <div class="scroll-wrapper map-places scrollbar-outer" style="position: relative;">
                                     <div class="map-places scrollbar-outer scroll-content scroll-scrolly_visible" style="height: auto; margin-bottom: 0px; margin-right: 0px; max-height: 470px;">
                                         <?php $shops_mass = json_decode($shops, true);?>
-                                        @foreach($shops_mass as $shop)
+
+                                        @foreach($shops_mass as $key=> $shop)
+                                                <div class="region">{{$key}}</div>
                                             @foreach($shop as $item)
                                                     {{--<div class="city">{{$item['name']}}</div>--}}
                                                     <div class="adres" id="{{$item['id']}}"><?php echo mb_strimwidth($item['addres'], 0, 70, "...");?></div>

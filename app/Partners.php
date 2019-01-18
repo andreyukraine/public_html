@@ -9,6 +9,6 @@ class Partners extends Model
     protected $table = 'partners';
     public $timestamps = false;
 
-    protected $fillable = ['id','name','addres','type', 'images', 'url'];
+    protected $fillable = ['id','name','addres','type', 'images', 'url', 'region'];
 
 }
