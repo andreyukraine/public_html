@@ -4,23 +4,37 @@
 
 
         <h3>Add options</h3>
-
+        <hr>
+        {!! Form::open(['route' => ['options.store'], 'enctype'=>'multipart/form-data']) !!}
+        <div class="row">
+            <div class="col-lg-8">
+                <label class="radio-inline">
+                    <input name="type" value="dir" type="radio">
+                    Справочник
+                </label>
+                <label class="radio-inline">
+                    <input name="type" value="dir_img"
+                           type="radio">
+                    Справочник с картинками
+                </label>
+            </div>
+            <div class="col-lg-4">
+                <div class="row">
+                    <div class="col-lg-6 text-right">Sort</div>
+                    <div class="col-lg-6"><input name="sort" type="text" class="form-control"></div>
+                </div>
+            </div>
+        </div>
         <hr>
 
         {{--{{$validator->title}}--}}
 
-        {!! Form::open(['route' => ['options.store'], 'enctype'=>'multipart/form-data']) !!}
+
         <div class="col-lg-8">
             <div class="col-lg-10">
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Name</label>
                     <input name="name" type="text" class="form-control" id="exampleFormControlInput1">
-                </div>
-            </div>
-            <div class="col-lg-2">
-                <div class="form-group">
-                    <label for="exampleFormControlInput1">Стравочник</label>
-                    <input name="type" class="type" type="checkbox" id="exampleFormControlInput1">
                 </div>
             </div>
 

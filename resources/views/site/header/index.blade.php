@@ -36,6 +36,7 @@
 
 
     <script src="{{ asset('js/jquery-3.2.1.js') }}" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
     <script src="{{ asset('js/bootstrap.js') }}" defer></script>
     <script src="{{ asset('js/formstyler.js') }}" defer></script>
     <script src="{{ asset('js/inputmask.js')}}" defer></script>

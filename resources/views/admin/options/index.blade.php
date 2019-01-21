@@ -17,8 +17,11 @@
                 <div class="col-lg-1">
                     {!! $option->id !!}
                 </div>
-                <div class="col-lg-10">
+                <div class="col-lg-8">
                     <p class="product_name">{!! $option->name !!}</p>
+                </div>
+                <div class="col-lg-2">
+                    <p class="product_name">{!! $option->sort !!}</p>
                 </div>
                 <div class="panel_my col-lg-1">
                     <a href="{{ route('options.edit',$option->id) }}"><span class="glyphicon glyphicon-pencil"></span></a>

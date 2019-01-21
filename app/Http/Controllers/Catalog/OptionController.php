@@ -14,7 +14,7 @@ class OptionController extends Controller
 
     public function index()
     {
-        $options_mass = Option::all();
+        $options_mass = Option::all()->sortBy('sort');
         return view('admin.options.index',
             ['options'=> $options_mass]
         );
@@ -32,6 +32,7 @@ class OptionController extends Controller
         $option = new Option();
         $option->name = $request->name;
         $option->type = $request->type;
+        $option->sort = $request->sort;
         $option->save();
 
         //подвязываем категории
@@ -68,6 +69,7 @@ class OptionController extends Controller
         $option  = Option::find($id);
         $option->name = $request->name;
         $option->type = $request->type;
+        $option->sort = $request->sort;
         $option->categories()->detach();
         $option->save();
 

@@ -506,7 +506,7 @@ class ProductController extends Controller
             ->groupBy('option.id')
             ->where('category_option.category_id', '=', 1)
             ->select('category_option.category_id', 'option.id', 'option.*')
-            ->get();
+            ->get()->sortBy('sort');
 
         foreach ($mass->all() as $f) {
             //если выбрана хоть одно значение тогда отображаем на сайте

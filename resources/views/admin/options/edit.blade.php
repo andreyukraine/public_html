@@ -6,15 +6,25 @@
         <h3>Edit options - {!! $option->id !!}</h3>
         <hr>
         {!! Form::open(['route' => ['options.update', $option->id], 'method'=>'PUT', 'id'=>'sends', 'enctype'=>'multipart/form-data']) !!}
-
-        <label class="radio-inline">
-            <input name="type" @if($option->type == 'dir') checked="checked" @endif value="dir" type="radio">
-            Справочник
-        </label>
-        <label class="radio-inline">
-            <input name="type" @if($option->type == 'dir_img') checked="checked" @endif value="dir_img" type="radio">
-            Справочник с картинками
-        </label>
+        <div class="row">
+            <div class="col-lg-8">
+                <label class="radio-inline">
+                    <input name="type" @if($option->type == 'dir') checked="checked" @endif value="dir" type="radio">
+                    Справочник
+                </label>
+                <label class="radio-inline">
+                    <input name="type" @if($option->type == 'dir_img') checked="checked" @endif value="dir_img"
+                           type="radio">
+                    Справочник с картинками
+                </label>
+            </div>
+            <div class="col-lg-4">
+                <div class="row">
+                    <div class="col-lg-6 text-right">Sort</div>
+                    <div class="col-lg-6"><input name="sort" type="text" value="{!! $option->sort !!}" class="form-control"></div>
+                </div>
+            </div>
+    </div>
         <hr>
 
         {{--{{$validator->title}}--}}

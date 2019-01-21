@@ -189,7 +189,7 @@
                                                                                     <input id="name" name="form_text_6" required="" class="modal-form__control form-valid__control" data-valid="{{trans('index.modal-form_control')}}" value="" placeholder="{{trans('index.modal-form_name')}}" type="text">
                                                                                 </div>
                                                                                 <div class="modal-form__group form-valid">
-                                                                                    <input id="tel" name="form_text_7" required="" class="modal-form__control form-valid__control" data-valid="{{trans('index.modal-form_control')}}" value="" placeholder="{{trans('index.modal-form_tel')}}" type="text">
+                                                                                    <input id="tel_p" name="form_text_7" required="" class="modal-form__control form-valid__control" data-valid="{{trans('index.modal-form_control')}}" value="" placeholder="{{trans('index.modal-form_tel')}}" type="text">
                                                                                 </div>
                                                                                 <div class="modal-form__group modal-form__group_btn">
                                                                                     <input value="{{trans('index.modal-form_submit')}}" class="btn modal-form__btn" type="submit">
@@ -303,8 +303,7 @@
                                                         <div class="container">
                                                                 <div class="heading form-ask__heading">{{trans('index.question_header')}}</div>
                                                                 <div class="heading_line_w"></div>
-                                                            <form name="SIMPLE_FORM_1" action="" id="comment_form"
-                                                                  method="POST" enctype="multipart/form-data">
+                                                            <form name="SIMPLE_FORM_1" action="" id="comment_form" method="POST" enctype="multipart/form-data">
 
                                                                 <div class="elementor-row">
                                                                     <div class="col-lg-3 col-md-3 col-sm-12">
@@ -449,8 +448,9 @@
         </div>
         <!-- #content -->
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+
             <script>
+
                 $(document).ready(function () {
                     var ind_rotator = 0;
                     var imgArr = <?php echo $slider;?>;
@@ -515,6 +515,12 @@
                     $('.form-select').styler({
                         selectPlaceholder: 'Select...',
                     });
+
+                    //маска для телефона
+                    $("#tel_p").inputmask({"mask": "(999) 999-9999"},{ repeat: 14 });
+
+
+
                 });
 
                 function ShowAlert($text){
@@ -523,16 +529,15 @@
                     $("#alert").modal("show");
                 }
 
-                $('.modal').on('show.bs.modal', function(e) {
-                    e.preventDefault();
-                    $("#pitomnik").submit(function(e) {
-                        e.preventDefault();
-                        var name = $("#name").val();
-                        var tel = $("#tel").val();
 
-                        $.ajax({
+                $("#pitomnik").submit(function(e) {
+                    e.preventDefault();
+                    var name = $("#name").val();
+                    var tel = $("#tel_p").val();
+
+                    $.ajax({
                             type: "POST",
-                            url: 'send',
+                            url: "send",
                             data: {
                                 "name": name,
                                 "tel": tel,
@@ -540,12 +545,12 @@
                                 "_token": $('meta[name="csrf-token"]').attr('content')
                             },
                             success: function (response) {
-                                console.log(response);
+                                //console.log(response);
                                 ShowAlert(response);
                             }
-                        });
                     });
                 });
+
 
                 $("#comment_form").submit(function(e){
                     var inputs = document.querySelectorAll('.form-ask__control'), result, i;
@@ -568,7 +573,7 @@
                         var comment = $("#comment").val();
                         $.ajax({
                             type: 'POST',
-                            url: 'send',
+                            url: "send",
                             data: {
                                 "name": name,
                                 "tel": tel,
@@ -577,7 +582,7 @@
                                 "comment": comment,
                                 "_token": $('meta[name="csrf-token"]').attr('content')},
                             success: function(response){
-                                console.log(response);
+                                //console.log(response);
                                 ShowAlert(response);
                             }
                         });
@@ -626,31 +631,63 @@
                                     <img src="{{ asset('/images/insta.svg') }}" class="img-fluid center" alt="">
                                 </a></div>
                         </div>
-                        <!-- .ast-row.ast-flex -->
                     </div>
-                    <!-- .ast-small-footer-wrap -->
                 </div>
-                <!-- .ast-container -->
             </div>
-            <!-- .ast-footer-overlay -->
         </div>
-        <!-- .ast-small-footer-->
     </footer>
-    <!-- #colophon -->
 
+
+
+<p id="callback"><span data-toggle="modal" data-target="#modal-callback"></span></p>
+{{--окно для call back phone--}}
+<div class="modal modal_bid" id="modal-callback">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <button class="modal-close" data-dismiss="modal"></button>
+            <div class="modal-body">
+                <div class="modal-heading">{{trans('index.callback_title')}}</div>
+                <div class="modal-desc">{{trans('index.modal-desc-callback')}}</div>
+                <div class="modal-form">
+                    <form name="SIMPLE_FORM_3" id="callback_form" action="" method="POST">
+                        <div class="modal-form__group form-valid">
+                            <input id="tel_callback" name="form_text_7" required="" value="" class="form-valid__control" data-valid="{{trans('index.modal-form_control')}}" placeholder="{{trans('index.modal-form_tel')}}" type="text">
+                        </div>
+                        <div class="modal-form__group modal-form__group_btn">
+                            <input value="{{trans('index.callback_submit')}}" class="btn modal-form__btn" type="submit">
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <p id="back-top"><a href="#top"><span></span></a></p>
+
+
 
 @if(request()->is('/') != '/')
     <script>
+
+
+
+
+
+
+
         $(document).ready(function () {
             //стрелка вверх
+            $("#callback").hide();
             $("#back-top").hide();
             $(function () {
                 $(window).scroll(function () {
                     if ($(this).scrollTop() > 300) {
                         $('#back-top').fadeIn();
+                        $('#callback').fadeIn();
                     } else {
                         $('#back-top').fadeOut();
+                        $('#callback').fadeOut();
                     }
                 });
                 $('#back-top a').click(function () {
@@ -660,7 +697,7 @@
                     return false;
                 });
             });
-                    //TODO:test todo
+
             //меню
             $(function () {
                 $(window).scroll(function(){

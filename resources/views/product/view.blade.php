@@ -90,13 +90,13 @@
             <div class="col-lg-1 col-md-1"></div>
             <div class="item_opt col-lg-6 col-md-6">
                 {{--<img src="{{asset('images/divider.png')}}" class="divider attachment-full size-full">--}}
-                <p>{!! $product->prev_desc !!}</p>
-                <div class="product_line"></div>
+
                 @foreach($options as $opt)
                     <div class="opt_row_view">
                         @if($opt[0]['view_opt'])
                             <?php $array_opt = array();?>
                             @if($opt[0]['type_opt'] == "dir_img")
+                                <div class="block_opt_img">
                                     <span class="opt_name_view_img">{!! $opt[0]['name_opt'] !!}:</span>
                                     @foreach($opt[0]['value_opt'] as $key => $value)
                                         @if($value->select_id > 0)
@@ -109,6 +109,9 @@
                                             </div>
                                         @endif
                                     @endforeach
+                                </div>
+                                    <p>{!! $product->prev_desc !!}</p>
+                                    <div class="product_line"></div>
                             @else
                                 @if($opt[0]['id_opt'] == 7)
                                     <span class="opt_name_view">{!! $opt[0]['name_opt'] !!}:</span>
@@ -173,7 +176,12 @@
                         @endif
                     </div>
                 @endforeach
-
+                <div class="product_line"></div>
+                <div class="text-center">
+                <a href="{{ url(App\Http\Middleware\Locale::getLocale() .'/shops') }}" class="elementor-button-link btn_a" role="button">
+                    {{trans('menu.buy')}}
+                </a>
+                </div>
             </div>
         </div>
     </div>
@@ -199,35 +207,4 @@
     </div>
 @endsection
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script>
-    $(document).ready(function () {
 
-        $(".nav a").on("click", function(){
-            $(".nav").find(".active").removeClass("active");
-            $(this).addClass("active");
-         });
-
-
-        var modal = document.getElementById('modal-bid');
-
-// Get the image and insert it inside the modal - use its "alt" text as a caption
-        var img = document.getElementById('myImg');
-        var modalImg = document.getElementById("img01");
-        var captionText = document.getElementById("caption");
-        img.onclick = function(){
-            modal.style.display = "block";
-            modalImg.src = this.src;
-            captionText.innerHTML = this.alt;
-        };
-
-// Get the <span> element that closes the modal
-        var span = document.getElementsByClassName("modal-close")[0];
-
-// When the user clicks on <span> (x), close the modal
-        span.onclick = function() {
-            modal.style.display = "none";
-        }
-    });
-</script>

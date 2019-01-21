@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\App;
 class Option extends Model
 {
     protected $table = 'option';
-    protected $fillable = ['name', 'type'];
+    protected $fillable = ['name', 'type', 'sort'];
 
 
     public function categories()

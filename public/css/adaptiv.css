@@ -347,7 +347,7 @@ and (max-device-width : 768px) {
         border: 1px solid transparent;
         border-top-left-radius: 0.25rem;
         border-top-right-radius: 0.25rem;
-        width: 25%;
+        width: 33%;
         color: #000000;
         text-align: center !important;
     }
@@ -868,6 +868,7 @@ and (orientation : landscape){
     .product_title h1{
         font-size: 2rem;
     }
+
     h2, .h2 {
         font-size: 1rem;
     }
@@ -927,7 +928,7 @@ and (orientation : landscape){
         border: 1px solid transparent;
         border-top-left-radius: 0.25rem;
         border-top-right-radius: 0.25rem;
-        width: 25%;
+        width: 33%;
         color: #000000;
         font-size: 1rem;
         text-align: center !important;
@@ -1110,7 +1111,7 @@ and (orientation : portrait){
         border: 1px solid transparent;
         border-top-left-radius: 0.25rem;
         border-top-right-radius: 0.25rem;
-        width: 25% !important;
+        width: 33% !important;
         color: #000000;
         font-size: 12px;
         line-height: 12px;
@@ -1677,7 +1678,7 @@ and (max-device-width : 992px)
         border: 1px solid transparent;
         border-top-left-radius: 0.25rem;
         border-top-right-radius: 0.25rem;
-        width: 25% !important;
+        width: 33% !important;
         color: #000000;
         font-size: 1rem;
         text-align: center !important;
@@ -2194,7 +2195,7 @@ and (orientation : landscape)
         border: 1px solid transparent;
         border-top-left-radius: 0.25rem;
         border-top-right-radius: 0.25rem;
-        width: 25%;
+        width: 33%;
         color: #000000;
         font-size: 1.2rem;
         text-align: center !important;
@@ -2702,7 +2703,7 @@ and (orientation : portrait)
         border: 1px solid transparent;
         border-top-left-radius: 0.25rem;
         border-top-right-radius: 0.25rem;
-        width: 25% !important;
+        width: 33% !important;
         color: #000000;
         font-size: 24px;
         text-align: center !important;
@@ -4187,7 +4188,7 @@ and (min-width : 1024px) {
         border: 1px solid transparent;
         border-top-left-radius: 0.25rem;
         border-top-right-radius: 0.25rem;
-        width: 25%;
+        width: 33%;
         color: #000000;
         /*font-size: 1.7rem;*/
         text-align: center !important;
@@ -5013,12 +5014,31 @@ div#nav-tabContent {
     padding-bottom: 2em;
 }
 
+#callback {
+    position: fixed;
+    bottom: 60px;
+    left: 3%;
+    z-index: 999;
+}
+
+#callback span {
+    background: url(images/calll.gif) no-repeat;
+    background-size: auto auto;
+    width: 85px;
+    height: 85px;
+    display: block;
+    background-size: contain;
+}
+
+
+
 #back-top {
     position: fixed;
     bottom: 60px;
     right: 3%;
     z-index: 999;
 }
+
 #back-top a {
     background: url(images/scroll.svg) no-repeat;
     width: 60px;
@@ -5124,9 +5144,13 @@ html {
     vertical-align: top;
     border-top: 1px solid #dee2e6;
 }
+.block_opt_img{
+    margin-bottom: 35px;
+    display: table;
+}
 .opt_name_view_img{
     text-transform: capitalize;
-    margin-top: 35px;
+    margin-top: 15px;
     width: 100%;
     float: left;
     margin-bottom: 35px;
@@ -5517,7 +5541,7 @@ body.modal-loading {
     float: left;
     width: 40%;
     overflow-y: scroll;
-    height: 400px;
+    height: 500px;
 }
 .wrapper {
     margin: 0 auto;
@@ -5613,4 +5637,28 @@ body.modal-loading {
 .region{
     font-size: 18px;
     padding: 30px;
+}
+
+.product_title h1::before, .product_title h1::after {
+    font-weight: 700;
+    margin-right: 15px;
+    content: '~';
+    color: #9e140f;
+}
+.product_title h1::after {
+    margin-right: 0;
+    margin-left: 15px;
+}
+
+.container_map{
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+#tel_callback {
+    font-size: 1rem;
+    font-weight: 100;
+    width: 100%;
+    height: 60px;
+    padding: 0 20px;
 }

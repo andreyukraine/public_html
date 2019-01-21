@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Blog;
+use App\Mail\CallBack;
 use App\Mail\NerseryEmail;
 use App\Mail\QuestionEmail;
+use Illuminate\Support\Facades\URL;
 use Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
@@ -18,16 +20,17 @@ class HomeController extends Controller
 {
 
     public function setlocale(Request $request){
-
             if (in_array($request->lang, Config::get('app.locales'))) {
                 Session::put('locale', $request->lang);
             }
-
         return redirect()->back();
-
-
     }
-
+    public function callback(Request $request){
+        if($request->ajax()){
+            if ($request['type_form'] == 1){
+            }
+        }
+    }
 
     public function index(Request $request){
 
@@ -41,13 +44,13 @@ class HomeController extends Controller
                 );
 
                 $info = array(
-                    "address" => 'chicopee.ua@gmail.com',
+                    "address" => 'ua.chicopee@gmail.com',
                     "subject" => 'Заявка питомника',
                     "name" => 'SITE CHICOPEE'
                 );
 
                 //отправка на почту
-                Mail::to('chicopee.ua@gmail.com')->send(new NerseryEmail($data, $info));
+                Mail::to('ua.chicopee@gmail.com')->send(new NerseryEmail($data, $info));
                 $response = 'Ваше сообщение отправленно';
                 return Response($response);
             }
@@ -65,10 +68,26 @@ class HomeController extends Controller
                     "name" => 'SITE CHICOPEE'
                 );
 
-                Mail::to('chicopee.ua@gmail.com')->send(new QuestionEmail($data, $info));
+                Mail::to('ua.chicopee@gmail.com')->send(new QuestionEmail($data, $info));
 
                 $response = 'Ваше сообщение отправленно';
 
+                return Response($response);
+            }
+            if ($request['type_form'] == 3){
+                $data = array(
+                    'tel' => $request->tel,
+                );
+
+                $info = array(
+                    "address" => 'ukr.web.ua@gmail.com',
+                    "subject" => 'Заявка обратного звонка',
+                    "name" => 'SITE CHICOPEE'
+                );
+
+                //отправка на почту
+                Mail::to('ukr.web.ua@gmail.com')->send(new CallBack($data, $info));
+                $response = 'Ваше сообщение отправленно';
                 return Response($response);
             }
         }
@@ -76,14 +95,14 @@ class HomeController extends Controller
 
         $mass = array();
         Session::all();
-        $sliders_mass = DB::table('sliders')->get()->sortBy('sort');
+        $sliders_mass = DB::table('sliders')->where('active' ,'=', 1)->get()->sortBy('sort');
         foreach ($sliders_mass as $key=>$slide){
             $locale = App::getLocale();
             $prev_desc = "prev_desc_" . $locale;
             $desc = "desc_" . $locale;
             $item = array([
                 'index'=> $key,
-                'img'=> "https://chicopee.in.ua". $slide->images,
+                'img'=> URL::to('/') . $slide->images,
                 'prev_text'=>$slide->{$prev_desc},
                 'text'=>$slide->{$desc}
             ]);

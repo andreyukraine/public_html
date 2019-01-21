@@ -80,8 +80,6 @@ Route::group(['prefix' => App\Http\Middleware\Locale::getLocale()], function() {
     Route::get('/', ['uses' => 'HomeController@index', 'as' => 'home']);
 
 
-    Route::post('send', ['uses' => 'HomeController@index', 'as' => 'post_home']);
-    Route::get('send', ['uses' => 'HomeController@index', 'as' => 'get_home']);
 
 
     //СТРАНИЦЫ
@@ -94,6 +92,8 @@ Route::group(['prefix' => App\Http\Middleware\Locale::getLocale()], function() {
     //Route::get('contact', function () { return view('site.content.contact');})->name('contact');
     //Route::get('about', function () { return view('site.content.about');})->name('about');
 
+    Route::post('send', ['uses' => 'HomeController@index', 'as' => 'post_home']);
+    Route::get('send', ['uses' => 'HomeController@index', 'as' => 'get_home']);
 
     Route::get('/logout', function () {
         \Auth::logout();
@@ -196,3 +196,6 @@ Route::group(['prefix' => App\Http\Middleware\Locale::getLocale()], function() {
     });
 
 });
+
+
+

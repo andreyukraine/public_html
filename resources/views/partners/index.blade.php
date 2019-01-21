@@ -56,7 +56,7 @@
         </div>
         <div class="title_page heading">{{trans('menu.buy')}}</div>
     </div>
-    <div class="container">
+    <div class="container_map">
         <div class="row shop_by_page">
             <div class="container">
                 <nav>
@@ -69,13 +69,13 @@
             <div class="tab-content" id="nav-tabContent">
                 <div class="tab-pane fade show active" id="nav-o" role="tabpanel" aria-labelledby="nav-home-tab">
                         <div class="map-wrapper col-sm-12">
-                            <div id="map" style="width:100%;height:400px;">
+                            <div id="map" style="width:100%;height:500px;">
                             </div>
                         </div>
                         <div class="map-info col-lg-6 hidden-sm">
                             <div class="wrapper">
                                 <div class="scroll-wrapper map-places scrollbar-outer" style="position: relative;">
-                                    <div class="map-places scrollbar-outer scroll-content scroll-scrolly_visible" style="height: auto; margin-bottom: 0px; margin-right: 0px; max-height: 470px;">
+                                    <div class="map-places scrollbar-outer scroll-content scroll-scrolly_visible" style="height: auto; margin-bottom: 0px; margin-right: 0px; max-height: 500px;">
                                         <?php $shops_mass = json_decode($shops, true);?>
 
                                         @foreach($shops_mass as $key=> $shop)
