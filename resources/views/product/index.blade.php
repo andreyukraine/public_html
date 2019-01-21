@@ -59,7 +59,7 @@
             </div>
         </div>
         <div class="h_content">
-            <div class="heading">{{ trans('catalog.header_catalog')}}</div>
+            <h1><div class="heading">{{ trans('catalog.header_catalog')}}</div></h1>
         </div>
         <div class="filter">
             <div class="row">
