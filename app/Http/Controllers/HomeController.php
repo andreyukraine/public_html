@@ -44,13 +44,13 @@ class HomeController extends Controller
                 );
 
                 $info = array(
-                    "address" => 'ua.chicopee@gmail.com',
+                    "address" => 'chicopee.ua@gmail.com',
                     "subject" => 'Заявка питомника',
                     "name" => 'SITE CHICOPEE'
                 );
 
                 //отправка на почту
-                Mail::to('ua.chicopee@gmail.com')->send(new NerseryEmail($data, $info));
+                Mail::to('chicopee.ua@gmail.com')->send(new NerseryEmail($data, $info));
                 $response = 'Ваше сообщение отправленно';
                 return Response($response);
             }
@@ -68,7 +68,7 @@ class HomeController extends Controller
                     "name" => 'SITE CHICOPEE'
                 );
 
-                Mail::to('ua.chicopee@gmail.com')->send(new QuestionEmail($data, $info));
+                Mail::to('chicopee.ua@gmail.com')->send(new QuestionEmail($data, $info));
 
                 $response = 'Ваше сообщение отправленно';
 
@@ -80,13 +80,13 @@ class HomeController extends Controller
                 );
 
                 $info = array(
-                    "address" => 'ukr.web.ua@gmail.com',
+                    "address" => 'chicopee.ua@gmail.com',
                     "subject" => 'Заявка обратного звонка',
                     "name" => 'SITE CHICOPEE'
                 );
 
                 //отправка на почту
-                Mail::to('ukr.web.ua@gmail.com')->send(new CallBack($data, $info));
+                Mail::to('chicopee.ua@gmail.com')->send(new CallBack($data, $info));
                 $response = 'Ваше сообщение отправленно';
                 return Response($response);
             }
