@@ -165,7 +165,7 @@ class ProductController extends Controller
 
                                 $activ_item = "";
                                 if (!$product->active) {
-                                    $activ_item = 'active_item';
+                                    $activ_item = 'active_item_'.App::getLocale();
                                 }
 
                                 //товары
