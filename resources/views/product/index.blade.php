@@ -9,7 +9,7 @@
         <div class="ast-container">
             <div id="primary" class="content-area primary">
                 <main id="main" class="site-main" role="main">
-                    <article itemtype="https://schema.org/CreativeWork" itemscope="itemscope" class="post-5 page type-page status-publish ast-article-single">
+                    <article itemscope="itemscope" class="post-5 page type-page status-publish ast-article-single">
                         <!-- .entry-header -->
                         <div class="entry-content clear" itemprop="text">
                             <div class="elementor elementor-5">
@@ -112,46 +112,9 @@
         </div>
     </div>
 @endsection
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
 <script type="text/javascript">
     $(document).ready(function($) {
-//        $('div.asd').click(function (e) {
-//
-//            // сначала удаляешь все
-//            $('div').each(function(index) {
-//                $(this).removeClass('active');
-//            });
-//            $('span.cat_style').each(function(index) {
-//                $(this).removeClass('active');
-//            });
-//            $('div.del').each(function(index) {
-//                $(this).remove();
-//            });
-//            // на нужную вешаешь
-//            $(this).addClass('active');
-//            $(this).append( "<div class='del'></div>" );
-//            var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
-//            $.ajax({
-//                /* the route pointing to the post function */
-//                url: 'ajax',
-//                type: 'POST',
-//                /* send the csrf-token and the input to the controller */
-//                data: {
-//                    _token: CSRF_TOKEN,
-//                    opt: "2",
-//                    id: this.id
-//                },
-//                /* remind that 'data' is the response of the AjaxController */
-//                success: function (data) {
-//                    for(var i=0;i<data.length;i++){
-//                        $('.product_list').html(data[i]['products']);
-//                    }
-//                    console.log(data);
-//                }
-//            });
-//       });
-
-
         $(document).on('click', "span", function () {
             // сначала удаляешь все
             $('span').each(function(index) {
