@@ -22,7 +22,7 @@
             <div class="ast-container">
                 <div id="primary" class="content-area primary">
                     <main id="main" class="site-main" role="main">
-                        <article itemtype="https://schema.org/CreativeWork" itemscope="itemscope" class="post-5 page type-page status-publish ast-article-single">
+                        <article itemscope="itemscope" class="post-5 page type-page status-publish ast-article-single">
                             <!-- .entry-header -->
                             <div class="entry-content clear" itemprop="text">
                                 <div class="elementor elementor-5">
@@ -73,7 +73,6 @@
                                                 </div>
                                             </section>
                                             <section class="elementor-element elementor-element-d4f3dd3 elementor-section-content-middle elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-section elementor-top-section" data-settings="{background_background:classic}" data-element_type="section">
-                                                <div class="elementor-background-overlay"></div>
                                                 <div class="elementor-container elementor-column-gap-no">
                                                     <div class="elementor-row">
                                                         <div class="container">
@@ -144,7 +143,6 @@
                                                 </div>
                                             </section>
                                             <section class="elementor-element elementor-element-153200c6 elementor-section-content-middle elementor-reverse-mobile elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-section elementor-top-section" data-settings="{background_background:classic,shape_divider_top:waves,shape_divider_bottom:waves,shape_divider_bottom_negative:yes}" data-element_type="section">
-                                                <div class="elementor-background-overlay"></div>
                                                 <div class="elementor-shape elementor-shape-top" data-negative="false">
                                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none">
                                                         <path class="elementor-shape-fill" d="M421.9,6.5c22.6-2.5,51.5,0.4,75.5,5.3c23.6,4.9,70.9,23.5,100.5,35.7c75.8,32.2,133.7,44.5,192.6,49.7
@@ -283,7 +281,6 @@
                                                 </div>
                                             </section>
                                             <section class="elementor-element elementor-element-dc4b6a7 elementor-section-content-middle elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-section elementor-top-section" data-settings="{background_background:classic,shape_divider_top:waves,shape_divider_bottom:waves}" data-element_type="section">
-                                                <div class="elementor-background-overlay"></div>
                                                 <div class="elementor-shape elementor-shape-top" data-negative="false">
                                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none">
                                                         <path class="elementor-shape-fill" d="M421.9,6.5c22.6-2.5,51.5,0.4,75.5,5.3c23.6,4.9,70.9,23.5,100.5,35.7c75.8,32.2,133.7,44.5,192.6,49.7
@@ -593,7 +590,7 @@
 @endif
 </div>
 <!-- #page -->
-    <footer itemtype="https://schema.org/WPFooter" itemscope="itemscope" id="colophon" class="site-footer" role="contentinfo">
+    <footer id="colophon" class="site-footer" role="contentinfo">
         <div class="astra-advanced-hook-65">
             <div class="elementor elementor-65">
                 <div class="elementor-inner">
