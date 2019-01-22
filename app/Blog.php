@@ -75,4 +75,23 @@ class Blog extends Model
         $column = "prev_desc_" . $locale;
         $this->attributes[$column] = $value;
     }
+
+    public function getTitleAttribute()
+    {
+        $locale = App::getLocale();
+        $column = "title_" . $locale;
+        if(empty($this->{$column})){
+            $result = "нет перевода";
+        }else{
+            $result = $this->{$column};
+        }
+        return $result;
+    }
+    public function setTitleAttribute($value)
+    {
+        $locale = App::getLocale();
+        $column = "title_" . $locale;
+        $this->attributes[$column] = $value;
+    }
+
 }

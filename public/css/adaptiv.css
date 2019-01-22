@@ -4478,10 +4478,13 @@ and (min-width : 1024px) {
         padding-bottom: 30px;
     }
 
+
     h1, .h1 {
-        font-size: 3.2rem;
+        font-size: 2rem;
         color: #000;
+        text-align: left;
     }
+
 
     h2, .h2 {
         font-size: 2rem;
