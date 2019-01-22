@@ -666,13 +666,6 @@
 
 @if(request()->is('/') != '/')
     <script>
-
-
-
-
-
-
-
         $(document).ready(function () {
             //стрелка вверх
             $("#callback").hide();
