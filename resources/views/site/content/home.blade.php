@@ -621,10 +621,10 @@
                             </div>
                             <div class="col-lg-5 col-md-3 col-xs-4 col-sm-12 block_footer"><p>{{trans('index.all_rights')}}</p></div>
                             <div class="col-lg-2 col-md-3 col-xs-4 col-sm-12 block_footer">
-                                <a target="_blank" href="https://www.facebook.com/chicopee.ua" class="sticky-custom-logo foot-social__btn" itemprop="url">
+                                <a target="_blank" href="https://www.facebook.com/chicopee.ua" class="sticky-custom-logo foot-social__btn" rel="noreferrer">
                                     <img src="{{ asset('/images/fb.svg') }}" class="img-fluid center" alt="">
                                 </a>
-                                <a target="_blank" href="https://www.instagram.com/chicopee.ua/" class="sticky-custom-logo foot-social__btn" itemprop="url">
+                                <a target="_blank" href="https://www.instagram.com/chicopee.ua/" class="sticky-custom-logo foot-social__btn" rel="noreferrer">
                                     <img src="{{ asset('/images/insta.svg') }}" class="img-fluid center" alt="">
                                 </a></div>
                         </div>

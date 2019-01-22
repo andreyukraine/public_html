@@ -27,10 +27,10 @@
                     {{--</a>--}}
                     <!-- .site-branding -->
                     <div class="social">
-                        <a target="_blank" href="https://www.facebook.com/chicopee.ua" class="sticky-custom-logo" itemprop="url">
+                        <a target="_blank" href="https://www.facebook.com/chicopee.ua" class="sticky-custom-logo" rel="noreferrer">
                             <img src="{{ asset('/images/fb.svg') }}" class="img-fluid center" alt="facebook">
                         </a>
-                        <a target="_blank" href="https://www.instagram.com/chicopee.ua/" class="sticky-custom-logo" itemprop="url">
+                        <a target="_blank" href="https://www.instagram.com/chicopee.ua/" class="sticky-custom-logo" rel="noreferrer">
                             <img src="{{ asset('/images/insta.svg') }}" class="img-fluid center" alt="instagram">
                         </a>
                     </div>
