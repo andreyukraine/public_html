@@ -68,7 +68,7 @@
             </div>
             <div class="tab-content" id="nav-tabContent">
                 <div class="tab-pane fade show active" id="nav-o" role="tabpanel" aria-labelledby="nav-home-tab">
-                        <div class="map-wrapper col-lg-12">
+                        <div class="map-wrapper col-lg-6">
                             <div id="map" style="width:100%;height:500px;">
                             </div>
                         </div>
