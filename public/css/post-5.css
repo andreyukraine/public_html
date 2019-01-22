@@ -33,7 +33,7 @@
 
 .elementor-5 .elementor-element.elementor-element-3796d0e6 > .elementor-background-overlay{
     /*background-image:url("https://websitedemos.net/alex06/wp-content/uploads/sites/192/2018/04/overlay-01-free-img.png");*/
-    background: url("./images/more_background.png") center center no-repeat;
+    background: url("./images/more_background.jpg") center center no-repeat;
     background-size:cover;
     opacity:0.5;
     transition:background 0.3s, border-radius 0.3s, opacity 0.3s;
