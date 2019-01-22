@@ -4478,6 +4478,9 @@ and (min-width : 1024px) {
         padding-bottom: 30px;
     }
 
+    .elementor-element-75f8b4ef h1{
+        text-align: center;
+    }
 
     h1, .h1 {
         font-size: 2rem;
@@ -5664,7 +5667,4 @@ body.modal-loading {
 }
 .tab_info {
     margin-top: 20px;
-}
-.elementor-element-75f8b4ef h1{
-    text-align: center;
 }
