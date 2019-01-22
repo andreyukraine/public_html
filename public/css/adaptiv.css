@@ -5007,9 +5007,7 @@ div#nav-tabContent {
 .post_list a {
      text-decoration: none;
 }
-.post_list a:hover {
-    text-decoration: underline;
-}
+
 .product_item a:hover {
     text-decoration: none;
 }
