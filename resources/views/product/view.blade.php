@@ -87,8 +87,8 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-1 col-md-1"></div>
-            <div class="item_opt col-lg-6 col-md-6">
+
+            <div class="item_opt col-lg-7 col-md-7">
                 {{--<img src="{{asset('images/divider.png')}}" class="divider attachment-full size-full">--}}
 
                 @foreach($options as $opt)
@@ -197,14 +197,26 @@
                 </div>
             </nav>
             <div class="tab-content" id="nav-tabContent">
-                <div class="tab-pane fade show active" id="nav-o" role="tabpanel" aria-labelledby="nav-home-tab">{!! $product->desc !!}</div>
-                <div class="tab-pane fade" id="nav-s" role="tabpanel" aria-labelledby="nav-profile-tab">{!! $product->composition !!}</div>
+                <div class="tab-pane fade show active" id="nav-o" role="tabpanel" aria-labelledby="nav-home-tab"><div class="col-lg-12 tab_info">{!! $product->desc !!}</div></div>
+                <div class="tab-pane fade" id="nav-s" role="tabpanel" aria-labelledby="nav-profile-tab"><div class="col-lg-12 tab_info">{!! $product->composition !!}</div></div>
                 <!-- <div class="tab-pane fade" id="nav-r" role="tabpanel" aria-labelledby="nav-profile-tab">@include('partners.product')</div> -->
-                <div class="tab-pane fade" id="nav-k" role="tabpanel" aria-labelledby="nav-contact-tab"><div class="block_tabl">{!! $product->dose !!}</div></div>
+                <div class="tab-pane fade" id="nav-k" role="tabpanel" aria-labelledby="nav-contact-tab"><div class="block_tabl"><div class="col-lg-12 tab_info">{!! $product->dose !!}</div></div></div>
             </div>
         </div>
     </div>
     </div>
 @endsection
+<script>
+    $(document).ready(function () {
+        var img = document.getElementById('myImg');
+        var modalImg = document.getElementById("img01");
+        var captionText = document.getElementById("caption");
 
+        img.onclick = function () {
+            modal.style.display = "block";
+            modalImg.src = this.src;
+            captionText.innerHTML = this.alt;
+        };
+    });
+</script>
 

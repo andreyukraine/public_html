@@ -112,13 +112,9 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Main Header Container -->
                 </div>
-                <!-- ast-row -->
             </div>
-            <!-- Main Header Bar -->
         </div>
-        <!-- Main Header Bar Wrap -->
     </header>
 </div>
 

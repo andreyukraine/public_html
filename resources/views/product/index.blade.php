@@ -79,13 +79,13 @@
                 @foreach($products as $key => $line)
                     <div class="line_block col-lg-12 col-md-12 text-center">
                         @if($key == 'Holistic Nature Line')
-                            <img class="line_key" alt="$key" title="$key" src="{{asset('images/cb_select_hnl.png')}}">
+                            <img class="line_key" alt="<?=$key?>" title="<?=$key;?>" src="{{asset('images/cb_select_hnl.png')}}">
                             <div class="l_d"></div>
                             @elseif($key == 'Classic Nature Line')
-                            <img class="line_key" alt="$key" title="$key" src="{{asset('images/cb_select_cnl.png')}}">
+                            <img class="line_key" alt="<?=$key;?>" title="<?=$key;?>" src="{{asset('images/cb_select_cnl.png')}}">
                             <div class="l_d"></div>
                             @elseif($key == 'Pro Nature Line')
-                            <img class="line_key" alt="$key" title="$key" src="{{asset('images/cb_select_pnl.png')}}">
+                            <img class="line_key" alt="<?=$key;?>" title="<?=$key;?>" src="{{asset('images/cb_select_pnl.png')}}">
                             <div class="l_d"></div>
                         @endif
                     </div>
@@ -112,38 +112,3 @@
         </div>
     </div>
 @endsection
-
-<script type="text/javascript">
-    $(document).ready(function($) {
-        $(document).on('click', "span", function () {
-            // сначала удаляешь все
-            $('span').each(function(index) {
-                $(this).removeClass('active');
-            });
-
-            // на нужную вешаешь
-            $(this).addClass('active');
-
-            var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
-            $.ajax({
-                /* the route pointing to the post function */
-                url: 'ajax',
-                type: 'POST',
-                /* send the csrf-token and the input to the controller */
-                data: {
-                    _token: CSRF_TOKEN,
-                    //opt: "1",
-                    id:this.id
-                },
-                /* remind that 'data' is the response of the AjaxController */
-                success: function (data) {
-                    //console.log(data);
-                    for(var i=0;i<data.length;i++){
-                        $('.product_list').html(data[i]['products']);
-                    }
-                }
-            });
-        });
-
-    });
-</script>

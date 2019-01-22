@@ -32,18 +32,41 @@ $(document).ready(function () {
         $(this).addClass("active");
     });
 
+    $(document).on('click', "span", function () {
+        // сначала удаляешь все
+        $('span').each(function(index) {
+            $(this).removeClass('active');
+        });
+
+        // на нужную вешаешь
+        $(this).addClass('active');
+
+        var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+        $.ajax({
+            /* the route pointing to the post function */
+            url: 'ajax',
+            type: 'POST',
+            /* send the csrf-token and the input to the controller */
+            data: {
+                _token: CSRF_TOKEN,
+                //opt: "1",
+                id:this.id
+            },
+            /* remind that 'data' is the response of the AjaxController */
+            success: function (data) {
+                //console.log(data);
+                for(var i=0;i<data.length;i++){
+                    $('.product_list').html(data[i]['products']);
+                }
+            }
+        });
+    });
+
 
     var modal = document.getElementById('modal-bid');
 
-    // Get the image and insert it inside the modal - use its "alt" text as a caption
-    var img = document.getElementById('myImg');
-    var modalImg = document.getElementById("img01");
-    var captionText = document.getElementById("caption");
-    img.onclick = function(){
-        modal.style.display = "block";
-        modalImg.src = this.src;
-        captionText.innerHTML = this.alt;
-    };
+
+
 
     // Get the <span> element that closes the modal
     var span = document.getElementsByClassName("modal-close")[0];
@@ -52,7 +75,6 @@ $(document).ready(function () {
     span.onclick = function() {
         modal.style.display = "none";
     }
-
 
 
 

@@ -126,17 +126,6 @@ article, aside, dialog, figcaption, figure, footer, header, hgroup, main, nav, s
     display: block
 }
 
-body {
-    margin: 0;
-    font-size: .9rem;
-    font-weight: 400;
-    line-height: 1.6;
-    color: #212529;
-    text-align: left;
-    background-color: #f5f8fa;
-    font-family: Ossem;
-}
-
 [tabindex="-1"]:focus {
     outline: 0 !important
 }
