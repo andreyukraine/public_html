@@ -2645,6 +2645,7 @@ and (orientation : landscape)
         display: flex;
         margin-right: -15px;
         margin-left: -15px;
+        justify-content: center;
     }
 }
 
@@ -4684,6 +4685,7 @@ and (min-width : 1024px) {
         display: flex;
         margin-right: -15px;
         margin-left: -15px;
+        justify-content: center;
     }
 }
 
@@ -4706,6 +4708,7 @@ and (min-width : 1824px) {
         display: flex;
         margin-right: -15px;
         margin-left: -15px;
+        justify-content: center;
     }
 }
 
@@ -5315,6 +5318,7 @@ html {
     background-color:#d0152d;
     border-radius:50px 50px 50px 50px;
     padding:15px 40px 15px 40px;
+    text-decoration: none;
 }
 .fast__head-dist {
     color: #9e140f;
@@ -5667,4 +5671,10 @@ body.modal-loading {
 }
 .tab_info {
     margin-top: 20px;
+}
+.elementor-5 .elementor-element.elementor-element-dd06342 {
+     text-align: center;
+ }
+.elementor-5 .elementor-element.elementor-element-dd06342 span {
+    color: #FFFFFF;
 }

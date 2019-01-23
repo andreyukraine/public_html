@@ -14,12 +14,6 @@
 
     <link rel="canonical" href="@yield('url')">
 
-<<<<<<< HEAD
-    <!-- Fonts -->
-    <!-- Bootstrap JavaScript -->
-=======
-    <!-- Styles -->
->>>>>>> 251771f12bf90ebcb5505de4ba1e9d2ec4e744f6
     <link rel="shortcut icon" href="{{ asset('css/images/favicons.ico') }}" type="image/x-icon">
     <link rel="stylesheet" href="{{ asset('css/menu.css') }}" type="text/css" media="all">
     <link rel="stylesheet" href="{{ asset('css/adaptiv.css') }}" type="text/css" media="all">
@@ -63,5 +57,8 @@
         fbq('init', '1984210568310332');
         fbq('track', 'PageView');
     </script>
+    <noscript>
+        <img height="1" width="1" src="https://www.facebook.com/tr?id=1984210568310332&ev=PageView &noscript=1"/>
+    </noscript>
 
 </head>
