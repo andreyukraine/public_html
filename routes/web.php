@@ -47,9 +47,9 @@ Route::group(['prefix' => App\Http\Middleware\Locale::getLocale()], function() {
      */
 
     //отображение формы аутентификации
-    Route::get('goblin', 'Auth\LoginController@showLoginForm')->name('goblin');
+    Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
     //POST запрос аутентификации на сайте
-    Route::post('goblin', 'Auth\LoginController@login');
+    Route::post('login', 'Auth\LoginController@login');
     //POST запрос на выход из системы (логаут)
     Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 
@@ -131,7 +131,7 @@ Route::group(['prefix' => App\Http\Middleware\Locale::getLocale()], function() {
     });
 
 //для алминов
-    Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
+    Route::group(['prefix' => 'admin', 'middleware' => 'web','auth','admin'], function () {
 
 
         //localization

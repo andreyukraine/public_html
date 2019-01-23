@@ -169,7 +169,7 @@ class ProductController extends Controller
                                 }
 
                                 //товары
-                                $output_y[] = '<div class="product_item ' . $activ_item . ' col-lg-3"><a href="' . route('products_show', ['category' => 'sobaki', 'url' => $product->url]) . '"><img class="img-fluid center" src="' . $product->images . '"><p class="product_name">' . $product->name . '</p><div class="product_desc">' . $product->excerpt . '</div></a><div class="product-item__more"><a href="' . route("products_show", ["category" => "sobaki", "url" => $product->url]) . '" class="product-item__more-link">ДЕТАЛЬНІШЕ</a></div></div>';
+                                $output_y[] = '<div class="product_item ' . $activ_item . ' col-lg-3 col-md-4 col-sm-4"><a href="' . route('products_show', ['category' => 'sobaki', 'url' => $product->url]) . '"><img class="img-fluid center" src="' . $product->images . '"><p class="product_name">' . $product->name . '</p><div class="product_desc">' . $product->excerpt . '</div></a><div class="product-item__more"><a href="' . route("products_show", ["category" => "sobaki", "url" => $product->url]) . '" class="product-item__more-link">ДЕТАЛЬНІШЕ</a></div></div>';
                             }
                         }
                         $output = array([
@@ -232,7 +232,7 @@ class ProductController extends Controller
         $product->desc = $request->desc;
         $product->meta = $request->meta;
         $product->keywords = $request->keywords;
-        $product->save();
+        $product->categories()->detach();
 
         //подвязываем категории
         foreach ($request->cat_id as $cat_item) {
@@ -240,6 +240,7 @@ class ProductController extends Controller
             $product->categories()->attach($catуgory);
         }
 
+        $product->save();
         return redirect('admin/products');
     }
 
@@ -298,6 +299,7 @@ class ProductController extends Controller
     public function update(Request $request, $id)
     {
         $file_url = "";
+        $product = Product::find($id);
 
         //записываем файл на сервер
         if ($request->hasFile('file')){
@@ -308,7 +310,21 @@ class ProductController extends Controller
             Storage::disk('public_uploads')->put($filename,$contents);
         }
 
-        $product = Product::find($id);
+        //картинка гранулы
+        if ($request->hasFile('file_more')){
+            $filename_more = $request->file_more->getClientOriginalName();
+            $filesize_more = $request->file_more->getClientSize();
+            $file_url_more = '/storage/upload/'.$filename_more;
+            $contents = file_get_contents($request->file_more->getRealPath());
+            $file_more = Storage::disk('public_uploads')->put($filename_more,$contents);
+            $file_atach = new File();
+            $file_atach->name = $filename_more;
+            $file_atach->size = $filesize_more;
+            $file_atach->url = $file_url_more;
+            $file_atach->save();
+            $product->files()->attach($file_atach);
+        }
+
 
         $product->active = $request->active;
         $product->name = $request->name;

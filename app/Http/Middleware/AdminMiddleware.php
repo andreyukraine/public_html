@@ -21,6 +21,6 @@ class AdminMiddleware
             return $next($request);
         }
 
-        return redirect('/goblin');
+        return redirect('/login');
     }
 }

@@ -64,7 +64,7 @@
         <div class="row item_block">
 
 
-            <div class="imgs @if(!$product->active) active_item_{!! App::getLocale() !!} @endif col-lg-5 col-md-5">
+            <div class="imgs @if(!$product->active) active_item_{!! App::getLocale() !!} @endif col-lg-5 col-md-5 col-12">
                 <img class="img-fluid center" src="{!! $product->images !!}" title="{{$product->name}}" alt="{{$product->name}}">
 
                 @foreach($files as $file)
