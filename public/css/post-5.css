@@ -1,43 +1,8 @@
 
-@font-face {
-    font-family: 'Ossem';
-    src: url('../fonts/Ossem-Rust-ua.otf');
-}
-
-.formula-advant__head {
-    font-size: 18px;
-    font-weight: 700;
-    margin-bottom: 10px;
-    text-transform: uppercase;
-    color: #78654f;
-}
-.jq-selectbox__select-text {
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 58px;
-    overflow: hidden;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    color: #666666;
-    font-family: 'Open Sans', Arial, 'Helvetica Neue', Helvetica, sans-serif;
-}
 
 
 
 
-
-
-.elementor-5 .elementor-element.elementor-element-3796d0e6 > .elementor-background-overlay{
-    /*background-image:url("https://websitedemos.net/alex06/wp-content/uploads/sites/192/2018/04/overlay-01-free-img.png");*/
-    background: url("./images/more_background.jpg") center center no-repeat;
-    background-size:cover;
-    opacity:0.5;
-    transition:background 0.3s, border-radius 0.3s, opacity 0.3s;
-}
 
 .elementor-5 .elementor-element.elementor-element-9c9b708 .elementor-text-editor{
     text-align:center;
@@ -192,13 +157,7 @@
     color:rgba(0,0,0,0.5);
 }
 
-.elementor-5 .elementor-element.elementor-element-153200c6 > .elementor-background-overlay{
-   background: url("./images/more_background.png") center center no-repeat;
-    background-size: auto auto;
-background-size: cover;
-opacity: 0.5;
-transition: background 0.3s, border-radius 0.3s, opacity 0.3s;
-}
+
 
 .elementor-5 .elementor-element.elementor-element-153200c6 > .elementor-shape-top svg{
     transform:translateX(-50%) rotateY(180deg);
@@ -632,14 +591,7 @@ transition: background 0.3s, border-radius 0.3s, opacity 0.3s;
 /*.elementor-5 .elementor-element.elementor-element-dc4b6a7 > .elementor-container{*/
     /*max-width:915px;*/
 /*}*/
-.elementor-5 .elementor-element.elementor-element-dc4b6a7 > .elementor-background-overlay{
-    background: url("./images/more_background.png") center center no-repeat;
-    background-size: auto auto;
-    background-size: auto auto;
-    background-size: cover;
-    opacity: 0.5;
-    transition: background 0.3s, border-radius 0.3s, opacity 0.3s;
-}
+
 .elementor-5 .elementor-element.elementor-element-dc4b6a7 > .elementor-shape-top svg{
     width:calc(100% + 1.3px);
     height:100px;

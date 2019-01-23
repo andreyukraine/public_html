@@ -1,7 +1,7 @@
-/*@font-face {
+@font-face {
     font-family: 'Ossem';
-    src: url('./public/fonts/Ossem-Rust-ua.otf');
-}*/
+    src: url('../fonts/Ossem-Rust-ua.otf');
+}
 
 body {
     margin: 0;
@@ -2558,19 +2558,25 @@ and (orientation : landscape)
         left: 0;
         width: 100%;
         line-height: 0;
-        direction: ltr; }
+        direction: ltr;
+        z-index: 1;
+    }
     .elementor-shape-top {
-        top: -1px; }
+        top: -1px;
+    }
     .elementor-shape-bottom {
-        bottom: -1px; }
+        bottom: -1px;
+    }
     .elementor-shape[data-negative="false"].elementor-shape-bottom {
         -webkit-transform: rotate(180deg);
         -ms-transform: rotate(180deg);
-        transform: rotate(180deg); }
+        transform: rotate(180deg);
+    }
     .elementor-shape[data-negative="true"].elementor-shape-top {
         -webkit-transform: rotate(180deg);
         -ms-transform: rotate(180deg);
-        transform: rotate(180deg); }
+        transform: rotate(180deg);
+    }
     .elementor-shape svg {
         display: block;
         width: -webkit-calc(100% + 1.3px);
@@ -2579,7 +2585,8 @@ and (orientation : landscape)
         left: 50%;
         -webkit-transform: translateX(-50%);
         -ms-transform: translateX(-50%);
-        transform: translateX(-50%); }
+        transform: translateX(-50%);
+    }
     .elementor-shape .elementor-shape-fill {
         fill: #fff;
         -webkit-transform-origin: center;
@@ -4536,7 +4543,9 @@ and (min-width : 1024px) {
         left: 0;
         width: 100%;
         line-height: 0;
-        direction: ltr; }
+        direction: ltr;
+        z-index: 1;
+    }
     .elementor-shape-top {
         top: -1px;
     }
@@ -5677,4 +5686,58 @@ body.modal-loading {
  }
 .elementor-5 .elementor-element.elementor-element-dd06342 span {
     color: #FFFFFF;
+}
+
+.formula-advant__head {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    color: #78654f;
+}
+.jq-selectbox__select-text {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 58px;
+    overflow: hidden;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: #666666;
+    font-family: 'Open Sans', Arial, 'Helvetica Neue', Helvetica, sans-serif;
+}
+.elementor-5 .elementor-element.elementor-element-153200c6 .elementor-background-overlay{
+    background: url("./images/more_background.jpg") center center no-repeat;
+    background-size: auto auto;
+    background-size: cover;
+    opacity: 0.5;
+    transition: background 0.3s, border-radius 0.3s, opacity 0.3s;
+}
+.elementor-5 .elementor-element.elementor-element-3796d0e6 > .elementor-background-overlay{
+    background: url("./images/more_background.jpg") center center no-repeat;
+    background-size: auto auto;
+    background-size: cover;
+    opacity: 0.5;
+    transition: background 0.3s, border-radius 0.3s, opacity 0.3s;
+}
+.elementor-5 .elementor-element.elementor-element-dc4b6a7 .elementor-background-overlay{
+    background: url("./images/more_background.jpg") center center no-repeat;
+    background-size: auto auto;
+    background-size: auto auto;
+    background-size: cover;
+    opacity: 0.5;
+    transition: background 0.3s, border-radius 0.3s, opacity 0.3s;
+}
+.elementor .elementor-background-overlay {
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+}
+.elementor-widget {
+    position: relative;
 }

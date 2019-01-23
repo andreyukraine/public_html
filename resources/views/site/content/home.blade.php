@@ -73,6 +73,7 @@
                                                 </div>
                                             </section>
                                             <section class="elementor-element elementor-element-d4f3dd3 elementor-section-content-middle elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-section elementor-top-section" data-settings="{background_background:classic}" data-element_type="section">
+
                                                 <div class="elementor-container elementor-column-gap-no">
                                                     <div class="elementor-row">
                                                         <div class="container">
@@ -143,7 +144,7 @@
                                                 </div>
                                             </section>
                                             <section class="elementor-element elementor-element-153200c6 elementor-section-content-middle elementor-reverse-mobile elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-section elementor-top-section" data-settings="{background_background:classic,shape_divider_top:waves,shape_divider_bottom:waves,shape_divider_bottom_negative:yes}" data-element_type="section">
-                                                <div class="elementor-shape elementor-shape-top" data-negative="false">
+                                                <div class="elementor-shape elementor-shape-top " data-negative="false">
                                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none">
                                                         <path class="elementor-shape-fill" d="M421.9,6.5c22.6-2.5,51.5,0.4,75.5,5.3c23.6,4.9,70.9,23.5,100.5,35.7c75.8,32.2,133.7,44.5,192.6,49.7
                                              c23.6,2.1,48.7,3.5,103.4-2.5c54.7-6,106.2-25.6,106.2-25.6V0H0v30.3c0,0,72,32.6,158.4,30.5c39.2-0.7,92.8-6.7,134-22.4
@@ -157,7 +158,8 @@
                                              c0,0-51.5,19.4-106.2,25.7C839.5,97,814.1,95.2,790.5,93.1z"></path>
                                                     </svg>
                                                 </div>
-                                                <div class="elementor-container elementor-column-gap-no">
+                                                <div class="elementor-background-overlay"></div>
+                                                <div class="elementor-container elementor-column-gap-no elementor-widget">
                                                     <div class="elementor-row">
 
                                                         <div class="container">
@@ -295,8 +297,9 @@
                                              c21.2-8.1,52.2-18.2,79.7-24.2C399.3,7.9,411.6,7.5,421.9,6.5z"></path>
                                                     </svg>
                                                 </div>
-                                                <div class="elementor-container elementor-column-gap-default">
-                                                    <div class="elementor-row">
+                                                <div class="elementor-background-overlay"></div>
+                                                <div class="elementor-container elementor-column-gap-default elementor-widget">
+                                                    <div class="elementor-row ">
                                                         <div class="container">
                                                                 <div class="heading form-ask__heading">{{trans('index.question_header')}}</div>
                                                                 <div class="heading_line_w"></div>

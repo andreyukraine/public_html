@@ -19,7 +19,6 @@
     <link rel="stylesheet" href="{{ asset('css/adaptiv.css') }}" type="text/css" media="all">
     <link rel="stylesheet" href="{{ asset('css/style_new.css') }}" type="text/css" media="all">
     <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}" type="text/css" media="all">
-    <link rel="stylesheet" href="{{ asset('css/frontend.css') }}" type="text/css" media="all">
     <link rel="stylesheet" href="{{ asset('css/post-5.css') }}" type="text/css" media="all">
     <link rel="stylesheet" href="{{ asset('css/astra-addon.css') }}" type="text/css" media="all">
     <link rel="stylesheet" href="{{ asset('css/astra-addon-css-inline-css.css') }}" type="text/css" media="all">
