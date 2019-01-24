@@ -207,6 +207,7 @@ class ProductController extends Controller
 
         //dd($request);
         $file_url = "";
+        $product = new Product();
 
         //записываем файл на сервер
         if ($request->hasFile('file')){
@@ -217,8 +218,22 @@ class ProductController extends Controller
             Storage::disk('public_uploads')->put($filename,$contents);
         }
 
+        //картинка гранулы
+        if ($request->hasFile('file_more')){
+            $filename_more = $request->file_more->getClientOriginalName();
+            $filesize_more = $request->file_more->getClientSize();
+            $file_url_more = '/storage/upload/'.$filename_more;
+            $contents = file_get_contents($request->file_more->getRealPath());
+            $file_more = Storage::disk('public_uploads')->put($filename_more,$contents);
+            $file_atach = new File();
+            $file_atach->name = $filename_more;
+            $file_atach->size = $filesize_more;
+            $file_atach->url = $file_url_more;
+            $file_atach->save();
+            $product->files()->attach($file_atach);
+        }
+
         //записываем товар в базу
-        $product = new Product();
         $product->name = $request->name;
         $product->active = $request->active;
         $product->sort = $request->sort;
