@@ -82,7 +82,7 @@
                                                 <div class="region">{{$key}}</div>
                                             @foreach($shop as $item)
                                                     {{--<div class="city">{{$item['name']}}</div>--}}
-                                                    <div class="adres" id="{{$item['id']}}"><?php echo mb_strimwidth($item['addres'], 0, 70, "...");?></div>
+                                                    <div class="adres" id="{{$item['id']}}"><?php echo mb_strimwidth($item['addres'], 0, 100, "...");?></div>
                                                 @endforeach
                                         @endforeach
                                     </div>
@@ -94,7 +94,7 @@
                 <div class="tab-pane fade" id="nav-s" role="tabpanel" aria-labelledby="nav-profile-tab">
                     @foreach($ecommerces as $shope)
                         @foreach($shope as $item)
-                            <div class="adres" id="{{$item['id']}}"><a target="_blank" href="<?=$item['url']?>"><?php echo mb_strimwidth($item['addres'], 0, 70, "...");?></a></div>
+                            <div class="adres" id="{{$item['id']}}"><a target="_blank" href="<?=$item['url']?>"><?php echo mb_strimwidth($item['addres'], 0, 150, "...");?></a></div>
                         @endforeach
                     @endforeach
                 </div>
