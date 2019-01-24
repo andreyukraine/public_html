@@ -5,6 +5,7 @@
 
 body {
     margin: 0;
+    padding-right: 0 !important;
     font-family: 'Ossem', serif;
     font-size: 0.875rem;
     font-weight: 400;
