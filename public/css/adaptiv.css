@@ -2,7 +2,6 @@
     font-family: 'Ossem';
     src: url('../fonts/Ossem-Rust-ua.otf');
 }
-
 body {
     margin: 0;
     padding-right: 0 !important;
@@ -5190,11 +5189,9 @@ and (max-device-width : 1123px)
     -moz-border-radius: 50px;
     border-radius: 50px;
 }
-
 .title_page{
     text-align: center;
 }
-
 .elementor-section {
     position: relative;
 }
@@ -5204,13 +5201,11 @@ and (max-device-width : 1123px)
 .elementor-5 .elementor-element.elementor-element-38905c3d.elementor-widget-heading .elementor-heading-title{
      color:#ffffff;
 }
-
 .elementor-widget-heading .elementor-heading-title {
     padding: 0;
     margin: 0;
     line-height: 1;
 }
-
 .formula-advant__item::before {
     position: absolute;
     top: 0;
@@ -5278,9 +5273,6 @@ and (max-device-width : 1123px)
     text-align: center;
     font-family: 'Open Sans', Arial, 'Helvetica Neue', Helvetica, sans-serif;
 }
-
-
-
 .opt_name_view{
     font-weight: 700;
 }
@@ -5315,7 +5307,6 @@ div#nav-tabContent {
 .post_list a {
      text-decoration: none;
 }
-
 .product_item a:hover {
     text-decoration: none;
 }
@@ -5323,14 +5314,12 @@ div#nav-tabContent {
     background-color: #3a3a3a;
     padding-bottom: 2em;
 }
-
 #callback {
     position: fixed;
     bottom: 60px;
     left: 3%;
     z-index: 999;
 }
-
 #callback span {
     background: url(images/calll.gif) no-repeat;
     background-size: auto auto;
@@ -5339,16 +5328,12 @@ div#nav-tabContent {
     display: block;
     background-size: contain;
 }
-
-
-
 #back-top {
     position: fixed;
     bottom: 60px;
     right: 3%;
     z-index: 999;
 }
-
 #back-top a {
     background: url(images/scroll.svg) no-repeat;
     width: 60px;
@@ -5384,7 +5369,6 @@ div#nav-tabContent {
     line-height: 1.5;
     text-align: justify;
 }
-
 .item_opt p{
     font-size: 0.875rem;
     line-height: 1.5em;
@@ -5458,12 +5442,7 @@ html {
     margin-bottom: 35px;
     display: table;
 }
-
 :focus {outline:none !important;}
-
-
-
-
 .active_item_ua img{
      opacity: 0.2;
  }
@@ -5510,13 +5489,6 @@ html {
     margin-left: 0px;
     padding-left: 15px;
 }
-
-
-
-
-
-
-
 .modal-content_view {
     margin: auto;
     display: block;
@@ -5533,7 +5505,6 @@ html {
     padding: 10px 0;
     height: 150px;
 }
-/* Add Animation - Zoom in the Modal */
 .modal-content_view, #caption {
     animation-name: zoom;
     animation-duration: 0.6s;
@@ -5545,8 +5516,6 @@ html {
     from {transform:scale(0)}
     to {transform:scale(1)}
 }
-
-/* The Close Button */
 .close {
     position: absolute;
     top: 15px;
@@ -5556,7 +5525,6 @@ html {
     font-weight: bold;
     transition: 0.3s;
 }
-
 .close:hover,
 .close:focus {
     color: #bbb;
@@ -5573,13 +5541,11 @@ html {
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
 }
-
 .main-header-bar-navigation {
     text-align: right;
     justify-content: space-between;
     flex-direction: row;
 }
-
 .tel_footer{
     margin-top: 25px;
     text-align: center;
@@ -5590,8 +5556,6 @@ html {
     font-size: 18px;
     line-height: 1.3;
 }
-
-
 .elementor-5 .elementor-element.elementor-element-dd06342 a.elementor-button, .elementor-5 .elementor-element.elementor-element-dd06342 .elementor-button{
     font-family:Ossem, Sans-serif;
     font-size:22px;
@@ -5605,7 +5569,6 @@ html {
 .fast__head-dist {
     color: #9e140f;
 }
-
 .heading_line {
     display: block;
     width: 207px;
@@ -5636,14 +5599,11 @@ html {
     line-height: 1.5rem;
     font-size: 16px;
 }
-
 .text_my_style p{
     text-indent: 20px; /* Отступ первой строки в пикселах */
 }
-
 .ramka{
     padding: 15px;
-
 }
 .ramka img{
     border: 1px solid black;
@@ -5653,7 +5613,6 @@ html {
     font-size: 18px;
     display: flex;
 }
-
 .select_lang a{
     color: #FFFFFF;
     font-size: 18px;
@@ -5663,7 +5622,6 @@ html {
 }
 .lang_selector:hover a{
     cursor: pointer;
-
 }
 .lang_selector .active a{
      color: red;
@@ -5674,7 +5632,6 @@ html {
     cursor: default;
     border-bottom:none;
 }
-
 #loader{
     position: fixed;
     background: url(images/ajax-loader.gif) no-repeat;
@@ -5687,14 +5644,12 @@ html {
     margin-left: -128px;
     top: 50%;
 }
-
 body.modal-loading {
     overflow: hidden;
 }
 .block_tabl td {
     border: 1px solid;
 }
-
 .opt_row_view{
     font-size: 0.875rem;
     line-height: 1.5em;
@@ -5780,7 +5735,6 @@ body.modal-loading {
     font-weight: normal;
     cursor: pointer;
 }
-
 .product-pack.type-bag .pack-inner {
     padding-bottom: 106%;
 }
@@ -5820,8 +5774,6 @@ body.modal-loading {
 .not_products{
     padding: 75px;
 }
-
-
 .map-wrapper {
     float: left;
     width: 100%;
@@ -5855,11 +5807,9 @@ body.modal-loading {
     background-position: 5px;
     background-size: 20px;
 }
-
 #nav-r .nav{
     justify-content: space-around;
 }
-
 #shop_by .nav-link, .nav-item a{
     width: 100%;
 }
@@ -5869,8 +5819,6 @@ body.modal-loading {
 .modal-backdrop.in {
     opacity: 0.9;
 }
-
-
 .site-footer {
     color: #fff;
     position: relative;
@@ -5881,15 +5829,12 @@ body.modal-loading {
     display: block;
     padding-bottom: 80px;
 }
-
 .product_list{
     display: -ms-flexbox;
     display: flex;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
 }
-
-
 .block_footer {
     text-align: center;
     display: flex;
@@ -5898,7 +5843,6 @@ body.modal-loading {
 .elementor-column-gap-default {
     text-align: center;
 }
-
 #proces{
     background: url(images/proces.gif) no-repeat;
     background-position-x: 0;
@@ -5910,7 +5854,6 @@ body.modal-loading {
     background-position: center;
     background-size: inherit;
 }
-
 .modal-loading {
     position: fixed;
     display: block;
@@ -5927,7 +5870,6 @@ body.modal-loading {
     font-size: 18px;
     padding: 30px;
 }
-
 .product_title h1::before, .product_title h1::after {
     font-weight: 700;
     margin-right: 15px;
@@ -5938,12 +5880,10 @@ body.modal-loading {
     margin-right: 0;
     margin-left: 15px;
 }
-
 .container_map{
     padding-left: 15px;
     padding-right: 15px;
 }
-
 #tel_callback {
     font-size: 1rem;
     font-weight: 100;
@@ -5961,7 +5901,6 @@ body.modal-loading {
 .elementor-5 .elementor-element.elementor-element-dd06342 span {
     color: #FFFFFF;
 }
-
 .formula-advant__head {
     font-size: 18px;
     font-weight: 700;
