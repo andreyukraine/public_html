@@ -29,7 +29,7 @@ class CallBack extends Mailable
      */
     public function build()
     {
-        $mytime = Carbon::now();
+        $mytime = Carbon::now("Europe/Kiev");
         return $this->view('mails.callback')
             ->from($this->info['address'], $this->info['name'])
             ->cc($this->info['address'], $this->info['name'])
