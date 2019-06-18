@@ -26,3 +26,6 @@
 ////json users in maps
 Route::post('/json',['uses'=>'Tools\ToolsController@importJson','as'=>'json']);
 Route::get('/json',['uses'=>'Tools\ToolsController@importJson','as'=>'json']);
+
+Route::post('/json/price',['uses'=>'Tools\ToolsController@importJsonPrice','as'=>'json/price']);
+Route::get('/json/price',['uses'=>'Tools\ToolsController@importJsonPrice','as'=>'json/price']);

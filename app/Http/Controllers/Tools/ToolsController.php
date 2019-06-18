@@ -21,7 +21,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
+use PHPExcel;
 use PHPExcel_Style_Alignment;
+use PHPExcel_Writer_Excel2007;
 use Rap2hpoutre\FastExcel\FastExcel;
 
 
@@ -415,7 +417,7 @@ class ToolsController extends Controller
 
             if (count($new_product_mass_ajax) > 0) {
 
-                $excel = new \PHPExcel();
+                $excel = new PHPExcel();
 
                 //$excel->createSheet();
                 //$excel->setActiveSheetIndex(1);
@@ -515,7 +517,7 @@ class ToolsController extends Controller
                 $objWorksheet->getColumnDimension('D')->setAutoSize(true);
                 $objWorksheet->getColumnDimension('E')->setAutoSize(true);
                 $objWorksheet->getColumnDimension('F')->setAutoSize(true);
-                $writer = new \PHPExcel_Writer_Excel2007($excel);
+                $writer = new PHPExcel_Writer_Excel2007($excel);
                 // Save the file.
                 $file = 'efile.xlsx';
                 $writer->save(public_path() . '/' . $file);
@@ -532,5 +534,20 @@ class ToolsController extends Controller
 
 
 
+    }
+
+    public function importJsonPrice(Request $request)
+    {
+        $mass = $request->getContent();
+        $data = array();
+        $data = json_decode($mass, true);
+        if ($data['key'] == "1234567890"){
+            foreach ($data['products'] as $item) {
+               $request =  DB::update('update product_options set price = ? where sku = ?', [trim($item['price']) , $item['art']]);
+            }
+            return "Send ok";
+        }else{
+            return "bad key";
+        }
     }
 }
