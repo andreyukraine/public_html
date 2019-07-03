@@ -25,14 +25,23 @@ class ValueController extends Controller
 
         $file_url = "";
 
+//        $validation = Validator::make($request->all(), [
+//            'select_file' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048'
+//        ]);
+
+
         //записываем файл на сервер
-        if ($request->file != ""){
-            $filename = $request->file->getClientOriginalName();
-            $filesize = $request->file->getClientSize();
-            $file_url = env('APP_URL').'/storage/upload/options'.$filename;
-            $contents = file_get_contents($request->file->getRealPath());
-            Storage::disk('options_uploads')->put($filename,$contents);
+        if ($request->type_option != "dir"){
+            if ($request->hasFile('file')){
+                $filename = $request->file->getClientOriginalName();
+                $filesize = $request->file->getClientSize();
+
+                $file_url = env('APP_URL').'/storage/upload/options/'.$filename;
+                $contents = file_get_contents($request->file);
+                Storage::disk('options_uploads')->put($filename,$contents);
+            }
         }
+
 
 
 
@@ -49,9 +58,37 @@ class ValueController extends Controller
             $output = "";
             $values_mass = $option->values()->get();
             foreach ($values_mass as $value) {
-                $output .= '<p class="value_item">' . $value->name . '<span class="btn-sm btn-danger glyphicon glyphicon-minus del_opt" id ="' . $value->id . '" data-opt = "' . $option->id . '" role = "button" ></span ></p >';
+                if ($request->type_option != "dir"){
+                    $output .='
+                            <div class="row">
+                                <div class="col-lg-1">'. $value->id .'</div>
+                                <div class="col-lg-1"><img width="25px" src="'. $value->images .'"></div>
+                                <div class="col-lg-6">'. $value->name .'</div>
+                                <div class="col-lg-2">'. $value->sort .'</div>
+                                <div class="col-lg-2">
+                                    <span data-toggle="modal" data-target="#modal-bid" data-sort="'. $value->sort .'" data-name="'. $value->name .'" class="glyphicon glyphicon-pencil edit_opt" id="'. $value->id .'" data-opt="'. $option->id .'"></span>
+                                    <span class="glyphicon glyphicon-remove del_opt" id="'. $value->id .'" data-opt="'. $option->id .'" data-type-opt="'. $request->type_option .'"></span>
+                                </div>
+                            </div>
+                
+                ';
+                }else{
+                    $output .='
+                            <div class="row">
+                                <div class="col-lg-1">'. $value->id .'</div>
+                                <div class="col-lg-6">'. $value->name .'</div>
+                                <div class="col-lg-2">'. $value->sort .'</div>
+                                <div class="col-lg-2">
+                                    <span data-toggle="modal" data-target="#modal-bid" data-sort="'. $value->sort .'" data-name="'. $value->name .'" class="glyphicon glyphicon-pencil edit_opt" id="'. $value->id .'" data-opt="'. $option->id .'"></span>
+                                    <span class="glyphicon glyphicon-remove del_opt" id="'. $value->id .'" data-opt="'. $option->id .'" data-type-opt="'. $request->type_option .'"></span>
+                                </div>
+                            </div>
+                
+                ';
+                }
+
             }
-            return Response($output);
+            return route('options.edit',$option->id);
         }
 
         return false;
@@ -69,7 +106,34 @@ class ValueController extends Controller
             $output = "";
             $values_mass = $option->values()->get();
             foreach ($values_mass as $value) {
-                $output .= '<p class="value_item">' . $value->name . '<span class="btn-sm btn-danger glyphicon glyphicon-minus del_opt" id ="' . $value->id . '" data-opt = "' . $option->id . '" role = "button" ></span ></p >';
+                if ($request->type_option != "dir"){
+                    $output .='
+                            <div class="row">
+                                <div class="col-lg-1">'. $value->id .'</div>
+                                <div class="col-lg-1"><img width="25px" src="'. $value->images .'"></div>
+                                <div class="col-lg-6">'. $value->name .'</div>
+                                <div class="col-lg-2">'. $value->sort .'</div>
+                                <div class="col-lg-2">
+                                    <span data-toggle="modal" data-target="#modal-bid" data-sort="'. $value->sort .'" data-name="'. $value->name .'" class="glyphicon glyphicon-pencil edit_opt" id="'. $value->id .'" data-opt="'. $option->id .'"></span>
+                                    <span class="glyphicon glyphicon-remove del_opt" id="'. $value->id .'" data-opt="'. $option->id .'" data-type-opt="'.$request->type_option .'"></span>
+                                </div>
+                            </div>
+                
+                ';
+                }else{
+                    $output .='
+                            <div class="row">
+                                <div class="col-lg-1">'. $value->id .'</div>
+                                <div class="col-lg-6">'. $value->name .'</div>
+                                <div class="col-lg-2">'. $value->sort .'</div>
+                                <div class="col-lg-2">
+                                    <span data-toggle="modal" data-target="#modal-bid" data-sort="'. $value->sort .'" data-name="'. $value->name .'" class="glyphicon glyphicon-pencil edit_opt" id="'. $value->id .'" data-opt="'. $option->id .'"></span>
+                                    <span class="glyphicon glyphicon-remove del_opt" id="'. $value->id .'" data-opt="'. $option->id .'" data-type-opt="'.$request->type_option .'"></span>
+                                </div>
+                            </div>
+                
+                ';
+                }
             }
             return Response($output);
         }

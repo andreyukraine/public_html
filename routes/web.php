@@ -96,7 +96,7 @@ Route::group(['prefix' => App\Http\Middleware\Locale::getLocale()], function() {
     Route::get('send', ['uses' => 'HomeController@index', 'as' => 'get_home']);
 
     Route::get('/logout', function () {
-        \Auth::logout();
+        Auth::logout();
         return redirect(route('login'));
     })->name('logout');
 
@@ -174,6 +174,7 @@ Route::group(['prefix' => App\Http\Middleware\Locale::getLocale()], function() {
         //СВОЙСТВА
         Route::post('add_value', ['uses' => 'Catalog\ValueController@addValuesOption', 'as' => 'admin.value.add']);
         Route::post('add_value_img', ['uses' => 'Catalog\ValueController@addValuesOption', 'as' => 'admin.value_img.add']);
+        Route::get('add_value_img_get', ['uses' => 'Catalog\ValueController@addValuesOption', 'as' => 'admin.value_img']);
         Route::post('del_value', ['uses' => 'Catalog\ValueController@delValuesOption', 'as' => 'admin.value.del']);
         Route::post('edit_value', ['uses' => 'Catalog\ValueController@editValuesOption', 'as' => 'admin.value.edit']);
 
