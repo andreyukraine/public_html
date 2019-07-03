@@ -32,7 +32,6 @@ div#navbarSupportedContent {
     padding-bottom: 15px;
     border: 1px solid #ddd;
     margin-bottom: 15px;
-    height: 200px;
     overflow-y: scroll;
 }
 .lang_selector {

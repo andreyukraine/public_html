@@ -6,17 +6,34 @@ use App\Http\Controllers\Controller;
 use App\Option;
 use App\Value;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Storage;
 
 class ValueController extends Controller
 {
     public function editValuesOption(Request $request){
+
         $item = Value::find($request->value_id);
-        $item->name = $request->value;
+        $file_url = $item->images;
+
+        //записываем файл на сервер
+        if ($request->type_option != "dir"){
+            if ($request->hasFile('file')){
+                $filename = $request->file->getClientOriginalName();
+                $filesize = $request->file->getClientSize();
+
+                $file_url = env('APP_URL').'/storage/upload/options/'.$filename;
+                $contents = file_get_contents($request->file);
+                Storage::disk('options_uploads')->put($filename,$contents);
+            }
+        }
+
+        $item->name = $request->name;
         $item->sort = $request->sort;
+        $item->images = $file_url;
         $item->save();
 
-        return Response("ok");
+        return route('options.edit',$request->id);
 
     }
 
@@ -92,6 +109,18 @@ class ValueController extends Controller
         }
 
         return false;
+    }
+
+    public function getValueOption(Request $request){
+
+        $value = Value::find($request->value_id);
+        $name = 'name_'. App::getLocale();
+
+        return Response([
+            'name'=>$value->getAttribute($name),
+            'sort'=>$value->getAttribute('sort'),
+            'file'=>$value->getAttribute('images'),
+        ]);
     }
 
     public function delValuesOption(Request $request)

@@ -39,19 +39,6 @@
             </div>
             <div class="col-lg-12 dictionary" @if($option->type != "dir_img") style="display: none" @endif>
                 <div class="form-group">
-                    <label for="exampleFormControlInput1">Значения справочника</label>
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <input name="name_option" type="text" id="exampleFormControlInput1" class="form-control value_name">
-                        </div>
-                        <div class="col-lg-4">
-                            <input  name="file" id="file" class="file" type="file">
-                        </div>
-                        <div class="col-lg-2">
-                            <span class="btn btn-success glyphicon glyphicon-plus add_opt_img" id="{!! $option->id !!}"></span>
-                        </div>
-                    </div>
-                    <hr>
                     <div class="options_list col-lg-12 justify-content-start">
                         @foreach($values as $value)
                             <div class="row">
@@ -76,16 +63,6 @@
 
             <div class="col-lg-12 dictionary" @if($option->type != "dir") style="display: none" @endif>
                 <div class="form-group">
-                    <label for="exampleFormControlInput1">Значения справочника</label>
-                    <div class="row">
-                        <div class="col-lg-10">
-                            <input name="value_name_option" type="text" id="exampleFormControlInput1" class="form-control value_name">
-                        </div>
-                        <div class="col-lg-2">
-                            <span class="btn btn-success glyphicon glyphicon-plus add_opt" id="{!! $option->id !!}"></span>
-                        </div>
-                    </div>
-                    <hr>
                     <div class="options_list col-lg-12 justify-content-start">
                         @foreach($values as $value)
                             <div class="row">
@@ -148,6 +125,7 @@
                         <form action="" method="post" class="form-horizontal" novalidate="" enctype="multipart/form-data">
                             <input type="hidden" id="id_option" value="{!! $option->id !!}">
                             <input type="hidden" id="type_option" value="{!! $option->type !!}">
+                            <input type="hidden" id="id_value" value="">
                             <div class="form-group error">
                                 <label for="inputName" class="col-sm-3 control-label">Name</label>
                                 <div class="col-sm-9">
@@ -163,6 +141,12 @@
                             @if($option->type != "dir")
                                 <div class="form-group">
                                     <label for="inputDetail" class="col-sm-3 control-label">Картинка</label>
+                                    <div class="col-sm-9">
+                                        <img id="file_img" src="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputDetail" class="col-sm-3 control-label"></label>
                                     <div class="col-sm-9">
                                         <input  name="file_edit" id="file" class="file" type="file">
                                     </div>
@@ -198,7 +182,6 @@
         });
 
 
-
         //create new product / update existing product ***************************
         $("#btn-save").click(function (e) {
 
@@ -206,15 +189,21 @@
             //e.preventDefault();
             var type_option = $('#type_option').val();
             var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
-
-            console.log(type_option);
-
-
-
+            var state = $('#btn-save').val();
+            //console.log(type_option);
+            var type = "POST"; //for creating new resource
 
             var form = new FormData();
             form.append('_token', CSRF_TOKEN);
             form.append('id', $('#id_option').val());
+
+            if (state == 'add') {
+                var my_url = '/admin/add_value_img';
+            }else{
+                var my_url = '/admin/edit_value';
+                form.append('value_id', $('#id_value').val());
+            }
+
             form.append('name', $('#name').val());
             form.append('sort', $('#sort').val());
             form.append('type_option', type_option);
@@ -223,12 +212,12 @@
                 form.append('file', $('input[name="file_edit"]').get(0).files[0]);
             }
 
+            console.log(state);
 
 
-            var type = "POST"; //for creating new resource
-            var my_url = '/admin/add_value_img';
 
-            console.log(form);
+
+
 
             $.ajax({
                 type: type,
@@ -246,147 +235,36 @@
             });
         });
 
+        //edit options
+        $('.edit_opt').click(function () {
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        $('.add_opt').on('click', function(){
-            var option_id = $(this).attr("id");
-
-            var value_name_option =  $("input[name=value_name_option]").val();
-            console.log(value_name_option);
+            $('#btn-save').val("edit");
+            var value_id = $(this).attr("id");
+            $('#id_value').val(value_id);
             var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+
+
             $.ajax({
-                url: '/admin/add_value',
+                url: '/admin/show_value',
                 type: 'POST',
                 data: {
                     _token: CSRF_TOKEN,
-                    id:option_id,
-                    name:value_name_option
+                    value_id: value_id
                 },
                 success: function (data) {
-                    //console.log(data);
-                    window.location = data;
+                    console.log(data);
+                    $('input[name="name"]').val(data['name']);
+                    $('input[name="sort"]').val(data['sort']);
+                    $("#file_img").attr("src",data['file']);
                 }
             });
+
+
+            $('#myModal').modal('show');
+
+
+
         });
-
-
-        $('.add_opt_img').on('click', function(){
-            var option_id = $(this).attr("id");
-            var div = $(this).parents().parents();
-            var value_input = div.find(".value_name").val();
-            var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
-            var image = $('input[name="file"]').get(0).files[0];
-
-
-
-            var form = new FormData();
-            form.append('_token', CSRF_TOKEN);
-            form.append('id', option_id);
-            form.append('name', value_input);
-            form.append('file', image);
-
-
-            $.ajax({
-                url: '/admin/add_value_img',
-                type: 'POST',
-                data: form,
-                contentType: false,
-                cache: false,
-                processData: false,
-
-                success: function (data) {
-
-                    document.location.replace(data);
-                }
-            });
-        });
-
-        //edit options
-        // $('.edit_opt').click(function (e) {
-        //
-        //     var name = $(this).attr("data-name");
-        //     var sort = $(this).attr("data-sort");
-        //     var option_id = $(this).attr("data-opt");
-        //     var value_id = $(this).attr("id");
-        //     var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
-        //
-        //
-        //
-        //     $('.modal').on('show.bs.modal', function(e) {
-        //
-        //
-        //         $("input[name='name_option']").val(name);
-        //         $("input[name='sort_option']").val(sort);
-        //
-        //
-        //         $("#redact").submit(function(e) {
-        //
-        //             e.preventDefault();
-        //             var new_value = $("input[name='name_option']").val();
-        //             var sort_value = $("input[name='sort_option']").val();
-        //
-        //
-        //             $.ajax({
-        //                 type: "POST",
-        //                 url: '/admin/edit_value',
-        //                 data: {
-        //                     _token: CSRF_TOKEN,
-        //                     id: option_id,
-        //                     value_id: value_id,
-        //                     value: new_value,
-        //                     sort: sort_value
-        //                 },
-        //                 success: function (response) {
-        //
-        //                     console.log(response);
-        //                 }
-        //             });
-        //             e.stopPropagation();
-        //         });
-        //     });
-        //
-        // });
 
         //del options
         $(document).on('click', '.del_opt', (function(e){
