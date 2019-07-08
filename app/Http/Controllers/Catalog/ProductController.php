@@ -248,6 +248,7 @@ class ProductController extends Controller
         $product->meta = $request->meta;
         $product->keywords = $request->keywords;
         $product->categories()->detach();
+        $product->save();
 
         //подвязываем категории
         foreach ($request->cat_id as $cat_item) {
@@ -255,7 +256,7 @@ class ProductController extends Controller
             $product->categories()->attach($catуgory);
         }
 
-        $product->save();
+
         return redirect('admin/products');
     }
 
@@ -365,6 +366,8 @@ class ProductController extends Controller
         }
 
         $product->save();
+
+
 
         //перезаписываем свойства товара
         if (!empty($request->opt_id)) {

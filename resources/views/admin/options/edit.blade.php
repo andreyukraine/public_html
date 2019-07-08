@@ -6,82 +6,97 @@
         <h3>Edit options - {!! $option->id !!}</h3>
         <hr>
         {!! Form::open(['route' => ['options.update', $option->id], 'method'=>'PUT', 'id'=>'sends', 'enctype'=>'multipart/form-data']) !!}
-        <div class="row">
-            <div class="col-lg-8">
-                <label class="radio-inline">
-                    <input name="type" @if($option->type == 'dir') checked="checked" @endif value="dir" type="radio">
-                    Справочник
-                </label>
-                <label class="radio-inline">
-                    <input name="type" @if($option->type == 'dir_img') checked="checked" @endif value="dir_img"
-                           type="radio">
-                    Справочник с картинками
-                </label>
-            </div>
-            <div class="col-lg-4">
-                <div class="row">
-                    <div class="col-lg-6 text-right">Sort</div>
-                    <div class="col-lg-6"><input name="sort" type="text" value="{!! $option->sort !!}" class="form-control"></div>
+        <div class="col-lg-12">
+            <div class="row">
+                <div class="col-lg-8">
+                    <label class="radio-inline">
+                        <input name="type" @if($option->type == 'dir') checked="checked" @endif value="dir" type="radio">
+                        Справочник
+                    </label>
+                    <label class="radio-inline">
+                        <input name="type" @if($option->type == 'dir_img') checked="checked" @endif value="dir_img"
+                               type="radio">
+                        Справочник с картинками
+                    </label>
+                </div>
+                <div class="col-lg-4">
+                    <div class="row">
+                        <div class="col-lg-6 text-right">Sort</div>
+                        <div class="col-lg-6"><input name="sort" type="text" value="{!! $option->sort !!}" class="form-control"></div>
+                    </div>
                 </div>
             </div>
-    </div>
-        <hr>
+            <hr>
+        </div>
+
 
         {{--{{$validator->title}}--}}
 
 
         <div class="col-lg-8">
-            <div class="col-lg-12">
-                <div class="form-group">
-                    <label for="exampleFormControlInput1">Name</label>
-                    <input name="name" type="text" value="{!! $option->name !!}" class="form-control" id="exampleFormControlInput1">
-                </div>
-            </div>
-            <div class="col-lg-12 dictionary" @if($option->type != "dir_img") style="display: none" @endif>
-                <div class="form-group">
-                    <div class="options_list col-lg-12 justify-content-start">
-                        @foreach($values as $value)
-                            <div class="row">
-                                <div class="col-lg-1">{!! $value->id !!}</div>
-                                <div class="col-lg-1"><img width="25px" src="{!! $value->images !!}"></div>
-                                <div class="col-lg-6">{!! $value->name !!}</div>
-                                <div class="col-lg-2">{!! $value->sort !!}</div>
-                                <div class="col-lg-2">
-                                    <span data-toggle="modal" data-target="#modal-bid" data-sort="{!! $value->sort !!}" data-name="{!! $value->name !!}" class="glyphicon glyphicon-pencil edit_opt" id="{!! $value->id !!}" data-opt="{!! $option->id !!}"></span>
-                                    <span class="glyphicon glyphicon-remove del_opt" id="{!! $value->id !!}" data-opt="{!! $option->id !!}"></span>
-                                </div>
-                            </div>
-                        @endforeach
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Name</label>
+                        <input name="name" type="text" value="{!! $option->name !!}" class="form-control" id="exampleFormControlInput1">
                     </div>
-
+                </div>
+                <br>
+                <div class="col-lg-12">
+                    <button id="btn_add" name="btn_add" class="btn btn-default pull-right">Add New Value</button>
                 </div>
             </div>
-
-
-
-
-
-            <div class="col-lg-12 dictionary" @if($option->type != "dir") style="display: none" @endif>
-                <div class="form-group">
-                    <div class="options_list col-lg-12 justify-content-start">
-                        @foreach($values as $value)
-                            <div class="row">
-                                <div class="col-lg-1">{!! $value->id !!}</div>
-                                <div class="col-lg-7">{!! $value->name !!}</div>
-                                <div class="col-lg-2">{!! $value->sort !!}</div>
-                                <div class="col-lg-2">
-                                    <span data-toggle="modal" data-target="#modal-bid" data-sort="{!! $value->sort !!}" data-name="{!! $value->name !!}" class="glyphicon glyphicon-pencil edit_opt" id="{!! $value->id !!}" data-opt="{!! $option->id !!}"></span>
-                                    <span class="glyphicon glyphicon-remove del_opt" id="{!! $value->id !!}" data-opt="{!! $option->id !!}" data-type-opt="{!! $option->type !!}"></span>
+            <hr>
+            <div class="row">
+                <div class="col-lg-12 dictionary" @if($option->type != "dir_img") style="display: none" @endif>
+                    <div class="form-group">
+                        <div class="options_list col-lg-12 justify-content-start">
+                            @foreach($values as $value)
+                                <div class="row">
+                                    <div class="col-lg-1">{!! $value->id !!}</div>
+                                    <div class="col-lg-1"><img width="25px" src="{!! $value->images !!}"></div>
+                                    <div class="col-lg-6">{!! $value->name !!}</div>
+                                    <div class="col-lg-2">{!! $value->sort !!}</div>
+                                    <div class="col-lg-2">
+                                        <span data-toggle="modal" data-target="#modal-bid" data-sort="{!! $value->sort !!}" data-name="{!! $value->name !!}" class="glyphicon glyphicon-pencil edit_opt" id="{!! $value->id !!}" data-opt="{!! $option->id !!}"></span>
+                                        <span class="glyphicon glyphicon-remove del_opt" id="{!! $value->id !!}" data-opt="{!! $option->id !!}"></span>
+                                    </div>
                                 </div>
-                            </div>
-                        @endforeach
+                            @endforeach
+                        </div>
+
                     </div>
-
                 </div>
-
             </div>
 
-            <div class="col-lg-12">{{Form::submit('Submit',['class'=>'btn btn-success'])}}</div>
+            <div class="row">
+                <div class="col-lg-12 dictionary" @if($option->type != "dir") style="display: none" @endif>
+                    <div class="form-group">
+                        <div class="options_list col-lg-12 justify-content-start">
+                            @foreach($values as $value)
+                                <div class="row">
+                                    <div class="col-lg-1">{!! $value->id !!}</div>
+                                    <div class="col-lg-7">{!! $value->name !!}</div>
+                                    <div class="col-lg-2">{!! $value->sort !!}</div>
+                                    <div class="col-lg-2">
+                                        <span data-toggle="modal" data-target="#modal-bid" data-sort="{!! $value->sort !!}" data-name="{!! $value->name !!}" class="glyphicon glyphicon-pencil edit_opt" id="{!! $value->id !!}" data-opt="{!! $option->id !!}"></span>
+                                        <span class="glyphicon glyphicon-remove del_opt" id="{!! $value->id !!}" data-opt="{!! $option->id !!}" data-type-opt="{!! $option->type !!}"></span>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+
+            <div class="row">
+                <div class="col-lg-2">{{Form::submit('Обновить',['class'=>'btn btn-success'])}}</div>
+                <div class="col-lg-2"><a href="{{ route('options.index') }}"><div class="btn btn-success"> Закрыть</div></a>
+                </div>
+            </div>
+
         </div>
         <div class="col-lg-4">
             <div class="form-group">
@@ -161,11 +176,6 @@
                 </div>
             </div>
         </div>
-
-
-        <button id="btn_add" name="btn_add" class="btn btn-default pull-right">Add New Value</button>
-
-
 
     </div>
 @endsection

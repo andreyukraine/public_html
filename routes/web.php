@@ -172,6 +172,7 @@ Route::group(['prefix' => App\Http\Middleware\Locale::getLocale()], function() {
         });
 
         //СВОЙСТВА
+
         Route::post('add_value', ['uses' => 'Catalog\ValueController@addValuesOption', 'as' => 'admin.value.add']);
         Route::post('add_value_img', ['uses' => 'Catalog\ValueController@addValuesOption', 'as' => 'admin.value_img.add']);
         Route::post('del_value', ['uses' => 'Catalog\ValueController@delValuesOption', 'as' => 'admin.value.del']);

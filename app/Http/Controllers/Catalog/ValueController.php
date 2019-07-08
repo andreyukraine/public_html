@@ -59,19 +59,16 @@ class ValueController extends Controller
             }
         }
 
-
-
-
-        $value = new Value();
-        $option = Option::find($request->id);
-        $value->name = $request->name;
-        $value->sort = $request->sort;
-        $value->images = $file_url;
-        $value->save();
-
-        $value->options()->attach($option);
-
         if($request->ajax()) {
+
+            $value = new Value();
+            $option = Option::find($request->id);
+            $value->name = $request->name;
+            $value->sort = $request->sort;
+            $value->images = $file_url;
+            $value->save();
+
+
             $output = "";
             $values_mass = $option->values()->get();
             foreach ($values_mass as $value) {
@@ -107,6 +104,18 @@ class ValueController extends Controller
             }
             return route('options.edit',$option->id);
         }
+
+
+//        $value = new Value();
+//        $option = Option::find($request->id);
+//        $value->name = $request->name;
+//        $value->sort = $request->sort;
+//        $value->images = $file_url;
+//        $value->save();
+//
+//        $value->options()->attach($option);
+
+
 
         return false;
     }
