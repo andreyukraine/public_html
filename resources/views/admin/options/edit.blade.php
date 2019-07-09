@@ -43,7 +43,7 @@
                 </div>
                 <br>
                 <div class="col-lg-12">
-                    <button id="btn_add" name="btn_add" class="btn btn-default pull-right">Add New Value</button>
+                    <div id="btn_add" name="btn_add" class="btn btn-default pull-right">Add New Value</div>
                 </div>
             </div>
             <hr>

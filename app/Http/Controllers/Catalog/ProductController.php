@@ -675,35 +675,40 @@ class ProductController extends Controller
     }
 
     public function getPostSku($request, $opt_id){
-        if (count($request->sku) > 0) {
-            foreach ($request->sku as $key => $sku) {
-                if ($key == $opt_id) {
-                    return $sku[0];
-                }
+        if (empty($request->sku)) {
+            return "";
+        }
+
+        foreach ($request->sku as $key => $sku) {
+            if ($key == $opt_id) {
+                return $sku[0];
             }
         }
+
         return "";
     }
 
     public function getPostBarcode($request, $opt_id){
-        if (count($request->barcode) > 0) {
-            foreach ($request->barcode as $key => $barcod){
-                if ($key == $opt_id){
-                    return $barcod[0];
-                }
+        if (empty($request->barcode)) {
+            return 0;
+        }
+        foreach ($request->barcode as $key => $barcod){
+            if ($key == $opt_id){
+                return $barcod[0];
             }
         }
         return 0;
     }
 
     public function getPostPrice($request, $opt_id){
-        if (count($request->price) > 0) {
+        if (empty($request->price)) {
+            return 0;
+        }
             foreach ($request->price as $key => $item) {
                 if ($key == $opt_id) {
                     return $item[0];
                 }
             }
-        }
         return 0;
     }
 
