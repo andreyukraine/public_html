@@ -47,11 +47,7 @@
                             <div class="product_desc">{!! $product->excerpt !!}</div>
                             <div class="options">
                                     <?php $name = 'name_'.App::getLocale(); ?>
-                                    @foreach($product->options[2][0]['value_opt'] as $item)
-                                        @if($item->select_id > 0)
-                                            <p><?php print_r($item->sku); ?> &nbsp; - &nbsp; <?php print_r($item->$name) ?></p>
-                                        @endif
-                                    @endforeach
+
                             </div>
                         </div>
                         <div class="col-lg-1">
