@@ -138,11 +138,13 @@
                                                                 <span>{!! $i['value'] !!}</span>
                                                             </span>
                                                         </span>
-                                                        <div class="price">{!! $i['price'] !!} грн.</div>
-                                                        <span class="custom-radio check-lg">
-                                                            <input type="radio" id="ProductOptionID0" name="ProductOptionID" value="177" data-stockstatus="2" data-stocklevel="310" data-sizename="2.5kg">
-                                                            <span class="check">арт. {!! $i['sku'] !!}</span>
-                                                        </span>
+                                                        @if($i['price'] > 0)
+                                                            <div class="price">{!! $i['price'] !!} грн.</div>
+                                                            <span class="custom-radio check-lg">
+                                                                <input type="radio" id="ProductOptionID0" name="ProductOptionID" value="177" data-stockstatus="2" data-stocklevel="310" data-sizename="2.5kg">
+                                                                <span class="check">арт. {!! $i['sku'] !!}</span>
+                                                            </span>
+                                                        @endif;
                                                     </label>
                                                 </div>
                                                     {{--<div class="col-lg-3"> {!! $i['price'] !!} </div>--}}
