@@ -9,5 +9,5 @@ class Setting extends Model
     protected $table = 'settings';
     public $timestamps = false;
 
-    protected $fillable = ['site_name','meta','keywords','title'];
+    protected $fillable = ['site_name','meta','keywords','title','option_id_for_price'];
 }

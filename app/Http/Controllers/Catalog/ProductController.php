@@ -264,6 +264,7 @@ class ProductController extends Controller
     {
         $product = Product::where('url', '=', $url)->first();
 
+
         if (!empty($product)) {
                 $shops = $this->getShopsProduct();
                 $options = $this->getProductOptionsCategory($product->getAttribute('id'));
@@ -290,6 +291,7 @@ class ProductController extends Controller
         $option_mass = $product->options()->get()->all();
         $select_option = array();
         $files = $product->files()->get()->all();
+        $settings = DB::table('settings')->where('name', 'option_id_for_price')->first();
 
         foreach ($option_mass as $asd){
             $select_option[] = DB::table('product_options')
@@ -309,6 +311,7 @@ class ProductController extends Controller
             'options' => $options,
             'files' => $files,
             'select_options' => $select_option,
+            'settings' => $settings
         ]);
     }
 

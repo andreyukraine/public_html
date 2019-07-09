@@ -179,7 +179,7 @@
                     <br>
                     @foreach($options as $option)
                         @foreach($option as $val)
-                            @if($val['id_opt'] == "0")
+                            @if($val['id_opt'] == $settings->value)
                                 <div class="form-group">
                                     <?php $name = 'name_'.App::getLocale();?>
                                     @foreach($val['value_opt'] as $key => $item)
