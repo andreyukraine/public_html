@@ -144,7 +144,7 @@
                                                                 <input type="radio" id="ProductOptionID0" name="ProductOptionID" value="177" data-stockstatus="2" data-stocklevel="310" data-sizename="2.5kg">
                                                                 <span class="check">арт. {!! $i['sku'] !!}</span>
                                                             </span>
-                                                        @endif;
+                                                        @endif
                                                     </label>
                                                 </div>
                                                     {{--<div class="col-lg-3"> {!! $i['price'] !!} </div>--}}
