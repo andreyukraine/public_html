@@ -169,7 +169,10 @@ class ProductController extends Controller
                                 }
 
                                 //товары
-                                $output_y[] = '<div class="product_item ' . $activ_item . ' col-lg-3 col-md-4 col-sm-4"><a href="' . route('products_show', ['category' => 'sobaki', 'url' => $product->url]) . '"><img class="img-fluid center" src="' . $product->images . '"><p class="product_name">' . $product->name . '</p><div class="product_desc">' . $product->excerpt . '</div></a><div class="product-item__more"><a href="' . route("products_show", ["category" => "sobaki", "url" => $product->url]) . '" class="product-item__more-link">ДЕТАЛЬНІШЕ</a></div></div>';
+                                //проверяем на отображение на сайте
+                                 if (!$product->view) {
+                                     $output_y[] = '<div class="product_item ' . $activ_item . ' col-lg-3 col-md-4 col-sm-4"><a href="' . route('products_show', ['category' => 'sobaki', 'url' => $product->url]) . '"><img class="img-fluid center" src="' . $product->images . '"><p class="product_name">' . $product->name . '</p><div class="product_desc">' . $product->excerpt . '</div></a><div class="product-item__more"><a href="' . route("products_show", ["category" => "sobaki", "url" => $product->url]) . '" class="product-item__more-link">ДЕТАЛЬНІШЕ</a></div></div>';
+                                 }
                             }
                         }
                         $output = array([
@@ -235,6 +238,7 @@ class ProductController extends Controller
 
         //записываем товар в базу
         $product->name = $request->name;
+        $product->view = $request->view;
         $product->active = $request->active;
         $product->sort = $request->sort;
         $product->url = Str::slug($request->name,"-");
@@ -345,6 +349,7 @@ class ProductController extends Controller
         }
 
 
+        $product->view = $request->view;
         $product->active = $request->active;
         $product->name = $request->name;
         $product->sort = $request->sort;

@@ -87,25 +87,30 @@
                             @elseif($key == 'Pro Nature Line')
                             <img class="line_key" alt="<?=$key;?>" title="<?=$key;?>" src="{{asset('images/cb_select_pnl.png')}}">
                             <div class="l_d"></div>
-                        @endif
+                            @elseif($key == 'Titan Line')
+                                <img class="line_key" alt="<?=$key;?>" title="<?=$key;?>" src="{{asset('images/cb_select_titan.png')}}">
+                                <div class="l_d"></div>
+                            @endif
                     </div>
                     @foreach($line as $product)
-                    <div class="item_list @if(!$product->active) active_item_{!! App::getLocale() !!} @endif col-lg-3 col-md-4 col-sm-4">
-                        <?php
-                        $name = str_replace(' ', '_',$product->name);
-                        //echo mb_strtolower($name);
-                        ?>
-                        <a href="{!! route('products_show', ['category'=>'sobaki','url'=>$product->url] ) !!}">
-                            <div class="product_item">
-                                <img class="img-fluid center" alt="{!! $product->name !!}" title="{!! $product->name !!}" src="{!! $product->images !!}">
-                                <p class="product_name">{!! $product->name !!}</p>
-                                <div class="product_desc">{!! $product->excerpt !!}</div>
-                                <div class="product-item__more">
-                                    <a href="{!! route('products_show', ['category'=>'sobaki','url'=>$product->url] ) !!}" class="product-item__more-link">{{ trans('products.more')}}</a>
-                                </div>
+                        @if(!$product->view)
+                            <div class="item_list @if(!$product->active) active_item_{!! App::getLocale() !!} @endif col-lg-3 col-md-4 col-sm-4">
+                                <?php
+                                $name = str_replace(' ', '_',$product->name);
+                                //echo mb_strtolower($name);
+                                ?>
+                                <a href="{!! route('products_show', ['category'=>'sobaki','url'=>$product->url] ) !!}">
+                                    <div class="product_item">
+                                        <img class="img-fluid center" alt="{!! $product->name !!}" title="{!! $product->name !!}" src="{!! $product->images !!}">
+                                        <p class="product_name">{!! $product->name !!}</p>
+                                        <div class="product_desc">{!! $product->excerpt !!}</div>
+                                        <div class="product-item__more">
+                                            <a href="{!! route('products_show', ['category'=>'sobaki','url'=>$product->url] ) !!}" class="product-item__more-link">{{ trans('products.more')}}</a>
+                                        </div>
+                                    </div>
+                                </a>
                             </div>
-                        </a>
-                    </div>
+                        @endif
                     @endforeach
                 @endforeach
             @endif

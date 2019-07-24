@@ -72,9 +72,13 @@
                         @elseif($key == 'Pro Nature Line')
                             <img class="line_key" alt="$key" title="$key" src="{{asset('images/cb_select_pnl.png')}}">
                             <div class="l_d"></div>
+                        @elseif($key == 'Titan Line')
+                            <img class="line_key" alt="$key" title="$key" src="{{asset('images/cb_select_titan.png')}}">
+                            <div class="l_d"></div>
                         @endif
                     </div>
                     @foreach($line as $product)
+                        @if(!$product->view)
                         <div class="item_list @if(!$product->active) active_item_{!! App::getLocale() !!} @endif col-lg-3 col-md-4">
                             <?php
                             $name = str_replace(' ', '_',$product->name);
@@ -91,6 +95,7 @@
                                 </div>
                             </a>
                         </div>
+                        @endif
                     @endforeach
                 @endforeach
             @endif
