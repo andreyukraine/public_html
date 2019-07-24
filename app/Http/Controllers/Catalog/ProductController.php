@@ -99,6 +99,7 @@ class ProductController extends Controller
         $categories = Category::where('parent_id', '=', 0)->get();
         $options = array();
 
+        $actual_category_id = 1;
 
         // список товаров через быстрый фильтр
         if ($request->cat || $request->age || $request->size) {
@@ -121,6 +122,8 @@ class ProductController extends Controller
         }
 
         if($request->ajax()){
+
+            $actual_category_id = $request->id;
 
             $output_y = array();
             $new_product_mass_ajax = array();
@@ -146,17 +149,32 @@ class ProductController extends Controller
                     if (count($new_product_mass_ajax) > 0) {
                         foreach ($new_product_mass_ajax as $key => $line) {
                             $hr_line = "";
-                            if($key == 'Holistic Nature Line'){
-                                $hr_line = '<img class="line_key" alt="'.$key.'" title="'.$key.'" src="/images/cb_select_hnl.png">
-                            <div class="l_d"></div>';
-                            }elseif($key == 'Classic Nature Line'){
-                                $hr_line = '<img class="line_key" alt="'.$key.'" title="'.$key.'" src="/images/cb_select_cnl.png">
-                            <div class="l_d"></div>';
-                            }elseif($key == 'Pro Nature Line'){
-                                $hr_line = '<img class="line_key" alt="'.$key.'" title="'.$key.'" src="/images/cb_select_pnl.png">
-                            <div class="l_d"></div>';
-                            }elseif($key == 'Titan Line') {
-                                $hr_line = '<img class="line_key" alt="' . $key . '" title="' . $key . '" src="/images/cb_select_titan.png"><div class="l_d"></div>';
+                            if ($actual_category_id == 1) {
+                                if ($key == 'Holistic Nature Line') {
+                                    $hr_line = '<img class="line_key" alt="' . $key . '" title="' . $key . '" src="/images/cb_select_hnl.png">
+                                    <div class="l_d"></div>';
+                                } elseif ($key == 'Classic Nature Line') {
+                                    $hr_line = '<img class="line_key" alt="' . $key . '" title="' . $key . '" src="/images/cb_select_cnl.png">
+                                    <div class="l_d"></div>';
+                                } elseif ($key == 'Pro Nature Line') {
+                                    $hr_line = '<img class="line_key" alt="' . $key . '" title="' . $key . '" src="/images/cb_select_pnl.png">
+                                    <div class="l_d"></div>';
+                                } elseif ($key == 'Titan Line') {
+                                    $hr_line = '<img class="line_key" alt="' . $key . '" title="' . $key . '" src="/images/cb_select_titan.png"><div class="l_d"></div>';
+                                }
+                            }else{
+                                if ($key == 'Holistic Nature Line') {
+                                    $hr_line = '<img class="line_key" alt="' . $key . '" title="' . $key . '" src="/images/cb_select_hnl_cat.png">
+                                    <div class="l_d"></div>';
+                                } elseif ($key == 'Classic Nature Line') {
+                                    $hr_line = '<img class="line_key" alt="' . $key . '" title="' . $key . '" src="/images/cb_select_cnl_cat.png">
+                                    <div class="l_d"></div>';
+                                } elseif ($key == 'Pro Nature Line') {
+                                    $hr_line = '<img class="line_key" alt="' . $key . '" title="' . $key . '" src="/images/cb_select_pnl_cat.png">
+                                    <div class="l_d"></div>';
+                                } elseif ($key == 'Titan Line') {
+                                    $hr_line = '<img class="line_key" alt="' . $key . '" title="' . $key . '" src="/images/cb_select_titan.png"><div class="l_d"></div>';
+                                }
                             }
 
                             $output_y[] = '<div class="line_block col-lg-12 col-md-12 text-center">'.$hr_line.'</div>';
@@ -177,14 +195,16 @@ class ProductController extends Controller
                         }
                         $output = array([
                             'products' => $output_y,
-                            'options' => $options
+                            'options' => $options,
+                            'actual_category'=>$actual_category_id,
                         ]);
                         return Response($output);
                     }else {
                         $output_y[] = '<div class="col-lg-3">нет товаров</div>';
                         $output = array([
                             'products' => $output_y,
-                            'options' => ""
+                            'options' => "",
+                            'actual_category'=>$actual_category_id,
                         ]);
                         return Response($output);
                     }
@@ -195,6 +215,7 @@ class ProductController extends Controller
         return view('product.index', [
             'products' => $new_product_mass,
             'categories'=>$categories,
+            'actual_category'=>$actual_category_id,
             'options'=>$options
         ]);
     }

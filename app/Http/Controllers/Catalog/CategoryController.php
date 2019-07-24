@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Catalog;
 use App\Category;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
@@ -15,7 +16,7 @@ class CategoryController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
 
     public function admin()
@@ -66,8 +67,10 @@ class CategoryController extends Controller
 
     public function show($url)
     {
+        $categories = Category::where('parent_id', '=', 0)->get();
         $new_product_mass = array();
         $category = Category::where('url', '=', $url)->first();
+        $actual_category_id = $category->id;
         if (!$category) return view('error.404');
         $products_mass = Category::find($category->getAttribute('id'))->products()->get()->sortBy('sort');
 
@@ -87,7 +90,9 @@ class CategoryController extends Controller
 
             return view('category.index', [
                 'products' => $new_product_mass,
-                'category' => $category
+                'category' => $category,
+                'actual_category' => $actual_category_id,
+                'categories'=>$categories,
             ]);
     }
 

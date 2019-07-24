@@ -57,24 +57,55 @@
         <div class="h_content">
             <div class="heading">{{ trans('catalog.header_catalog')}} {{$category->name}}</div>
         </div>
+        <div class="filter">
+            <div class="row">
+                <div class="col-lg-4 col-md-12">
+                    <div class="filter-line filter-line_catalog clearfix">
+                        @foreach($categories as $key => $category)
+                            <a href="{{ url(App\Http\Middleware\Locale::getLocale() .'/catalog/'.$category->url) }}"><span class="cat_style_{!! $category->id !!} @if($category->id == $actual_category) active @endif" id="{!! $category->id !!}">{!! $category->name !!}</span></a>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="product_list">
             @if(empty($products))
                 <div class="col-lg-12"><div class="not_products">{{trans('index.not_products')}}</div></div>
             @else
                 @foreach($products as $key => $line)
                     <div class="line_block col-lg-12 col-md-12 text-center">
-                        @if($key == 'Holistic Nature Line')
-                            <img class="line_key" alt="$key" title="$key" src="{{asset('images/cb_select_hnl.png')}}">
-                            <div class="l_d"></div>
-                        @elseif($key == 'Classic Nature Line')
-                            <img class="line_key" alt="$key" title="$key" src="{{asset('images/cb_select_cnl.png')}}">
-                            <div class="l_d"></div>
-                        @elseif($key == 'Pro Nature Line')
-                            <img class="line_key" alt="$key" title="$key" src="{{asset('images/cb_select_pnl.png')}}">
-                            <div class="l_d"></div>
-                        @elseif($key == 'Titan Line')
-                            <img class="line_key" alt="$key" title="$key" src="{{asset('images/cb_select_titan.png')}}">
-                            <div class="l_d"></div>
+                        @if($actual_category == 1)
+                            @if($key == 'Holistic Nature Line')
+                                <img class="line_key" alt="$key" title="$key" src="{{asset('images/cb_select_hnl.png')}}">
+                                <div class="l_d"></div>
+                            @elseif($key == 'Classic Nature Line')
+                                <img class="line_key" alt="$key" title="$key" src="{{asset('images/cb_select_cnl.png')}}">
+                                <div class="l_d"></div>
+                            @elseif($key == 'Pro Nature Line')
+                                <img class="line_key" alt="$key" title="$key" src="{{asset('images/cb_select_pnl.png')}}">
+                                <div class="l_d"></div>
+                            @elseif($key == 'Titan Line')
+                                <img class="line_key" alt="$key" title="$key" src="{{asset('images/cb_select_titan.png')}}">
+                                <div class="l_d"></div>
+                            @endif
+                        @else
+                            @if($key == 'Holistic Nature Line')
+                                <img class="line_key" alt="<?=$key?>" title="<?=$key;?>"
+                                     src="{{asset('images/cb_select_hnl_cat.png')}}">
+                                <div class="l_d"></div>
+                            @elseif($key == 'Classic Nature Line')
+                                <img class="line_key" alt="<?=$key;?>" title="<?=$key;?>"
+                                     src="{{asset('images/cb_select_cnl_cat.png')}}">
+                                <div class="l_d"></div>
+                            @elseif($key == 'Pro Nature Line')
+                                <img class="line_key" alt="<?=$key;?>" title="<?=$key;?>"
+                                     src="{{asset('images/cb_select_pnl_cat.png')}}">
+                                <div class="l_d"></div>
+                            @elseif($key == 'Titan Line')
+                                <img class="line_key" alt="<?=$key;?>" title="<?=$key;?>"
+                                     src="{{asset('images/cb_select_titan.png')}}">
+                                <div class="l_d"></div>
+                            @endif
                         @endif
                     </div>
                     @foreach($line as $product)
