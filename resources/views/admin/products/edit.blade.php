@@ -11,6 +11,7 @@
                 <h3>Edit product - {!! $product->id !!}</h3>
             </div>
             <div class="text-right col-lg-2">
+                <p class="activ_p">Не отображать: <input name="view" value="1" type="checkbox" @if($product->view)checked="checked"@endif></p>
                 <p class="activ_p">Активность товара: <input name="active" value="1" type="checkbox" @if($product->active)checked="checked"@endif></p>
             </div>
         </div>
