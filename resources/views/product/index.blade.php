@@ -66,7 +66,7 @@
                 <div class="col-lg-4 col-md-12">
                     <div class="filter-line filter-line_catalog clearfix">
                         @foreach($categories as $key => $category)
-                            <span class="cat_style_{!! $category->id !!} @if($key == 0) active @endif" id="{!! $category->id !!}">{!! $category->name !!}</span>
+                            <a href="{{ url(App\Http\Middleware\Locale::getLocale() .'/catalog/'.$category->url) }}"><span class="cat_style_{!! $category->id !!} @if($key == 0) active @endif" id="{!! $category->id !!}">{!! $category->name !!}</span></a>
                         @endforeach
                     </div>
                 </div>
