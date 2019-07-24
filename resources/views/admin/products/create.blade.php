@@ -9,6 +9,7 @@
                 <h3>Add product</h3>
             </div>
             <div class="text-right col-lg-2">
+                <p class="activ_p">Не отображать: <input name="view" value="1" type="checkbox"></p>
                 <p class="activ_p">Активность товара: <input name="active" value="1" type="checkbox"></p>
             </div>
         </div>
