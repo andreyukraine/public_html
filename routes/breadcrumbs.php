@@ -23,6 +23,12 @@ Breadcrumbs::for('contact', function ($trail) {
     $trail->push(trans('breadcrumbs.contact'), route('contact'));
 });
 
+// Contacts
+Breadcrumbs::for('breeders', function ($trail) {
+    $trail->parent('home');
+    $trail->push(trans('breadcrumbs.breeder'), route('breeders'));
+});
+
 // Home > Product
 Breadcrumbs::for('products', function ($trail) {
     $trail->parent('home');

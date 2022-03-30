@@ -187,7 +187,7 @@
                                         @if ($item->select_id > 0 )
                                             <div class="row ">
                                                 <div class="col-lg-8 offset-lg-2">
-                                                    <div class="col-lg-3">
+                                                    <div class="col-lg-2">
                                                         <div class="form-group">
                                                             <label for="exampleFormControlInput1">Sku</label>
                                                             <input name="sku[{{$item->id}}][]" type="text" class="form-control" value="{!! $item->sku !!}">
@@ -199,17 +199,23 @@
                                                             <input name="barcode[{{$item->id}}][]" type="text" class="form-control" value="{!! $item->barcode !!}">
                                                         </div>
                                                     </div>
-                                                    <div class="col-lg-3">
+                                                    <div class="col-lg-2">
                                                         <div class="form-group">
                                                             <label for="exampleFormControlInput1">&nbsp;</label>
                                                             <p>{{ $item->$name }}</p>
                                                         </div>
                                                     </div>
 
-                                                    <div class="col-lg-3">
+                                                    <div class="col-lg-2">
                                                         <div class="form-group">
                                                             <label for="exampleFormControlInput1">Price</label>
                                                             <input name="price[{{$item->id}}][]" type="text" class="form-control" value="{!! $item->price !!}">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-3">
+                                                        <div class="form-group">
+                                                            <label for="exampleFormControlInput1">Count</label>
+                                                            <input name="count[{{$item->id}}][]" type="text" class="form-control" value="{!! $item->count !!}">
                                                         </div>
                                                     </div>
                                                 </div>

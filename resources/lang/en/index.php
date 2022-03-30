@@ -13,7 +13,7 @@ return [
     'kennel_title'=>'ACCEPTABLE CONDITIONS FOR REFRIGERATORS AND FACTORIES',
     'kennel_desc'=>'The official distributor of feed "Chicopee" in Ukraine invites nurseries, departmental and state institutions and simply breeders of a large number of animals on special conditions in mutually beneficial cooperation.',
     'submit_kennel'=>'Submit application',
-    'all_rights'=>'2018 ALL RIGHTS ARE PROTECTED',
+    'all_rights'=>'2020 ALL RIGHTS ARE PROTECTED',
     'header_about' => 'ABOUT US',
     'skils_header'=>'FORMULA HEALTHCARE',
     'desc_header_skils'=>'Chicopee is the best pet`s concern',

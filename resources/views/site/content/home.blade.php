@@ -8,6 +8,12 @@
 @include('site.header.index')
 
 <body class="home page-template-default page wp-custom-logo ast-page-builder-template ast-single-post ast-mobile-inherit-site-logo ast-sticky-main-shrink ast-sticky-custom-logo ast-primary-sticky-enabled ast-inherit-site-logo-transparent ast-theme-transparent-header elementor-default elementor-page elementor-page-5ast-primary-sticky-header-active">
+ 
+ <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5896F9T"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+   
 <div id="loader"></div>
 <div id="page" class="hfeed site">
 
@@ -78,7 +84,7 @@
                                                     <div class="elementor-row">
                                                         <div class="container">
                                                                 <div class="fast">
-                                                                    <form action="{!! route('product_filter') !!}" id="catalog_form" method="GET">
+                                                                    <form action="{!! route('product_filter') !!}" id="catalog_form" method="GET" name="filter_index">
                                                                         <div class="heading fast__head">
                                                                             {{ trans('index.filter1')}} <span class="fast__head-dist">{{ trans('index.filter2')}}</span> {{ trans('index.filter3')}}
                                                                         </div>
@@ -88,7 +94,7 @@
                                                                                 <div class="col-md-4">
                                                                                     <div class="fast__group">
                                                                                         <div class="jq-selectbox jqselect">
-                                                                                            <select name="cat" class="category form-select" data-placeholder="{{trans('index.filter_category')}}">
+                                                                                            <select name="cat" id="cat_select" class="category form-select" onchange="OnSelectionChange (this)" data-placeholder="{{trans('index.filter_category')}}" >
                                                                                                 <option style="display: none"></option>
                                                                                                 <option value="">{{trans('index.filter_all')}}</option>
                                                                                                 <?php $value = 'value_'.App::getLocale();
@@ -109,10 +115,9 @@
                                                                                             <select name="age" class="age form-select" data-placeholder="{{trans('index.filter_age')}}">
                                                                                                 <option style="display: none"></option>
                                                                                                 <option value="">{{trans('index.filter_all')}}</option>
-                                                                                                @foreach($r as $r_v)
-
+                                                                                                  @foreach($r as $r_v)
                                                                                                     <option data-opt="{!! $r_v->value_id !!}" value="{!! $r_v->value_id !!}">{!! $r_v->{$value} !!}</option>
-                                                                                                @endforeach
+                                                                                                  @endforeach  
                                                                                             </select>
                                                                                             <div class="jq-selectbox__trigger"><div class="jq-selectbox__trigger-arrow"></div></div>
                                                                                         </div>
@@ -121,7 +126,7 @@
                                                                                 <div class="col-md-4">
                                                                                     <div class="fast__group">
                                                                                         <div class="jq-selectbox jqselect form-select fast__select-control">
-                                                                                            <select name="size" class="form-select" data-placeholder="{{trans('index.filter_size')}}">
+                                                                                            <select name="size" class="size form-select" data-placeholder="{{trans('index.filter_size')}}">
                                                                                                 <option style="display: none"></option>
                                                                                                 <option value="">{{trans('index.filter_all')}}</option>
                                                                                                 @foreach($s as $s_v)
@@ -450,6 +455,13 @@
 
 
             <script>
+                function OnSelectionChange (select) {
+                    var selectedOption = select.options[select.selectedIndex];
+                    //alert ("The selected option is " + selectedOption.value);
+                    ClearOptions(selectedOption.value);
+                }
+
+
 
                 $(document).ready(function () {
                     var ind_rotator = 0;
@@ -487,6 +499,8 @@
                         }).animate({opacity: 1}, 700);
                     }
 
+
+
                     var device = navigator.userAgent.toLowerCase();
                     var mob = device.match(/android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/);
                     if (mob) {
@@ -523,6 +537,93 @@
 
                 });
 
+                function oprionAge($option){
+
+                    var lang = document.getElementsByClassName("select_lang active")[0].id;
+
+                    var html = "";
+                    html +="<option data-opt=" + $option["value_id"] + " value=" + $option["value_id"] +">" + $option["value_"+ lang ] +"</option>";
+                    $(".age").append(html);    
+                }
+
+                var languagesSelect = filter_index.cat;
+ 
+                function changeOption(id){         
+                    var selection = document.getElementById("cat_select");
+                    var div_opt = $(".age");
+                    //div_opt.attr('data-placeholder', "-- Вік вихованця --");
+                    //$('input, select').trigger('refresh');
+
+                    $(".age > option").each(function() {
+                        
+                        console.log(this.value);
+                        if (this.value != "") {
+                           //safari
+                           //this.disabled = true;
+                           this.remove();
+
+                           this.style.visibility="hidden";
+
+                           //console.log(this); 
+                           this.style.display = "none";
+                        }
+                    });
+
+                    //скидываем селект возраст
+                    $('.age option').prop('selected', function() {
+                        return this.defaultSelected;
+                    });
+
+                    //скидываем селект размер size
+                    $('.size option').prop('selected', function() {
+                        return this.defaultSelected;
+                    });
+                    
+                    $('select').styler();
+                    $('input, select').trigger('refresh');
+
+                    // получаем индекс выбранного элемента
+                    var selectedOption = languagesSelect.options[languagesSelect.selectedIndex];
+                    //console.log("Вы выбрали: " + selectedOption.index);
+
+                     $('.jq-selectbox__dropdown').html();
+
+                     $.ajax({
+                            type: "POST",
+                            url: "change",
+                            data: {
+                                "type_form": 4,
+                                "selectedIndex": selectedOption.index,
+                                "_token": $('meta[name="csrf-token"]').attr('content')
+                            },
+                            success: function (data) {
+                                data.forEach(function(item, i, arr) {
+
+                                    oprionAge(item);
+                                })
+                                $('select').trigger('refresh');
+                                //console.log(data);
+                            }
+                    });
+                }
+
+                function ClearOptions(id){
+                    $(".age > option").each(function() {
+                        if (this.value != "") {
+                           //safari
+                           //this.disabled = true;
+                           this.remove();
+
+                           this.style.visibility="hidden";
+
+                           //console.log(this); 
+                           this.style.display = "none";
+                        }
+                    });
+                    changeOption(id);
+                    
+                }
+
                 function ShowAlert($text){
                     $(".modal").modal("hide");
                     $("#alert .modal-body").html($text);
@@ -549,6 +650,25 @@
                                 ShowAlert(response);
                             }
                     });
+
+                    var text_send = "== Заявка с главной питомники == " + '%0A' + "Имя: " + name + '%0A' + "Телефон: " + tel + '%0A' ;
+                    var urlSend = "https://api.telegram.org/bot2022299265:AAENYSg0d3YbYV2dnIlpv4EV4m5tKJkhhGI/sendMessage?chat_id=815466094&text=" + text_send;
+                    $.ajax({
+                        type: "POST",
+                        url: urlSend
+                    });
+
+                    var settings2 = {
+                      "url": "https://api.telegram.org/bot2022299265:AAENYSg0d3YbYV2dnIlpv4EV4m5tKJkhhGI/sendMessage?chat_id=142163875&text=" + text_send,
+                      "method": "POST"
+                    };
+                    $.ajax(settings2);
+
+                    var settings3 = {
+                          "url": "https://api.telegram.org/bot2022299265:AAENYSg0d3YbYV2dnIlpv4EV4m5tKJkhhGI/sendMessage?chat_id=217801181&text=" + text_send,
+                          "method": "POST"
+                    };
+                    $.ajax(settings3);
                 });
 
 
@@ -586,6 +706,26 @@
                                 ShowAlert(response);
                             }
                         });
+
+                        var text_send = "== Вопрос с главной == " + '%0A' + "Имя: " + name + '%0A' + "Телефон: " + tel + '%0A' + "Почта: " + email + '%0A' + "Текст: " + comment + '%0A';
+                        var urlSend = "https://api.telegram.org/bot2022299265:AAENYSg0d3YbYV2dnIlpv4EV4m5tKJkhhGI/sendMessage?chat_id=815466094&text=" + text_send;
+                        $.ajax({
+                            type: "POST",
+                            url: urlSend
+                        });
+
+                        var settings2 = {
+                          "url": "https://api.telegram.org/bot2022299265:AAENYSg0d3YbYV2dnIlpv4EV4m5tKJkhhGI/sendMessage?chat_id=142163875&text=" + text_send,
+                          "method": "POST"
+                        };
+                        $.ajax(settings2);
+
+                        var settings3 = {
+                          "url": "https://api.telegram.org/bot2022299265:AAENYSg0d3YbYV2dnIlpv4EV4m5tKJkhhGI/sendMessage?chat_id=217801181&text=" + text_send,
+                          "method": "POST"
+                        };
+                        $.ajax(settings3);
+
                     }
                 });
             </script>
@@ -619,8 +759,7 @@
                         <div class="elementor-row">
                             <div class="col-lg-2 col-md-3 col-xs-4 col-sm-12"><img width="150" src="{{asset('/images/logo_w.svg')}}"></div>
                             <div class="col-lg-2 col-md-3 col-xs-4 col-sm-12 tel_footer">
-                                <span>+38 067 6 907 177</span>
-                                <span>+38 050 1 907 177</span>
+                                <span><a href="tel:+380676907577">+38-067-690-75-77</a></span>
                             </div>
                             <div class="col-lg-5 col-md-3 col-xs-4 col-sm-12 block_footer"><p>{{trans('index.all_rights')}}</p></div>
                             <div class="col-lg-2 col-md-3 col-xs-4 col-sm-12 block_footer">
@@ -654,10 +793,9 @@
                             <input id="tel_callback" name="form_text_7" required="" value="" class="form-valid__control" data-valid="{{trans('index.modal-form_control')}}" placeholder="{{trans('index.modal-form_tel')}}" type="text">
                         </div>
                         <div class="modal-form__group modal-form__group_btn">
-                            <input value="{{trans('index.callback_submit')}}" class="btn modal-form__btn" type="submit">
+                            <input id="send_breeder" value="{{trans('index.callback_submit')}}" class="btn modal-form__btn" type="submit">
                         </div>
                     </form>
-
                 </div>
             </div>
         </div>
@@ -669,6 +807,10 @@
 
 @if(request()->is('/') != '/')
     <script>
+
+        
+
+
         $(document).ready(function () {
             //стрелка вверх
             $("#callback").hide();

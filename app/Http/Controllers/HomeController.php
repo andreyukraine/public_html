@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Blog;
+use App\Bot\Telegram\Bot;
 use App\Mail\CallBack;
 use App\Mail\NerseryEmail;
 use App\Mail\QuestionEmail;
@@ -32,10 +33,32 @@ class HomeController extends Controller
         }
     }
 
+    public function breeders(Request $request){
+        $conf=[
+            'bot_token' => '2022299265:AAENYSg0d3YbYV2dnIlpv4EV4m5tKJkhhGI',
+            'only_trusted' => TRUE,
+            'trusted' => [
+                '815466094'
+            ],
+        ];
+
+        $tBot = new Bot($conf, "815466094");
+        $tBot->send($text_send2);
+
+        if($request->ajax()){
+            if ($request['type_form'] == 1){
+
+            }
+        }
+    }
+
     public function index(Request $request){
 
         $post_index = Blog::all();
-
+        $groupe_value = "value_" . App::getLocale();
+        $r = DB::table('product_options')->where('option_id','=', 4)->groupBy($groupe_value,'option_id')->get();
+        
+        
         if($request->ajax()){
             if ($request['type_form'] == 1){
                 $data = array(
@@ -90,6 +113,16 @@ class HomeController extends Controller
                 $response = 'Ваше сообщение отправленно';
                 return Response($response);
             }
+            if ($request['type_form'] == 4){
+                   if ($request['selectedIndex'] == 3) {
+                    //убераем из запроса цуценя если кошки
+                      $r = DB::table('product_options')->where('option_id','=', 4)->where('value_id', '!=', '226')->groupBy($groupe_value,'option_id')->get();
+                      return Response($r);
+                   }else{
+                      $r = DB::table('product_options')->where('option_id','=', 4)->where('value_id', '!=', '385')->groupBy($groupe_value,'option_id')->get();
+                      return Response($r);
+                    }
+            }
         }
 
 
@@ -112,17 +145,13 @@ class HomeController extends Controller
 
         $json_mass = json_encode($mass);
 
-        $groupe_value = "value_" . $locale;
-
         return view('index',
             [
                 'slider' => $json_mass,
                 'keywords' => DB::table('settings')->where('name','=','keywords')->get(),
                 'post' => $post_index->first(),
                 'o'=>DB::table('categories')->where('parent_id','=', 0)->get(),
-                'r'=>DB::table('product_options')
-                    ->where('option_id','=', 4)
-                    ->groupBy($groupe_value,'option_id')->get(),
+                'r'=>$r,
                 's'=>DB::table('product_options')
                     ->where('option_id','=', 3)
                     ->groupBy($groupe_value,'option_id')->get(),

@@ -405,6 +405,7 @@ class ToolsController extends Controller
                     $product->size = ProductController::getValueOptionsArray(3, $product->id, $request->loc);
                     $product->specifics = ProductController::getValueOptionsArray(9, $product->id, $request->loc);
                     $product->sku = ProductController::getSkuOptionsArray(7, $product->id);
+                    $product->price = ProductController::getPrice(7,$product->id);
                     $product->barcode = ProductController::getBarcodeOptionsArray(7, $product->id);
                     if ($line == "" || $product->line != "") {
                         $line = $product->line;
@@ -416,6 +417,8 @@ class ToolsController extends Controller
             }
 
             if (count($new_product_mass_ajax) > 0) {
+
+                
 
                 $excel = new PHPExcel();
 
@@ -447,7 +450,8 @@ class ToolsController extends Controller
                 $objWorksheet->getStyle('K1')->getFont()->setBold(true);
                 $objWorksheet->getStyle('L1')->getFont()->setBold(true);
                 $objWorksheet->getStyle('M1')->getFont()->setBold(true);
-                $a[1] = array('артикул', 'штрихкод', 'название', 'фасовки', 'возраст животного', 'размер животного', 'особенности', 'описание', 'выдержка', 'применение', 'состав', 'норми кормления', 'картинка');
+                $objWorksheet->getStyle('N1')->getFont()->setBold(true);
+                $a[1] = array('артикул', 'штрихкод', 'название', 'фасовки', 'возраст животного', 'размер животного', 'особенности', 'описание', 'выдержка', 'применение', 'состав', 'норми кормления', 'картинка', 'цена');
                 $i = 2;
                 foreach ($new_product_mass_ajax as $k => $line) {
                     $objWorksheet->getStyle('A' . $i)->getFont()->setBold(true);
@@ -458,6 +462,9 @@ class ToolsController extends Controller
 
                     foreach ($line as $f => $product) {
                         $i++;
+
+                        
+
                         $a[$i] = array(
                             $product->sku,
                             '',
@@ -475,12 +482,14 @@ class ToolsController extends Controller
                         //fasovka
                         foreach ($product->fasovka as $h => $ves) {
                             if (count($product->fasovka) > 1) {
+                                
                                 if ($h == 0) {
                                     $objWorksheet->getStyle('A' . $i)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_LEFT);
                                     $a[$i][0] = $product->sku[$h];
                                     $a[$i][1] = $product->barcode[$h];
                                     $a[$i][3] = $ves;
                                     $a[$i][12] = "https://www.chicopee.in.ua/storage/upload/" . $product->sku[$h] . ".jpg";
+                                    $a[$i][13] = $product->price[$h];
                                 } else {
                                     $i++;
                                     $objWorksheet->getStyle('A' . $i)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_LEFT);
@@ -497,7 +506,8 @@ class ToolsController extends Controller
                                         '',
                                         '',
                                         '',
-                                        "https://www.chicopee.in.ua/storage/upload/" . $product->sku[$h] . ".jpg"
+                                        "https://www.chicopee.in.ua/storage/upload/" . $product->sku[$h] . ".jpg",
+                                        $product->price[$h]
                                     );
                                 }
                             } else {
@@ -506,6 +516,7 @@ class ToolsController extends Controller
                                 $a[$i][1] = $product->barcode[$h];
                                 $a[$i][3] = $ves;
                                 $a[$i][12] = "https://www.chicopee.in.ua/storage/upload/" . $product->sku[$h] . ".jpg";
+                                $a[$i][13] = $product->price[$h];
                             }
                         }
 
@@ -538,12 +549,14 @@ class ToolsController extends Controller
 
     public function importJsonPrice(Request $request)
     {
+
         $mass = $request->getContent();
         $data = array();
         $data = json_decode($mass, true);
         if ($data['key'] == "1234567890"){
             foreach ($data['products'] as $item) {
-               $request =  DB::update('update product_options set price = ? where sku = ?', [trim($item['price']) , $item['art']]);
+
+               $request =  DB::update('update product_options set price = ? , price_breeder = ? , count = ? where sku = ?', [trim($item['price']), $item['price_breeder'] , $item['count'] , $item['art']]);
             }
             return "Send ok";
         }else{

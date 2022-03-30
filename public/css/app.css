@@ -3,7 +3,9 @@
     font-family: 'Ossem';
     src: url('../fonts/Ossem-Rust-ua.otf');
 }
-
+#files img {
+    padding: 15px;
+}
 
 
 

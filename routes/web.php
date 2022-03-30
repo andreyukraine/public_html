@@ -89,11 +89,22 @@ Route::group(['prefix' => App\Http\Middleware\Locale::getLocale()], function() {
     });
     Route::get('shops', ['uses' => 'PartnersController@index', 'as' => 'shops']);
 
+    Route::get('breeders', ['uses' => 'BreederController@index', 'as' => 'breeders']);
+
     //Route::get('contact', function () { return view('site.content.contact');})->name('contact');
     //Route::get('about', function () { return view('site.content.about');})->name('about');
 
     Route::post('send', ['uses' => 'HomeController@index', 'as' => 'post_home']);
+
+    Route::post('send_breeder', ['uses' => 'HomeController@breeders', 'as' => 'post_breeders']);
+
+    Route::post('send_breeder', ['uses' => 'HomeController@index', 'as' => 'post_home']);
+
     Route::get('send', ['uses' => 'HomeController@index', 'as' => 'get_home']);
+
+    //пробуем фильтровать для фильтра
+    Route::post('change', ['uses' => 'HomeController@index', 'as' => 'post_change_filter_home']);
+    Route::get('change', ['uses' => 'HomeController@index', 'as' => 'get_change_filter_home']);
 
     Route::get('/logout', function () {
         Auth::logout();
@@ -142,16 +153,23 @@ Route::group(['prefix' => App\Http\Middleware\Locale::getLocale()], function() {
         Route::get('/settings', ['uses' => 'SettingController@index', 'as' => 'admin.settings']);
 
         Route::get('/index', ['uses' => 'Admin\AdminController@show', 'as' => 'admin_panel']);
+
+
+        //Пользователи
         Route::get('/admin_users', ['uses' => 'Users\UsersController@index', 'as' => 'admin.users']);
         Route::get('/users_create', ['uses' => 'Users\UsersController@create', 'as' => 'admin.users.create']);
-        Route::post('/users_create', ['uses' => 'Users\UsersController@store', 'as' => 'admin.users.store']);
+        Route::post('/users_store', ['uses' => 'Users\UsersController@store', 'as' => 'admin.users.store']);
+
+
+
         Route::resource('category', 'Catalog\CategoryController');
         Route::resource('products', 'Catalog\ProductController');
         Route::resource('slider', 'Slider\SliderController');
+        Route::resource('gallery', 'Gallery\GalleryController');
         Route::resource('blog', 'Blog\BlogController');
         Route::resource('values', 'Catalog\ValueController');
         Route::resource('pages', 'Pages\PagesController');
-        //Route::resource('partners', 'PartnersController');
+        Route::resource('partners', 'PartnersController');
 
         //PAGES
         Route::group(['prefix' => 'pages'], function () {
@@ -163,7 +181,7 @@ Route::group(['prefix' => App\Http\Middleware\Locale::getLocale()], function() {
         Route::get('/partners_create', ['uses' => 'PartnersController@create', 'as' => 'partners.create']);
         Route::get('/{id}/edit', ['uses' => 'PartnersController@edit', 'as' => 'partners.edit']);
         Route::put('/{id}/edit', ['uses' => 'PartnersController@update', 'as' => 'partners.update']);
-        Route::post('/users_create', ['uses' => 'PartnersController@store', 'as' => 'partners.store']);
+        Route::post('/partners_store', ['uses' => 'PartnersController@store', 'as' => 'partners.store']);
 
         //БЛОГ
         Route::group(['prefix' => 'blog'], function () {
@@ -172,7 +190,6 @@ Route::group(['prefix' => App\Http\Middleware\Locale::getLocale()], function() {
         });
 
         //СВОЙСТВА
-
         Route::post('add_value', ['uses' => 'Catalog\ValueController@addValuesOption', 'as' => 'admin.value.add']);
         Route::post('add_value_img', ['uses' => 'Catalog\ValueController@addValuesOption', 'as' => 'admin.value_img.add']);
         Route::post('del_value', ['uses' => 'Catalog\ValueController@delValuesOption', 'as' => 'admin.value.del']);
@@ -188,17 +205,18 @@ Route::group(['prefix' => App\Http\Middleware\Locale::getLocale()], function() {
         Route::post('products', ['uses' => 'Catalog\ProductController@store', 'as' => 'products.store']);
         Route::get('category', ['uses' => 'Catalog\CategoryController@admin', 'as' => 'category.admin']);
         Route::post('products/{id}/edit/del_img', ['uses' => 'Catalog\ProductController@del_images', 'as' => 'del_img_product']);
+        Route::post('gallery/{id}/edit/del_img', ['uses' => 'Gallery\GalleryController@del_images', 'as' => 'del_img_gallery']);
+        Route::post('gallery/{id}/edit/add_img', ['uses' => 'Gallery\GalleryController@add_image', 'as' => 'add_img_gallery']);
 
         Route::resource('options', 'Catalog\OptionController');
         Route::get('delete_option/{id}', ['uses' => 'Catalog\OptionController@destroy', 'as' => 'delete.option']);
         Route::get('delete_products/{id}', ['uses' => 'Catalog\ProductController@destroy', 'as' => 'delete.products']);
+        Route::get('delete_post/{id}', ['uses' => 'Blog\BlogController@destroy', 'as' => 'delete.post']);
         Route::get('delete_slider/{id}', ['uses' => 'Slider\SliderController@destroy', 'as' => 'delete.slider']);
+        Route::get('delete_gallery/{id}', ['uses' => 'Gallery\GalleryController@destroy', 'as' => 'delete.gallery']);
         Route::get('delete_category/{id}', ['uses' => 'Catalog\CategoryController@destroy', 'as' => 'delete.category']);
         Route::get('delete_pages/{id}', ['uses' => 'Pages\PagesController@destroy', 'as' => 'delete.pages']);
         Route::get('delete_partner/{id}', ['uses' => 'PartnersController@destroy', 'as' => 'delete.partner']);
     });
 
 });
-
-
-

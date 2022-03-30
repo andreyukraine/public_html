@@ -61,13 +61,13 @@
             <div class="container">
                 <nav>
                     <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                        <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-o" role="tab" aria-controls="nav-home" aria-selected="true">{{trans('index.shops_t')}}</a>
-                        <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-s" role="tab" aria-controls="nav-profile" aria-selected="false">{{trans('index.shops_i')}}</a>
+                        <!-- <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-o" role="tab" aria-controls="nav-home" aria-selected="true">{{trans('index.shops_t')}}</a> -->
+                        <a class="nav-item nav-link active" id="nav-profile-tab" data-toggle="tab" href="#nav-s" role="tab" aria-controls="nav-profile" aria-selected="false">{{trans('index.shops_i')}}</a>
                     </div>
                 </nav>
             </div>
             <div class="tab-content" id="nav-tabContent">
-                <div class="tab-pane fade show active" id="nav-o" role="tabpanel" aria-labelledby="nav-home-tab">
+                <div class="tab-pane fade" id="nav-o" role="tabpanel" aria-labelledby="nav-home-tab">
                         <div class="map-wrapper col-lg-6">
                             <div id="map" style="width:100%;height:500px;">
                             </div>
@@ -91,7 +91,7 @@
                         </div>
                 </div>
 
-                <div class="tab-pane fade" id="nav-s" role="tabpanel" aria-labelledby="nav-profile-tab">
+                <div class="tab-pane fade show active" id="nav-s" role="tabpanel" aria-labelledby="nav-profile-tab">
                     @foreach($ecommerces as $shope)
                         @foreach($shope as $item)
                             <div class="adres" id="{{$item['id']}}"><a target="_blank" href="<?=$item['url']?>"><?php echo mb_strimwidth($item['addres'], 0, 150, "...");?></a></div>
@@ -207,7 +207,7 @@
             $.ajax({
                 async: false,
                 dataType: "json",
-                url: 'https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyA4TmjMPVSSnWg8YdQ76pkpahkw2xqdCzw&address='+shop.addres+'&sensor=false&language=ru',
+                url: 'https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyDOByDDJtXvfnZt-rXbnpeG6KTR3BMusRc&address='+shop.addres+'&sensor=false&language=ru',
                 //url: 'https://maps.google.com/maps/api/geocode/json?key=AIzaSyA4TmjMPVSSnWg8YdQ76pkpahkw2xqdCzw&address=' + shop,
                 success: function(data){
                     for (var key in data.results) {
@@ -225,9 +225,9 @@
     </script>
     {{--<script async defer--}}
             {{--AIzaSyA4TmjMPVSSnWg8YdQ76pkpahkw2xqdCzw--}}
-            {{--src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAcXwMx9Yojcp7_eEQO3x3rBvVXeaZAuqs&callback=initMap">--}}
+            {{--src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDOByDDJtXvfnZt-rXbnpeG6KTR3BMusRc&callback=initMap">--}}
     {{--</script>--}}
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA4TmjMPVSSnWg8YdQ76pkpahkw2xqdCzw&callback=initMap"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDOByDDJtXvfnZt-rXbnpeG6KTR3BMusRc&callback=initMap"></script>
     </body>
     </html>
 

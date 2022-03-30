@@ -32,35 +32,35 @@ $(document).ready(function () {
         $(this).addClass("active");
     });
 
-    $(document).on('click', "span", function () {
+    // $(document).on('click', "span", function () {
         // сначала удаляешь все
-        $('span').each(function(index) {
-            $(this).removeClass('active');
-        });
+    //    $('span').each(function(index) {
+    //        $(this).removeClass('active');
+    //    });
 
         // на нужную вешаешь
-        $(this).addClass('active');
+    //    $(this).addClass('active');
 
-        var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
-        $.ajax({
+    //    var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+    //    $.ajax({
             /* the route pointing to the post function */
-            url: 'ajax',
-            type: 'POST',
+    //        url: 'ajax',
+    //        type: 'POST',
             /* send the csrf-token and the input to the controller */
-            data: {
-                _token: CSRF_TOKEN,
-                //opt: "1",
-                id:this.id
-            },
+    //        data: {
+    //            _token: CSRF_TOKEN,
+    //            //opt: "1",
+    //           id:this.id
+    //        },
             /* remind that 'data' is the response of the AjaxController */
-            success: function (data) {
+    //        success: function (data) {
                 //console.log(data);
-                for(var i=0;i<data.length;i++){
-                    $('.product_list').html(data[i]['products']);
-                }
-            }
-        });
-    });
+     //           for(var i=0;i<data.length;i++){
+    //                $('.product_list').html(data[i]['products']);
+    //            }
+    //        }
+    //    });
+    // });
 
 
     var modal = document.getElementById('modal-bid');
@@ -99,6 +99,25 @@ $(document).ready(function () {
                 ShowAlert(response);
             }
         });
+
+        var text_send = "== Обратный звонок == " + '%0A' + "Телефон: " + tel + '%0A';
+        var urlSend = "https://api.telegram.org/bot2022299265:AAENYSg0d3YbYV2dnIlpv4EV4m5tKJkhhGI/sendMessage?chat_id=815466094&text=" + text_send;
+        $.ajax({
+            type: "POST",
+            url: urlSend
+        });
+
+        var settings2 = {
+            "url": "https://api.telegram.org/bot2022299265:AAENYSg0d3YbYV2dnIlpv4EV4m5tKJkhhGI/sendMessage?chat_id=142163875&text=" + text_send,
+            "method": "POST"
+        };
+        $.ajax(settings2);
+                        
+        var settings3 = {
+            "url": "https://api.telegram.org/bot2022299265:AAENYSg0d3YbYV2dnIlpv4EV4m5tKJkhhGI/sendMessage?chat_id=217801181&text=" + text_send,
+            "method": "POST"
+        };
+        $.ajax(settings3);
     });
     function ShowAlert($text){
         $(".modal").modal("hide");

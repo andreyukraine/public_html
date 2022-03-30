@@ -85,26 +85,57 @@
                                 <img class="line_key" alt="$key" title="$key" src="{{asset('images/cb_select_pnl.png')}}">
                                 <div class="l_d"></div>
                             @elseif($key == 'Titan Line')
-                                <img class="line_key" alt="$key" title="$key" src="{{asset('images/cb_select_titan.png')}}">
+                                <img class="line_key" alt="$key" title="$key" src="{{asset('images/cb_select_titan_dog.png')}}">
                                 <div class="l_d"></div>
+                            @elseif($key == "Meaty's")
+                            	<img class="line_key" alt="$key" title="$key" src="{{asset('images/cb_select_meatys.png')}}">
+                                <div class="l_d"></div>
+                            @elseif($key == "Wet food")
+                                <img class="line_key" alt="$key" title="$key" src="{{asset('images/cb_select_wet_food_dog.png')}}">
+                                <div class="l_d"></div>
+                            @else
+
+                            @endif
+                        @elseif($actual_category == 2)
+                             @if($key == 'Holistic Nature Line')
+                                <img class="line_key" alt="<?=$key?>" title="<?=$key;?>" src="{{asset('images/cb_select_hnl_cat.png')}}">
+                                <div class="l_d"></div>
+                            @elseif($key == 'Classic Nature Line')
+                                <img class="line_key" alt="<?=$key;?>" title="<?=$key;?>" src="{{asset('images/cb_select_cnl_cat.png')}}">
+                                <div class="l_d"></div>
+                            @elseif($key == 'Pro Nature Line')
+                                <img class="line_key" alt="<?=$key;?>" title="<?=$key;?>" src="{{asset('images/cb_select_pnl_cat.png')}}">
+                                <div class="l_d"></div>
+                            @elseif($key == 'Titan Line')
+                                <img class="line_key" alt="$key" title="$key" src="{{asset('images/cb_select_titan_cat.png')}}">
+                                <div class="l_d"></div>
+                            @elseif($key == "Wet food")
+                                <img class="line_key" alt="$key" title="$key" src="{{asset('images/cb_select_wet_food_cat.png')}}">
+                                <div class="l_d"></div>
+                            @else
+
                             @endif
                         @else
                             @if($key == 'Holistic Nature Line')
-                                <img class="line_key" alt="<?=$key?>" title="<?=$key;?>"
-                                     src="{{asset('images/cb_select_hnl_cat.png')}}">
+                                <img class="line_key" alt="<?=$key?>" title="<?=$key;?>" src="{{asset('images/cb_select_hnl_cat.png')}}">
                                 <div class="l_d"></div>
                             @elseif($key == 'Classic Nature Line')
-                                <img class="line_key" alt="<?=$key;?>" title="<?=$key;?>"
-                                     src="{{asset('images/cb_select_cnl_cat.png')}}">
+                                <img class="line_key" alt="<?=$key;?>" title="<?=$key;?>" src="{{asset('images/cb_select_cnl_cat.png')}}">
                                 <div class="l_d"></div>
                             @elseif($key == 'Pro Nature Line')
-                                <img class="line_key" alt="<?=$key;?>" title="<?=$key;?>"
-                                     src="{{asset('images/cb_select_pnl_cat.png')}}">
+                                <img class="line_key" alt="<?=$key;?>" title="<?=$key;?>" src="{{asset('images/cb_select_pnl_cat.png')}}">
                                 <div class="l_d"></div>
                             @elseif($key == 'Titan Line')
-                                <img class="line_key" alt="<?=$key;?>" title="<?=$key;?>"
-                                     src="{{asset('images/cb_select_titan.png')}}">
+                                <img class="line_key" alt="$key" title="$key" src="{{asset('images/cb_select_titan_dog.png')}}">
                                 <div class="l_d"></div>
+                            @elseif($key == "Meaty's")
+                                <img class="line_key" alt="$key" title="$key" src="{{asset('images/cb_select_meatys.png')}}">
+                                <div class="l_d"></div>
+                            @elseif($key == "Wet food")
+                                <img class="line_key" alt="$key" title="$key" src="{{asset('images/cb_select_wet_food_cat.png')}}">
+                                <div class="l_d"></div>
+                            @else
+
                             @endif
                         @endif
                     </div>

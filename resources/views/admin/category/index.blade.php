@@ -7,7 +7,7 @@
                 <a href="{{ route('category.create') }}" class="btn btn-success" id="create_category" role="button">Create</a>
             </div>
         </div>
-    <hr>
+        <hr>
         <div class="row">
             <div class="col-lg-12">
                 @if (Session::has('message'))
@@ -19,11 +19,10 @@
         <div class="row">
             <div class="col-lg-12">
                 <!-- will be used to show any messages -->
-                <ul class="nav nav-list">
-
+                
                     @foreach($categories as $category)
-
-                            <div class="row col-lg-11">
+                        <div class="row">
+                            <div class="col-lg-11">
                                 <label class="tree-toggler nav-header">
                                     <span id="{{ $category->id }}">{{ $category->name }}</span>
                                 </label>
@@ -38,13 +37,10 @@
                                     @include('admin.category.subcat',['childs' => $category->childs])
                                 </li>
                             @endif
-
+                        </div>
                     @endforeach
-
-                </ul>
-
+                
             </div>
-            <div class="col-lg-9"></div>
         </div>
     </div>
 @endsection

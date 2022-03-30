@@ -90,7 +90,11 @@
                                     Страницы
                                 </a>
                             </li>
-
+                            <li class="nav-item dropdown">
+                                <a href="{{ route('gallery.index') }}" class="nav-link" role="button" aria-haspopup="true">
+                                    Галереи
+                                </a>
+                            </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="{{url('/admin.users')}}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Пользователи

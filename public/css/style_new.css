@@ -1475,6 +1475,12 @@ object {
   position: relative;
 }
 
+img._img_ok {
+    width: 100px;
+    margin: 0 auto;
+    text-align: center;
+}
+
 .capitalize {
   text-transform: uppercase;
 }

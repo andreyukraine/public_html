@@ -43,16 +43,25 @@ class ProductController extends Controller
                                 $product->options = $this->getProductOptionsCategory($product->id);
                                 $output .=
                                 '<div class="row">
-                                    <div class="col-lg-1">
+                                    <div class="col-lg-1">';
+                                    $status = '<span class="glyphicon glyphicon-eye-open"></span>';
+                                    if ($product->active) {
+                                       $status = '<span class="glyphicon glyphicon-eye-open text-success"></span>'; 
+                                    }
+                                $output .= $status;    
+                                $output .= '<b>&nbsp;'.$product->id.'</b>
                                     </div>
                                     <div class="col-lg-2">
                                         <img width="100px" src="'. $product->images.'">
                                     </div>
-                                    <div class="col-lg-8">
+                                    <div class="col-lg-7">
                                         <p class="product_name">'. $product->name .'</p>
                                         <div class="product_desc">'. $product->excerpt .'</div>
                                     </div>
                                     <div class="col-lg-1">
+                                        <p class="product_sort">'. $product->sort .'</p>
+                                    </div>
+                                    <div class="panel_my col-lg-1">
                                         <a href="'. route('products.edit',$product->id).'"><span class="glyphicon glyphicon-pencil"></span></a>
                                         <a href="'. route('delete.products',$product->id) .'"><span class="glyphicon glyphicon-remove"></span></a>
                                     </div>
@@ -588,6 +597,7 @@ class ProductController extends Controller
                     $e->select_id = 0;
                     $e->price = 0.0;
                     $e->sku = "";
+                    $e->count = 0;
                     $e->barcode = 0;
                     $f->images = $e->images;
                     $option_sel = DB::table('product_options')
@@ -601,7 +611,9 @@ class ProductController extends Controller
                             $f->view = true;
                             $e->select_id = $r->id;
                             $e->price = $r->price;
+                            $e->price_breeder = $r->price_breeder;
                             $e->sku = $r->sku;
+                            $e->count = $r->count;
                             $e->barcode = $r->barcode;
                         }
                     }
@@ -679,6 +691,15 @@ class ProductController extends Controller
         $value_colum = "value_" .$lang;
         foreach ($obj_value as $key=>$r){
             $mass[$key] = $r->$value_colum;
+        }
+        return $mass;
+    }
+
+    public static function getPrice($id_options, $id_product){
+        $mass = array();
+        $obj_value = DB::table('product_options')->where('product_id', '=', $id_product)->where('option_id', '=', $id_options)->get();
+        foreach ($obj_value as $key=>$r){
+            $mass[$key] = $r->price;
         }
         return $mass;
     }

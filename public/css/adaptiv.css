@@ -2,6 +2,80 @@
     font-family: 'Ossem';
     src: url('../fonts/Ossem-Rust-ua.otf');
 }
+.tel_header a{
+    color: #fff; !important
+}
+.msg_block {
+    padding: 15px;
+    text-align: center;
+}
+#res_block{
+    display: flex;
+    align-items: center;
+}
+
+.img_gall {
+    width: 33%;
+    height: 350px;
+    float: left;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.img_block_breeder {
+    display: flow-root;
+}
+.accordion .accordion-item {
+    margin: 0 0 10px 0;
+}
+.b_div_center{
+    text-align: center;
+}
+.douwnl_file {
+    text-align: right;
+    font-size: 16px;
+    margin-top: 30px;
+    margin-bottom: 16px;
+}
+.content_accordion {
+    padding-right: 15px;
+    margin-left: 35px;
+    margin-right: 35px;
+    line-height: 28px;
+    font-size: 16px;
+}
+.img_accordion {
+    float: left;
+    padding-right: 35px;
+    padding-bottom: 25px;
+    padding-top: 25px;
+}
+.accordion .ui-accordion-header {
+    padding: 10px;
+    background: #d6bd9f;
+    cursor: pointer;
+    outline: none;
+    border-radius: 15px;
+    position: relative;
+    font-size: 21px;
+}
+.accordion .ui-accordion-header-icon {
+    content: '';
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    display: inline-block;
+    width: 20px;
+    height: 15px;
+    background: url(images/down.png) 50% 50% no-repeat;
+}
+.accordion .ui-accordion-header-active .ui-accordion-header-icon {
+    background-image: url(images/up.png);
+}
+.accordion .ui-accordion-content {
+    padding: 10px;
+}
+
+
 body {
     margin: 0;
     padding-right: 0 !important;
@@ -13,6 +87,8 @@ body {
     /*background-image: url(images/bg.jpg);*/
     background-color: #fff;
 }
+
+
 @media (max-width: 1000px) {
     .navbar-collapse.collapse:not(.in) {
         display: none !important;
@@ -186,6 +262,10 @@ and (max-device-width : 768px) {
     }
     .formula-advant__desc {
         font-family: 'Open Sans', Arial, 'Helvetica Neue', Helvetica, sans-serif;
+    }
+    .formula-advant__desc_b {
+        font-family: 'Open Sans', Arial, 'Helvetica Neue', Helvetica, sans-serif;
+        color: #FFFFFF;
     }
     .elementor-text-editor{
         font-family: 'Open Sans', Arial, 'Helvetica Neue', Helvetica, sans-serif;
@@ -740,6 +820,10 @@ and (orientation : landscape){
     .formula-advant__desc {
         font-family: 'Open Sans', Arial, 'Helvetica Neue', Helvetica, sans-serif;
     }
+    .formula-advant__desc_b {
+        font-family: 'Open Sans', Arial, 'Helvetica Neue', Helvetica, sans-serif;
+        color: #FFFFFF;
+    }
     .elementor-text-editor{
         font-family: 'Open Sans', Arial, 'Helvetica Neue', Helvetica, sans-serif;
     }
@@ -1280,6 +1364,16 @@ and (orientation : portrait){
         cursor: pointer;
         background-color: #ffff;
     }
+    .accordion .ui-accordion-header {
+        font-size: 18px;
+    }
+    .img_gall {
+        width: 100%;
+        height: 250px;
+        float: left;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
     .ast-main-header-bar-alignment {
         -webkit-flex: 1;
         -ms-flex: 1;
@@ -1388,6 +1482,10 @@ and (orientation : portrait){
     }
     .formula-advant__desc {
         font-family: 'Open Sans', Arial, 'Helvetica Neue', Helvetica, sans-serif;
+    }
+    .formula-advant__desc_b {
+        font-family: 'Open Sans', Arial, 'Helvetica Neue', Helvetica, sans-serif;
+        color: #FFFFFF;
     }
     .elementor-text-editor{
         font-family: 'Open Sans', Arial, 'Helvetica Neue', Helvetica, sans-serif;
@@ -1931,6 +2029,10 @@ and (max-device-width : 992px)
     }
     .formula-advant__desc {
         font-family: 'Open Sans', Arial, 'Helvetica Neue', Helvetica, sans-serif;
+    }
+    .formula-advant__desc_b {
+        font-family: 'Open Sans', Arial, 'Helvetica Neue', Helvetica, sans-serif;
+        color: #FFFFFF;
     }
     .elementor-text-editor{
         font-family: 'Open Sans', Arial, 'Helvetica Neue', Helvetica, sans-serif;
@@ -2500,6 +2602,10 @@ and (orientation : landscape)
     .formula-advant__desc {
         font-family: 'Open Sans', Arial, 'Helvetica Neue', Helvetica, sans-serif;
     }
+    .formula-advant__desc_b {
+        font-family: 'Open Sans', Arial, 'Helvetica Neue', Helvetica, sans-serif;
+        color: #FFFFFF;
+    }
     .elementor-text-editor{
         font-family: 'Open Sans', Arial, 'Helvetica Neue', Helvetica, sans-serif;
     }
@@ -3038,6 +3144,10 @@ and (orientation : portrait)
     .formula-advant__desc {
         font-family: 'Open Sans', Arial, 'Helvetica Neue', Helvetica, sans-serif;
     }
+    .formula-advant__desc_b {
+        font-family: 'Open Sans', Arial, 'Helvetica Neue', Helvetica, sans-serif;
+        color: #FFFFFF;
+    }
     .elementor-text-editor{
         font-family: 'Open Sans', Arial, 'Helvetica Neue', Helvetica, sans-serif;
     }
@@ -3551,6 +3661,10 @@ and (orientation : landscape) {
     }
     .formula-advant__desc {
         font-family: 'Open Sans', Arial, 'Helvetica Neue', Helvetica, sans-serif;
+    }
+    .formula-advant__desc_b {
+        font-family: 'Open Sans', Arial, 'Helvetica Neue', Helvetica, sans-serif;
+        color: #FFFFFF;
     }
     .elementor-text-editor{
         font-family: 'Open Sans', Arial, 'Helvetica Neue', Helvetica, sans-serif;
@@ -4093,6 +4207,10 @@ and (orientation : portrait) {
     .formula-advant__desc {
         font-family: 'Open Sans', Arial, 'Helvetica Neue', Helvetica, sans-serif;
     }
+    .formula-advant__desc_b {
+        font-family: 'Open Sans', Arial, 'Helvetica Neue', Helvetica, sans-serif;
+        color: #FFFFFF;
+    }
     .elementor-text-editor{
         font-family: 'Open Sans', Arial, 'Helvetica Neue', Helvetica, sans-serif;
     }
@@ -4350,6 +4468,7 @@ and (orientation : portrait) {
         width:calc(100% + 1.3px);
         height:75px;
     }
+
     .social {
     display: flex;
     align-items: center;
@@ -4486,7 +4605,7 @@ and (min-width : 1024px) {
         background-repeat:no-repeat;
         background-size:cover;
         transition:background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
-        padding:250px 0px 200px 0px;
+        padding:150px 0px 150px 0px;
     }
     .elementor-5 .elementor-element.elementor-element-dc4b6a7 {
         padding: 100px 0px 75px 0px;
@@ -4526,7 +4645,7 @@ and (min-width : 1024px) {
     .elementor-5 .elementor-element.elementor-element-153200c6 {
         margin-top: 0px;
         margin-bottom: 0px;
-        padding: 200px 25px 200px 25px;
+        padding: 130px 25px 130px 25px;
     }
     .elementor-5 .elementor-element.elementor-element-3796d0e6{
         padding:150px 20px 100px 20px;
@@ -4599,6 +4718,12 @@ and (min-width : 1024px) {
     .formula-advant__desc {
         font-family: 'Open Sans', Arial, 'Helvetica Neue', Helvetica, sans-serif;
     }
+
+    .formula-advant__desc_b {
+        font-family: 'Open Sans', Arial, 'Helvetica Neue', Helvetica, sans-serif;
+        color: #FFFFFF;
+    }
+
     .elementor-text-editor{
         font-family: 'Open Sans', Arial, 'Helvetica Neue', Helvetica, sans-serif;
     }
@@ -4806,6 +4931,7 @@ and (min-width : 1024px) {
         width: calc(100% + 1.3px);
         position: relative;
         left: 50%;
+        height: 100px;
         -webkit-transform: translateX(-50%);
         -ms-transform: translateX(-50%);
         transform: translateX(-50%);
@@ -5365,9 +5491,11 @@ div#nav-tabContent {
     padding-top: 25px;
     text-align: center;
 }
-.about{
+.about {
     line-height: 1.5;
     text-align: justify;
+    min-height: 100%;
+    position: relative;
 }
 .item_opt p{
     font-size: 0.875rem;
@@ -5416,18 +5544,25 @@ html {
 .product_list a {
     text-decoration: none;
 }
-.active_item_ua {
+#noCountua, #noCountru, #noCounten{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+.active_item_ua, #noCountua {
     background-image: url("./images/sold-out_ua.png");
     background-position: 0 35%;
     background-size: contain;
     background-repeat: no-repeat;
 }
-.active_item_ru {
+.active_item_ru, #noCountru {
     background-image: url("./images/sold-out_ru.png");
-    background-position: center 35%;
+   background-position: 0 35%;
+    background-size: contain;
     background-repeat: no-repeat;
 }
-.active_item_en {
+.active_item_en, #noCounten {
     background-image: url("./images/sold-out_en.png");
     background-position: 0 35%;
     background-size: contain;
@@ -5729,6 +5864,10 @@ body.modal-loading {
     width: auto !important;
     float: none;
     margin: 0;
+    position: relative;
+}
+#noopasity {
+    opacity: 0.7;
 }
 .options-grid .option-column .option {
     flex-direction: column;
@@ -5821,9 +5960,10 @@ body.modal-loading {
 }
 .site-footer {
     color: #fff;
-    position: relative;
+    position: absolute;
     height: 80px;
-    margin-top: -55px;
+    /* margin-top: -80px; */
+    width: 100%;
 }
 #page {
     display: block;
@@ -5907,6 +6047,13 @@ body.modal-loading {
     margin-bottom: 10px;
     text-transform: uppercase;
     color: #78654f;
+}
+.formula-advant__head_b{
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    color: #FFFFFF;
 }
 .jq-selectbox__select-text {
     font-size: 14px;

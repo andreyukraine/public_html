@@ -10,8 +10,14 @@ class File extends Model
     protected $fillable = [
         'name', 'url', 'size',
     ];
+
     public function products()
     {
         return $this->hasOne('App\Product');
+    }
+
+    public function gallery()
+    {
+        return $this->hasOne('App\Gallery');
     }
 }

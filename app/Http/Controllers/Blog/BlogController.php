@@ -101,9 +101,14 @@ class BlogController extends Controller
         return redirect('admin/blog');
     }
 
-    public function destroy(Blog $blog)
+    public function destroy($id)
     {
-        //
+        $post = Blog::find($id);
+        if ($post != null) {
+            $post->delete();
+        }
+
+        return redirect('admin/blog');
     }
 
 

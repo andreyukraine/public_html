@@ -1,5 +1,5 @@
 <?php
 return [
     'prev_desc' => 'HOLISTIC NATURE LINE 100% BEZZERNOVOY DOG FOOD',
-    'desc' => 'Canadian feed Chicopee Holistic Nature Line - 100% grainless fodder sbalanzananimm in bulk bіlkіv і fat_v'
+    'desc' => 'The Canadian Chicopee Holistic Nature Line is a 100% grain-free feed with a balanced protein and fat content'
 ];

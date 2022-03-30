@@ -81,6 +81,7 @@
                             <div class="modal-body">
                                 <div class="modal-form">
                                     <img class="modal-content_view" id="img01">
+                                    <div id="caption"></div>
                                 </div>
                             </div>
                         </div>
@@ -122,7 +123,9 @@
                                                 $array_opt[] = array(
                                                     'value' => $value->$value_lang,
                                                     'price' => $value->price,
+                                                    'price_breeder' => $value->price_breeder,
                                                     'sku' => $value->sku,
+                                                    'count'=> $value->count,
                                                     'barcode' => $value->barcode
                                                 );
                                             ?>
@@ -132,22 +135,33 @@
                                         <div class="options-grid grid-cols-3">
                                             @foreach($array_opt as $i)
                                                 <div class="option-column">
-                                                    <label class="option" for="ProductOptionID0">
-                                                        <span class="product-pack type-bag tag-full">
-                                                            <span class="pack-inner">
-                                                                <span>{!! $i['value'] !!}</span>
+                                                    
+                                                        <label class="option" for="ProductOptionID0">
+                                                            <!-- <span class="product-pack type-bag tag-full" id="<?if($i['count'] > 0){?>isopasity<?}else{?>noopasity<?}?>">
+                                                                <span class="pack-inner">
+                                                                    <span>{!! $i['value'] !!}</span>
+                                                                </span>
+                                                            </span> -->
+                                                            <span class="product-pack type-bag tag-full" id="isopasity">
+                                                                <span class="pack-inner">
+                                                                    <span>{!! $i['value'] !!}</span>
+                                                                </span>
                                                             </span>
-                                                        </span>
-                                                        @if($i['price'] > 0)
-                                                            <div class="price">{!! $i['price'] !!} грн.</div>
-                                                            <span class="custom-radio check-lg">
-                                                                <input type="radio" id="ProductOptionID0" name="ProductOptionID" value="177" data-stockstatus="2" data-stocklevel="310" data-sizename="2.5kg">
-                                                                <span class="check">арт. {!! $i['sku'] !!}</span>
-                                                            </span>
-                                                        @endif
-                                                    </label>
+                                                            
+                                                            @if($i['price'] > 0)
+                                                            
+                                                                <div class="price">{{ trans('index.price_client')}} <b>{!! $i['price'] !!} грн.</b></div>
+                                                                <span class="custom-radio check-lg">
+                                                                    <!-- <input type="radio" id="ProductOptionID0" name="ProductOptionID" value="177" data-stockstatus="2" data-stocklevel="310" data-sizename="2.5kg"> -->
+                                                                    <span class="check">арт. {!! $i['sku'] !!}</span>
+                                                                </span>
+                                                               
+                                                            @endif
+                                                        </label>
+                                                        <!-- <div id="<?if($i['count'] > 0){?>isCount<?=App::getLocale()?><?}else{?>noCount<?=App::getLocale()?><?}?>"></div> -->
+                                                        
                                                 </div>
-                                                    {{--<div class="col-lg-3"> {!! $i['price'] !!} </div>--}}
+                                                    
                                             @endforeach
                                         </div>
                                     </div>
@@ -209,9 +223,11 @@
     </div>
     </div>
 @endsection
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
     $(document).ready(function () {
         var img = document.getElementById('myImg');
+        var modal = document.getElementById("modal-bid");
         var modalImg = document.getElementById("img01");
         var captionText = document.getElementById("caption");
 
